@@ -1,0 +1,7 @@
+.MODEL RESISTOR R
++ TC1    = 0.0    ; First order temperature coefficient [Ohms/Deg C]
++ TC2    = 0.0    ; Second order temperature coefficient [Ohms/Deg C**2]
++ RSH    = 0.0    ; Sheet resistance [Ohms]
++ DEFW   = 1E-6   ; Default width [m]
++ NARROW = 0.0    ; Narrowing due to side etching [m]
++ PMAX   = 250E-3 ; Maximum power [W]

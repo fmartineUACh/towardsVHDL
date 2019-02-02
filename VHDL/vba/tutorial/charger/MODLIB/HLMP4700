@@ -1,0 +1,16 @@
+* CREATED BY ANALOG MODEL BUILDER (AMB V12.0.0.0) ON MON DEC 20 10:17:16 1993
+.MODEL HLMP4700 D
++ AF     = 1             
++ EG     = 1.95          
++ FC     = 0.5           
++ IBV    = 5E-05         
++ KF     = 0             
++ M      = 0.5           
++ RS     = 22            
++ VJ     = 0.6           
++ XTI    = 3             
++ BV     = 5.000000E+00  
++ CJO    = 1.100000E-11  STAT 8.981462E-12 1.347219E-11 :GAUSS
++ IS     = 2.950000E-24  
++ N      = 1.380000E+00  
++ TT     = 1.000000E-10  

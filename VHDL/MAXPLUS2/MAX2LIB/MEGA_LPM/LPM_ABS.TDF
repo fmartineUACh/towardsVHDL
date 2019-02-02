@@ -1,0 +1,121 @@
+--------------------------------------------------------------------
+--
+--	LPM_ABS Parameterized Megafunction
+--
+--	Copyright (C) 1991-1997 Altera Corporation
+--	Any megafunction design, and related net list (encrypted or decrypted),
+--	support information, device programming or simulation file, and any other
+--	associated documentation or information provided by Altera or a partner
+--	under Altera's Megafunction Partnership Program may be used only to
+--	program PLD devices (but not masked PLD devices) from Altera.  Any other
+--	use of such megafunction design, net list, support information, device
+--	programming or simulation file, or any other related documentation or
+--	information is prohibited for any other purpose, including, but not
+--	limited to modification, reverse engineering, de-compiling, or use with
+--	any other silicon devices, unless such use is explicitly licensed under
+--	a separate agreement with Altera or a megafunction partner.  Title to
+--	the intellectual property, including patents, copyrights, trademarks,
+--	trade secrets, or maskworks, embodied in any such megafunction design,
+--	net list, support information, device programming or simulation file, or
+--	any other related documentation or information provided by Altera or a
+--	megafunction partner, remains with Altera, the megafunction partner, or
+--	their respective licensors.  No other licenses, including any licenses
+--	needed under any third party's intellectual property, are provided herein.
+--
+--	Version 2.0
+--
+--------------------------------------------------------------------
+
+INCLUDE "lpm_add_sub.inc";
+
+PARAMETERS
+(
+	LPM_WIDTH,
+	ADDERTYPE = "DEFAULT"	% Default should choose best for architecture %,
+	DEVICE_FAMILY,
+	CARRY_CHAIN
+);
+
+
+SUBDESIGN lpm_abs
+(
+	data[LPM_WIDTH-1..0]		: INPUT = GND;
+	result[LPM_WIDTH-1..0]		: OUTPUT;
+	overflow					: OUTPUT;
+)
+
+
+VARIABLE
+
+	IF LPM_WIDTH > 4 GENERATE
+		IF (DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") &
+	 	   (CARRY_CHAIN != "IGNORE") GENERATE
+
+			lcarry[(LPM_WIDTH - 2)..0]	: CARRY;
+			
+		ELSE GENERATE
+			adder	: lpm_add_sub WITH (LPM_WIDTH=LPM_WIDTH,
+										LPM_DIRECTION="ADD",
+										ADDERTYPE=ADDERTYPE);
+		END GENERATE;
+	END GENERATE;
+								
+
+BEGIN
+
+	IF LPM_WIDTH == 1 GENERATE
+		result[0] = data[0];
+		
+	ELSE GENERATE
+		IF LPM_WIDTH == 2 GENERATE
+			result[0] = data[0];
+			result[1] = data[1] & !data[0];
+			
+		ELSE GENERATE
+			IF LPM_WIDTH == 3 GENERATE
+				result[0] = data[0];
+				result[1] = ((data[1] $ data[0]) & data[2]) # (data[1] & !data[2]);
+				result[2] = data[2] & !(data[1] # data[0]);
+				
+			ELSE GENERATE
+				IF LPM_WIDTH == 4 GENERATE
+					result[0] = data[0];
+					result[1] = ((data[1] $ data[0]) & data[3]) # (data[1] & !data[3]);
+					result[2] = ((data[2] $ (data[1] # data[0])) & data[3]) # (data[2] & !data[3]);
+					result[3] = data[3] & !(data[2] # data[1] # data[0]);
+					
+				ELSE GENERATE
+		 			-- for the FLEX/FAST case, we can utilize a carry chain structure to speed up
+					-- the operation. Will use the carry/output equations directly instead of
+					-- using lpm_add_sub.
+					IF (DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") & 
+					   (CARRY_CHAIN != "IGNORE") GENERATE
+							
+ 						result[0] = LCELL(data[0]); 						
+						lcarry[0] = !data[0];
+						
+						lcarry[LPM_WIDTH-2..1] = !data[LPM_WIDTH-2..1] & lcarry[LPM_WIDTH-3..0];
+						
+						result[LPM_WIDTH-2..1] = ((data[LPM_WIDTH-2..1] $ !lcarry[LPM_WIDTH-3..0]) & data[LPM_WIDTH-1]) #
+								 			  	  (data[LPM_WIDTH-2..1] & !data[LPM_WIDTH-1]);
+										
+						result[LPM_WIDTH-1] = LCELL(data[LPM_WIDTH-1] & lcarry[LPM_WIDTH-2]);
+						
+						
+					ELSE GENERATE
+						-- for the FLEX/NORMAL and MAX cases, use lpm_add_sub module.
+						adder.dataa[] = data[] $ data[LPM_WIDTH-1];
+						adder.datab[] = GND;
+						adder.cin = data[LPM_WIDTH-1];
+						result[] = adder.result[];
+	
+					END GENERATE;
+				END GENERATE;
+			END GENERATE;
+		END GENERATE;
+	END GENERATE;
+						
+	-- Overflow occured only if input was negative and ouput is negative 
+	overflow = result[LPM_WIDTH-1] & data[LPM_WIDTH-1];
+
+END;

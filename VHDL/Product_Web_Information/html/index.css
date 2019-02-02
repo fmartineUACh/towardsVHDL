@@ -1,0 +1,94 @@
+/* Carol Goetz, May 5, 1998. */
+
+
+/* This file is linked to by html files with a command such as
+
+	<link rel=stylesheet href="/images/ads/index.css" type="text/css">
+
+   somewhere between <head> and </head>.*/
+
+/* I want the background of all pages to be white by default */
+
+body {	background:White;
+		color:Black;
+		font-family:Arial, Helvetica, sans-serif;
+		font-style:normal}
+
+/* Unless otherwise specified, all other text will use this base font. */
+BASEFONT {	color: black;
+		font-size: 10pt;
+		font-weight: plain;
+		font-family:Arial, Helvetica, sans-serif;
+		font-style:normal
+		}
+
+/* And, unless otherwise specified, I want the font family and
+weight of Headings to be defined as follows */
+
+H1, H2, H3, H4, H5, H6 {font-family:"Arial, Helvetica, sans-serif";
+			font-style:normal}
+
+/* And, unless otherwise specified, I want the size of the letters in the
+6 Headings to be defined as follows */
+
+H1 	{	font-size:18pt; 
+		}
+
+H2	{	font-size:16pt; 
+		}
+
+H3 	{	font-size:14pt; 
+		}
+
+H4 	{	font-size:12pt; 
+		}
+
+H5 	{	font-size:10pt;
+		}
+
+H6 	{	font-size:8pt; 
+		}
+
+/* I'm declaring classes for special effects. */
+
+.blue	{color: #6666cc}
+.green	{color: #66cc99}
+.pink	{color: #ff99cc}
+.aqua	{color: #33ccff}
+
+/* Links should all appear Maroon. */
+A:link 	{	color: #990033; 
+		}
+
+/* Links, just as they are being selected, will appear gray, which I intended
+to be darker than silver. This behaves differently between Netscape and IE. */
+A:active 	{color: #666666; 
+		}
+
+/* Links which have been visited should be silver or light gray which I intend
+to make them look de-emphasized. */
+A:visited {	color: #000066; 
+		}
+
+P		{	font-size:10pt
+		}
+
+table {font-family: Arial, Helvetica, sans-serif
+		}
+
+td {font-size:10pt;
+	font-family:Arial, Helvetica, sans-serif;
+	}
+	
+th {font-size:10pt;
+	font-family:Arial, Helvetica, sans-serif;
+	}
+
+
+OL, UL, DL	{	font-size: 10pt;
+		}
+
+LI	{	font-size: 8pt;
+		text-indent: -5pt ;
+		}
+

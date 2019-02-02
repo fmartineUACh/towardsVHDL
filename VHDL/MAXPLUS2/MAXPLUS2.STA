@@ -1,0 +1,3700 @@
+
+/*************************************************************/
+/* IMPORTANT - Each line of a comment MUST begin with '/*'. */
+/*************************************************************/
+
+/*-----------------------------------------------------------*/
+/*       Beginning of Tech Writers'strings                   */
+/*       for palette tools and toolbar buttons               */
+/*       that do not also exist as menu strings	             */
+/*-----------------------------------------------------------*/
+
+/*-----------------------------------------------------------*/
+/* If text varies by application when a button is available, */
+/* MAX strings here are for text that is displayed when the  */
+/* button is dimmed or when the MAX+PLUS II Manager          */
+/* is open. Unlike the others, File Save and File Save &     */
+/* Check cannot say "not available in all applications"      */
+/*-----------------------------------------------------------*/
+
+/*-----------------------------------------------------------*/
+/*  Palette Tools shared by Graphic Editor, Symbol Editor	 */
+/*  and Waveform Editor										 */
+/*-----------------------------------------------------------*/
+
+"GED Selection Tool"	"Selects objects for moving, cutting, copying, or deleting (shortcut: Esc)"
+
+"GED Text Tool"			"Enters new text or edits existing text (shortcut: F2)"
+
+
+"SED Selection Tool"	"Selects objects for moving, cutting, copying, or deleting (shortcut: Esc)"
+
+"SED Text Tool"			"Enters new text or edits existing text (shortcut: F2)"
+
+
+"WED Selection Tool"	"Selects objects for moving, cutting, copying, deleting, or editing (shortcut: Esc)"
+
+"WED Text Tool"			"Enters new text or edits existing text (shortcut: F2)"
+
+
+/*-----------------------------------------------------------*/
+/*  Palette Tools shared by Graphic Editor &  Symbol Editor	 */
+/*															 */
+/*-----------------------------------------------------------*/
+
+"GED Orthogonal Line Tool"	"Draws a horizontal and/or vertical line (shortcut: F3)"
+
+"GED Diagonal Line Tool"	"Draws a diagonal line (shortcut: F4)"
+
+"GED Arc Tool"				"Draws an arc with an angle of up to 180 degrees (shortcut: F5)"
+
+"GED Circle Tool"			"Draws a circle (shortcut: F6)"
+	
+
+"SED Orthogonal Line Tool"	"Draws a horizontal and/or vertical line (shortcut: F3)"
+
+"SED Diagonal Line Tool"	"Draws a diagonal line (shortcut: F4)"
+
+"SED Arc Tool"				"Draws an arc with an angle of up to 180 degrees (shortcut: F5)"
+
+"SED Circle Tool"			"Draws a circle (shortcut: F6)"
+	
+
+/*-----------------------------------------------------------*/
+/*  Graphic Editor Palette Tool Buttons	 					 */
+/*-----------------------------------------------------------*/
+
+"GED Rubberband On"		"Turns the rubberbanding function on"
+
+"GED Rubberband Off"	"Turns the rubberbanding function off"
+
+
+/*-----------------------------------------------------------*/
+/*  Waveform Editor Palette Tool Buttons	 				 */
+/*-----------------------------------------------------------*/
+
+"WED Waveform Editing Tool"	"Moves a transition or edits a waveform (shortcut: F3)"
+
+"WED View Time Range" "Scrolls and zooms within the file to display the selected time range in the current window"
+
+
+/*-----------------------------------------------------------*/
+/*  MAX+PLUS II Manager Toolbar Buttons						 */
+/*-----------------------------------------------------------*/
+
+"MAX File Print"                "Prints the current file or window contents (not available in all applications)"
+
+"MAX File Save"                 "Saves changes to the current file (not available in all applications)"
+
+"MAX Edit Cut"                  "Deletes a selection and places it on the Clipboard (not available in all applications)"
+
+"MAX Edit Copy"                 "Copies one or more selected items from the file and places them on the Clipboard"
+
+"MAX Edit Paste"                "Pastes a copy of the Clipboard contents (not available in all applications)"
+
+"MAX Edit Undo"                 "Reverses the last action (not available in all applications)"
+
+"MAX Context-Sensitive Help"    "Displays help on any object or word that you click on with Button 1"
+
+
+/*-----------------------------------------------------------*/
+/* Text Editor Template toolbar button			             */
+/*-----------------------------------------------------------*/
+
+"TED Templates" "Inserts an AHDL or VHDL template (according to the current file extension)"
+
+
+/*-----------------------------------------------------------*/
+/* These are different from "XXX File Print..." because they */
+/* do not bring up a dialog box.                             */
+/*-----------------------------------------------------------*/
+
+"HRW File Print"	"Prints the hierarchy tree at the current size, using the settings entered most recently in the Print dialog box"
+
+"MSG File Print"	"Prints the currently displayed messages, using the most recent settings from the Print dialog box"
+
+"TAN File Print"	"Prints the current timing analysis, using the most recent settings from the Print dialog box"
+
+"GED File Print"	"Prints the current file, using the most recent settings from the Print dialog box"
+
+"TED File Print"	"Prints the current file, using the most recent settings from the Print dialog box"
+
+"SED File Print"	"Prints the current file, using the most recent settings from the Print dialog box"
+
+"WED File Print"	"Prints the current file, using the most recent settings from the Print dialog box"
+
+"FED File Print"	"Prints the current view, using the most recent settings from the Print dialog box"
+
+
+/*-----------------------------------------------------------*/
+/* These are different from "XXX Utilities Find Node in 	 */
+/* Design File..." and "XXX Utilities Find Node in         	 */ 
+/* Floorplan..." because they do not bring up a dialog box.  */                            
+/*-----------------------------------------------------------*/
+
+"TED Utilities Find Node in Design File" "Finds the currently selected node, symbol, or probe anywhere in the current hierarchy of design files"
+
+"WED Utilities Find Node in Design File" "Finds the currently selected node, symbol, or probe anywhere in the current hierarchy of design files"
+
+"GED Utilities Find Node in Design File" "Finds the currently selected node, symbol, or probe anywhere in the current hierarchy of design files"
+
+"SED Utilities Find Node in Design File" "Finds the currently selected node, symbol, or probe anywhere in the current hierarchy of design files"
+
+"FED Utilities Find Node in Design File" "Finds the currently selected node, symbol, or probe anywhere in the current hierarchy of design files"
+
+
+"HRW Utilities Find Node in Floorplan"	"Finds the currently selected macrofunction in the floorplan for the project"
+
+"TED Utilities Find Node in Floorplan"	"Finds the currently selected node, symbol, or probe in the floorplan for the project"
+
+"WED Utilities Find Node in Floorplan"	"Finds the currently selected node, symbol, or probe in the floorplan for the project"
+
+"GED Utilities Find Node in Floorplan"	"Finds the currently selected node, symbol, or probe in the floorplan for the project"
+
+"SED Utilities Find Node in Floorplan"	"Finds the currently selected node, symbol, or probe in the floorplan for the project"
+
+"FED Utilities Find Node in Floorplan"	"Finds the currently selected node, symbol, or probe in the floorplan for the project"
+   
+/*-----------------------------------------------------------*/
+/*              Beginning of Tech Writers'                   */
+/*              strings for menu commands                    */
+/*-----------------------------------------------------------*/
+
+/*-----------------------------------------------------------*/
+/* text displayed when any dialog box is open                */
+/*-----------------------------------------------------------*/
+
+"MAX dialog box" "For Help on this dialog box, press F1"
+
+/*-----------------------------------------------------------*/
+/* text displayed when loading a project                     */
+/*-----------------------------------------------------------*/
+
+"MAX project load" "Loading Project..."
+
+/*-----------------------------------------------------------*/
+/* Global commands shared by all applications or by all      */
+/* editors plus other applications                           */
+/* as "defined" by the command panels in glcom.mac/glcom.rtf */
+/*                                                           */
+/* Information is repeated 11 times to cover all applications*/
+/*                                                           */
+/* Oddball commands not shared by all applications are at the*/
+/* beginning. Text may vary by application                   */
+/*-----------------------------------------------------------*/
+
+/*-----------------------------------------------------------*/
+/* misc "oddball" commands shared by more than just editors: */
+/*-----------------------------------------------------------*/
+
+
+"HRW File Print Setup..." 	"Selects a printer or plotter"
+
+"TAN File Print Setup..." 	"Selects a printer or plotter"
+
+"MSG File Print Setup..." 	"Selects a printer or plotter"
+
+"SED File Print Setup..." 	"Selects a printer or plotter"
+
+"GED File Print Setup..." 	"Selects a printer or plotter"
+
+"GED File Hierarchy Up" 		"Opens the design file that is one level higher than the current file in the hierarchy tree"
+
+"GED File Hierarchy Down"       "Opens the design file that a selected symbol represents"
+
+"GED File Hierarchy Top"        "Opens the design file at the top level of the current hierarchy tree"
+
+"TED File Print Setup..." 	"Selects a printer or plotter"
+
+"TED File Hierarchy Up" 		"Opens the design file that is one level higher than the current file in the hierarchy tree"
+
+"TED File Hierarchy Down"       "Opens the design file that a selected symbol or instance name represents"
+
+"TED File Hierarchy Top"        "Opens the design file at the top level of the current hierarchy tree"
+
+"WED File Print Setup..." 	"Selects a printer or plotter"
+
+"WED File Hierarchy Up" 		"Opens the design file that is one level higher than the current file in the hierarchy tree"
+
+"WED File Hierarchy Down"       "Opens the design file that a selected name represents (not available in all applications)"
+
+"WED File Hierarchy Top"        "Opens the design file at the top level of the current hierarchy tree"
+
+"FED File Print Setup..." 	"Selects a printer or plotter"
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for MAX+PLUS II Manager        */
+/* Some strings listed here are for global buttons but they  */
+/* do not actually work in the MAX+PLUS II Manager           */
+/* -- they just have the MAX prefix                          */
+/*-----------------------------------------------------------*/
+
+"MAX Application Control" "  "
+
+"MAX Document Control" "  "
+
+"MAX MAX+PLUS II" "  "
+
+"MAX File" "  "
+
+"MAX File Project" "  "
+
+"MAX File Hierarchy" "  "
+
+"MAX Edit" "  "
+
+"MAX View" "  "
+
+"MAX Assign" "  "
+
+"MAX Options" "  "
+
+"MAX Utilities" "  "
+
+"MAX Window"    "  "
+
+"MAX Help" "  "
+
+"MAX Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"MAX Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"MAX Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"MAX Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"MAX Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"MAX Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"MAX Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"MAX Document Control Restore"  "Restores the MAX+PLUS II Manager window to its previous size"
+
+"MAX Document Control Move"     "Allows you to change the position of the MAX+PLUS II Manager window with the keyboard"
+
+"MAX Document Control Size"     "Allows you to change the size of the MAX+PLUS II Manager window with the keyboard"
+
+"MAX Document Control Minimize" "Shrinks the MAX+PLUS II Manager window to an icon"
+
+"MAX Document Control Maximize" "Enlarges the MAX+PLUS II Manager window to maximum size"
+
+"MAX Document Control Close"    "Closes the MAX+PLUS II Manager"
+
+"MAX Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"MAX MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"MAX MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"MAX MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"MAX MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"MAX MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"MAX MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+"MAX MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"MAX MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"MAX MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"MAX MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"MAX MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+
+"MAX File Project Name..." "Specifies the project name"
+
+"MAX File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"MAX File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"MAX File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"MAX File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"MAX File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"MAX File Project Archive..." "Copies all files from the project to an archive directory"
+
+"MAX File Project <numbered projects>" "Changes the project name to this name"
+
+"MAX File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"MAX File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"MAX File Delete File..."	"Deletes one or more selected files"
+
+"MAX File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"MAX File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"MAX Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"MAX Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"MAX Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"MAX Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"MAX Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"MAX Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"MAX Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"MAX Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"MAX Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"MAX Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"MAX Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"MAX Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"MAX Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"MAX Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"MAX Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"MAX Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"MAX Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"MAX Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"MAX Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"MAX Window New Window" "Opens another window on the current file"
+
+"MAX Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"MAX Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"MAX Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"MAX Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"MAX Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"MAX Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+"MAX Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"MAX Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"MAX Help MAX+PLUS II Manager Help"     "  "
+
+"MAX Help MAX+PLUS II Manager Help Table of Contents"   "Displays the table of contents for MAX+PLUS II Manager Help"
+
+"MAX Help MAX+PLUS II Manager Help Introduction"        "Displays an introduction to the MAX+PLUS II Manager"
+
+"MAX Help MAX+PLUS II Manager Help Basic Tools" "Provides help on the MAX+PLUS II Manager toolbar, status bar, and I/O files"
+
+"MAX Help MAX+PLUS II Manager Help Commands"    "Provides information on MAX+PLUS II Manager menu commands"
+
+"MAX Help MAX+PLUS II Manager Help Procedures"  "Provides step-by-step procedures to use in the MAX+PLUS II Manager"
+
+"MAX Help MAX+PLUS II Manager Help Golden Rules"        "Summarizes essential rules and guidelines for using the MAX+PLUS II Manager"
+
+"MAX Help MAX+PLUS II Manager Help Shortcuts"   "Displays keyboard and mouse shortcuts for MAX+PLUS II Manager menu commands"
+
+
+"MAX Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"MAX Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"MAX Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"MAX Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"MAX Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"MAX Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"MAX Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"MAX Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"MAX Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"MAX Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"MAX Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"MAX Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"MAX Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Hierarchy Display          */
+/*-----------------------------------------------------------*/
+
+"HRW Application Control" "  "
+
+"HRW Document Control" "  "
+
+"HRW MAX+PLUS II" "  "
+
+"HRW File" "  "
+
+"HRW File Project" "  "
+
+"HRW File Hierarchy" "  "
+
+"HRW Edit" "  "
+
+"HRW View" "  "
+
+"HRW Assign" "  "
+
+"HRW Options" "  "
+
+"HRW Utilities" "  "
+
+"HRW Window"    "  "
+
+"HRW Help" "  "
+
+"HRW Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"HRW Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"HRW Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"HRW Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"HRW Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"HRW Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"HRW Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"HRW Document Control Restore"  "Restores the Hierarchy Display window to its previous size"
+
+"HRW Document Control Move"     "Allows you to change the position of the Hierarchy Display window with the keyboard"
+
+"HRW Document Control Size"     "Allows you to change the size of the Hierarchy Display window with the keyboard"
+
+"HRW Document Control Minimize" "Shrinks the Hierarchy Display window to an icon"
+
+"HRW Document Control Maximize" "Enlarges the Hierarchy Display window to maximum size"
+
+"HRW Document Control Close"    "Closes the Hierarchy Display"
+
+"HRW Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"HRW MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"HRW MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"HRW MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"HRW MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"HRW MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"HRW MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"HRW MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"HRW MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"HRW MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"HRW MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"HRW MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"HRW File Project Name..." "Specifies the project name"
+
+"HRW File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"HRW File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"HRW File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"HRW File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"HRW File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"HRW File Project Archive..." "Copies all files from the project to an archive directory"
+
+"HRW File Project <numbered projects>" "Changes the project name to this name"
+
+"HRW File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"HRW File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"HRW File Delete File..."	"Deletes one or more selected files"
+
+"HRW File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"HRW File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"HRW Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"HRW Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"HRW Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"HRW Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"HRW Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"HRW Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"HRW Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"HRW Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"HRW Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"HRW Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"HRW Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"HRW Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"HRW Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"HRW Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"HRW Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"HRW Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"HRW Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"HRW Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"HRW Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"HRW Window New Window" "Opens another window on the current file"
+
+"HRW Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"HRW Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"HRW Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"HRW Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"HRW Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"HRW Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+"HRW Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"HRW Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"HRW Help Hierarchy Display Help"       "  "
+
+"HRW Help Hierarchy Display Help Table of Contents"     "Displays the table of contents for Hierarchy Display Help"
+
+"HRW Help Hierarchy Display Help Introduction"  "Displays an introduction to the Hierarchy Display"
+
+"HRW Help Hierarchy Display Help Basic Tools"   "Provides help on items visible in the Hierarchy Display window and Hierarchy Display I/O files"
+
+"HRW Help Hierarchy Display Help Commands"      "Provides information on Hierarchy Display menu commands"
+
+"HRW Help Hierarchy Display Help Procedures"    "Provides step-by-step procedures to use in the Hierarchy Display"
+
+"HRW Help Hierarchy Display Help Golden Rules"  "Summarizes essential rules and guidelines for using the Hierarchy Display"
+
+"HRW Help Hierarchy Display Help Shortcuts"     "Displays keyboard and mouse shortcuts for Hierarchy Display menu commands"
+
+
+"HRW Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"HRW Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"HRW Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"HRW Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"HRW Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"HRW Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"HRW Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"HRW Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"HRW Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"HRW Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"HRW Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"HRW Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"HRW Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Graphic Editor             */
+/*-----------------------------------------------------------*/
+
+"GED Application Control" "  "
+
+"GED Document Control" "  "
+
+"GED MAX+PLUS II" "  "
+
+"GED File" "  "
+
+"GED File Project" "  "
+
+"GED File Hierarchy" "  "
+
+"GED Edit" "  "
+
+"GED View" "  "
+
+"GED Assign" "  "
+
+"GED Options" "  "
+
+"GED Utilities" "  "
+
+"GED Window"    "  "
+
+"GED Help" "  "
+
+"GED Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"GED Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"GED Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"GED Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"GED Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"GED Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"GED Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"GED Document Control Restore"  "Restores the Graphic Editor window to its previous size"
+
+"GED Document Control Move"     "Allows you to change the position of the Graphic Editor window with the keyboard"
+
+"GED Document Control Size"     "Allows you to change the size of the Graphic Editor window with the keyboard"
+
+"GED Document Control Minimize" "Shrinks the Graphic Editor window to an icon"
+
+"GED Document Control Maximize" "Enlarges the Graphic Editor window to maximum size"
+
+"GED Document Control Close"    "Closes the Graphic Editor and prompts you to save any changes"
+
+"GED Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"GED MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"GED MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"GED MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"GED MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"GED MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"GED MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"GED MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"GED MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"GED MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"GED MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"GED MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"GED File Project Name..." "Specifies the project name"
+
+"GED File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"GED File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"GED File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"GED File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"GED File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"GED File Project Archive..." "Copies all files from the project to an archive directory"
+
+"GED File Project <numbered projects>" "Changes the project name to this name"
+
+"GED File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"GED File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"GED File Delete File..."	"Deletes one or more selected files"
+
+"GED File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"GED File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"GED Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"GED Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"GED Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"GED Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"GED Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"GED Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"GED Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"GED Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"GED Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"GED Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"GED Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"GED Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"GED Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"GED Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"GED Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"GED Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"GED Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"GED Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"GED Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"GED Window New Window" "Opens another window on the current file"
+
+"GED Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"GED Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"GED Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"GED Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"GED Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"GED Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+"GED Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"GED Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"GED Help Graphic Editor Help"  "  "
+
+"GED Help Graphic Editor Help Table of Contents"        "Displays the table of contents for Graphic/Symbol Editor Help"
+
+"GED Help Graphic Editor Help Introduction"     "Displays an introduction to the Graphic/Symbol Editor"
+
+"GED Help Graphic Editor Help Basic Tools"      "Provides help on items visible in the Graphic/Symbol Editor window and Gr./Sym. Ed. I/O files"
+
+"GED Help Graphic Editor Help Commands" "Provides information on Graphic/Symbol Editor menu commands"
+
+"GED Help Graphic Editor Help Procedures"       "Provides step-by-step procedures to use in the Graphic/Symbol Editor"
+
+"GED Help Graphic Editor Help Golden Rules"     "Summarizes essential rules and guidelines for using the Graphic/Symbol Editor"
+
+"GED Help Graphic Editor Help Shortcuts"        "Displays keyboard and mouse shortcuts for Graphic/Symbol Editor menu commands"
+
+
+"GED Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"GED Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"GED Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"GED Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"GED Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"GED Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"GED Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"GED Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"GED Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"GED Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"GED Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"GED Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"GED Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Symbol Editor              */
+/* For most of these, there is no corresponding L keyword    */
+/* used in Help, because most Symbol Editor commands are     */
+/* covered by Graphic Editor commands                        */
+/*-----------------------------------------------------------*/
+
+"SED Application Control" "  "
+
+"SED Document Control" "  "
+
+"SED MAX+PLUS II" "  "
+
+"SED File" "  "
+
+"SED File Project" "  "
+
+"SED File Hierarchy" "  "
+
+"SED Edit" "  "
+
+"SED View" "  "
+
+"SED Assign" "  "
+
+"SED Options" "  "
+
+"SED Utilities" "  "
+
+"SED Window"    "  "
+
+"SED Help" "  "
+
+"SED Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"SED Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"SED Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"SED Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"SED Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"SED Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"SED Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"SED Document Control Restore"  "Restores the Symbol Editor window to its previous size"
+
+"SED Document Control Move"     "Allows you to change the position of the Symbol Editor window with the keyboard"
+
+"SED Document Control Size"     "Allows you to change the size of the Symbol Editor window with the keyboard"
+
+"SED Document Control Minimize" "Shrinks the Symbol Editor window to an icon"
+
+"SED Document Control Maximize" "Enlarges the Symbol Editor window to maximum size"
+
+"SED Document Control Close"    "Closes the Symbol Editor and prompts you to save any changes"
+
+"SED Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"SED MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"SED MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"SED MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"SED MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"SED MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"SED MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"SED MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"SED MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"SED MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"SED MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"SED MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"SED File Project Name..." "Specifies the project name"
+
+"SED File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"SED File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"SED File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"SED File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"SED File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"SED File Project Archive..." "Copies all files from the project to an archive directory"
+
+"SED File Project <numbered projects>" "Changes the project name to this name"
+
+"SED File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"SED File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"SED File Delete File..."	"Deletes one or more selected files"
+
+"SED File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"SED File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"SED Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"SED Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"SED Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"SED Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"SED Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"SED Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"SED Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"SED Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"SED Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"SED Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"SED Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"SED Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"SED Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"SED Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"SED Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"SED Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"SED Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"SED Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"SED Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"SED Window New Window" "Opens another window on the current file"
+
+"SED Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"SED Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"SED Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"SED Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"SED Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"SED Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+"SED Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"SED Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"SED Help Symbol Editor Help"   "  "
+
+"SED Help Symbol Editor Help Table of Contents" "Displays the table of contents for Graphic/Symbol Editor Help"
+
+"SED Help Symbol Editor Help Introduction"      "Displays an introduction to the Graphic/Symbol Editor"
+
+"SED Help Symbol Editor Help Basic Tools"       "Provides help on items visible in the Graphic/Symbol Editor window and Gr./Sym. Ed. I/O files"
+
+"SED Help Symbol Editor Help Commands"  "Provides information on Graphic/Symbol Editor menu commands"
+
+"SED Help Symbol Editor Help Procedures"        "Provides step-by-step procedures to use in the Graphic/Symbol Editor"
+
+"SED Help Symbol Editor Help Golden Rules"      "Summarizes essential rules and guidelines for using the Graphic/Symbol Editor"
+
+"SED Help Symbol Editor Help Shortcuts" "Displays keyboard and mouse shortcuts for Graphic/Symbol Editor menu commands"
+
+
+"SED Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"SED Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"SED Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"SED Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"SED Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"SED Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"SED Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"SED Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"SED Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"SED Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"SED Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"SED Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"SED Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Text Editor                */
+/*-----------------------------------------------------------*/
+
+"TED Application Control" "  "
+
+"TED Document Control" "  "
+
+"TED MAX+PLUS II" "  "
+
+"TED File" "  "
+
+"TED File Project" "  "
+
+"TED File Hierarchy" "  "
+
+"TED Edit" "  "
+
+"TED View" "  "
+
+"TED Assign" "  "
+
+"TED Options" "  "
+
+"TED Utilities" "  "
+
+"TED Window"    "  "
+
+"TED Help" "  "
+
+"TED Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"TED Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"TED Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"TED Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"TED Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"TED Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"TED Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"TED Document Control Restore"  "Restores the Text Editor window to its previous size"
+
+"TED Document Control Move"     "Allows you to change the position of the Text Editor window with the keyboard"
+
+"TED Document Control Size"     "Allows you to change the size of the Text Editor window with the keyboard"
+
+"TED Document Control Minimize" "Shrinks the Text Editor window to an icon"
+
+"TED Document Control Maximize" "Enlarges the Text Editor window to maximum size"
+
+"TED Document Control Close"    "Closes the Text Editor and prompts you to save any changes"
+
+"TED Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"TED MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"TED MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"TED MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"TED MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"TED MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"TED MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"TED MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"TED MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+                                 
+"TED MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"TED MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"TED MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"TED File Project Name..." "Specifies the project name"
+
+"TED File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"TED File Project Save & Check"          "Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"TED File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"TED File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"TED File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"TED File Project Archive..." "Copies all files from the project to an archive directory"
+
+"TED File Project <numbered projects>" "Changes the project name to this name"
+
+"TED File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"TED File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"TED File Delete File..."	"Deletes one or more selected files"
+
+"TED File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"TED File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"TED Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"TED Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"TED Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"TED Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"TED Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"TED Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"TED Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"TED Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"TED Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"TED Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"TED Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"TED Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"TED Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"TED Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"TED Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"TED Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"TED Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"TED Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"TED Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"TED Window New Window" "Opens another window on the current file"
+
+"TED Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"TED Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"TED Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"TED Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"TED Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"TED Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+"TED Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"TED Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"TED Help Text Editor Help"     "  "
+
+"TED Help Text Editor Help Table of Contents"   "Displays the table of contents for Text Editor Help"
+
+"TED Help Text Editor Help Introduction"        "Displays an introduction to the Text Editor"
+
+"TED Help Text Editor Help Basic Tools" "Provides help on items visible in the Text Editor window and Text Editor I/O files"
+
+"TED Help Text Editor Help Commands"    "Provides information on Text Editor menu commands"
+
+"TED Help Text Editor Help Procedures"  "Provides step-by-step procedures to use in the Text Editor"
+
+"TED Help Text Editor Help Golden Rules"        "Summarizes essential rules and guidelines for using the Text Editor"
+
+"TED Help Text Editor Help Shortcuts"   "Displays keyboard and mouse shortcuts for Text Editor menu commands"
+
+
+"TED Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"TED Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"TED Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"TED Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"TED Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"TED Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"TED Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"TED Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"TED Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"TED Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"TED Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"TED Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"TED Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Waveform Editor            */
+/*-----------------------------------------------------------*/
+
+"WED Application Control" "  "
+
+"WED Document Control" "  "
+
+"WED MAX+PLUS II" "  "
+
+"WED File" "  "
+
+"WED File Project" "  "
+
+"WED File Hierarchy" "  "
+
+"WED Edit" "  "
+
+"WED View" "  "
+
+"WED Assign" "  "
+
+"WED Options" "  "
+
+"WED Utilities" "  "
+
+"WED Window"    "  "
+
+"WED Help" "  "
+
+"WED Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"WED Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"WED Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"WED Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"WED Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"WED Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"WED Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"WED Document Control Restore"  "Restores the Waveform Editor window to its previous size"
+
+"WED Document Control Move"     "Allows you to change the position of the Waveform Editor window with the keyboard"
+
+"WED Document Control Size"     "Allows you to change the size of the Waveform Editor window with the keyboard"
+
+"WED Document Control Minimize" "Shrinks the Waveform Editor window to an icon"
+
+"WED Document Control Maximize" "Enlarges the Waveform Editor window to maximum size"
+
+"WED Document Control Close"    "Closes the Waveform Editor and prompts you to save any changes"
+
+"WED Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"WED MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"WED MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"WED MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"WED MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"WED MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"WED MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"WED MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"WED MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"WED MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"WED MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"WED MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"WED File Project Name..." "Specifies the project name"
+
+"WED File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"WED File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"WED File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"WED File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"WED File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"WED File Project Archive..." "Copies all files from the project to an archive directory"
+
+"WED File Project <numbered projects>" "Changes the project name to this name"
+
+"WED File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"WED File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"WED File Delete File..."	"Deletes one or more selected files"
+
+"WED File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"WED File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"WED Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"WED Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"WED Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"WED Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"WED Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"WED Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"WED Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"WED Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"WED Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"WED Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"WED Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"WED Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"WED Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"WED Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"WED Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"WED Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"WED Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"WED Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"WED Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"WED Window New Window" "Opens another window on the current file"
+
+"WED Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"WED Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"WED Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"WED Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"WED Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"WED Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+"WED Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"WED Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"WED Help Waveform Editor Help" "  "
+
+"WED Help Waveform Editor Help Table of Contents"       "Displays the table of contents for Waveform Editor Help"
+
+"WED Help Waveform Editor Help Introduction"    "Displays an introduction to the Waveform Editor"
+
+"WED Help Waveform Editor Help Basic Tools"     "Provides help on items visible in the Waveform Editor window and Waveform Editor I/O files"
+
+"WED Help Waveform Editor Help Commands"        "Provides information on Waveform Editor menu commands"
+
+"WED Help Waveform Editor Help Procedures"      "Provides step-by-step procedures to use in the Waveform Editor"
+
+"WED Help Waveform Editor Help Golden Rules"    "Summarizes essential rules and guidelines for using the Waveform Editor"
+
+"WED Help Waveform Editor Help Shortcuts"       "Displays keyboard and mouse shortcuts for Waveform Editor menu commands"
+
+
+"WED Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"WED Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"WED Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"WED Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"WED Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"WED Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"WED Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"WED Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"WED Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"WED Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"WED Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"WED Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"WED Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Floorplan Editor             */
+/*-----------------------------------------------------------*/
+
+"FED Application Control" "  "
+
+"FED Document Control" "  "
+
+"FED MAX+PLUS II" "  "
+
+"FED File" "  "
+
+"FED File Project" "  "
+
+"FED File Hierarchy" "  "
+
+"FED Edit" "  "
+
+"FED View" "  "
+
+"FED Assign" "  "
+
+"FED Options" "  "
+
+"FED Utilities" "  "
+
+"FED Window"    "  "
+
+"FED Help" "  "
+
+"FED Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"FED Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"FED Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"FED Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"FED Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"FED Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"FED Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"FED Document Control Restore"  "Restores the Graphic Editor window to its previous size"
+
+"FED Document Control Move"     "Allows you to change the position of the Graphic Editor window with the keyboard"
+
+"FED Document Control Size"     "Allows you to change the size of the Graphic Editor window with the keyboard"
+
+"FED Document Control Minimize" "Shrinks the Graphic Editor window to an icon"
+
+"FED Document Control Maximize" "Enlarges the Graphic Editor window to maximum size"
+
+"FED Document Control Close"    "Closes the Graphic Editor and prompts you to save any changes"
+
+"FED Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"FED MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"FED MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"FED MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"FED MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"FED MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"FED MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"FED MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"FED MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"FED MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"FED MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"FED MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"FED File Project Name..." "Specifies the project name"
+
+"FED File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"FED File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"FED File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"FED File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"FED File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"FED File Project Archive..." "Copies all files from the project to an archive directory"
+
+"FED File Project <numbered projects>" "Changes the project name to this name"
+
+"FED File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"FED File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"FED File Delete File..."	"Deletes one or more selected files"
+
+"FED File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"FED File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"FED Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"FED Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"FED Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"FED Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"FED Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"FED Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"FED Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"FED Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"FED Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"FED Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"FED Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"FED Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"FED Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"FED Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"FED Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"FED Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"FED Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"FED Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"FED Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"FED Window New Window" "Opens another window on the current file"
+
+"FED Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"FED Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"FED Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"FED Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"FED Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"FED Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+
+"FED Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"FED Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"FED Help Floorplan Editor Help"  "  "
+
+"FED Help Floorplan Editor Help Table of Contents"        "Displays the table of contents for Floorplan Editor Help"
+
+"FED Help Floorplan Editor Help Introduction"     "Displays an introduction to the Floorplan Editor"
+
+"FED Help Floorplan Editor Help Basic Tools"      "Provides help on items visible in the Floorplan Editor window"
+
+"FED Help Floorplan Editor Help Commands" "Provides information on Floorplan Editor menu commands"
+
+"FED Help Floorplan Editor Help Procedures"       "Provides step-by-step procedures to use in the Floorplan Editor"
+
+"FED Help Floorplan Editor Help Golden Rules"     "Summarizes essential rules and guidelines for using the Floorplan Editor"
+
+"FED Help Floorplan Editor Help Shortcuts"        "Displays keyboard and mouse shortcuts for Floorplan Editor menu commands"
+
+
+"FED Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"FED Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"FED Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"FED Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"FED Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"FED Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"FED Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"FED Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"FED Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"FED Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"FED Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"FED Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"FED Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Compiler                   */
+/*-----------------------------------------------------------*/
+
+"CMP Application Control" "  "
+
+"CMP Document Control" "  "
+
+"CMP MAX+PLUS II" "  "
+
+"CMP File" "  "
+
+"CMP File Project" "  "
+
+"CMP File Hierarchy" "  "
+
+"CMP Edit" "  "
+
+"CMP View" "  "
+
+"CMP Assign" "  "
+
+"CMP Options" "  "
+
+"CMP Utilities" "  "
+
+"CMP Window"    "  "
+
+"CMP Help" "  "
+
+"CMP Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"CMP Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"CMP Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"CMP Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"CMP Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"CMP Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"CMP Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"CMP Document Control Restore"  "Restores the Compiler window to its previous size"
+
+"CMP Document Control Move"     "Allows you to change the position of the Compiler window with the keyboard"
+
+"CMP Document Control Size"     "Allows you to change the size of the Compiler window with the keyboard"
+
+"CMP Document Control Minimize" "Shrinks the Compiler window to an icon"
+
+"CMP Document Control Maximize" "Enlarges the Compiler window to maximum size"
+
+"CMP Document Control Close"    "Closes the Compiler"
+
+"CMP Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"CMP MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"CMP MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"CMP MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"CMP MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"CMP MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"CMP MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"CMP MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"CMP MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"CMP MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"CMP MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"CMP MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"CMP File Project Name..." "Specifies the project name"
+
+"CMP File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"CMP File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"CMP File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"CMP File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"CMP File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"CMP File Project Archive..." "Copies all files from the project to an archive directory"
+
+"CMP File Project <numbered projects>" "Changes the project name to this name"
+
+"CMP File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"CMP File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"CMP File Delete File..."	"Deletes one or more selected files"
+
+"CMP File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"CMP File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"CMP Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"CMP Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"CMP Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"CMP Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"CMP Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"CMP Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"CMP Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"CMP Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"CMP Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"CMP Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"CMP Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"CMP Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"CMP Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"CMP Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"CMP Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"CMP Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"CMP Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"CMP Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"CMP Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"CMP Window New Window" "Opens another window on the current file"
+
+"CMP Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"CMP Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"CMP Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"CMP Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"CMP Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"CMP Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+"CMP Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"CMP Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"CMP Help Compiler Help"        "  "
+
+"CMP Help Compiler Help Table of Contents"      "Displays the table of contents for Compiler Help"
+
+"CMP Help Compiler Help Introduction"   "Displays an introduction to the Compiler"
+
+"CMP Help Compiler Help Basic Tools"    "Provides help on items visible in the Compiler window and Compiler I/O files"
+
+"CMP Help Compiler Help Commands"       "Provides information on Compiler menu commands"
+
+"CMP Help Compiler Help Procedures"     "Provides step-by-step procedures to use in the Compiler"
+
+"CMP Help Compiler Help Golden Rules"   "Summarizes essential rules and guidelines for using the Compiler"
+
+"CMP Help Compiler Help Shortcuts"      "Displays keyboard and mouse shortcuts for Compiler menu commands"
+
+
+"CMP Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"CMP Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"CMP Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"CMP Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"CMP Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"CMP Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"CMP Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"CMP Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"CMP Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"CMP Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"CMP Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"CMP Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"CMP Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Simulator                  */
+/*-----------------------------------------------------------*/
+
+"SIM Application Control" "  "
+
+"SIM Document Control" "  "
+
+"SIM MAX+PLUS II" "  "
+
+"SIM File" "  "
+
+"SIM File Project" "  "
+
+"SIM File Hierarchy" "  "
+
+"SIM Edit" "  "
+
+"SIM View" "  "
+
+"SIM Assign" "  "
+
+"SIM Options" "  "
+
+"SIM Utilities" "  "
+
+"SIM Window"    "  "
+
+"SIM Help" "  "
+
+"SIM Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"SIM Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"SIM Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"SIM Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"SIM Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"SIM Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"SIM Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"SIM Document Control Restore"  "Restores the Simulator window to its previous size"
+
+"SIM Document Control Move"     "Allows you to change the position of the Simulator window with the keyboard"
+
+"SIM Document Control Size"     "Allows you to change the size of the Simulator window with the keyboard"
+
+"SIM Document Control Minimize" "Shrinks the Simulator window to an icon"
+
+"SIM Document Control Maximize" "Enlarges the Simulator window to maximum size"
+
+"SIM Document Control Close"    "Closes the Simulator"
+
+"SIM Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"SIM MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"SIM MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"SIM MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"SIM MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"SIM MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"SIM MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"SIM MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"SIM MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"SIM MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"SIM MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"SIM MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"SIM File Project Name..." "Specifies the project name"
+
+"SIM File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"SIM File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"SIM File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"SIM File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"SIM File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"SIM File Project Archive..." "Copies all files from the project to an archive directory"
+
+"SIM File Project <numbered projects>" "Changes the project name to this name"
+
+"SIM File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"SIM File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"SIM File Delete File..."	"Deletes one or more selected files"
+
+"SIM File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"SIM File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"SIM Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"SIM Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"SIM Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"SIM Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"SIM Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"SIM Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"SIM Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"SIM Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"SIM Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"SIM Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"SIM Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"SIM Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"SIM Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"SIM Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"SIM Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"SIM Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"SIM Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"SIM Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"SIM Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"SIM Window New Window" "Opens another window on the current file"
+
+"SIM Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"SIM Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"SIM Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"SIM Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"SIM Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"SIM Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+
+"SIM Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"SIM Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"SIM Help Simulator Help"       "  "
+
+"SIM Help Simulator Help Table of Contents"     "Displays the table of contents for Simulator Help"
+
+"SIM Help Simulator Help Introduction"  "Displays an introduction to the Simulator"
+
+"SIM Help Simulator Help Basic Tools"   "Provides help on items visible in the Simulator window and Simulator I/O files"
+
+"SIM Help Simulator Help Commands"      "Provides information on Simulator menu commands"
+
+"SIM Help Simulator Help Procedures"    "Provides step-by-step procedures to use in the Simulator"
+
+"SIM Help Simulator Help Golden Rules"  "Summarizes essential rules and guidelines for using the Simulator"
+
+"SIM Help Simulator Help Shortcuts"     "Displays keyboard and mouse shortcuts for Simulator menu commands"
+
+ 
+"SIM Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"SIM Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"SIM Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"SIM Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"SIM Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"SIM Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"SIM Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"SIM Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"SIM Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"SIM Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"SIM Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"SIM Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"SIM Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Timing Analyzer            */
+/*-----------------------------------------------------------*/
+
+"TAN Application Control" "  "
+
+"TAN Document Control" "  "
+
+"TAN MAX+PLUS II" "  "
+
+"TAN File" "  "
+
+"TAN File Project" "  "
+
+"TAN File Hierarchy" "  "
+
+"TAN Edit" "  "
+
+"TAN View" "  "
+
+"TAN Assign" "  "
+
+"TAN Options" "  "
+
+"TAN Utilities" "  "
+
+"TAN Window"    "  "
+
+"TAN Help" "  "
+
+"TAN Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"TAN Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"TAN Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"TAN Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"TAN Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"TAN Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"TAN Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"TAN Document Control Restore"  "Restores the Timing Analyzer window to its previous size"
+
+"TAN Document Control Move"     "Allows you to change the position of the Timing Analyzer window with the keyboard"
+
+"TAN Document Control Size"     "Allows you to change the size of the Timing Analyzer window with the keyboard"
+
+"TAN Document Control Minimize" "Shrinks the Timing Analyzer window to an icon"
+
+"TAN Document Control Maximize" "Enlarges the Timing Analyzer window to maximum size"
+
+"TAN Document Control Close"    "Closes the Timing Analyzer"
+
+"TAN Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"TAN MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"TAN MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"TAN MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"TAN MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"TAN MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"TAN MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"TAN MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"TAN MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"TAN MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"TAN MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"TAN MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"TAN File Project Name..." "Specifies the project name"
+
+"TAN File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"TAN File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"TAN File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"TAN File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"TAN File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"TAN File Project Archive..." "Copies all files from the project to an archive directory"
+
+"TAN File Project <numbered projects>" "Changes the project name to this name"
+
+"TAN File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"TAN File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"TAN File Delete File..."	"Deletes one or more selected files"
+
+"TAN File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"TAN File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"TAN Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"TAN Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"TAN Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"TAN Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"TAN Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"TAN Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"TAN Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"TAN Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"TAN Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"TAN Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"TAN Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"TAN Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"TAN Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"TAN Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"TAN Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"TAN Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"TAN Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"TAN Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"TAN Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"TAN Window New Window" "Opens another window on the current file"
+
+"TAN Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"TAN Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"TAN Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"TAN Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"TAN Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"TAN Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+"TAN Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"TAN Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"TAN Help Timing Analyzer Help" "  "
+
+"TAN Help Timing Analyzer Help Table of Contents"       "Displays the table of contents for Timing Analyzer Help"
+
+"TAN Help Timing Analyzer Help Introduction"    "Displays an introduction to the Timing Analyzer"
+
+"TAN Help Timing Analyzer Help Basic Tools"     "Provides help on items visible in the Timing Analyzer window and Timing Analyzer I/O files"
+
+"TAN Help Timing Analyzer Help Commands"        "Provides information on Timing Analyzer menu commands"
+
+"TAN Help Timing Analyzer Help Procedures"      "Provides step-by-step procedures to use in the Timing Analyzer"
+
+"TAN Help Timing Analyzer Help Golden Rules"    "Summarizes essential rules and guidelines for using the Timing Analyzer"
+
+"TAN Help Timing Analyzer Help Shortcuts"       "Displays keyboard and mouse shortcuts for Timing Analyzer menu commands"
+
+
+"TAN Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"TAN Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"TAN Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"TAN Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"TAN Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"TAN Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"TAN Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"TAN Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"TAN Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"TAN Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"TAN Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"TAN Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"TAN Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Programmer                 */
+/*-----------------------------------------------------------*/
+
+"PGM Application Control" "  "
+
+"PGM Document Control" "  "
+
+"PGM MAX+PLUS II" "  "
+
+"PGM File" "  "
+
+"PGM File Project" "  "
+
+"PGM File Hierarchy" "  "
+
+"PGM Edit" "  "
+
+"PGM View" "  "
+
+"PGM Assign" "  "
+
+"PGM Options" "  "
+
+"PGM Utilities" "  "
+
+"PGM Window"    "  "
+
+"PGM Help" "  "
+
+"PGM Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"PGM Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"PGM Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"PGM Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"PGM Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"PGM Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"PGM Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"PGM Document Control Restore"  "Restores the Programmer window to its previous size"
+
+"PGM Document Control Move"     "Allows you to change the position of the Programmer window with the keyboard"
+
+"PGM Document Control Size"     "Allows you to change the size of the Programmer window with the keyboard"
+
+"PGM Document Control Minimize" "Shrinks the Programmer window to an icon"
+
+"PGM Document Control Maximize" "Enlarges the Programmer window to maximum size"
+
+"PGM Document Control Close"    "Closes the Programmer"
+
+"PGM Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"PGM MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"PGM MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"PGM MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"PGM MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"PGM MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"PGM MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"PGM MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"PGM MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"PGM MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"PGM MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"PGM MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"PGM File Project Name..." "Specifies the project name"
+
+"PGM File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"PGM File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"PGM File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"PGM File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"PGM File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"PGM File Project Archive..." "Copies all files from the project to an archive directory"
+
+"PGM File Project <numbered projects>" "Changes the project name to this name"
+
+"PGM File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"PGM File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"PGM File Delete File..."	"Deletes one or more selected files"
+
+"PGM File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"PGM File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"PGM Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"PGM Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"PGM Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"PGM Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"PGM Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"PGM Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"PGM Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"PGM Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"PGM Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"PGM Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"PGM Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"PGM Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"PGM Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"PGM Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"PGM Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"PGM Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"PGM Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"PGM Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"PGM Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"PGM Window New Window" "Opens another window on the current file"
+
+"PGM Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"PGM Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"PGM Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"PGM Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"PGM Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"PGM Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+"PGM Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"PGM Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"PGM Help Programmer Help"      "  "
+
+"PGM Help Programmer Help Table of Contents"    "Displays the table of contents for Programmer Help"
+
+"PGM Help Programmer Help Introduction" "Displays an introduction to the Programmer"
+
+"PGM Help Programmer Help Basic Tools"  "Provides help on items visible in the Programmer window and Programmer I/O files"
+
+"PGM Help Programmer Help Commands"     "Provides information on Programmer menu commands"
+
+"PGM Help Programmer Help Procedures"   "Provides step-by-step procedures to use in the Programmer"
+
+"PGM Help Programmer Help Golden Rules" "Summarizes essential rules and guidelines for using the Programmer"
+
+"PGM Help Programmer Help Shortcuts"    "Displays keyboard and mouse shortcuts for Programmer menu commands"
+
+
+"PGM Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"PGM Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"PGM Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"PGM Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"PGM Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"PGM Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"PGM Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"PGM Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"PGM Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"PGM Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"PGM Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"PGM Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"PGM Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* Global commands duplicated for Message Processor          */
+/*-----------------------------------------------------------*/
+
+"MSG Application Control" "  "
+
+"MSG Document Control" "  "
+
+"MSG MAX+PLUS II" "  "
+
+"MSG File" "  "
+
+"MSG File Project" "  "
+
+"MSG File Hierarchy" "  "
+
+"MSG Edit" "  "
+
+"MSG View" "  "
+
+"MSG Assign" "  "
+
+"MSG Options" "  "
+
+"MSG Utilities" "  "
+
+"MSG Window"    "  "
+
+"MSG Help" "  "
+
+"MSG Application Control Restore"       "Restores the MAX+PLUS II window to its normal size"
+
+"MSG Application Control Move"  "Allows you to change the position of the MAX+PLUS II window with the keyboard"
+
+"MSG Application Control Size"  "Allows you to change the size of the MAX+PLUS II window with the keyboard"
+
+"MSG Application Control Minimize"      "Shrinks the MAX+PLUS II window to an icon"
+
+"MSG Application Control Maximize"      "Enlarges the MAX+PLUS II window to maximum size"
+
+"MSG Application Control Close" "Quits MAX+PLUS II and prompts you to save any changes"
+
+"MSG Application Control Switch To..."  "Switches to another Windows application or the Program Manager"
+
+
+"MSG Document Control Restore"  "Restores the Message Processor window to its previous size"
+
+"MSG Document Control Move"     "Allows you to change the position of the Message Processor window with the keyboard"
+
+"MSG Document Control Size"     "Allows you to change the size of the Message Processor window with the keyboard"
+
+"MSG Document Control Minimize" "Shrinks the Message Processor window to an icon"
+
+"MSG Document Control Maximize" "Enlarges the Message Processor window to maximum size"
+
+"MSG Document Control Close"    "Closes the Message Processor"
+
+"MSG Document Control Next"     "Switches to the next open MAX+PLUS II application window or icon"
+
+
+"MSG MAX+PLUS II Hierarchy Display"     "Opens the Hierarchy Display window or brings it to the foreground"
+
+"MSG MAX+PLUS II Graphic Editor"        "Opens an untitled Graphic Editor window or brings an open Graphic Editor window to the foreground"
+
+"MSG MAX+PLUS II Symbol Editor" "Opens an untitled Symbol Editor window or brings an open Symbol Editor window to the foreground"
+
+"MSG MAX+PLUS II Text Editor"   "Opens an untitled Text Editor window or brings an open Text Editor window to the foreground"
+
+"MSG MAX+PLUS II Waveform Editor"       "Opens an untitled Waveform Editor window or brings an open Waveform Editor window to the foreground"
+
+"MSG MAX+PLUS II Compiler"      "Opens the Compiler window or brings it to the foreground"
+
+"MSG MAX+PLUS II Simulator"     "Opens the Simulator window or brings it to the foreground"
+
+"MSG MAX+PLUS II Timing Analyzer"       "Opens the Timing Analyzer window or brings it to the foreground"
+
+"MSG MAX+PLUS II Programmer"    "Opens the Programmer window or brings it to the foreground"
+
+"MSG MAX+PLUS II Message Processor"     "Opens an untitled Message Processor window or brings an open window to the foreground"
+
+"MSG MAX+PLUS II Floorplan Editor"      "Opens the Floorplan Editor window or brings it to the foreground"
+
+
+"MSG File Project Name..." "Specifies the project name"
+
+"MSG File Project Set Project to Current File"	"Changes the project name to the name of the current file"
+
+"MSG File Project Save & Check"	"Saves all open Compiler input files and checks the current project for syntax and other basic errors"
+
+"MSG File Project Save & Compile" "Saves all open design files in the project and starts the Compiler"
+
+"MSG File Project Save & Simulate" "Saves all open Simulator input files in the project and starts the Simulator"
+
+"MSG File Project Save, Compile & Simulate" "Saves all open Compiler and Simulator input files and then compiles and simulates the project"
+
+"MSG File Project Archive..." "Copies all files from the project to an archive directory"
+
+"MSG File Project <numbered projects>" "Changes the project name to this name"
+
+"MSG File New..." "Opens a new file in the Graphic, Text, Waveform, or Symbol Editor"
+
+"MSG File Open..." "Opens a file, starts the appropriate editor, and makes the file the top of the current hierarchy tree"
+
+"MSG File Delete File..."	"Deletes one or more selected files"
+
+"MSG File Hierarchy Project Top" "Opens the top-level design file for the current project or brings it to the foreground"
+
+"MSG File Exit MAX+PLUS II" "Closes all windows and exits from MAX+PLUS II"
+
+
+"MSG Assign Device..."  "Assigns logic in the current project to one or more devices"
+
+"MSG Assign Pin/Location/Chip..."  "Assigns selected logic function(s) to a specific chip, and/or to a pin or location within a chip" 
+
+"MSG Assign Timing Requirements..."        "Assigns one or more timing requirements to selected logic function(s)"
+
+"MSG Assign Clique..."     "Assigns selected logic function(s) to a clique"
+
+"MSG Assign Logic Options..."   "Assigns a logic synthesis style and/or individual logic options to selected logic function(s)"
+
+"MSG Assign Probe..."      "Assigns a unique probe name to a selected input or output pinstub of a logic function"
+
+"MSG Assign Connected Pins..."     "Assigns one or more pins to a group that indicates that the pins are externally connected"
+
+"MSG Assign Global Project Device Options..."     "Assigns the global default device options for all devices in the current project"
+
+"MSG Assign Global Project Parameters..."     "Assigns the global default parameter values for the current project"
+
+"MSG Assign Global Project Timing Requirements..." "Assigns the global default timing requirements for the current project"
+
+"MSG Assign Global Project Logic Synthesis..."     "Assigns the global default logic synthesis settings for the current project"
+
+"MSG Assign Ignore Project Assignments..." "Directs the Compiler to ignore resource and/or device assignments for the current project"
+
+"MSG Assign Clear Project Assignments..."  "Removes the specified probe, resource, and device assignments from the ACF for the current project"
+
+"MSG Assign Back-Annotate Project..."   "Copies assignments from the Compiler's Fit File to the ACF for the current project"      
+
+"MSG Assign Convert Obsolete Assignment Format" "Converts obsolete assignments in projects created with earlier versions of MAX+PLUS II"
+
+
+"MSG Options User Libraries..." "Specifies a directory that contains your own mega- and macrofunctions, Symbol Files, and/or Include Files"
+
+"MSG Options Color Palette..." "Changes the colors used to display items in MAX+PLUS II"
+
+"MSG Options Authorization Code..." "Specifies authorization code(s) or license file(s) for MAX+PLUS II software and megafunctions"
+
+"MSG Options Preferences..." "Specifies toolbar, status bar, and other preferences for MAX+PLUS II"
+
+
+"MSG Window New Window" "Opens another window on the current file"
+
+"MSG Window Tile Horizontally"	"Rearranges all MAX+PLUS II windows horizontally into non-overlapping windows"
+
+"MSG Window Tile Vertically"	"Rearranges all MAX+PLUS II windows vertically into non-overlapping windows"
+
+"MSG Window Cascade"    "Arranges all MAX+PLUS II windows so that they overlap with each title bar visible"
+
+"MSG Window Arrange Icons"      "Arranges all MAX+PLUS II application icons in a row at the bottom of the window"
+
+"MSG Window More Windows..."    "Opens a dialog box that lists all open windows"
+
+"MSG Window <numbered window>"  "Moves this window to the front and makes it active"
+
+
+"MSG Help Search for Help on..."        "Opens a dialog box that allows you to look up Help information by using keywords"
+
+"MSG Help MAX+PLUS II Table of Contents"        "Displays overall table of contents for MAX+PLUS II Help"
+
+
+"MSG Help Message Processor Help"       "  "
+
+"MSG Help Message Processor Help Table of Contents"     "Displays the table of contents for Message Processor Help"
+
+"MSG Help Message Processor Help Introduction"  "Displays an introduction to the Message Processor"
+
+"MSG Help Message Processor Help Basic Tools"   "Provides help on items visible in the Message Processor window and Message Processor I/O files"
+
+"MSG Help Message Processor Help Commands"      "Provides information on Message Processor menu commands"
+
+"MSG Help Message Processor Help Procedures"    "Provides step-by-step procedures to use in the Message Processor"
+
+"MSG Help Message Processor Help Golden Rules"  "Summarizes essential rules and guidelines for using the Message Processor"
+
+"MSG Help Message Processor Help Shortcuts"     "Displays keyboard and mouse shortcuts for Message Processor menu commands"
+
+
+"MSG Help AHDL" "Provides help on the Altera Hardware Description Language"
+
+"MSG Help VHDL" "Provides help on the Very High Speed Integrated Circuit (VHSIC) Hardware Description Language"
+
+"MSG Help Megafunctions/LPM"       "Provides information on all MAX+PLUS II megafunctions, including LPM functions"
+
+"MSG Help Old-Style Macrofunctions"       "Provides information on all MAX+PLUS II old-style macrofunctions"
+
+"MSG Help Primitives"   "Provides information on all MAX+PLUS II primitives"
+
+"MSG Help Devices & Adapters"   "Provides information on all devices and adapters compatible with the current version of MAX+PLUS II"
+
+"MSG Help Messages"     "Provides information on messages displayed in MAX+PLUS II applications "
+
+"MSG Help Glossary"     "Displays definitions of terms used in MAX+PLUS II Help"
+
+"MSG Help READ.ME"      "Displays release notes and other information for the current version of MAX+PLUS II"
+
+"MSG Help New Features in This Release"	"Describes the new features available in the current version of MAX+PLUS II"
+
+"MSG Help How to Use MAX+PLUS II Help"  "Describes how to get the most from MAX+PLUS II Help"
+
+"MSG Help How to Use Help"      "Explains the mechanics of using the Help window"
+
+"MSG Help About MAX+PLUS II..." "Displays information on the current version of MAX+PLUS II"
+
+
+/*-----------------------------------------------------------*/
+/* editor commands shared by GED, SED, TED, WED, and FED     */
+/* as "defined" by the command panels in edcom.mac/edcom.rtf */
+/* some strings are repeated 4 times, once for each          */
+/* in other cases, the text varies                           */
+/* not all strings are repeated for SED                      */
+/*-----------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------*/
+/* Common commands duplicated for HRW                   	 */
+/*-----------------------------------------------------------*/
+
+"HRW Utilities Find Node in Floorplan..." "Finds a macrofunction, node, symbol, or probe in the current floorplan"
+
+
+/*-----------------------------------------------------------*/
+/* Common editor commands duplicated for GED                 */
+/*-----------------------------------------------------------*/
+
+"GED File Retrieve..." "Closes the current file and opens another file in the same window"
+
+"GED File Close" "Closes the current active file window"
+
+"GED File Save" "Saves changes to the current file"
+
+"GED File Save As..." "Saves a new version of the current file under a different name"
+
+"GED File Info..." "Displays size and date information and the current editing status of the current file"
+
+"GED File Create Default Symbol" "Creates a new symbol that represents the current design file"
+
+"GED File Edit Symbol" "Opens the Symbol File that represents the current design file in a Symbol Editor window"
+
+"GED File Create Default Include File" "Creates a new Include File that represents the current design file"
+
+
+"GED Edit Undo" "Reverses the last action that changed the current file"
+
+"GED Edit Delete" "Deletes selected item(s) from the current file"
+
+"GED Utilities Find Node in Design File..." "Finds a node, symbol, or probe anywhere in the current hierarchy of design files"
+
+"GED Utilities Find Node in Floorplan..." "Finds a node, symbol, or probe in the current floorplan"
+
+"GED Utilities Find Last Edit" "Moves the insertion point to the location of the previous edit"
+
+"GED Utilities Analyze Timing" "Runs the Timing Analyzer in the current timing analysis mode"
+
+"GED Utilities Timing Analysis Source" "Tags or untags selected node(s) as source node(s) for timing analysis"
+
+"GED Utilities Timing Analysis Destination" "Tags or untags selected node(s) as destination node(s) for timing analysis"
+
+"GED Utilities Timing Analysis Cutoff" "Tags or untags selected node(s) as cutoff node(s) for timing analysis"
+
+"GED Utilities Clear All Timing Analysis Tags" "Clears all source, destination, and cutoff node tagging and returns to default tagging for timing analysis"
+
+/*-----------------------------------------------------------*/
+/* Common editor commands duplicated for SED                 */
+/* For most of these, there is no corresponding L keyword    */
+/* used in Help, because most Symbol Editor commands are     */
+/* covered by Graphic Editor commands                        */
+/*-----------------------------------------------------------*/
+
+"SED File Retrieve..." "Closes the current file and opens another file in the same window"
+
+"SED File Close" "Closes the current active file window"
+
+"SED File Save" "Saves changes to the current file"
+
+"SED File Info..." "Displays size and date information and the current editing status of the current file"
+
+
+"SED Edit Undo" "Reverses the last action that changed the current file"
+
+"SED Edit Delete" "Deletes selected item(s) from the current file"
+
+"SED Edit Cut" "Deletes one or more selected items from the file and places them on the Clipboard"
+
+"SED Edit Copy" "Copies one or more selected items from the file and places them on the Clipboard"
+
+"SED Edit Paste" "Pastes a copy of the Clipboard contents at the insertion point"
+
+
+"SED View Zoom In" "Increases the scale of the objects displayed"
+
+"SED View Zoom Out" "Reduces the scale of the objects displayed"
+
+"SED View Normal Size" "Zooms in or out to display objects at normal (full) size"
+
+"SED View Maximum Size" "Zooms in to display objects at maximum resolution"
+
+
+"SED Utilities Find Last Edit" "Moves the insertion point to the location of the previous edit"
+
+"SED Utilities Find Node in Design File..." "Finds a node, symbol, or probe anywhere in the current hierarchy of design files"
+
+"SED Utilities Find Node in Floorplan..." "Finds a node, symbol, or probe in the current floorplan"
+
+
+/*-----------------------------------------------------------*/
+/* Common editor commands duplicated for TED                 */
+/*-----------------------------------------------------------*/
+
+"TED File Retrieve..." "Closes the current file and opens another file in the same window"
+
+"TED File Close" "Closes the current active file window"
+
+"TED File Save" "Saves changes to the current file"
+
+"TED File Info..." "Displays size and date information and the current editing status of the current file"
+
+"TED File Create Default Symbol" "Creates a new symbol that represents the current design file"
+
+"TED File Edit Symbol" "Opens the Symbol File that represents the current design file in a Symbol Editor window"
+
+"TED File Create Default Include File" "Creates a new Include File that represents the current design file"
+
+
+"TED Edit Undo" "Reverses the last action that changed the current file"
+
+"TED Edit Delete" "Deletes selected text from the current file"
+
+
+"TED Utilities Find Node in Design File..." "Finds a node, symbol, or probe anywhere in the current hierarchy of design files"
+
+"TED Utilities Find Node in Floorplan..." "Finds a node, symbol, or probe in the current floorplan"
+
+"TED Utilities Find Last Edit" "Moves the insertion point to the location of the previous edit"
+
+"TED Utilities Analyze Timing" "Runs the Timing Analyzer in the current timing analysis mode"
+
+"TED Utilities Timing Analysis Source" "Tags or untags a selected node as a source node for timing analysis"
+
+"TED Utilities Timing Analysis Destination" "Tags or untags a selected node as a destination node for timing analysis"
+
+"TED Utilities Timing Analysis Cutoff" "Tags or untags a selected node as a cutoff node for timing analysis"
+
+"TED Utilities Clear All Timing Analysis Tags" "Clears all source, destination, and cutoff node tagging and returns to default tagging for timing analysis"
+
+
+/*-----------------------------------------------------------*/
+/* Common editor commands duplicated for WED                 */
+/*-----------------------------------------------------------*/
+
+"WED File Retrieve..." "Closes the current file and opens another file in the same window"
+
+"WED File Close" "Closes the current active file window"
+
+"WED File Save" "Saves changes to the current file"
+
+"WED File Info..." "Displays size and date information and the current editing status of the current file"
+
+"WED File Create Default Symbol" "Creates a new symbol that represents the current design file"
+
+"WED File Edit Symbol" "Opens the Symbol File that represents the current design file in a Symbol Editor window"
+
+"WED File Create Default Include File" "Creates a new Include File that represents the current design file"
+
+
+"WED Edit Undo" "Reverses the last action that changed the current file"
+
+"WED Edit Delete" "Deletes selected item(s) from the current file"
+
+
+"WED Utilities Find Node in Design File..." "Finds a node, symbol, or probe anywhere in the current hierarchy of design files"
+
+"WED Utilities Find Node in Floorplan..." "Finds a node, symbol, or probe in the current floorplan"
+
+"WED Utilities Find Last Edit" "Moves the insertion point to the location of the previous edit"
+
+"WED Utilities Analyze Timing" "Runs the Timing Analyzer in the current timing analysis mode"
+
+"WED Utilities Timing Analysis Source" "Tags or untags selected node(s) as source node(s) for timing analysis"
+
+"WED Utilities Timing Analysis Destination" "Tags or untags selected node(s) as destination node(s) for timing analysis"
+
+"WED Utilities Timing Analysis Cutoff" "Tags or untags selected node(s) as cutoff node(s) for timing analysis"
+
+"WED Utilities Clear All Timing Analysis Tags" "Clears all source, destination, and cutoff node tagging and returns to default tagging for timing analysis"
+
+/*-----------------------------------------------------------*/
+/* Common editor commands duplicated for FED                 */
+/*-----------------------------------------------------------*/
+
+
+"FED File Retrieve..." "Closes the current file and opens another file in the same window"
+
+"FED File Close" "Closes the current active file window"
+
+"FED File Save" "Saves changes to the current file"
+
+"FED File Save As..." "Saves a new version of the current file under a different name"
+
+"FED File Info..." "Displays size and date information and the current editing status of the current file"
+
+"FED File Create Default Symbol" "Creates a new symbol that represents the current design file"
+
+"FED File Edit Symbol" "Opens the Symbol File that represents the current design file in a Symbol Editor window"
+
+"FED File Create Default Include File" "Creates a new Include File that represents the current design file"
+
+
+"FED Edit Undo" "Reverses the last action that changed the current assignments"
+
+"FED Edit Delete" "Deletes selected item(s) from the current assignments"
+
+"FED Edit Cut" "Deletes one or more selected items from the Floorplan Editor and places them on the Clipboard"
+
+"FED Edit Copy" "Copies one or more selected items from the Floorplan Editor and places them on the Clipboard"
+
+"FED Edit Paste" "Pastes a copy of the Clipboard contents at the insertion point"
+
+
+"FED Utilities Find Text..." "Searches for specified text in the current display"
+
+"FED Utilities Find Next" "Locates the next occurrence of the search text"
+
+"FED Utilities Find Previous" "Locates the previous occurrence of the search text"
+
+"FED Utilities Find Node in Design File..." "Finds a node, symbol, or probe anywhere in the current hierarchy of design files"
+
+"FED Utilities Find Node in Floorplan..." "Finds a node, symbol, or probe in the current floorplan"
+
+"FED Utilities Find Last Edit" "Moves the insertion point to the location of the previous edit"
+
+"FED Utilities Analyze Timing" "Runs the Timing Analyzer in the current timing analysis mode"
+
+"FED Utilities Timing Analysis Source" "Tags or untags selected node(s) as source node(s) for timing analysis"
+
+"FED Utilities Timing Analysis Destination" "Tags or untags selected node(s) as destination node(s) for timing analysis"
+
+"FED Utilities Timing Analysis Cutoff" "Tags or untags selected node(s) as cutoff node(s) for timing analysis"
+
+"FED Utilities Clear All Timing Analysis Tags" "Clears all source, destination, and cutoff node tagging and returns to default tagging for timing analysis"
+
+
+/*-----------------------------------------------------------*/
+/* Common commands duplicated for TAN                        */
+/*-----------------------------------------------------------*/
+
+
+"TAN Utilities Find Text..." "Searches for specified text in the current matrix (not available for Registered Performance display)"
+
+"TAN Utilities Find Next" "Locates the next occurrence of the search text"
+
+"TAN Utilities Find Previous" "Locates the previous occurrence of the search text"
+
+
+/*-----------------------------------------------------------*/
+/* Common commands duplicated for PGM                        */
+/*-----------------------------------------------------------*/
+
+
+"PGM File Info..." "Displays size, date, checksum, device, and other information of the current programming file"
+
+
+/*-----------------------------------------------------------*/
+/* HRW Commands (commands occurring only in HRW)             */
+/*-----------------------------------------------------------*/
+
+
+"HRW File Select Hierarchy..." "Selects a hierarchy of files to display"
+
+"HRW File Open Editor" "Opens one or more files whose icons are selected in the Hierarchy Display window"
+
+"HRW File Close Editor" "Closes one or more files whose icons are selected in the Hierarchy Display window"
+
+"HRW File Change File Type..." "Changes the design entry type of a design file whose icon is selected in the Hierarchy Display window "
+
+"HRW File Print..." "Prints the hierarchy tree at the current size"
+
+"HRW File Print Selected Files"	"Prints the currently selected files"
+
+
+"HRW View Fit in Window" "Displays the entire hierarchy tree in the current window"
+
+"HRW View Zoom In" "Increases the scale of the hierarchy tree"
+
+"HRW View Zoom Out" "Reduces the scale of the hierarchy tree"
+
+"HRW View Normal Size" "Displays the hierarchy tree at the normal (default) size"
+
+"HRW View Auto Fit in Window" "Displays the entire hierarchy tree in the current window at all times"
+
+
+"HRW Options Orientation" "  "
+
+"HRW Options Orientation Horizontal" "Displays the hierarchy tree in a horizontal orientation"
+
+"HRW Options Orientation Vertical" "Displays the hierarchy tree in a vertical orientation"
+
+"HRW Options Compact Display" "Moves items closer together to show a larger portion of the hierarchy tree"
+
+"HRW Options Show All Hierarchy Branches" "Displays all branches of the hierarchy tree"
+
+
+
+/*-----------------------------------------------------------*/
+/* GED  Commands (commands occurring only in GED)            */
+/*-----------------------------------------------------------*/
+
+
+"GED File Size..." "Changes the sheet size for the current Graphic Editor file"
+
+"GED File Print..." "Prints the file in the current active Graphic Editor window"
+
+
+"GED Edit Cut" "Deletes one or more selected items from the file and places them on the Clipboard"
+
+"GED Edit Copy" "Copies one or more selected items from the file and places them on the Clipboard"
+
+"GED Edit Paste" "Pastes a copy of the Clipboard contents at the insertion point"
+
+"GED Edit Toggle Connection Dot"	"Enters or deletes a connection dot"
+
+"GED Edit Flip Horizontal" "Flips a selected object or area along its horizontal axis"
+
+"GED Edit Flip Vertical" "Flips a selected object or area along its vertical axis"
+
+"GED Edit Rotate" "  "
+
+"GED Edit Rotate 90" "Rotates a selected object or area counterclockwise around its center by 90 degrees"
+
+"GED Edit Rotate 180" "Rotates a selected object or area counterclockwise around its center by 180 degrees"
+
+"GED Edit Rotate 270" "Rotates a selected object or area counterclockwise around its center by 270 degrees"
+
+
+"GED View Fit in Window" "Changes the display scale to fit the entire file in the current window"
+
+"GED View Zoom In" "Increases the scale of the objects displayed"
+
+"GED View Zoom Out" "Reduces the scale of the objects displayed"
+
+"GED View Normal Size" "Zooms in or out to display objects at normal (full) size"
+
+"GED View Maximum Size" "Zooms in to display objects at maximum resolution"
+
+"GED View Normal Size" "Zooms in or out to display objects at normal (full) size"
+
+
+"GED Symbol"    "  "
+
+"GED Symbol Enter Symbol..." "Enters a symbol into the current Graphic Editor file"
+
+"GED Symbol Edit Ports/Parameters..."	"Edits parameter names and values and optional port use status for a a selected mega- or macrofunction"
+
+"GED Symbol Update Symbol..." "Updates one or more symbols that have changed"
+
+
+"GED Utilities Go To..." "Centers the window around the specified XY coordinates"
+
+"GED Utilities Find Text..." "Searches for specified text in the current file"
+
+"GED Utilities Find Next Text" "Searches for the next occurrence of search text specified with Find Text or Search & Replace"
+
+"GED Utilities Find Previous Text" "Searches for the previous occurrence of search text specified with Find Text or Search & Replace"
+
+"GED Utilities Find Node Source" "Locates the source of the selected node or bus"
+
+"GED Utilities Find Next Source" "Locates the next source of the selected node or bus"
+
+"GED Utilities Find Previous Source" "Locates the previous source of the selected node or bus"
+
+"GED Utilities Find Node Destination" "Locates the destination of the selected node or bus"
+
+"GED Utilities Find Next Destination" "Locates the next destination of the selected node or bus"
+
+"GED Utilities Find Previous Destination" "Locates the previous destination of the selected node or bus"
+
+"GED Utilities Find Next" "Locates the next occurrence of the search text or the next node source or destination"
+
+"GED Utilities Find Previous" "Locates the previous occurrence of the search text or the previous node source or destination"
+
+"GED Utilities Find Text..." "Searches for specified text in the current file"
+
+"GED Utilities Search & Replace..." "Searches for specified text in the current file and replaces it"
+
+
+
+"GED Options Text Size" "Changes the size of selected text or sets the size for new text entries"
+
+"GED Options Font" "Changes the font of selected text or sets the font for new text entries"
+
+"GED Options Line Style" "Changes the line style of selected lines or sets the line style for new line entries"
+
+"GED Options Rubberbanding" "Turns the rubberbanding function on or off"
+
+"GED Options Show Parameters" "Displays or hides parameters from view"
+
+"GED Options Show Probes" "Displays or hides probes from view"
+
+"GED Options Show Pins/Locations/Chips" "Displays or hides pin, location, and chip assignments from view"
+
+"GED Options Show Cliques & Timing Assignments" "Displays or hides clique and timing assignments from view"
+
+"GED Options Show Logic Options" "Displays or hides logic option and logic synthesis style assignments from view"
+
+"GED Options Show All" "Displays or hides all parameters and probe and resource assignments"
+
+"GED Options Show Guidelines" "Displays or hides guidelines from view"
+
+"GED Options Guideline Spacing..." "Specifies the X (horizontal) and Y (vertical) spacing for guidelines"
+
+
+/*-----------------------------------------------------------*/
+/* SED Commands (commands occurring only in SED)            */
+/*-----------------------------------------------------------*/
+
+
+"SED File Save As..." "Saves a new version of the current file under a different name"
+
+"SED File Print..." "Prints the file in the current active Symbol Editor window"
+
+
+"SED Edit Flip Horizontal" "Flips a selected object or area along its horizontal axis"
+
+"SED Edit Flip Vertical" "Flips a selected object or area along its vertical axis"
+
+"SED Edit Rotate" "  "
+
+"SED Edit Rotate 90" "Rotates a selected object or area counterclockwise around its center by 90 degrees"
+
+"SED Edit Rotate 180" "Rotates a selected object or area counterclockwise around its center by 180 degrees"
+
+"SED Edit Rotate 270" "Rotates a selected object or area counterclockwise around its center by 270 degrees"
+
+
+"SED View Fit in Window" "Changes the display scale to fit the entire file in the current window"
+
+
+"SED Element"   "  "
+
+"SED Element Enter Pinstub..." "Creates a new pinstub and pinstub name at the current insertion point or edits an existing pinstub"
+
+"SED Element Enter Parameters..."	"Creates a parameter and optionally assigns a default parameter value"
+
+
+"SED Utilities Go To..." "Centers the window around the specified XY coordinates"
+
+"SED Utilities Find Text..." "Searches for specified text in the current file"
+
+"SED Utilities Find Next Text" "Searches for the next occurrence of search text specified with Find Text or Search & Replace"
+
+"SED Utilities Find Previous Text" "Searches for the previous occurrence of search text specified with Find Text or Search & Replace"
+
+"SED Utilities Find Next" "Locates the next occurrence of the search text specified with Find Text or Search & Replace"
+
+"SED Utilities Find Previous" "Locates the previous occurrence of the search text specified with Find Text or Search & Replace"
+
+"SED Utilities Search & Replace..." "Searches for specified text in the current file and replaces it"
+
+
+"SED Options Text Size" "Changes the size of selected text or sets the size for new text entries"
+
+"SED Options Font" "Selects the font used to display all text in the file"
+
+"SED Options Line Style" "Changes the line style of selected lines or sets the line style for new line entries"
+
+"SED Options Rubberbanding" "Turns the rubberbanding function on or off"
+
+"SED Options Show Parameters" "Displays or hides parameters from view"
+
+"SED Options Snap to Grid" "Turns the drawing grid that pulls objects to the nearest grid unit boundary on or off"
+
+"SED Options Show Guidelines" "Displays or hides guidelines from view"
+
+"SED Options Guideline Spacing..." "Specifies the X (horizontal) and Y (vertical) spacing for guidelines"
+
+  
+/*-----------------------------------------------------------*/
+/* TED Commands (commands occurring only in TED)             */
+/*-----------------------------------------------------------*/
+
+
+"TED File Save As..." "Saves a new version of the current file under a different name"
+
+"TED File Print..." "Prints the file in the current active Text Editor window"
+
+
+"TED Edit Cut" "Deletes the selected text from the file and places it on the Clipboard"
+
+"TED Edit Copy" "Copies selected text from the file and places it on the Clipboard"
+
+"TED Edit Paste" "Places a copy of the Clipboard contents at the insertion point"
+
+"TED Edit Insert Page Break" "Inserts a page break at the current insertion point"
+
+"TED Edit Increase Indent"	"Increases the indentation of the currently selected text"
+
+"TED Edit Decrease Indent"	"Decreases the indentation of the currently selected text"
+
+"TED Templates AHDL Template..." "Inserts an AHDL template at the current insertion point"
+
+"TED Templates VHDL Template..." "Inserts a VHDL template at the current insertion point"
+
+"TED Templates Verilog Template..." "Inserts a Verilog template at the current insertion point"
+
+
+"TED Utilities Go To..." "Moves the insertion point to the specified line and/or column number"
+
+"TED Utilities Find Text..." "Searches for specified text in the current file"
+
+"TED Utilities Find Next" "Locates the next occurrence of the search text"
+
+"TED Utilities Find Previous" "Locates the previous occurrence of the search text"
+
+"TED Utilities Find Matching Delimiter" "Searches for the opposite section delimiter that matches the current selection"
+
+"TED Utilities Search & Replace..." "Searches for specified text in the current file and replaces it"
+
+
+"TED Options Text Size" "Selects the point size used to display all text in the file"
+
+"TED Options Font" "Selects the font used to display all text in the file"
+
+"TED Options Tab Stops..." "Specifies the number of spaces represented by each tab stop"
+
+"TED Options Auto-Indent" "Turns automatic indentation on or off for subsequent text entry"
+
+"TED Options Syntax Coloring" "Turns syntax coloring on or off"
+
+
+/*-----------------------------------------------------------*/
+/* WED Commands (commands occurring only in WED)             */
+/*-----------------------------------------------------------*/
+
+
+"WED File Save As..." "Saves a new version of the current file under a different name"
+
+"WED File End Time..." "Specifies a new end time for the current file"
+
+"WED File Compare..." "Selects a Waveform Editor file to compare with the current file or ends the current comparison"
+
+"WED File Import Vector File..." "Imports an ASCII-format Vector File into the current Waveform Editor window"
+
+"WED File Create Table File..." "Creates an ASCII-format Table File with all logic level transition, node, and group information from the current file"
+
+"WED File Create Default Channel..." "Creates an SCF containing any combination of nodes and groups from the project's SNF"
+
+"WED File Print..." "Prints the file in the current active Waveform Editor window"
+
+
+"WED Edit Cut" "Deletes one or more selected items from the file and places them on the Clipboard"
+
+"WED Edit Copy" "Copies one or more selected items from the file and places them on the Clipboard"
+
+"WED Edit Paste" "Pastes a copy of the Clipboard contents at the insertion point"
+
+"WED Edit Overwrite" "  "
+
+"WED Edit Overwrite Low (0)" "Overwrites selected waveform(s) with a low (0) logic level"
+
+"WED Edit Overwrite High (1)" "Overwrites selected waveform(s) with a high (1) logic level"
+
+"WED Edit Overwrite Undefined (X)" "Overwrites selected waveform(s) with an undefined (X) logic level"
+
+"WED Edit Overwrite High Impedance (Z)" "Overwrites selected waveform(s) with a high-impedance (Z) logic level"
+
+"WED Edit Overwrite Invert" "Inverts low (0) and high (1) logic levels on selected waveform(s)"
+
+"WED Edit Overwrite Clock..." "Overwrites a node with a Clock waveform"
+
+"WED Edit Overwrite Count Value..." "Overwrites a single selected node or group waveform with a specified count sequence"
+
+"WED Edit Overwrite Group Value..." "Overwrites a single selected group waveform with a different logic level"
+
+"WED Edit Overwrite State Name..." "Overwrites selected state machine waveform(s) with a new state name"
+
+"WED Edit Insert" "  "
+
+"WED Edit Insert Low (0)" "Inserts a new waveform interval with a low (0) logic level"
+
+"WED Edit Insert High (1)" "Inserts a new waveform interval with a high (1) logic level"
+
+"WED Edit Insert Undefined (X)" "Inserts a new waveform interval with an undefined (X) logic level"
+
+"WED Edit Insert High Impedance (Z)" "Inserts a new waveform interval with a high-impedance (Z) logic level"
+
+"WED Edit Insert Clock..." "Inserts a new waveform interval with a Clock"
+
+"WED Edit Insert Count Value..." "Inserts a new waveform interval with a specified count sequence"
+
+"WED Edit Insert Group Value..." "Inserts a new waveform interval with any group value on a single group waveform"
+
+"WED Edit Insert State Name..." "Inserts a new waveform interval with any state name into a single state machine waveform"
+
+"WED Edit Align to Grid" "Aligns transitions on one more more selected waveforms to the current grid"
+
+"WED Edit Repeat..." "Inserts multiple copies of the Clipboard's contents at the selected insertion point"
+
+"WED Edit Grow or Shrink..." "Stretches or compresses a selected waveform interval to fit into a different time span"
+
+
+"WED View Fit in Window" "Changes the display scale to fit the entire file in the current window"
+
+"WED View Time Range..." "Scrolls and zooms within the file to display a specified time range in the current window"
+
+"WED View Stitch in Time..." "Hides a selected time interval from all waveforms and replaces it with a stitch in time marker"
+
+"WED View Zoom In" "Increases the scale of the waveforms displayed"
+
+"WED View Zoom Out" "Reduces the scale of the waveforms displayed"
+
+"WED View Normal Size" "Zooms in or out to display waveforms at normal (full) size"
+
+"WED View Maximum Size" "Zooms in to display waveforms at maximum resolution"
+
+
+"WED Node" "  "
+
+"WED Node Insert Node..." "Creates a new node or group"
+
+"WED Node Enter Nodes from SNF..."      "Adds nodes and groups from the project's SNF to the current file"
+
+"WED Node Edit Node..." "Changes characteristics of one or more existing nodes or groups"
+
+"WED Node Enter Group..." "Creates a new group, or changes the name or radix of one or more existing groups"
+
+"WED Node Ungroup" "Removes grouping from the selected group(s) and restores the original member nodes"
+
+"WED Node Sort Names..." "Sorts nodes and groups by name in ascending or descending alphanumerical order"
+
+"WED Node Enter Separator..." "Creates a separator that disassociates the waveforms before and after the separator from each other"
+
+
+"WED Utilities Go To..." "Moves the Time cursor to the specified time within the file"
+
+"WED Utilities Select..." "Selects a specified time interval on the waveforms of one or more nodes and/or groups"
+
+"WED Utilities Find Text..." "Searches for specified text in the current file"
+
+"WED Utilities Find Next Transition" "Moves the Time cursor to the next logic level transition on the selected node(s) or group(s)"
+
+"WED Utilities Find Previous Transition" "Moves the Time cursor to the previous logic level transition on the selected node(s) or group(s)"
+
+"WED Utilities Find Next" "Locates the next occurrence of the search text or the next logic level transition"
+
+"WED Utilities Find Previous" "Locates the previous occurrence of the search text or the previous logic level transition"
+
+"WED Utilities Search & Replace..." "Searches for specified text in the current file and replaces it"
+
+
+"WED Options Snap to Grid" "Turns the grid that pulls all new or moved logic level transitions to the nearest grid line on or off"
+
+"WED Options Show Grid" "Displays or hides the drawing grid"
+
+"WED Options Grid Size..." "Determines the size (spacing) of the drawing grid"
+
+
+/*-----------------------------------------------------------*/
+/* FED  Commands (commands occurring only in FED)            */
+/*-----------------------------------------------------------*/
+
+
+"FED File Print..." "Prints the floorplan in the current active Floorplan Editor window"
+
+
+"FED View Fit in Window" "Changes the display scale to fit the entire view in the current window"
+
+"FED View Zoom In" "Increases the scale of the objects displayed"
+
+"FED View Zoom Out" "Reduces the scale of the objects displayed"
+
+"FED View Normal Size" "Zooms in or out to display objects at normal (full) size"
+
+"FED View Maximum Size" "Zooms in to display objects at maximum resolution"
+
+
+"FED Layout Full Screen" "Expands the floorplan display by hiding all items in the top of the window"
+
+"FED Layout Report File Equation Viewer"	"Displays or hides the Report File Equation Viewer"
+
+"FED Layout Device View" "Displays the current device in the Device View"
+
+"FED Layout LAB View" "Displays the current device in the LAB View"
+
+"FED Layout Current Assignments Floorplan" "Displays floorplan information for current assignments"
+
+"FED Layout Last Compilation Floorplan" "Displays floorplan information from the last compilation"
+
+
+"FED Assign Demote Assignments..." "Demotes selected assignments to less restrictive assignments"
+
+
+"FED Options Routing Statistics..." "Displays routing information on selected item(s) in the current chip"
+
+"FED Options Show Node Fan-In" "Displays the fan-in to the selected item(s)"	
+
+"FED Options Show Node Fan-Out"	"Displays the fan-out of the selected item(s)"
+
+"FED Options Show Path" "Displays the path between selected items"
+
+"FED Options Show Moved Nodes in Gray" "Displays nodes that have been moved in gray"
+
+
+/*-----------------------------------------------------------*/
+/* CMP Commands (commands occurring only in CMP)             */
+/*-----------------------------------------------------------*/
+
+
+"CMP File Combine Programming Files..." "Combines and converts SOF(s) into formats that support various FLEX device configuration schemes"
+
+"CMP Processing" "  "
+
+"CMP Processing Design Doctor" "Turns the Design Doctor utility on or off"
+
+"CMP Processing Design Doctor Settings..." "Specifies the set of design rules for the Design Doctor to use in project reliability analysis"
+
+"CMP Processing Logic Synthesis..." "Specifies the default logic synthesis style and other logic synthesis options for the current project"
+
+"CMP Processing Functional SNF Extractor" "Turns the Functional SNF Extractor on or off"
+
+"CMP Processing Timing SNF Extractor" "Turns the Timing SNF Extractor on or off"
+
+"CMP Processing Linked SNF Extractor" "Turns the Linked SNF Extractor on or off"
+
+"CMP Processing Optimize Timing SNF" "Turns the optimizing feature of the Timing SNF Extractor on or off"
+
+"CMP Processing Fitter Settings..." "Specifies options for the Fitter and Logic Synthesizer to use in compiling a project"
+
+"CMP Processing Report File Settings..." "Specifies optional sections to be included in the Report File generated during compilation"
+
+"CMP Processing Generate AHDL TDO File" "Creates one or more AHDL TDO Files when a project compiles successfully"
+
+"CMP Processing Total Recompile" "Directs the Compiler to completely recompile all design files in the project"
+
+"CMP Processing Smart Recompile"        "Directs the Compiler to create detailed database files that will speed up future recompilations"
+
+"CMP Processing Preserve All Node Name Synonyms"	"Directs the Compiler to include all node name synonyms in the Node Database File"
+
+
+"CMP Device" "  "
+
+"CMP Device Auto Device Selection..." "Selects the device family and devices for the Compiler to use in automatic device selection"
+
+"CMP Device Device Options..." "Specifies the default device options for all devices used in a project"
+
+"CMP Device Reserve Resources..." "Specifies the percentage of all device pin and/or logic cell resources to remain unused"
+
+"CMP Interfaces"        "  "
+
+"CMP Interfaces EDIF Netlist Reader Settings..."   "Specifies the LMFs and options for the Compiler to use in compiling EDIF Input Files"
+
+"CMP Interfaces EDIF Netlist Writer" "Turns the EDIF Netlist Writer module on or off to generate one or more EDIF Output Files"
+
+"CMP Interfaces EDIF Netlist Writer Settings..."   "Specifies EDIF Command Files and options for the Compiler to use in generating EDIF Output Files"
+
+"CMP Interfaces Verilog Netlist Writer" "Turns the Verilog Netlist Writer module on or off to generate one or more Verilog Output Files"
+
+"CMP Interfaces Verilog Netlist Writer Settings..." "Specifies options for the Compiler to use in generating Verilog Output Files"
+
+"CMP Interfaces VHDL Netlist Reader Settings..." "Specifies the VHDL version and optional custom user-defined VHDL design libraries for the current project"
+
+"CMP Interfaces VHDL Netlist Writer" "Turns the VHDL Netlist Writer module on or off to generate one or more VHDL Output Files"
+
+"CMP Interfaces VHDL Netlist Writer Settings..." "Specifies options for the Compiler to use in generating VHDL Output Files"
+
+"CMP Interfaces XNF Netlist Reader Settings..."    "Specifies options for the Compiler to use in compiling Xilinx Netlist Format Files"
+
+"CMP Interfaces Synopsys Compiler" "Specifies whether you wish to use a Synopsys compiler for processing VHDL and Verilog design files"
+
+"CMP Interfaces Synopsys Compiler Settings..." "Specifies which Synopsys compiler to use and other settings for processing VHDL and Verilog files"
+
+
+/*-----------------------------------------------------------*/
+/* SIM Commands (commands occurring only in SIM)             */
+/*-----------------------------------------------------------*/
+
+
+"SIM File Create Table File..." "Creates a Table File that records all logic level transitions for nodes and groups in the current SCF"
+
+"SIM File Execute Command File..." "Executes a Command File that contains commands for batch-mode simulation"
+
+"SIM File Inputs/Outputs..." 	"Specifies the input SCF or Vector File and output Log and/or History Files to be used for simulation"
+
+
+"SIM Options Breakpoint..." 	"Creates one or more breakpoints that cause the Simulator to pause during simulation"
+
+"SIM Options Hardware Setup..." "Specifies the Altera programming hardware installed in your computer"
+
+
+"SIM Initialize"   "  "
+
+"SIM Initialize Initialize Nodes/Groups..."   	"Specifies initial node and group logic levels for simulation"
+
+"SIM Initialize Initialize Memory..."   		"Specifies initial memory values for simulation"
+
+"SIM Initialize Save Initialization As..."   	"Saves initialized node, group, and memory values to an SIF"
+
+"SIM Initialize Restore Initialization..."   	"Retrieves initialized node, group, and memory values stored in an SIF"
+
+"SIM Initialize Reset to Initial SNF Values"  "Resets node, group, and memory values to the values stored in the SNF"
+
+
+/*-----------------------------------------------------------*/
+/* TAN Commands (commands occurring only in TAN)             */
+/*-----------------------------------------------------------*/
+
+
+"TAN File Save Analysis As..." "Saves the current Timing Analyzer results to a Timing Analyzer Output File"
+
+"TAN File Print..." "Prints the timing analysis displayed in the current Timing Analyzer window"
+
+
+"TAN Node" "  "
+
+"TAN Node Timing Analysis Source..." "Tags or untags one or more nodes as signal sources for timing analysis"
+
+"TAN Node Timing Analysis Destination..." 	"Tags or untags one or more nodes as signal destinations for timing analysis"
+
+"TAN Node Timing Analysis Cutoff..." 		"Tags or untags one or more nodes as cutoff points to exclude the signal path(s) from timing analysis"
+
+
+"TAN Analysis"  "  "
+
+"TAN Analysis Delay Matrix" 			"Turns on the Delay Matrix timing analysis mode"
+
+"TAN Analysis Setup/Hold Matrix" 		"Turns on the Setup/Hold Matrix timing analysis mode"
+
+"TAN Analysis Registered Performance" 	"Turns on the Registered Performance timing analysis mode"
+
+
+"TAN Options Time Restrictions..." 		"Defines the maximum and minimum delay paths to be included in the next timing analysis"
+
+"TAN Options Auto-Recalculate" 			"Turns automatic timing analysis recalculation on and off"
+
+"TAN Options Cell Width..." 			"Specifies the width of each cell in the current timing analysis matrix"
+
+"TAN Options Cut Off I/O Pin Feedback" 		"Cuts off the delay path that is fed back from a bidirectional pin during timing analysis"
+
+"TAN Options Cut Off Clear & Preset Paths" 	"Cuts off the delay paths that feed register Clear and Preset inputs during timing analysis"
+
+"TAN Options List Only Longest Path" 		"Calculates only the longest delay path between any pair of nodes"
+
+
+/*-----------------------------------------------------------*/
+/* PGM Commands (commands occurring only in PGM)             */
+/*-----------------------------------------------------------*/
+
+
+"PGM File Select Programming File..." 		"Loads a programming file"        
+
+"PGM File Save Programming Data As..." 		"Saves current programming data to a POF or JEDEC File"
+
+"PGM File Inputs/Outputs..." 				"Specifies the input SCF, Vector File, or programming file and output PLF to be used for programming and functional testing"
+
+"PGM File Combine Programming Files..." 		"Combines and converts SOF(s) into formats that support various FLEX device configuration schemes"
+
+"PGM File Archive JTAG Programming Files..."	"Archives JTAG programming files"
+
+"PGM File Create Serial Vector File..."	"Converts one or more POFs into a Serial Vector Format File"
+
+
+"PGM JTAG"  "  "
+
+"PGM JTAG Multi-Device JTAG Chain"				"Turns the multi-device JTAG chain programming/configuration mode on and off"
+
+"PGM JTAG Multi-Device JTAG Chain Setup..."		"Specifies the settings to implement a multi-device JTAG programming/configuration chain"
+
+"PGM JTAG Save JCF..."			"Stores information used to program/configure a multi-device JTAG chain in a JTAG Chain File"
+
+"PGM JTAG Restore JCF..."		"Loads information used to program/configure a multi-device JTAG chain from a JTAG Chain File"
+
+
+"PGM FLEX"  "  "
+
+"PGM FLEX Multi-Device FLEX Chain"				"Turns the multi-device FLEX chain configuration mode on and off"
+
+"PGM FLEX Multi-Device FLEX Chain Setup..."		"Specifies the settings to implement a multi-device FLEX configuration chain"
+
+"PGM FLEX Save FCF..."			"Stores information used to configure a multi-device FLEX chain in a FLEX Chain File"
+
+"PGM FLEX Restore FCF..."		"Loads information used to configure a multi-device FLEX chain from a FLEX Chain File"
+
+
+"PGM Options Sound" 					"Turns the message alert sound on or off"
+
+"PGM Options Programming Options..." 	"Specifies default settings for the Programmer"
+
+"PGM Options Select Device..." 		"Specifies a device and allows you to enter and delete passwords"
+
+"PGM Options Hardware Setup..." 	"Specifies the Altera programming hardware installed in your computer"
+
+
+/*-----------------------------------------------------------*/
+/* MSG Commands (commands occurring only in MSG)             */
+/*-----------------------------------------------------------*/
+
+
+"MSG File Select Messages..." "Selects a set of messages to display"
+
+"MSG File Save Messages As..."                  "Saves the currently displayed messages to an MTF"
+
+"MSG File Print..."                             "Prints the currently displayed messages"
+
+
+

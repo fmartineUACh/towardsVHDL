@@ -1,0 +1,116 @@
+.Model NMOS20 NMOS
+
++ LEVEL	= 20		; EPFL - EKV (Enz-Krummenacher-Vittoz) MOS MODEL
+
+*****************************
+* Level specific parameters *
+*****************************
+
++ THETA	= 0.0		; mobility reduction coefficient
++ LETA	= 0.1		; short channel effect coefficient
++ WETA	= 0.25		; narrow channel effect coefficient
++ LAMBDA = 0.5		; depletion length coefficient
++ IBA	= 0.0		; first impact ionization coefficient
++ IBB	= 3.0e8		; second impact ionization coefficient
++ IBN	= 1.0		; saturation voltage factor
++ XJ	= 0.1E-06	; Metallurgical junction depth
++ UCRIT	= 2.0e6		; Critical field for mobility degradation
++ NFS	= 0.0		; Fast surface state density
++ UCEX	= 0.8		$longitudinal critical field temperature exponent
++ IBBT	= 9.0e-4	; temperature coefficient for IBB
++ NQS	= 0		; Non-Quasi-Static operation switch
+
+************
+* Geometry *
+************
+
++ COX	= 0.7E-3	; gate oxide capacitance per unir area
++ LD	= 0.0		; lateral diffusion
++ LMLT	= 1.0		; length multiplier
++ WD	= 0.0		; lateral diffusion
++ WMLT	= 1.0		; width multiplier
++ DEL	= 0.0		; channnel length reduction
++ DL	= 0.0		; length offset
++ DW	= 0.0		; width offset
++ LDIF	= 0.0		; length of lightly doped diffusion
++ HDIF	= 0.0		; length of heavily doped diffusion
+
+*******************
+* Stress analysis *
+*******************
+
++ PMAX	= 2.5E-1	; max power
+
+************************
+* Overlap capacitances *
+************************
+
++ CGBO	= 0.0		; gate-bulk overlap capacitance
++ CGDO	= 0.0		; gate-drain overlap capacitance
++ CGSO	= 0.0		; gate-source overlap capacitance
+
++ FRINGE= 0.0		; fringing field factor
+
+****************
+* Capacitances *
+****************
+
++ CBD	= 0.0		; zero bias bulk-drain junction capacitance
++ CBS	= 0.0		; zero bias bulk-source junction capacitance
++ CJ	= 0.0		; zero bias bulk junction bottom capacitance
++ CJSW	= 0.0		; zero bias bulk junction sidewall capacitance
++ MJ	= 0.5		; bulk junction bottom grading coefficient
++ PB	= 0.8		; diode bottom wall junction potential
++ FC	= 0.5		; forward bias junction capacitance coefficient
++ MJSW	= 0.33		; bulk junction sizewall grading coefficient
++ PBSW	= 0.8		; diode sidewall junction potential
++ CTA	= 0.0		; temperature coefficient for bottom capacitance
++ CTP	= 0.0		; temperature coefficient for periphery capacitance
+
+*******************
+* Leakage current *
+*******************
+
++ IS	= 1.0E-14	; bulk junction saturation current
++ JS	= 0.0		; bulk junction saturation current per unit area
++ ISSW	= 0.0		; sidewall junction saturation current
++ JSSW	= 0.0		; sidewall junction saturation current per
+
+*************************
+* Parasitic resistances *
+*************************
+
++ RS	= 0.0		; source resistance
++ RD	= 0.0		; drain resistance
++ RSH	= 0.0		; drain and source diffusion sheet resistance
++ TRS	= 0.0		; temperature coefficient of source resistor
++ TRD	= 0.0		; temperature coefficient of drain resistor
++ TRSH	= 0.0		; temperature coefficient of sheet resistance
+
+*********************
+* Threshold voltage *
+*********************
+
++ VTO	= 0.5		; zero-bias threshold voltage
++ NSS	= 0.0		; surface state density
++ TPG	= 1.0		; type of gate material
++ PHI	= 0.7		; surface potential for strong inversion
++ GAMMA	= 1.0		; body effect parameter
++ NSUB	= 0.0		; substrate doping
++ TCV	= 1.0E-3	; temperature coefficient of threshold voltage
+
+************
+* Mobility *
+************
+
++ UO	= 600.0		; mobility
++ KP	= 5.0E-5	; transconductance
++ BEX	= -1.5		; temperature coefficient for transconductance
+
+*********
+* Noise *
+*********
+
++ KF	= 0.0		; Flicker noise coefficient
++ AF	= 1.0		; frequency exponent
+

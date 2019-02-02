@@ -1,0 +1,84 @@
+revision 3|vba
+m|&File
+i|&New|C|New File|CTRL+N
+i|&Open...|C|Open File|CTRL+O
+i|-
+i|&Save|C|Save File|CTRL+S
+i|Save &As...|C|Save As
+i|-
+i|Summary &Info...|C|Summary Info
+i|Select &License on Startup|C|Select License
+i|-
+i|E&xit|C|Exit
+m|&Project
+i|&Open...|C|Open Project
+m|&Library
+i|&Configure Libraries...|C|Configure Libraries
+i|-
+i|&Model Library Manager...|C|Model Library Manager
+m|&Setup
+i|&Sources...|C|Sources
+i|&Monitor...|C|Monitor
+i|-
+i|&DC Analysis...|C|DC Analysis
+i|&Frequency Analysis...|C|Frequency Analysis
+i|&Time Analysis...|C|Time Analysis
+i|Statistical &Analysis...|C|Statistical Analysis
+i|Parametric S&weep...|C|Parametric Sweep
+i|-
+i|Property &Override...|C|Property Override
+i|&Loads...|C|Loads
+i|Dist&ributions...|C|Distributions
+i|-
+i|Settin&gs...|C|Settings
+m|&Run
+i|&Design Capture...|C|Design Capture
+i|&Connectivity Extraction...|C|Extract Connectivity
+i|&Simulation...|C|Simulate
+m|R&esults
+i|&Waveform Display...|C|Waveform Displayer
+i|-
+i|&Reports...|C|Reports
+i|-
+i|&Delete Runs...|C|Delete Runs
+m|&Tools
+i|&Customize...|C|Customize
+i|&Options...|C|Options
+m|&Help
+i|&Contents|C|Help
+i|VeriBest Analog Process &Guide|C|Process Guide
+i|-
+i|&Technical Support|C|Technical Support
+i|-
+i|&About VeriBest Analog...|C|About
+t|1
+l
+b|NewBtn|C|new file
+b|OpenBtn|C|open file
+b|SaveBtn|C|save file
+b|SaveAsBtn|C|save as
+b|ExitBtn|C|exit
+b|separator
+b|separator
+b|ConfigLibsBtn|C|configure libraries
+b|MLMBtn|C|model library manager
+b|separator
+b|separator
+b|SourcesBtn|C|sources
+b|MonitorBtn|C|monitor
+b|DCAnaBtn|C|dc analysis
+b|FreqAnaBtn|C|frequency analysis
+b|TimeAnaBtn|C|time analysis
+b|StatisticalAnalysisBtn|C|statistical analysis
+b|SweepAnaBtn|C|parametric sweep
+b|PropertyOverrideBtn|C|property override
+b|LoadsBtn|C|loads
+b|separator
+b|separator
+b|SimulateBtn|C|simulate
+b|separator
+b|separator
+b|AWDBtn|C|waveform displayer
+b|separator
+b|separator
+b|HelpBtn|C|help

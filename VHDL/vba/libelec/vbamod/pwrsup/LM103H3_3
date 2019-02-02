@@ -1,0 +1,12 @@
+***** MODEL PARAMETERS EXTRACTED FROM TECAP *****
+.MODEL  LM103H3_3   D
++ RS     = 29.7384       
++ EG     = 1.11          
++ XTI    = 3             
++ VJ     = 0.946148      
++ M      = 0.286969      
++ FC     = 0.99          
++ BV     = 3.390770E+00  
++ CJO    = 1.524810E-11  STAT 1.245002E-11 1.867503E-11 :GAUSS
++ IS     = 7.824230E-14  
++ N      = 1.116410E+00  

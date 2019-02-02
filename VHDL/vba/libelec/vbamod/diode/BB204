@@ -1,0 +1,13 @@
+***** MODEL PARAMETERS EXTRACTED FROM TECAP *****
+.MODEL  BB204   D
++ RS     = 0.365978      
++ EG     = 1.11          
++ XTI    = 3             
++ VJ     = 0.693368      
++ M      = 0.448286      
++ FC     = 0.99          
++ BV     = 3.000000E+01  
++ CJO    = 8.722610E-11  STAT 7.121981E-11 1.068297E-10 :GAUSS
++ IS     = 3.196410E-15  
++ N      = 1.018090E+00  
++ TT     = 1.000000E-07  

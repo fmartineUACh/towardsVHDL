@@ -1,0 +1,1 @@
+-m -yu -e10 -w100 -o2 -ygs -fO -fP -v10 -dc37256 -pcy37256p160-125ac -b registro.vhd -u registro.hie -uch0000 

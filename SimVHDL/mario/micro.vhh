@@ -1,0 +1,9 @@
+ENTITY micro IS
+    PORT (
+	clk : in std_logic  ; 
+	reset : in std_logic  ; 
+	ro : inout std_logic_vector (3 downto 0) ; 
+	rt : inout std_logic_vector (3 downto 0) ; 
+	acc : inout std_logic_vector (3 downto 0)
+    ) ;
+END micro ;

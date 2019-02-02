@@ -1,0 +1,204 @@
+!
+!	File containing a list of text properties for use in VeriBest Design 
+!       Capture.  The properties in this file are used by the V12 products
+!       shipped by Intergraph Electronics.  These properties are not used
+!	by V14 VeriBest products.
+!
+!	Lines beginning with an exclamation mark are treated as comments.
+!
+!       There should be a version entry at the begining of the file, the 
+!	version is delimited by the text '*VERSION'.  DO NOT CHANGE THIS LINE.
+!       Do not add this line to existing text property files UNLESS the new
+!       property fields (font and color) are added for each text property in 
+!       the file.
+!
+!	Each new text property entry is delimited by the text '*TEXTPROP'.
+!
+!	There are twelve or thirteen entries per line. They are :-
+!
+!		a) the text property type number to be defined, in the range of
+!		   1-511. Use our text property numbers for the text properties
+!		   that we have defined. Numbers in the range 1-220 and 256-456
+!		   have special significance.
+!
+!		b) the type of item to which this text is to be attached
+!		   where the valid entries are
+!			LOOSE = loose text attached to no object
+!			CELL  = text attached to a symbol
+!			PIN   = text attached to a symbol pin
+!			NET   = text attached to a net
+!			TRANS = text attached to a transition.
+!		   These item types may be OR'ed together to allow text
+!		   to be attached to more than one object type. Use the '|'
+!		   character to indicate OR'ing. ie NET|PIN
+!
+!		c) maximum number of characters allowed in any text string line
+!		   of this type ( when entered by the user ). The maximum is 255
+!
+!		d) the allowed character set in this string ( when typed by the
+!		   user ) defined as a regular expression. Regular expressions
+!		   can be built  up from the following "single-character" RE's:
+!			c 	Any ordinary character not listed below. An
+!				ordinary character matches itself.
+!			\  	Backslash. When followed by a special character,
+!				the RE matches the "quoted" character.
+!			. 	Dot. Matches any single character.
+!			[c...]	A nonempty string of characters, enclosed in
+!				square brackets matches any single character in
+!				the string. For example [abcdef] matches any
+!				single character from the set 'abcdef'. When the
+!				first character of a string is a caret (^), then
+!				the RE matches any character except those in the
+!				remainder of the string. For example [^12345]
+!				matches any character except '12345'. A caret
+!				in any other position is interpreted as an
+!				ordinary character.
+!			[]...]	The right square bracket does not terminate the
+!				enclosed string if it is the first character
+!				(after and initial '^', if any), in the
+!				bracketed string. In this position it is treated
+!				as an ordinary character.
+!			[l-r]	The minus sign between two characters, indicates
+!				a range of consecutive ASCII characters to
+!				match. For example, the range '[0-9]' is
+!				equivalent to the string '[0123456789]'. The '-'
+!				is treated as an ordinary character if it occurs
+!				first (or first after an initial '^) or last in
+!				the string
+!			e*	Closure (repeat) a regular expression zero or
+!				more times.
+!			e+	One or more occurrences of an expression.
+!			e?	Zero or one occurrences of an expression.
+!			e1e2	Regular expression concatenation.
+!			e1|e2	Match either e1 or e2.
+!			(...)	Regular expression may be enclosed in
+!				parenthesis to force operator precedence.
+!		   The operator precedence is '[]', '*+?', concatenation and
+!		   the operator with the lowest priority is '|'.
+!		   Some special macros have been predefined to ease the task
+!		   of regular expression construction. Namely:
+!		       Macro    Equivalence string
+!		       -----    ------------------
+!			\a	[A-Za-z]	any alphabetic character
+!			\n	[A-Za-z0-9]	any alphanumeric character
+!			\u	[A-Z]		any upper case character
+!			\l	[a-z]		any lower case character
+!			\d	[0-9]		any digit
+!			\e	[^ \t]		any character except white space
+!			\w  	[ \t]		any white space character
+!			\i	(0|[1-9]\d*)	any integer number
+!			\r	(\i|\i[.]\d*|[.]\d+)	any real number
+!			\f	(\r([eE][-+]?\i)?)	a floating point number
+!		   An integer is a number like 0, 1, 10, 1000000
+!		   A real number is a number like 0, 10, 10.2, 0.2, 10., .2
+!		   A floating point number is something like 5.0, 10.2e-7
+!
+!		e) the maximum number of lines allowed in this text string.
+!		   The minimum number is one, the absolute maximum allowed
+!		   is 127.
+!
+!		f) the name to be used for this text property. This name is used
+!		   by the user when selecting the text property or whenever the
+!		   current text property name is echoed or inquired. The name
+!		   may contain spaces and it must be enclosed in quotes.
+!
+!		g) the default text height for text with this property. The
+!		   height is specified in millimeters(mm) or inches(in).
+!
+!		h) the default visibility, values allowed are either VISIBLE
+!		   or INVISIBLE
+!
+!		i) an entry of SINGLE or MULTIPLE indicating whether multiple
+!		   entries of this string type may be made on symbols or on
+!		   symbol pins.
+!
+!		j) an entry of TEMPLATE or NOTEMPLATE to specify whether, by
+!		   default, strings placed inside a symbol by the symbol editor
+!		   may be edited once the symbol is placed in the schematic. If
+!		   the string is TEMPLATE'd then it may be edited in the
+!		   schematic.
+!
+!		k) the default font name used when placing new instances of
+!		   this text property. 
+!
+!		l) the default color number used when placing new instances of
+!		   this text property.  Please refer to the VeriBest Design
+!                  Capture User's Guide for definition of default colors.
+!
+!		m) an alias name, currently used by Dance+ to map Aceplus/VBDC 
+!		   properties to their Ace equivalents. DO NOT CHANGE THESE 
+!		   VALUES!
+!
+!		All used text properties need to be defined in this file, and
+!		those that are must have the first twelve entries present.
+!
+!		Each entry on a line is delimited from the next by white space.
+!
+!               Current version of the text properties file.
+*VERSION	12.0
+!
+*TEXTPROP 28	PIN|NET	64 \n*		1  "WIDTH"	0.08in VISIBLE SINGLE TEMPLATE Default 6
+*TEXTPROP 29    PIN|NET	255 .*          1  "CONTS"      0.08in VISIBLE SINGLE TEMPLATE Default 6 "CONTS"
+*TEXTPROP 31    NET 17 [GMKmunpfv]?\w?[+-]?\f  1  "VOLTAGE"   0.08in VISIBLE MULTIPLE TEMPLATE Default 6
+*TEXTPROP 37	CELL|PIN|NET  64 \n*	1  "DT"		0.08in VISIBLE SINGLE TEMPLATE Default 6 "DT"
+*TEXTPROP 38	PIN	8 \r		1  "CURR"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "CURR"
+*TEXTPROP 39	PIN	4 \i		1  "WOR"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "WOR"
+*TEXTPROP 40    NET     21 "[\*]?.*"    1  "FLATNETNAME" 0.08in VISIBLE MULTIPLE TEMPLATE Default 6
+*TEXTPROP 45	CELL	8 \r([kKM]|[kKM][fFhH])? 1  "R" 0.08in VISIBLE SINGLE TEMPLATE Default 6 "R"
+*TEXTPROP 46    CELL|PIN    64 "[A-Za-z0-9._]*" 1 "ADTECH" 0.08in VISIBLE SINGLE TEMPLATE  Default 6
+*TEXTPROP 52	NET	15 "(([Uu][Mm])|([Tt][Hh])|([Ii][Nn])|([Mm][Mm]))\w?\r"	1  "GROUPTOLDIST" 0.08in VISIBLE MULTIPLE TEMPLATE Default 6
+*TEXTPROP 53    NET 15 [GMKmunpfs]?\w?\f  1  "MAXDELAY"   0.08in VISIBLE MULTIPLE TEMPLATE Default 6
+*TEXTPROP 59	PIN|NET	255 .*		1  "PAIR"	0.08in VISIBLE SINGLE NOTEMPLATE Default 6 "PAIR"
+*TEXTPROP 55    NET 15 [GMKmunpfs]?\w?\f  1  "MINDELAY"   0.08in VISIBLE MULTIPLE TEMPLATE Default 6
+*TEXTPROP 65	NET	5 \i		1  "PCTMANLENGTH"	0.08in VISIBLE MULTIPLE NOTEMPLATE Default 6
+*TEXTPROP 60	PIN|NET	10 \i		1  "PRIORITY"	0.08in VISIBLE SINGLE NOTEMPLATE Default 6 "PRIORITY"
+*TEXTPROP 75    NET 15 [GMKmunpfs]?\w?\f  1  "GROUPTODELAY"   0.08in VISIBLE MULTIPLE TEMPLATE Default 6
+*TEXTPROP 77	PIN	64 \n*		1  "FOUT"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "FOUT"
+*TEXTPROP 81	PIN	64 \n*		1  "KCL1"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "KCL1"
+*TEXTPROP 82	PIN	64 \n*		1  "KCL2"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "KCL2"
+*TEXTPROP 83	PIN|NET	64 \n*		1  "CK"		0.08in VISIBLE SINGLE TEMPLATE Default 6 "CK"
+*TEXTPROP 85	PIN|NET	64 \n*		1  "IBLK"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "IBLK"
+*TEXTPROP 86	PIN|NET	64 \n*		1  "NET"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "NET"
+*TEXTPROP 91	PIN|NET	6  "[A-Z0-9$ .]*" 1  "THRUVIA"	0.08in VISIBLE SINGLE NOTEMPLATE Default 6 "THRUVIA"
+*TEXTPROP 94	NET	15 "(([Uu][Mm])|([Tt][Hh])|([Ii][Nn])|([Mm][Mm]))\w?\r"	1  "MAXTRLENGTH" 0.08in VISIBLE MULTIPLE NOTEMPLATE Default 6 "MAXTRLENGTH"
+*TEXTPROP 95	PIN|NET	15 "(([Uu][Mm])|([Tt][Hh])|([Ii][Nn])|([Mm][Mm]))\w?\r"	1  "MAXSTUBLENGTH" 0.08in VISIBLE SINGLE NOTEMPLATE Default 6 "MAXSTUBLENGTH"
+*TEXTPROP 98	PIN|NET	15 "(([Uu][Mm])|([Tt][Hh])|([Ii][Nn])|([Mm][Mm]))\w?\r"	1  "TRACEWIDTH"	0.08in VISIBLE SINGLE NOTEMPLATE Default 6 "TRACEWIDTH"
+*TEXTPROP 103	PIN|NET	15 "(([Uu][Mm])|([Tt][Hh])|([Ii][Nn])|([Mm][Mm]))\w?\r"	1  "MAXSTUBVIA"	0.08in VISIBLE SINGLE NOTEMPLATE Default 6 "MAXSTUBVIA"
+*TEXTPROP 105	CELL	20 "[, BCINEPTVHS]*" 1  "CTL"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "CTL"
+*TEXTPROP 110	CELL	64 "[-a-zA-Z0-9. ]*"	1  "POWER"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "POWER"
+*TEXTPROP 111	PIN|NET	64 \n*		1  "INIT"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "INIT"
+*TEXTPROP 112	CELL	64 \n*		1  "TECH"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "TECH"
+*TEXTPROP 113	CELL	64 \n*		1  "DECAY"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "DECAY"
+*TEXTPROP 114	PIN|NET	64 \n*		1  "MPW"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "MPW"
+*TEXTPROP 122	NET	20 ([Mm]|[Cc]|[Ff])\a*		1  "NETLINEORDER"	0.08in VISIBLE MULTIPLE TEMPLATE Default 6
+*TEXTPROP 126	PIN	64 \n*		1  "FIN"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "FIN"
+*TEXTPROP 129	PIN|NET	57  "(([Uu][Mm])|([Tt][Hh])|([Ii][Nn])|([Mm][Mm]))(( ([0-9.]*))*)"	1  "WIRULE"	0.08in VISIBLE SINGLE NOTEMPLATE Default 6 "WIRULE"
+*TEXTPROP 135	PIN|NET	64 \n*		1  "SRL"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "SRL"
+*TEXTPROP 136	PIN|NET	64 \n*		1  "SHT"	0.08in VISIBLE SINGLE TEMPLATE Default 6 "SHT"
+*TEXTPROP 137	PIN|NET	64 \n*		1  "WD"		0.08in VISIBLE SINGLE TEMPLATE Default 6 "WD"
+*TEXTPROP 145 	NET 15 "(([Uu][Mm])|([Tt][Hh])|([Ii][Nn])|([Mm][Mm]))\w?\r"	1  "MINTRLENGTH"    0.08in INVISIBLE MULTIPLE NOTEMPLATE Default 6
+*TEXTPROP 146 	NET 5 \i		1  "GROUPAS"    0.08in INVISIBLE MULTIPLE NOTEMPLATE Default 6
+*TEXTPROP 147   PIN|NET 1  [012]	1  "GROUPRULE"    0.08in INVISIBLE SINGLE NOTEMPLATE Default 6
+*TEXTPROP 148	PIN|NET 255 "\d\d?\d?([ ]\d\d?\d?)*"    1  "LAYERRES"   0.08in INVISIBLE SINGLE NOTEMPLATE Default 6
+*TEXTPROP 149   PIN|NET 10 \i		1  "MAXNUMVIAS"    0.08in INVISIBLE SINGLE NOTEMPLATE Default 6
+*TEXTPROP 150   PIN|NET 15 "(([Uu][Mm])|([Tt][Hh])|([Ii][Nn])|([Mm][Mm]))\w?\r"	1  "GROUPTOL"    0.08in INVISIBLE SINGLE NOTEMPLATE Default 6
+*TEXTPROP 160   NET 20 "[A-Za-z0-9 \t]*" 1 "NETCLASS" 0.08in INVISIBLE MULTIPLE NOTEMPLATE Default 6
+!
+!
+!	Thick and thin file resistor properties.
+!
+*TEXTPROP 153	CELL     1   .	      	1 "$$ThickRes"	  0.08in VISIBLE SINGLE TEMPLATE Default 6
+*TEXTPROP 154	CELL   255   "(([Uu][Mm])|([Tt][Hh])|([Ii][Nn])|([Mm][Mm])) [rstRST] \f"	1 "$$Dim"     	  0.08in VISIBLE SINGLE TEMPLATE Default 6
+*TEXTPROP 155	CELL    64   "\f[ ]?[rRkKmM]?" 1 "$$Nom1" 0.08in VISIBLE SINGLE TEMPLATE Default 6
+*TEXTPROP 156	CELL    64   "\f[ ]?[rRkKmM]?" 1 "$$Nom2" 0.08in VISIBLE SINGLE TEMPLATE Default 6
+*TEXTPROP 157	CELL    64   \f		1 "$$MaxV"        0.08in VISIBLE SINGLE TEMPLATE Default 6
+*TEXTPROP 158	CELL    64   \r		1 "$$ProcT"       0.08in VISIBLE SINGLE TEMPLATE Default 6
+*TEXTPROP 159	CELL     1   .		1 "$$ThinRes"     0.08in VISIBLE SINGLE TEMPLATE Default 6
+!
+!       A/D Bridgeway property.
+*TEXTPROP  181 	CELL	255 \n*         1 "ABPARAMS   "	  0.08in VISIBLE SINGLE TEMPLATE Default 6	 
+
+
+
+
+

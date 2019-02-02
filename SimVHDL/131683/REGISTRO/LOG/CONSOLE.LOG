@@ -1,0 +1,29 @@
+Design: 07:36 p.m., Jueves, 20 de Junio de 2002
+Design: Opening design "A:\REGISTRO\REGISTRO\REGISTRO.adf"
+ELBREAD: Elaboration process.
+ELBREAD: Elaboration time 3.4 [s].
+Compilation with file reorder...
+File: A:\REGISTRO\REGISTRO.VHD
+Compile Entity "proyecto"
+Compile Architecture "corrimiento" of Entity "proyecto"
+Top-Level unit detected
+Entity  =>   proyecto
+Compile success 0 Errors 0 Warnings  Analysis time :  13.0 [s]
+ELBREAD: Elaboration process.
+ELBREAD: Elaboration time 1.1 [s].
+ELBREAD: Elaboration process.
+ELBREAD: Elaboration time 3.3 [s].
+KERNEL: Main thread initiated.
+KERNEL: Kernel process initialization phase.
+ELAB2: Elaboration final pass...
+ELAB2: Elaboration final pass complete - time: 0.4 [s].
+KERNEL: Kernel process initialization done.
+07:42 p.m., Jueves, 20 de Junio de 2002
+Simulation has been initialized
+Selected Top-Level: proyecto (corrimiento)
+Cannot force signal ent with formula 0.
+Cannot force signal sal with formula 0.
+Cannot force signal salida with formula 0.
+Cannot force signal sel with formula 0.
+KERNEL: stopped at time: 100 ns
+Simulation has been stopped

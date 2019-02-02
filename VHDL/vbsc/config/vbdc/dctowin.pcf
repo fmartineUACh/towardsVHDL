@@ -1,0 +1,300 @@
+! $Id: dctowin.pcf 1.3 1996/02/02 19:21:58 pinnacle Exp $
+!
+!	Plotter control file. Defines the characteristics of the display of 
+!	VBDC data.  This is read by the plot_cct.exe program.  While some control
+!	of the appearance of the plot is provided for here, the majority
+!	of the control of the output is controlled through the user's interaction
+!	with the printer driver.  This driver setup is accessable through 
+!	the "printers" button on the plotting interface, or through the system
+!	configuration of printers on the Windows work surface.
+!
+!	Lines beginning with an exclamation mark are treated as comments.
+!
+!
+!
+!
+!	This section sets up the default plotting scale. The plotting scale
+!	can be overriden on the command line for the plotting program. ie
+!		/scale=n
+!	but here you specify your normal default value.
+!       The string "FIT" can also be placed here to signify a default plotting
+!       scale which will fit the plot to the designated maximum page size.
+!
+*DEFAULT_PLOT_SCALE
+fit
+!
+!
+!	The text_limb_width is the width of the strokes that make up
+!	an unscaled character of 2.0mm.  Since the width of the
+!	strokes of characters cannot be changed in the VBDC
+!	editor, changing this value will result in a different
+!	look than what is on the screen.
+!
+*TEXT_LIMB_WIDTH
+    0.2mm
+!
+!
+!       The next entry specifies whether the user will be able to override the 
+!       original graphics attributes of the objects stored in the schematic.
+!       If this entry is set to 'yes' then the plot generated will look exactly
+!       like what is displayed on the screen(WYSIWYG).  If this entry is set to 
+!       'no' then the appearence of the plot will be controlled by the values
+!       specified in this file which appear after(below) this entry.  In otherwords,
+!       all entries below this line will be ignored if this entry is set to 'yes'.
+!       If this value is set to 'no' then all values below this line will control
+!       the appearence of the plot.
+! 
+*WYSIWYG
+yes
+!
+!
+!	The next 3 sections define various widths of objects. All the
+!	specified widths can be in inches, denoted by 'in' immediately
+!	following the number, or by 'mm' immediately following the number
+!
+*WIRE_WIDTH
+    0.25mm 
+*BUSS_WIDTH
+    0.9mm
+*SOLDER_DOT_RADIUS
+    0.75mm
+*BUSS_SOLDER_DOT_RADIUS
+    1.4mm
+!
+!
+!	Color numbers in plot_cct.exe refer to the colors defined in the VBDC environment:
+!	Use these color numbers to specify alternate colors for VBDC objects below.
+!	These colors are used only if the *WYSIWYG is set to NO. 
+!
+!	Note that since VBDC uses a black background and paper is 
+!	typically white, the indexes for black and white are reversed
+!	between this file and the colors in VBDC for better appearance
+!	on paper.
+!       
+!	Your colors may have been changed, but, the default the colors are:
+!
+!		0 =  white
+!		1 =  blue
+!		2 =  green
+!		3 =  cyan
+!		4 =  red
+!		5 =  magenta
+!		6 =  yellow
+!		7 =  black
+!		8 =  light gray
+!		9 =  dark blue
+!		10 = dark green
+!		11 = dark cyan
+!		12 = dark red
+!		13 = dark magenta
+!		14 = dark yellow
+!		15 = dark gray
+!
+!
+!
+!	Next section controls the display of text items. For each text type
+!	we can determine whether a visible or invisible entry of that text type
+!	will be plotted. We can also specify the pen number to be used for
+!	plotting so that different coloured pens can be used for different
+!	text types. Allowed responses to text visibility are 'yes/no'.
+!
+*TEXT_DISPLAY
+!   Text type	    Visible text    Invisible text	Color
+	1		on		off		#1	    !Instance name
+	2		on		off		#1	    !Part name
+	3		on		off		#1	    !Pin name
+	4		on		off		#1	    !Pin number
+	5		on		off		#1	    !Value
+	6		on		off		#1	    !Net name
+	7		on		off		#1	    !Arbitrary text
+	8		on		off		#1	    !Hier pin name
+	9		on		off		#1	    !Loose text
+	10		on		off		#1	    !Part number
+	11		on		off		#1	    !Bus index
+	12		on		off		#1	    !Device type
+	13		on		off		#1	    !Component tol
+	14		on		off		#1	    !Power rating
+	15		on		off		#1	    !Reference Desig
+	16		on		off		#1	    !Analog parameter
+	17		on		off		#1	    !Power pin pntr
+	18		on		off		#1	    !Nested cct name
+	19		on		off		#1	    !Drawing date
+	20		on		off		#1	    !Drawing issue
+	21		on		off		#1	    !Drawing name
+	22		on		off		#1	    !Pin sequence
+	23		on		off		#1	    !Frozen package
+	24		on		off		#1	    !Pin set name
+	25		on		off		#1	    !Simulation model
+	26		on		off		#1	    !Sheet Pointer
+	28		on		off		#1	    !WIDTH
+	30		on		off		#1	    !CLASS
+	32		on		off		#1	    !DESCRIPTION
+	33		on		off		#1	    !COST
+	37		on		off		#1	    !DT
+	38		on		off		#1	    !CURR
+	39		on		off		#1	    !WOR
+	44		on		off		#1	    !TYPE
+	45		on		off		#1	    !R
+	59		on		off		#1	    !PAIR
+	60		on		off		#1	    !PRIORITY
+	77		on		off		#1	    !FOUT
+	81		on		off		#1	    !KCL1
+	82		on		off		#1	    !KCL2
+	83		on		off		#1	    !CK
+	85		on		off		#1	    !IBLK
+	86		on		off		#1	    !NET
+	91		on		off		#1	    !THRUVIA
+	94		on		off		#1	    !MAXTRLENGTH
+	95		on		off		#1	    !MAXSTUBLENGTH
+	98		on		off		#1	    !TRACEWIDTH
+	103		on		off		#1	    !MAXSTUBVIA
+	105		on		off		#1	    !CTL
+	110		on		off		#1	    !POWER
+	111		on		off		#1	    !INIT
+	112		on		off		#1	    !TECH
+	113		on		off		#1	    !DECAY
+	114		on		off		#1	    !MPW
+	126		on		off		#1	    !FIN
+	127		on		off		#1	    !GRDDES
+	129		on		off		#1	    !WIRULE
+	135		on		off		#1	    !SRL
+	136		on		off		#1	    !SHT
+	137		on		off		#1	    !WD
+!
+!		FSM defined properties - Properties 138-143
+!
+	138		on		off		#1	    !State name
+	139		on		off		#1	    !Fsm outputs
+	140		on		off		#1	    !Fsm state
+	141		on		off		#1	    !Guard
+	142		on		off		#1	    !Fsm trans
+	143		on		off		#1	    !Fsm general
+!
+!		PCB Router properties - Properties 145-152 
+!
+	145		on		off		#1	    !MINTRLENGTH
+	146		on		off		#1	    !GROUPAS
+	147		on		off		#1	    !GROUPRULE
+	148		on		off		#1	    !LAYERRES
+	149		on		off		#1	    !MAXNUMVIAS
+	150		on		off		#1	    !GROUPTOL
+	151		on		off		#1	    !ROOM
+	152		on		off		#1	    !CLUSTER
+!
+!		Thick and thin file resistor properties.
+!
+	153		on		off		#1	    !$$ThickRes
+	154		on		off		#1	    !$$Dim
+	155		on		off		#1	    !$$Nom1
+	156		on		off		#1	    !$$Nom2
+	157		on		off		#1	    !$$MaxV
+	158		on		off		#1	    !$$ProcT
+	159		on		off		#1	    !$$ThinRes
+!
+!       	A/D Bridgeway property.
+!
+	181		on		off		#1	    !ABPARAMS   
+!
+!		BoardMaster properties.
+!
+	57		on		off		#1	    !CASE
+	58		on		off		#1	    !ORDER
+	73		on		off		#1	    !C_NAME
+	119		on		off		#1	    !CON_PIN
+	120		on		off		#1	    !OBJ_TYPE
+	123		on		off		#1	    !SHAPE_NM
+	128		on		off		#1	    !FIX
+	132		on		off		#1	    !BDID
+	133		on		off		#1	    !ECL_TERM
+!
+!       	CBDS properties.
+!
+	75		on		off		#1	    !VERSION
+!
+!       	CDX properties.
+!
+	90		on		off		#1	    !FLOOR_PLAN_BLOCK
+	92		on		off		#1	    !BURIEDVIA
+	93		on		off		#1	    !ANTIPAD
+	96		on		off		#1	    !ROUTECLASS
+	97		on		off		#1	    !SIGCLASS
+	99		on		off		#1	    !PLACEMENT_CLASS
+	100		on		off		#1	    !ECLNODE
+	101		on		off		#1	    !SPCNODE
+	102		on		off		#1	    !ATRM
+	104		on		off		#1	    !SPCPART
+	123		on		off		#1	    !SHAPE_NM
+!
+!       	ENR properties.
+!
+	48		on		off		#1	    !INHIBIT
+	63		on		off		#1	    !LD_RMP
+	64		on		off		#1	    !PIN_CAP
+	119		on		off		#1	    !CON_PIN
+!
+!       	ERC properties.
+!
+	31		on		off		#1	    !VOLTAGE
+	61		on		off		#1	    !CUT
+	62		on		off		#1	    !SHORT
+!
+!       	NCA properties.
+!
+	67		on		off		#1	    !REV
+!
+!       	PLDSYN properties.
+!
+	54		on		off		#1	    !PIN_NO
+	56		on		off		#1	    !IS_TYPE
+	79		on		off		#1	    !FSMIO
+	80		on		off		#1	    !STATE
+!
+!       	SCICARDS properties.
+!
+	51		on		off		#1	    !LPIN
+	117		on		off		#1	    !COMP_LOC
+	118		on		off		#1	    !COMP_TYPE
+	124		on		off		#1	    !SSN
+!
+!       	XILINX properties.
+!
+	107		on		off		#1	    !LOC
+	144		on		off		#1	    !XNF
+!
+!
+!	This section specifies the color number for the display of cell
+!	graphics.
+!
+*CELL_GFX_DISPLAY
+#1
+!
+!
+!	This section specifies the color number for the display of loose
+!	graphics.
+!
+*LOOSE_GFX_DISPLAY
+#2
+!
+!
+!	The wire section defines the color number that can be used to draw a
+!	wire.
+!
+*WIRES
+#3
+!
+!
+!	The rope section defines the color number that can be used to draw a
+!	buss.
+!
+*ROPES
+#0
+!
+!
+!	This section allows you to exclude certain symbol names from the plot.
+!	Place each symbol name on a seperate line of the file. Maximum of 32
+!	symbols may be listed. Don't include the version number. Typically 
+!       users might place cells on the circuit diagram for alignment purposes
+!       but not wish to have them plotted. This section can of course be empty.
+!
+*EXCLUDE_SYMBOLS
+AREA

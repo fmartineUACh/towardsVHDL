@@ -1,0 +1,13 @@
+SUBDESIGN decoder
+(
+	code[1..0]	: INPUT;
+	out[3..0]		: OUTPUT;
+)
+BEGIN
+	CASE code[] IS
+		WHEN 0 => out[] = B"0001";
+		WHEN 1 => out[] = B"0010";
+		WHEN 2 => out[] = B"0100";
+		WHEN 3 => out[] = B"1000";
+	END CASE;
+END;

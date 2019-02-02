@@ -1,0 +1,18 @@
+.MODEL TFM TFM
++ LEVEL = 1.0   ; transformer model selector
++ BS    = 0.2   ; (T) saturation inductance
++ BR    = 0.1   ; (T) residual inductance
++ HC    = 2.0   ; coercive force
++ FC1   = 1.0   ; frequency coefficient
++ FC2   = 0.0   ; frequency coefficient
++ FC3   = 0.0   ; frequency coefficient
++ TBS   = 0.0   ; temperature coefficient for BS
++ TBR   = 0.0   ; temperature coefficient for BR
++ THC   = 0.0   ; temperature coefficient for HC
++ DEL1  = 0.0   ; loss factor coefficient
++ DEL1P = 0.0   ; loss factor coefficient
++ DEL2  = 0.0   ; loss factor coefficient
++ DEL2P = 0.0   ; loss factor coefficient
++ TUI   = 0.0   ; temperature coefficient for initial permiability
++ PMAX  = 0.0   ; maximum power
++ CORE  = CORE  ; default core value setting

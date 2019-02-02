@@ -1,0 +1,7 @@
+:Base vbanalog.hlp
+:Title VeriBest Analog Calculator Help
+1 VeriBest Analog Calculator Command Reference
+2 Edit=AWC_CalculatorEditPulldownMenu
+2 View=AWC_CalculatorViewPulldownMenu
+2 Tools=AWC_CalculatorToolsPulldownMenu
+:include awccommand.cnt

@@ -1,0 +1,14 @@
+***** MODEL PARAMETERS EXTRACTED FROM TECAP *****
+.MODEL  1N4151   D
++ RS     = 1.0708        
++ EG     = 1.11          
++ XTI    = 3                   
++ VJ     = 0.0945768     
++ M      = 0.00537007    
++ FC     = 0.99          
++ BV     = 7.500000E+01  
++ CJO    = 1.917430E-12  STAT 1.565575E-12 2.348363E-12 :GAUSS
++ IS     = 7.803960E-09  
++ N      = 2.000000E+00  
++ TT     = 2.885390E-09  STAT 1.665881E-09 4.997641E-09 :GAUSS
++ PMAX   = 5.000000E-01  

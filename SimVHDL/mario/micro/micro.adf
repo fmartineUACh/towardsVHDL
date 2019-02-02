@@ -1,0 +1,11 @@
+[Project]
+Current config=GENERIC
+VCS=0
+modified=4
+
+[Configurations]
+GENERIC=micro
+
+[Files]
+/C:\WINDOWS\Escritorio\PROCESA\micro.vhd=4, 0 29525496 1321821184, 0, , , ,
+

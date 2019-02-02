@@ -1,0 +1,6 @@
+MESSAGE "File: C:\WINDOWS\Escritorio\PROCESA\micro.vhd" 
+MESSAGE "Compile Entity "micro"" 
+ERROR COMP96_0055: "Cannot find referenced context element." "C:\WINDOWS\Escritorio\PROCESA\micro.vhd" 2 9
+MESSAGE "Compile Architecture "a_micro" of Entity "micro"" 
+ERROR COMP96_0056: "Cannot find referenced entity declaration "micro"." "C:\WINDOWS\Escritorio\PROCESA\micro.vhd" 12 1
+MESSAGE "Compile failure 2 Errors 0 Warnings  Analysis time :  0.0 [s]" 

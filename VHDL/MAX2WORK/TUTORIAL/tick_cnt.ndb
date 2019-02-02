@@ -1,0 +1,124 @@
+NDB006
+The number of symbol table entries is: 2
+The length of the symbol table is: 36
+
+Index Hierarchy Path
+----- --------------
+!	&null_hpath&
+.	|8count:3|p8count:sub|
+
+The number of name info structs is : 111
+
+InsOrder BitField SymTableIndex NextSyn SynParent Loc ChainType NextChain ChainParent FanOut DirExp ParExp ShareExp NodeName
+-------- -------- ------------- ------- --------- --- --------- --------- ----------- ------ ------ ------ -------- --------
+"	IFkI	!	:2	"0
+#	IFkb	!	clk	o
+$	IFkb	!	get_ticket1	p
+%	IFkb	!	get_ticket2	q
+&	IFkc	!	ticket0	u
+'	IFkc	!	ticket1	t
+(	IFkc	!	ticket2	s
+)	IFkc	!	ticket3	r
+*	IUV3	.	"2	:1	#W
++	IFkI	.	:100	#`
+,	IFkI	.	:109	#b
+-	IFkI	.	:110	#a
+.	IFkI	.	:111	#c
+/	IFkI	.	:112	#l
+0	IFkI	.	:113	#m
+1	IFkI	.	:114	#n
+2	IFkI	.	:115	#o
+3	IFkI	.	:116	#p
+4	IFkI	.	:117	#q
+5	IFkI	.	:118	#r
+6	IFkI	.	:119	$#
+7	IFkI	.	:120	#$
+8	IFkI	.	:121	#%
+9	IFkI	.	:122	#&
+:	IFkI	.	:123	#'
+;	IFkI	.	:124	#(
+<	IFkI	.	:125	#)
+=	IFkI	.	:126	#,
+>	IFkI	.	:127	#-
+?	IFkI	.	:128	#.
+@	IFkI	.	:129	#/
+A	IFkI	.	:130	#0
+B	IFkI	.	:131	#1
+C	IFkI	.	:132	#4
+D	IFkI	.	:133	#5
+E	IFkI	.	:134	#6
+F	IFkI	.	:135	#7
+G	IFkI	.	:136	#8
+H	IFkI	.	:137	#9
+I	IFkI	.	:138	#*
+J	IFkI	.	:139	#2
+K	IFkI	.	:140	#:
+L	IFkI	.	:141	#;
+M	IFkI	.	:142	#+
+N	IFkI	.	:143	#3
+O	IFkI	.	:145	#k
+P	IFkI	.	:146	#j
+Q	IFkI	.	:147	#i
+R	IFkI	.	:148	#h
+S	IFkI	.	:149	#g
+T	IFkI	.	:150	#f
+U	IFkI	.	:151	#e
+V	IFkI	.	:152	#d
+W	IUV3	.	"1	:2	#X
+X	IFkI	.	:22	#V
+Y	IFkI	.	:23	#H
+Z	IFkI	.	:24	#I
+[	IFkI	.	:25	#J
+\	IFkI	.	:26	#K
+]	IFkI	.	:27	#L
+^	IFkI	.	:28	#M
+_	IFkI	.	:29	#N
+`	IUV3	.	"0	:3	#Y
+a	IFkI	.	:30	#O
+b	IFkI	.	:31	#P
+c	IFkI	.	:32	#Q
+d	IFkI	.	:33	#R
+e	IFkI	.	:34	#S
+f	IFkI	.	:35	#T
+g	IFkI	.	:36	#U
+h	IFkI	.	:39	#u
+i	IUV3	.	"/	:4	#Z
+j	IFkI	.	:40	#v
+k	IFkI	.	:43	#w
+l	IFkI	.	:44	#x
+m	IFkI	.	:47	#y
+n	IFkI	.	:48	#z
+o	IFkI	.	:49	#{
+p	IUV3	.	".	:5	#[
+q	IFkI	.	:50	#|
+r	IFkI	.	:52	#}
+s	IFkI	.	:53	#~
+t	IFkI	.	:56	$!
+u	IFkI	.	:57	$"
+v	IUV3	.	"-	:6	#\
+w	IFkI	.	:64	#F
+x	IFkI	.	:67	#E
+y	IUV3	.	",	:7	#]
+z	IFkI	.	:77	#C
+{	IFkI	.	:78	#D
+|	IUV3	.	"+	:8	#^
+}	IFkI	.	:84	#s
+~	IUVC	.	"*	:85	#_
+"!	IFkI	.	:86	#t
+""	IFkI	.	:88	#<
+"#	IFkI	.	:89	#=
+"$	IFkI	.	:90	#>
+"%	IFkI	.	:91	#?
+"&	IFkI	.	:92	#@
+"'	IFkI	.	:93	#A
+"(	IFkI	.	:95	#B
+")	IFkI	.	:96	#G
+"*	IM|o	.	~	COUT	#_
+"+	IM|_	.	|	QA	#^
+",	IM|_	.	y	QB	#]
+"-	IM|_	.	v	QC	#\
+".	IM|_	.	p	QD	#[
+"/	IM|_	.	i	QE	#Z
+"0	IM|_	.	`	QF	#Y
+"1	IM|_	.	W	QG	#X
+"2	IM|_	.	*	QH	#W

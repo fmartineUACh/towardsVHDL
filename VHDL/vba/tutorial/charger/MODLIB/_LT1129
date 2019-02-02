@@ -1,0 +1,102 @@
+.SUBCKT _LT1129  2   3  4   17   27
++ VREF 	   = 5.0
++ VREF_TC  = 0.4E-4
++ LINE_RG  = 1E-3
++ LOAD_RG  = 86E-4
++ RR_F3    = 10K
++ ZO_F3    = 10K
++ IO_MAX   = 1.2
++ IO_MIN   = 1E-6
++ IO_SC    = 0.75
++ I_Q      = 15E-6
++ I_Q_D    = 1E-3
++ I_Q_TC   = 0
++ VIN_MAX  = 30
++ VDRP_MAX = 0.45
++ VDRP_MIN = 0.45
++ VDRP_TC  = 0
++ P_SHDN   = 3
++ P_SDN_TC = 0
+*
+*       _LT1129  2   3  4   17   27
+*                :   :  :   :    :
+* LT1129 PinSeq: COM IN OUT SENS SHDN~
+*
+"PEI=3.14159265"
+"VAMAX=10-0.82"
+"KO=(IO_MAX-IO_SC)/IO_SC/VREF"
+"G=IO_SC/VAMAX"
+"RAMP=1.0E5"
+"IQ=0.9*I_Q"
+"VIN_AVG=(VIN_MAX-VDRP_MAX+VREF+VDRP_MIN)/2.0"
+"RZ1=VIN_AVG/(0.1*I_Q)"
+"RZ2=RZ1*LINE_RG"
+"CZ=1/(2.0*PEI*RZ1*RR_F3)"
+"AG=1/LOAD_RG"
+"RL=VREF/IO_MAX"
+"A=AG/(G*(1+KO*VREF))-1"
+"VR=VREF*(1+1/A)-LINE_RG*VIN_AVG"
+"KD=(VDRP_MAX-VDRP_MIN)/(IO_MAX-IO_MIN)"
+"GKO=G*KO"
+"VDRP=VDRP_MIN-KD*IO_MIN"
+"CAMP=1/(2.0*PEI*RAMP*ZO_F3)"
+*
+CZ        3     5     "CZ"
+DIN       0     3     DA
+RZ1       3     5     "RZ1"
+RZ2       5     2     "RZ2"
+ROADJ	4	17	6MEG
+RGADJ   2       17      6MEG
+ROSHD	4	27	1MEG
+RGSHD   2       27      1MEG
+GAMP      0    7     8     17     "A/RAMP"
+RAMP      7     0    "RAMP"
+CAMP      7     0     "CAMP"
+DAMP      7     15    DB
+DCLMP     0     7     DC
+EVAMAX    15 0  4 2  "VAMAX"
++ 1
+DSHUT     7     12    DB
+ESHUT 12 0 POLY(2) 13 0 15 0 0 "VAMAX"
++ 1
+EPWER 13 0 POLY(3)  9 4 3 4 22 0  0 0 0 "P_SHDN"
++ 0 -1
+RPWER     13    0     10K
+ECMP      11    0     16    14    10
+RSS	0	19	100
+GSS	0	19	27	2	0.12	-0.1
+MSS       18    19    0    0    MSW    L=10U W=1000U
+MSW       18    11    0    0    MSW    L=10U W=1000U
+RSW       18    20    100K
+CSW       18    2     200P
+VSW       20    0     1
+EVDR1     14    0     3     4     1
+RVDR3     14    16    100K
+EDRP2 16 0 POLY(2) 23 0 9 4 "VDRP"
++ 0 0 0 "KD"
+GREF 2  8  POLY(2)  21 0 5 2  0 "0.001*VR"
++ 0.001
+RREF      8     2     1K
+GIQ  3  2  POLY(2) 4 2 24 0  0   "I_Q_D"
++ "IQ"
+GIMIN 3 4  POLY(2) 18 0 24 0  0 0 0 0 "IO_MIN"
+GIS  3 9   POLY(3) 7 0 4 2 18 0   0  0 0 0 0 0 "G"
++ 0 "-1*G"
++ 0 0 0 0 0 "GKO"
++ 0 0 "-1*GKO"
+RO        9     4     1
+DOUT      2     4     DC
+IREF      0     21    1M
+RIREF     21    0     1K   TC="VREF_TC"
+ISHUT     0     22    1M
+RSHUT     22    0     1K   TC="P_SDN_TC"
+IDRP      0     23    1M
+RDRP      23    0     1K   TC="VDRP_TC"
+IQ        0     24    1M
+RIQ       24    0     1K   TC="I_Q_TC"
+.MODEL DA D  BV="VIN_MAX"
++ IBV=2  IS=8.0E-16
+.MODEL DB D  IS=1.2E-16 N=1
+.MODEL DC D  IS=1.2E-20 N=0.6 RS=1M
+.MODEL MSW NMOS VTO=0
+.ENDS _LT1129

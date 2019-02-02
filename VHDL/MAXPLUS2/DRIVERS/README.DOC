@@ -1,0 +1,65 @@
+                        Sentinel Driver
+                          Version 2.0
+
+  This is the readme file for the Sentinel Driver to be used with 
+Microsoft Windows NT applications that are protected by Rainbow 
+hardware keys.  This driver runs on X86-based, MIPS, and DEC Alpha machines.
+
+Files on the diskette
+
+  README.DOC   - This file.
+ 
+  OEMSETUP.INF - Installation file for Sentinel Driver.
+
+  SNTI386.DLL  - Sentinel Driver setup for Intel platforms.
+   
+  SNTMIPS.DLL  - Sentinel Driver setup for MIPS platforms.
+
+  SNTALPHA.DLL - Sentinel Driver setup for Alpha platforms.
+   
+  SENTTEMP.HLP - Help file for the Sentinel Driver setup dll.
+
+  SENTTEMP.SYS - Sentinel Driver. 
+
+  SENTINEL.DOC - Sentinel Driver User's Guide in Microsoft Word format.
+
+  There are three sets of Sentinel Driver files.  The X86-based 
+files are located in the I386 subdirectory, the MIPS files are
+located in the MIPS subdirectory, and the Alpha files are located in the
+ALPHA subdirectory.
+
+
+Installation Procedure
+ 
+1. Make a backup copy of the diskette.
+
+2. Under the Microsoft Windows NT Main group, select Control Panel.
+
+3. In the Control Panel group, select Drivers.
+
+4. When the driver list appears, select the ADD button.
+
+5. Choose "Unlisted or Updated" from the Driver list and select the OK 
+button.
+
+6. Place the Sentinel Driver diskette in the disk drive, specify its
+location and select OK.
+
+7. Select the Sentinel Driver, X86-based, MIPS, or Alpha, for your machine 
+and select OK.
+
+8. The Sentinel Driver and associated files are copied to the hard disk.
+One of the files SNTI386.DLL, SNTMIPS.DLL, or SNTALPHA.DLL, and SENTTEMP.HLP 
+will be copied into \%SYSTEMROOT%\SYSTEM32.  SENTTEMP.HLP will be copied to 
+SENTINEL.HLP.
+The file SENTTEMP.SYS will be copied to the file
+\%SYSTEMROOT%\SYSTEM32\DRIVERS\SENTINEL.SYS.  %SYSTEMROOT% is the directory 
+where Microsoft Windows NT has been installed.
+
+9. The Sentinel Driver setup program is automatically started.  Configure
+the Sentinel Driver for your computer.  The Help button can be selected
+for configuration information.
+
+10. Restart your computer as directed at the end of the installation 
+procedure.
+

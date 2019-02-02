@@ -1,0 +1,3066 @@
+
+     | | | | | | |
+   _________________
+  -|               |-
+  -|               |-
+  -|               |-
+  -|    CYPRESS    |-
+  -|               |-
+  -|               |-   Warp VHDL Synthesis Compiler: Version 6.2 IR 28.4
+  -|               |-   Copyright (C) 1991-2001 Cypress Semiconductor
+   |_______________|
+     | | | | | | |
+
+======================================================================
+Compiling:  micro.vhd
+Options:    -m -yu -e10 -w100 -o1 -ygs -fO -fP -v10 -yh -dc37256 -pcy37256p160-83ac -a modulos.vhd -b micro.vhd -u procesador.hie -uch0000
+======================================================================
+
+vhdlfe V6.2 IR 27:  VHDL parser
+Fri Nov 08 20:46:05 2002
+
+Library 'work' => directory 'lc37256'
+Linking 'C:\CYPRESS\WARP\bin\std.vhd'.
+Linking 'C:\CYPRESS\WARP\lib\common\cypress.vhd'.
+Linking 'C:\CYPRESS\WARP\lib\common\work\cypress.vif'.
+Library 'ieee' => directory 'C:\CYPRESS\WARP\lib\ieee\work'
+Linking 'C:\CYPRESS\WARP\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_mth.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_gen.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\madd_sub.vif'.
+Linking 'C:\mario\lc37256\modulos.vif'.
+
+vhdlfe:  No errors.
+
+
+tovif V6.2 IR 27:  High-level synthesis
+Fri Nov 08 20:46:06 2002
+
+Linking 'C:\CYPRESS\WARP\bin\std.vhd'.
+Linking 'C:\CYPRESS\WARP\lib\common\cypress.vhd'.
+Linking 'C:\CYPRESS\WARP\lib\common\work\cypress.vif'.
+Linking 'C:\CYPRESS\WARP\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_mth.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_gen.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\madd_sub.vif'.
+Linking 'C:\mario\lc37256\modulos.vif'.
+
+tovif:  No errors.
+
+
+topld V6.2 IR 27:  Synthesis and optimization
+Fri Nov 08 20:46:06 2002
+
+Linking 'C:\CYPRESS\WARP\bin\std.vhd'.
+Linking 'C:\CYPRESS\WARP\lib\common\cypress.vhd'.
+Linking 'C:\CYPRESS\WARP\lib\common\work\cypress.vif'.
+Linking 'C:\CYPRESS\WARP\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_mth.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_gen.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\madd_sub.vif'.
+Linking 'C:\mario\lc37256\modulos.vif'.
+Linking 'C:\CYPRESS\WARP\lib\lc370\stdlogic\c370.vif'.
+
+----------------------------------------------------------
+Detecting unused logic.
+----------------------------------------------------------
+    User names
+	e
+	pc_3
+	pc_2
+	pc_1
+	pc_0
+
+
+Deleted 5 User equations/components.
+Deleted 37 Synthesized equations/components.
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+
+------------------------------------------------------
+Aliased 0 equations, 50 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 74 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 10.
+----------------------------------------------------------
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+
+------------------------------------------------------
+Aliased 0 equations, 0 wires.
+------------------------------------------------------
+Created 214 PLD nodes.
+
+topld:  No errors.
+
+----------------------------------------------------------------------------
+PLD Optimizer Software:       DSGNOPT.EXE    31/03/2000  [v4.02 ] 6.2 IR 27
+
+DESIGN HEADER INFORMATION  (20:46:07)
+
+Input File(s): micro.pla
+Device       : cy37256p160
+Package      : cy37256p160-83ac
+ReportFile   : micro.rpt
+
+Program Controls:
+    COMMAND LANGUAGE_VHDL 
+    COMMAND UserCode 0000000000000000 
+    COMMAND PROPERTY BUS_HOLD DISABLE 
+
+Signal Requests:
+    GROUP DT-OPT ALL
+    GROUP USEPOL ALL
+    GROUP FAST_SLEW ALL
+
+Completed Successfully  
+----------------------------------------------------------------------------
+PLD Optimizer Software:       DSGNOPT.EXE    31/03/2000  [v4.02 ] 6.2 IR 27
+
+OPTIMIZATION OPTIONS       (20:46:07)
+
+Messages:
+  Information: Process virtual '\u6:MODULE_9:g1:a0:g0:u0:ci_2\'\u6:MODULE_9:g1:a0:g0:u0:ci_2\ ... expanded.
+  Information: Process virtual 'q_0D'q_0D ... expanded.
+  Information: Process virtual 'q_1D'q_1D ... expanded.
+  Information: Process virtual 'q_2D'q_2D ... expanded.
+  Information: Process virtual 'q_3D'q_3D ... expanded.
+  Information: Process virtual 'act_0' ... converted to NODE.
+  Information: Process virtual 'act_1' ... converted to NODE.
+  Information: Process virtual 'act_2' ... converted to NODE.
+  Information: Process virtual 'act_3' ... converted to NODE.
+  Information: Process virtual '\u6:MODULE_9:g1:a0:g0:u0:c_0\'\u6:MODULE_9:g1:a0:g0:u0:c_0\ ... expanded.
+  Information: Process virtual 'op_0'op_0 ... expanded.
+  Information: Process virtual 'op_1'op_1 ... expanded.
+  Information: Process virtual 'op_2'op_2 ... expanded.
+  Information: Process virtual 'op_3'op_3 ... expanded.
+  Information: Process virtual 'rd_0' ... converted to NODE.
+  Information: Process virtual 'rd_1' ... converted to NODE.
+  Information: Process virtual 'rd_2' ... converted to NODE.
+  Information: Process virtual 'rd_3' ... converted to NODE.
+  Information: Process virtual 'ri_0' ... converted to NODE.
+  Information: Process virtual 'ri_1' ... converted to NODE.
+  Information: Process virtual 'ri_2' ... converted to NODE.
+  Information: Process virtual 'ri_3' ... converted to NODE.
+  Information: Process virtual 'd'd ... expanded.
+  Information: Process virtual 'q_0' ... converted to NODE.
+  Information: Process virtual 'q_1' ... converted to NODE.
+  Information: Process virtual 'q_2' ... converted to NODE.
+  Information: Process virtual 'q_3' ... converted to NODE.
+  Information: Process virtual 'c'c ... expanded.
+  Information: Process virtual 'b'b ... expanded.
+  Information: Process virtual 'a'a ... expanded.
+  Information: Generating both D & T register equations for signal act_0.D
+  Information: Expanding XOR equation found on signal act_0.T
+  Information: Generating both D & T register equations for signal act_1.D
+  Information: Expanding XOR equation found on signal act_1.T
+  Information: Generating both D & T register equations for signal act_2.D
+  Information: Expanding XOR equation found on signal act_2.T
+  Information: Generating both D & T register equations for signal act_3.D
+  Information: Expanding XOR equation found on signal act_3.T
+  Information: Generating both D & T register equations for signal rd_0.D
+  Information: Expanding XOR equation found on signal rd_0.T
+  Information: Signal rt(0) is converted to a Input Register.
+  Information: Generating both D & T register equations for signal rd_1.D
+  Information: Expanding XOR equation found on signal rd_1.T
+  Information: Signal rt(1) is converted to a Input Register.
+  Information: Generating both D & T register equations for signal rd_2.D
+  Information: Expanding XOR equation found on signal rd_2.T
+  Information: Signal rt(2) is converted to a Input Register.
+  Information: Generating both D & T register equations for signal rd_3.D
+  Information: Expanding XOR equation found on signal rd_3.T
+  Information: Signal rt(3) is converted to a Input Register.
+  Information: Generating both D & T register equations for signal ri_0.D
+  Information: Expanding XOR equation found on signal ri_0.T
+  Information: Signal ro(0) is converted to a Input Register.
+  Information: Generating both D & T register equations for signal ri_1.D
+  Information: Expanding XOR equation found on signal ri_1.T
+  Information: Signal ro(1) is converted to a Input Register.
+  Information: Generating both D & T register equations for signal ri_2.D
+  Information: Expanding XOR equation found on signal ri_2.T
+  Information: Signal ro(2) is converted to a Input Register.
+  Information: Generating both D & T register equations for signal ri_3.D
+  Information: Expanding XOR equation found on signal ri_3.T
+  Information: Signal ro(3) is converted to a Input Register.
+  Information: Generating both D & T register equations for signal q_0.D
+  Information: Expanding XOR equation found on signal q_0.T
+  Information: Generating both D & T register equations for signal q_1.D
+  Information: Expanding XOR equation found on signal q_1.T
+  Information: Generating both D & T register equations for signal q_2.D
+  Information: Expanding XOR equation found on signal q_2.T
+  Information: Generating both D & T register equations for signal q_3.D
+  Information: Expanding XOR equation found on signal q_3.T
+  Information: Generating both D & T register equations for signal acc(0).D
+  Information: Expanding XOR equation found on signal acc(0).T
+  Information: Generating both D & T register equations for signal acc(1).D
+  Information: Expanding XOR equation found on signal acc(1).T
+  Information: Generating both D & T register equations for signal acc(2).D
+  Information: Expanding XOR equation found on signal acc(2).T
+  Information: Generating both D & T register equations for signal acc(3).D
+  Information: Expanding XOR equation found on signal acc(3).T
+  Information: Optimizing logic without changing polarity for signals:
+         acc(0).T acc(1).T acc(2).T acc(3).T act_0.T act_1.T act_2.T act_3.T
+         q_0.T q_1.T q_2.T q_3.T
+
+  Information: Optimizing logic using best output polarity for signals:
+         \u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\ acc(0).C acc(1).C acc(2).C
+         acc(3).C act_0.D act_1.D act_2.D act_3.D q_1.D q_2.D q_3.D
+
+  Information: Selected logic optimization OFF for signals:
+         acc(0).D acc(1).D acc(2).D acc(3).D act_0.C act_1.C act_2.C act_3.C
+         q_0.D q_0.C q_1.C q_2.C q_3.C ro(0).CI ro(1).CI ro(2).CI ro(3).CI
+         rt(0).CI rt(1).CI rt(2).CI rt(3).CI
+
+
+
+Summary:
+                 Error Count = 0      Warning Count = 0
+
+Completed Successfully  
+----------------------------------------------------------------------------
+PLD Optimizer Software:       MINOPT.EXE     01/NOV/1999  [v4.02 ] 6.2 IR 27
+
+LOGIC MINIMIZATION         ()
+
+Messages:
+
+
+Summary:
+                 Error Count = 0      Warning Count = 0
+
+Completed Successfully
+----------------------------------------------------------------------------
+PLD Optimizer Software:       DSGNOPT.EXE    31/03/2000  [v4.02 ] 6.2 IR 27
+
+OPTIMIZATION OPTIONS       (20:46:07)
+
+Messages:
+  Information: Optimizing Banked Preset/Reset requirements.
+  Information: Selecting T register equation as minimal for signal q_3
+  Information: Selecting D register equation as minimal for signal q_2
+  Information: Selecting D register equation as minimal for signal q_1
+  Information: Selecting D register equation as minimal for signal q_0
+  Information: Selecting D register equation as minimal for signal act_3
+  Information: Sum-Splitting output logic for signal act_3.
+  Information: Selecting D register equation as minimal for signal act_2
+  Information: Selecting D register equation as minimal for signal act_1
+  Information: Selecting D register equation as minimal for signal act_0
+  Information: Selecting D register equation as minimal for signal acc(3)
+  Information: Folding logic for signal acc(3).C.
+  Information: Folding logic for signal acc(2).C.
+  Information: Folding logic for signal acc(1).C.
+  Information: Folding logic for signal acc(0).C.
+  Information: Optimizing Banked Preset/Reset requirements.
+  Information: Optimizing logic without changing polarity for signals:
+         \u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\ acc(0).D acc(0).T acc(1).D
+         acc(1).T acc(2).D acc(2).T acc(3).D act_0.D act_1.D act_2.D act_3.D
+         q_0.D q_1.D q_2.D q_3.T
+
+  Information: Optimizing logic using best output polarity for signals:
+         S_1 S_2 acc(3)_C
+
+  Information: Selected logic optimization OFF for signals:
+         acc(0).C acc(1).C acc(2).C acc(3).C act_0.C act_1.C act_2.C act_3.C
+         q_0.C q_1.C q_2.C q_3.C ro(0).CI ro(1).CI ro(2).CI ro(3).CI rt(0).CI
+         rt(1).CI rt(2).CI rt(3).CI
+
+
+
+Summary:
+                 Error Count = 0      Warning Count = 0
+
+Completed Successfully  
+----------------------------------------------------------------------------
+PLD Optimizer Software:       MINOPT.EXE     01/NOV/1999  [v4.02 ] 6.2 IR 27
+
+LOGIC MINIMIZATION         ()
+
+Messages:
+
+
+Summary:
+                 Error Count = 0      Warning Count = 0
+
+Completed Successfully
+----------------------------------------------------------------------------
+PLD Optimizer Software:       DSGNOPT.EXE    31/03/2000  [v4.02 ] 6.2 IR 27
+
+OPTIMIZATION OPTIONS       (20:46:08)
+
+Messages:
+  Information: Selecting D register equation as minimal for signal acc(2)
+  Information: Selecting D register equation as minimal for signal acc(1)
+  Information: Selecting D register equation as minimal for signal acc(0)
+
+
+Summary:
+                 Error Count = 0      Warning Count = 0
+
+Completed Successfully  
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+DESIGN EQUATIONS           (20:46:08)
+
+
+    S_1 =
+          acc(2).Q * /acc(3).Q * ro(0).QI * ro(1).QI * /ro(2).QI * 
+          /ro(3).QI * rt(2).QI * /rt(3).QI 
+        + \u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * /acc(3).Q * ro(0).QI * 
+          ro(1).QI * /ro(2).QI * /ro(3).QI * rt(2).QI * /rt(3).QI 
+        + \u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * acc(2).Q * /acc(3).Q * 
+          ro(0).QI * ro(1).QI * /ro(2).QI * /ro(3).QI * /rt(3).QI 
+        + /\u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * /acc(2).Q * acc(3).Q * 
+          ro(1).QI * /ro(2).QI * /ro(3).QI * /rt(3).QI 
+        + /\u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * acc(3).Q * ro(1).QI * 
+          /ro(2).QI * /ro(3).QI * /rt(2).QI * /rt(3).QI 
+        + /acc(2).Q * acc(3).Q * ro(1).QI * /ro(2).QI * /ro(3).QI * 
+          /rt(2).QI * /rt(3).QI 
+        + acc(2).Q * acc(3).Q * ro(0).QI * /ro(2).QI * rt(2).QI * rt(3).QI 
+        + \u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * acc(3).Q * ro(0).QI * 
+          /ro(2).QI * rt(2).QI * rt(3).QI 
+        + \u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * acc(2).Q * acc(3).Q * 
+          ro(0).QI * /ro(2).QI * rt(3).QI 
+        + /\u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * /acc(2).Q * /acc(3).Q * 
+          ro(1).QI * /ro(2).QI * rt(3).QI 
+        + /\u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * /acc(3).Q * ro(1).QI * 
+          /ro(2).QI * /rt(2).QI * rt(3).QI 
+        + /acc(2).Q * /acc(3).Q * ro(1).QI * /ro(2).QI * /rt(2).QI * 
+          rt(3).QI 
+        + acc(3).Q * /ro(0).QI * ro(1).QI * /ro(2).QI * /ro(3).QI * 
+          /rt(3).QI 
+        + /acc(3).Q * /ro(0).QI * /ro(1).QI * ro(2).QI * /ro(3).QI 
+        + /ro(0).QI * ro(1).QI * ro(2).QI * rt(3).QI 
+        + acc(3).Q * /ro(1).QI * /ro(2).QI * rt(3).QI 
+
+    S_2 =
+          /acc(3).Q * /ro(0).QI * ro(1).QI * rt(3).QI 
+        + ro(0).QI * /ro(1).QI * /ro(2).QI * rt(3).QI 
+        + acc(3).Q * ro(0).QI * /ro(1).QI * /ro(3).QI 
+        + ro(3).QI * rt(3).QI 
+
+    \u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\ =
+          acc(0).Q * rt(0).QI * rt(1).QI 
+        + acc(0).Q * acc(1).Q * rt(0).QI 
+        + acc(1).Q * rt(1).QI 
+
+    acc(0).D =
+          act_0.Q 
+
+    /acc(0).C =
+          acc(3)_C.CMB 
+
+    acc(1).D =
+          act_1.Q 
+
+    /acc(1).C =
+          acc(3)_C.CMB 
+
+    acc(2).D =
+          act_2.Q 
+
+    /acc(2).C =
+          acc(3)_C.CMB 
+
+    acc(3).D =
+          act_3.Q 
+
+    /acc(3).C =
+          acc(3)_C.CMB 
+
+    acc(3)_C =
+          /q_0.Q * /q_1.Q * /q_3.Q 
+        + /q_2.Q * /q_3.Q 
+
+    act_0.D =
+          /acc(0).Q * /ro(0).QI * /ro(1).QI * ro(2).QI * /ro(3).QI 
+        + acc(0).Q * ro(1).QI * /ro(2).QI * /ro(3).QI * /rt(0).QI 
+        + /ro(0).QI * ro(1).QI * ro(2).QI * rt(0).QI 
+        + /acc(0).Q * ro(1).QI * /ro(2).QI * rt(0).QI 
+        + ro(0).QI * /ro(1).QI * /ro(2).QI * rt(0).QI 
+        + acc(0).Q * /ro(1).QI * /ro(2).QI * rt(0).QI 
+        + acc(0).Q * ro(0).QI * /ro(1).QI * /ro(3).QI 
+        + ro(3).QI * rt(0).QI 
+
+    act_0.C =
+          /q_0.Q * /q_1.Q * q_2.Q * /q_3.Q 
+
+    act_1.D =
+          acc(0).Q * /acc(1).Q * ro(0).QI * ro(1).QI * /ro(2).QI * 
+          /ro(3).QI * rt(0).QI * /rt(1).QI 
+        + acc(0).Q * acc(1).Q * ro(0).QI * /ro(2).QI * rt(0).QI * rt(1).QI 
+        + /acc(0).Q * acc(1).Q * ro(1).QI * /ro(2).QI * /ro(3).QI * 
+          /rt(1).QI 
+        + acc(1).Q * /ro(0).QI * ro(1).QI * /ro(2).QI * /ro(3).QI * 
+          /rt(1).QI 
+        + acc(1).Q * ro(1).QI * /ro(2).QI * /ro(3).QI * /rt(0).QI * 
+          /rt(1).QI 
+        + /acc(0).Q * /acc(1).Q * ro(1).QI * /ro(2).QI * rt(1).QI 
+        + /acc(1).Q * /ro(0).QI * /ro(1).QI * ro(2).QI * /ro(3).QI 
+        + /acc(1).Q * ro(1).QI * /ro(2).QI * /rt(0).QI * rt(1).QI 
+        + /ro(0).QI * ro(1).QI * ro(2).QI * rt(1).QI 
+        + /acc(1).Q * /ro(0).QI * ro(1).QI * rt(1).QI 
+        + ro(0).QI * /ro(1).QI * /ro(2).QI * rt(1).QI 
+        + acc(1).Q * /ro(1).QI * /ro(2).QI * rt(1).QI 
+        + acc(1).Q * ro(0).QI * /ro(1).QI * /ro(3).QI 
+        + ro(3).QI * rt(1).QI 
+
+    act_1.C =
+          /q_0.Q * /q_1.Q * q_2.Q * /q_3.Q 
+
+    act_2.D =
+          \u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * /acc(2).Q * ro(0).QI * 
+          ro(1).QI * /ro(2).QI * /ro(3).QI * /rt(2).QI 
+        + /\u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * acc(2).Q * ro(1).QI * 
+          /ro(2).QI * /ro(3).QI * /rt(2).QI 
+        + acc(2).Q * /ro(0).QI * ro(1).QI * /ro(2).QI * /ro(3).QI * 
+          /rt(2).QI 
+        + \u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * acc(2).Q * ro(0).QI * 
+          /ro(2).QI * rt(2).QI 
+        + /\u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\.CMB * /acc(2).Q * ro(1).QI * 
+          /ro(2).QI * rt(2).QI 
+        + /acc(2).Q * /ro(0).QI * /ro(1).QI * ro(2).QI * /ro(3).QI 
+        + /ro(0).QI * ro(1).QI * ro(2).QI * rt(2).QI 
+        + /acc(2).Q * /ro(0).QI * ro(1).QI * rt(2).QI 
+        + ro(0).QI * /ro(1).QI * /ro(2).QI * rt(2).QI 
+        + acc(2).Q * /ro(1).QI * /ro(2).QI * rt(2).QI 
+        + acc(2).Q * ro(0).QI * /ro(1).QI * /ro(3).QI 
+        + ro(3).QI * rt(2).QI 
+
+    act_2.C =
+          /q_0.Q * /q_1.Q * q_2.Q * /q_3.Q 
+
+    act_3.D =
+          S_2.CMB 
+        + S_1.CMB 
+
+    act_3.C =
+          /q_0.Q * /q_1.Q * q_2.Q * /q_3.Q 
+
+    q_0.D =
+          /q_0.Q * /reset 
+
+    q_0.C =
+          clk 
+
+    q_1.D =
+          q_0.Q * /q_1.Q * q_3.Q * /reset 
+        + q_0.Q * /q_1.Q * /q_2.Q * /reset 
+        + /q_0.Q * q_1.Q * /reset 
+
+    q_1.C =
+          clk 
+
+    q_2.D =
+          /q_1.Q * q_2.Q * q_3.Q * /reset 
+        + q_0.Q * q_1.Q * /q_2.Q * /reset 
+        + /q_0.Q * q_2.Q * /reset 
+
+    q_2.C =
+          clk 
+
+    q_3.T =
+          q_0.Q * q_1.Q * q_2.Q * /reset 
+        + q_3.Q * reset 
+
+    q_3.C =
+          clk 
+
+    ro(0).CI =
+          /q_0.Q * /q_1.Q * /q_2.Q * /q_3.Q 
+
+    ro(1).CI =
+          /q_0.Q * /q_1.Q * /q_2.Q * /q_3.Q 
+
+    ro(2).CI =
+          /q_0.Q * /q_1.Q * /q_2.Q * /q_3.Q 
+
+    ro(3).CI =
+          /q_0.Q * /q_1.Q * /q_2.Q * /q_3.Q 
+
+    rt(0).CI =
+          /q_0.Q * q_1.Q * /q_2.Q * /q_3.Q 
+
+    rt(1).CI =
+          /q_0.Q * q_1.Q * /q_2.Q * /q_3.Q 
+
+    rt(2).CI =
+          /q_0.Q * q_1.Q * /q_2.Q * /q_3.Q 
+
+    rt(3).CI =
+          /q_0.Q * q_1.Q * /q_2.Q * /q_3.Q 
+
+
+Completed Successfully  
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+DESIGN RULE CHECK          (20:46:08)
+
+Messages:
+                 None.
+
+
+Summary:
+                 Error Count = 0      Warning Count = 0
+
+Completed Successfully  
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+PARTITION LOGIC            (20:46:08)
+
+Messages:
+  Information: Initializing Logic Block structures.
+  Information: Forming input seeds.
+  Information: Checking for duplicate NODE logic.
+  Information: Forming input seeds.
+  Information: Assigning fixed logic to Logic Blocks.
+  Information: Processing banked global preset, reset and output enable.
+  Information: Separating output logic set to GND/VCC.
+  Information: Validating Logic Block's with pre-placed signals.
+  Information: Separating input register logic.
+  Information: Assigning initializing equations to empty Logic Blocks.
+  Information: Separating output combinatorial logic.
+  Information: Separating disjoint output logic.
+  Information: Separating output node logic.
+  Information: Compacting Logic Block interconnect.
+  .+.+.+...+...+...+.+......................+......................+.....
+  ....................
+
+
+Summary:
+                 Error Count = 0      Warning Count = 0
+
+Completed Successfully  
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+DESIGN SIGNAL PLACEMENT    (20:46:09)
+
+Messages:
+  Information: Fitting signals to Logic Block A.
+  Information: Fitting signals to Logic Block B.
+  Information: Fitting signals to Logic Block C.
+  Information: Fitting signals to Logic Block D.
+  Information: Fitting signals to Logic Block E.
+  Information: Fitting signals to Logic Block F.
+  Information: Fitting signals to Logic Block G.
+  Information: Fitting signals to Logic Block H.
+  Information: Fitting signals to Logic Block I.
+  Information: Fitting signals to Logic Block J.
+  Information: Fitting signals to Logic Block K.
+  Information: Fitting signals to Logic Block L.
+  Information: Assigning Signals to Macrocells.
+  Information: Improving Macrocell Assignment
+  ..+................+..............................
+  Information: Assigning Product Terms to Allocator
+  Information: Fitting signals to Logic Block M.
+  Information: Fitting signals to Logic Block N.
+  Information: Fitting signals to Logic Block O.
+  Information: Fitting signals to Logic Block P.
+  Information: Assigning Signals to Macrocells.
+  Information: Improving Macrocell Assignment
+  ................
+  Information: Assigning Product Terms to Allocator
+  Information: Routing signals to Logic Blocks.
+
+
+Summary:
+                 Error Count = 0      Warning Count = 0
+
+Completed Successfully  
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK A PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block A
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block A
+                 ____________________________________________
+                 |   |> not used:262                    |   |                 
+                 |   |> not used:263                    |   |                 
+                 |   |> not used:264                    |   |                 
+                 |   |> not used:265                    |   |                 
+                 |   |> not used:266                    |143|* not used       
+                 |   |> not used:267                    |   |                 
+                 |   |> not used:268      not used:887 >|   |                 
+                 |   |> not used:269                    |   |                 
+                 |   |> not used:270                    |144|* not used       
+                 |   |> not used:271                    |   |                 
+                 |   |> not used:272      not used:889 >|   |                 
+                 |   |> not used:273                    |   |                 
+                 |   |> not used:274                    |145|* not used       
+                 |   |> not used:275                    |   |                 
+                 |   |> not used:276      not used:891 >|   |                 
+                 |   |> not used:277                    |   |                 
+                 |   |> not used:278                    |146|* not used       
+                 |   |> not used:279                    |   |                 
+                 |   |> not used:280      not used:893 >|   |                 
+                 |   |> not used:281                    |   |                 
+                 |   |> not used:282                    |147|* not used       
+                 |   |> not used:283                    |   |                 
+                 |   |> not used:284      not used:895 >|   |                 
+                 |   |> not used:285                    |   |                 
+                 |   |> not used:286                    |148|* not used       
+                 |   |> not used:287                    |   |                 
+                 |   |> not used:288      not used:897 >|   |                 
+                 |   |> not used:289                    |   |                 
+                 |   |> not used:290                    |149|* not used       
+                 |   |> not used:291                    |   |                 
+                 |   |> not used:292      not used:899 >|   |                 
+                 |   |> not used:293                    |   |                 
+                 |   |> not used:294                    |150|* not used       
+                 |   |> not used:295                    |   |                 
+                 |   |> not used:296      not used:901 >|   |                 
+                 |   |> not used:297                    |   |                 
+                 |   |> not used:298                    |   |                 
+                 |   |> not used:299                    |   |                 
+                 |   |> not used:300                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK B PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block B
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block B
+                 ____________________________________________
+                 |   |> not used:301                    |   |                 
+                 |   |> not used:302                    |   |                 
+                 |   |> not used:303                    |   |                 
+                 |   |> not used:304                    |   |                 
+                 |   |> not used:305                    |152|* not used       
+                 |   |> not used:306                    |   |                 
+                 |   |> not used:307      not used:903 >|   |                 
+                 |   |> not used:308                    |   |                 
+                 |   |> not used:309                    |153|* not used       
+                 |   |> not used:310                    |   |                 
+                 |   |> not used:311      not used:905 >|   |                 
+                 |   |> not used:312                    |   |                 
+                 |   |> not used:313                    |154|* not used       
+                 |   |> not used:314                    |   |                 
+                 |   |> not used:315      not used:907 >|   |                 
+                 |   |> not used:316                    |   |                 
+                 |   |> not used:317                    |155|* not used       
+                 |   |> not used:318                    |   |                 
+                 |   |> not used:319      not used:909 >|   |                 
+                 |   |> not used:320                    |   |                 
+                 |   |> not used:321                    |156|* not used       
+                 |   |> not used:322                    |   |                 
+                 |   |> not used:323      not used:911 >|   |                 
+                 |   |> not used:324                    |   |                 
+                 |   |> not used:325                    |157|* not used       
+                 |   |> not used:326                    |   |                 
+                 |   |> not used:327      not used:913 >|   |                 
+                 |   |> not used:328                    |   |                 
+                 |   |> not used:329                    |158|* not used       
+                 |   |> not used:330                    |   |                 
+                 |   |> not used:331      not used:915 >|   |                 
+                 |   |> not used:332                    |   |                 
+                 |   |> not used:333                    |159|* not used       
+                 |   |> not used:334                    |   |                 
+                 |   |> not used:335      not used:917 >|   |                 
+                 |   |> not used:336                    |   |                 
+                 |   |> not used:337                    |   |                 
+                 |   |> not used:338                    |   |                 
+                 |   |> not used:339                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK C PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |[i/p]
+++++++++++++++++................................................................
+| 1 |[used for input register/latch]
+......++++++++++++++++..........................................................
+| 2 |[i/p]
+..........++++++++++++++++......................................................
+| 3 |[used for input register/latch]
+..............++++++++++++++++..................................................
+| 4 |[i/p]
+..................++++++++++++++++..............................................
+| 5 |[used for input register/latch]
+......................++++++++++++++++..........................................
+| 6 |[i/p]
+..........................++++++++++++++++......................................
+| 7 |[used for input register/latch]
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block C
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : /q_0.Q * /q_1.Q * /q_2.Q * /q_3.Q 
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block C
+                 ____________________________________________
+                 |   |> not used:340                    |   |                 
+                 |   |> not used:341                    |   |                 
+                 |   |> not used:342                    |   |                 
+                 |   |> not used:343                    |   |                 
+                 |   |= >q_1.Q                          |  2|= ro(0)          
+                 |   |> not used:345                    |   |                 
+                 |   |= >q_0.Q                  (ri_0) =|   |                 
+                 |   |> not used:347                    |   |                 
+                 |   |= >q_3.Q                          |  3|= ro(1)          
+                 |   |> not used:349                    |   |                 
+                 |   |> not used:350            (ri_1) =|   |                 
+                 |   |> not used:351                    |   |                 
+                 |   |> not used:352                    |  4|= ro(2)          
+                 |   |> not used:353                    |   |                 
+                 |   |> not used:354            (ri_2) =|   |                 
+                 |   |> not used:355                    |   |                 
+                 |   |> not used:356                    |  5|= ro(3)          
+                 |   |> not used:357                    |   |                 
+                 |   |> not used:358            (ri_3) =|   |                 
+                 |   |> not used:359                    |   |                 
+                 |   |= >q_2.Q                          |  6|* not used       
+                 |   |> not used:361                    |   |                 
+                 |   |> not used:362      not used:927 >|   |                 
+                 |   |> not used:363                    |   |                 
+                 |   |> not used:364                    |  7|* not used       
+                 |   |> not used:365                    |   |                 
+                 |   |> not used:366      not used:929 >|   |                 
+                 |   |> not used:367                    |   |                 
+                 |   |> not used:368                    |  8|* not used       
+                 |   |> not used:369                    |   |                 
+                 |   |> not used:370      not used:931 >|   |                 
+                 |   |> not used:371                    |   |                 
+                 |   |> not used:372                    |  9|* not used       
+                 |   |> not used:373                    |   |                 
+                 |   |> not used:374      not used:933 >|   |                 
+                 |   |> not used:375                    |   |                 
+                 |   |> not used:376                    |   |                 
+                 |   |> not used:377                    |   |                 
+                 |   |> not used:378                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    4  |    8  |
+                 | Buried Macrocells  |    4  |    8  |
+                 | PIM Input Connects |    4  |   36  |
+                 ______________________________________
+                                          12  /   52   = 23  %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK D PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |[i/p]
+++++++++++++++++................................................................
+| 1 |[used for input register/latch]
+......++++++++++++++++..........................................................
+| 2 |[i/p]
+..........++++++++++++++++......................................................
+| 3 |[used for input register/latch]
+..............++++++++++++++++..................................................
+| 4 |[i/p]
+..................++++++++++++++++..............................................
+| 5 |[used for input register/latch]
+......................++++++++++++++++..........................................
+| 6 |[i/p]
+..........................++++++++++++++++......................................
+| 7 |[used for input register/latch]
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block D
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : /q_0.Q * q_1.Q * /q_2.Q * /q_3.Q 
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block D
+                 ____________________________________________
+                 |   |> not used:379                    |   |                 
+                 |   |> not used:380                    |   |                 
+                 |   |> not used:381                    |   |                 
+                 |   |> not used:382                    |   |                 
+                 |   |= >q_1.Q                          | 11|= rt(2)          
+                 |   |> not used:384                    |   |                 
+                 |   |= >q_0.Q                  (rd_2) =|   |                 
+                 |   |> not used:386                    |   |                 
+                 |   |= >q_3.Q                          | 12|= rt(3)          
+                 |   |> not used:388                    |   |                 
+                 |   |> not used:389            (rd_3) =|   |                 
+                 |   |> not used:390                    |   |                 
+                 |   |> not used:391                    | 13|= rt(0)          
+                 |   |> not used:392                    |   |                 
+                 |   |> not used:393            (rd_0) =|   |                 
+                 |   |> not used:394                    |   |                 
+                 |   |> not used:395                    | 14|= rt(1)          
+                 |   |> not used:396                    |   |                 
+                 |   |> not used:397            (rd_1) =|   |                 
+                 |   |> not used:398                    |   |                 
+                 |   |= >q_2.Q                          | 15|* not used       
+                 |   |> not used:400                    |   |                 
+                 |   |> not used:401      not used:943 >|   |                 
+                 |   |> not used:402                    |   |                 
+                 |   |> not used:403                    | 16|* not used       
+                 |   |> not used:404                    |   |                 
+                 |   |> not used:405      not used:945 >|   |                 
+                 |   |> not used:406                    |   |                 
+                 |   |> not used:407                    | 17|* not used       
+                 |   |> not used:408                    |   |                 
+                 |   |> not used:409      not used:947 >|   |                 
+                 |   |> not used:410                    |   |                 
+                 |   |> not used:411                    | 18|* not used       
+                 |   |> not used:412                    |   |                 
+                 |   |> not used:413      not used:949 >|   |                 
+                 |   |> not used:414                    |   |                 
+                 |   |> not used:415                    |   |                 
+                 |   |> not used:416                    |   |                 
+                 |   |> not used:417                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    4  |    8  |
+                 | Buried Macrocells  |    4  |    8  |
+                 | PIM Input Connects |    4  |   36  |
+                 ______________________________________
+                                          12  /   52   = 23  %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK E PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block E
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block E
+                 ____________________________________________
+                 |   |> not used:418                    |   |                 
+                 |   |> not used:419                    |   |                 
+                 |   |> not used:420                    |   |                 
+                 |   |> not used:421                    |   |                 
+                 |   |> not used:422                    | 23|* not used       
+                 |   |> not used:423                    |   |                 
+                 |   |> not used:424      not used:951 >|   |                 
+                 |   |> not used:425                    |   |                 
+                 |   |> not used:426                    | 24|* not used       
+                 |   |> not used:427                    |   |                 
+                 |   |> not used:428      not used:953 >|   |                 
+                 |   |> not used:429                    |   |                 
+                 |   |> not used:430                    | 25|* not used       
+                 |   |> not used:431                    |   |                 
+                 |   |> not used:432      not used:955 >|   |                 
+                 |   |> not used:433                    |   |                 
+                 |   |> not used:434                    | 26|* not used       
+                 |   |> not used:435                    |   |                 
+                 |   |> not used:436      not used:957 >|   |                 
+                 |   |> not used:437                    |   |                 
+                 |   |> not used:438                    | 27|* not used       
+                 |   |> not used:439                    |   |                 
+                 |   |> not used:440      not used:959 >|   |                 
+                 |   |> not used:441                    |   |                 
+                 |   |> not used:442                    | 28|* not used       
+                 |   |> not used:443                    |   |                 
+                 |   |> not used:444      not used:961 >|   |                 
+                 |   |> not used:445                    |   |                 
+                 |   |> not used:446                    | 29|* not used       
+                 |   |> not used:447                    |   |                 
+                 |   |> not used:448      not used:963 >|   |                 
+                 |   |> not used:449                    |   |                 
+                 |   |> not used:450                    | 30|* not used       
+                 |   |> not used:451                    |   |                 
+                 |   |> not used:452      not used:965 >|   |                 
+                 |   |> not used:453                    |   |                 
+                 |   |> not used:454                    |   |                 
+                 |   |> not used:455                    |   |                 
+                 |   |> not used:456                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK F PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block F
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block F
+                 ____________________________________________
+                 |   |> not used:457                    |   |                 
+                 |   |> not used:458                    |   |                 
+                 |   |> not used:459                    |   |                 
+                 |   |> not used:460                    |   |                 
+                 |   |> not used:461                    | 32|* not used       
+                 |   |> not used:462                    |   |                 
+                 |   |> not used:463      not used:967 >|   |                 
+                 |   |> not used:464                    |   |                 
+                 |   |> not used:465                    | 33|* not used       
+                 |   |> not used:466                    |   |                 
+                 |   |> not used:467      not used:969 >|   |                 
+                 |   |> not used:468                    |   |                 
+                 |   |> not used:469                    | 34|* not used       
+                 |   |> not used:470                    |   |                 
+                 |   |> not used:471      not used:971 >|   |                 
+                 |   |> not used:472                    |   |                 
+                 |   |> not used:473                    | 35|* not used       
+                 |   |> not used:474                    |   |                 
+                 |   |> not used:475      not used:973 >|   |                 
+                 |   |> not used:476                    |   |                 
+                 |   |> not used:477                    | 36|* not used       
+                 |   |> not used:478                    |   |                 
+                 |   |> not used:479      not used:975 >|   |                 
+                 |   |> not used:480                    |   |                 
+                 |   |> not used:481                    | 37|* not used       
+                 |   |> not used:482                    |   |                 
+                 |   |> not used:483      not used:977 >|   |                 
+                 |   |> not used:484                    |   |                 
+                 |   |> not used:485                    | 38|* not used       
+                 |   |> not used:486                    |   |                 
+                 |   |> not used:487      not used:979 >|   |                 
+                 |   |> not used:488                    |   |                 
+                 |   |> not used:489                    | 39|* not used       
+                 |   |> not used:490                    |   |                 
+                 |   |> not used:491      not used:981 >|   |                 
+                 |   |> not used:492                    |   |                 
+                 |   |> not used:493                    |   |                 
+                 |   |> not used:494                    |   |                 
+                 |   |> not used:495                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK G PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block G
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block G
+                 ____________________________________________
+                 |   |> not used:496                    |   |                 
+                 |   |> not used:497                    |   |                 
+                 |   |> not used:498                    |   |                 
+                 |   |> not used:499                    |   |                 
+                 |   |> not used:500                    | 42|* not used       
+                 |   |> not used:501                    |   |                 
+                 |   |> not used:502      not used:983 >|   |                 
+                 |   |> not used:503                    |   |                 
+                 |   |> not used:504                    | 43|* not used       
+                 |   |> not used:505                    |   |                 
+                 |   |> not used:506      not used:985 >|   |                 
+                 |   |> not used:507                    |   |                 
+                 |   |> not used:508                    | 44|* not used       
+                 |   |> not used:509                    |   |                 
+                 |   |> not used:510      not used:987 >|   |                 
+                 |   |> not used:511                    |   |                 
+                 |   |> not used:512                    | 45|* not used       
+                 |   |> not used:513                    |   |                 
+                 |   |> not used:514      not used:989 >|   |                 
+                 |   |> not used:515                    |   |                 
+                 |   |> not used:516                    | 46|* not used       
+                 |   |> not used:517                    |   |                 
+                 |   |> not used:518      not used:991 >|   |                 
+                 |   |> not used:519                    |   |                 
+                 |   |> not used:520                    | 47|* not used       
+                 |   |> not used:521                    |   |                 
+                 |   |> not used:522      not used:993 >|   |                 
+                 |   |> not used:523                    |   |                 
+                 |   |> not used:524                    | 48|* not used       
+                 |   |> not used:525                    |   |                 
+                 |   |> not used:526      not used:995 >|   |                 
+                 |   |> not used:527                    |   |                 
+                 |   |> not used:528                    | 49|* not used       
+                 |   |> not used:529                    |   |                 
+                 |   |> not used:530      not used:997 >|   |                 
+                 |   |> not used:531                    |   |                 
+                 |   |> not used:532                    |   |                 
+                 |   |> not used:533                    |   |                 
+                 |   |> not used:534                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK H PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block H
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block H
+                 ____________________________________________
+                 |   |> not used:535                    |   |                 
+                 |   |> not used:536                    |   |                 
+                 |   |> not used:537                    |   |                 
+                 |   |> not used:538                    |   |                 
+                 |   |> not used:539                    | 51|* not used       
+                 |   |> not used:540                    |   |                 
+                 |   |> not used:541      not used:999 >|   |                 
+                 |   |> not used:542                    |   |                 
+                 |   |> not used:543                    | 52|* not used       
+                 |   |> not used:544                    |   |                 
+                 |   |> not used:545     not used:1001 >|   |                 
+                 |   |> not used:546                    |   |                 
+                 |   |> not used:547                    | 53|* not used       
+                 |   |> not used:548                    |   |                 
+                 |   |> not used:549     not used:1003 >|   |                 
+                 |   |> not used:550                    |   |                 
+                 |   |> not used:551                    | 54|* not used       
+                 |   |> not used:552                    |   |                 
+                 |   |> not used:553     not used:1005 >|   |                 
+                 |   |> not used:554                    |   |                 
+                 |   |> not used:555                    | 55|* not used       
+                 |   |> not used:556                    |   |                 
+                 |   |> not used:557     not used:1007 >|   |                 
+                 |   |> not used:558                    |   |                 
+                 |   |> not used:559                    | 56|* not used       
+                 |   |> not used:560                    |   |                 
+                 |   |> not used:561     not used:1009 >|   |                 
+                 |   |> not used:562                    |   |                 
+                 |   |> not used:563                    | 57|* not used       
+                 |   |> not used:564                    |   |                 
+                 |   |> not used:565     not used:1011 >|   |                 
+                 |   |> not used:566                    |   |                 
+                 |   |> not used:567                    | 58|* not used       
+                 |   |> not used:568                    |   |                 
+                 |   |> not used:569     not used:1013 >|   |                 
+                 |   |> not used:570                    |   |                 
+                 |   |> not used:571                    |   |                 
+                 |   |> not used:572                    |   |                 
+                 |   |> not used:573                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK I PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block I
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block I
+                 ____________________________________________
+                 |   |> not used:574                    |   |                 
+                 |   |> not used:575                    |   |                 
+                 |   |> not used:576                    |   |                 
+                 |   |> not used:577                    |   |                 
+                 |   |> not used:578                    | 63|* not used       
+                 |   |> not used:579                    |   |                 
+                 |   |> not used:580     not used:1015 >|   |                 
+                 |   |> not used:581                    |   |                 
+                 |   |> not used:582                    | 64|* not used       
+                 |   |> not used:583                    |   |                 
+                 |   |> not used:584     not used:1017 >|   |                 
+                 |   |> not used:585                    |   |                 
+                 |   |> not used:586                    | 65|* not used       
+                 |   |> not used:587                    |   |                 
+                 |   |> not used:588     not used:1019 >|   |                 
+                 |   |> not used:589                    |   |                 
+                 |   |> not used:590                    | 66|* not used       
+                 |   |> not used:591                    |   |                 
+                 |   |> not used:592     not used:1021 >|   |                 
+                 |   |> not used:593                    |   |                 
+                 |   |> not used:594                    | 67|* not used       
+                 |   |> not used:595                    |   |                 
+                 |   |> not used:596     not used:1023 >|   |                 
+                 |   |> not used:597                    |   |                 
+                 |   |> not used:598                    | 68|* not used       
+                 |   |> not used:599                    |   |                 
+                 |   |> not used:600     not used:1025 >|   |                 
+                 |   |> not used:601                    |   |                 
+                 |   |> not used:602                    | 69|* not used       
+                 |   |> not used:603                    |   |                 
+                 |   |> not used:604     not used:1027 >|   |                 
+                 |   |> not used:605                    |   |                 
+                 |   |> not used:606                    | 70|* not used       
+                 |   |> not used:607                    |   |                 
+                 |   |> not used:600     not used:1029 >|   |                 
+                 |   |> not used:606                    |   |                 
+                 |   |> not used:610                    |   |                 
+                 |   |> not used:611                    |   |                 
+                 |   |> not used:612                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK J PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block J
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block J
+                 ____________________________________________
+                 |   |> not used:613                    |   |                 
+                 |   |> not used:614                    |   |                 
+                 |   |> not used:615                    |   |                 
+                 |   |> not used:616                    |   |                 
+                 |   |> not used:617                    | 72|* not used       
+                 |   |> not used:618                    |   |                 
+                 |   |> not used:619     not used:1031 >|   |                 
+                 |   |> not used:620                    |   |                 
+                 |   |> not used:621                    | 73|* not used       
+                 |   |> not used:622                    |   |                 
+                 |   |> not used:623     not used:1033 >|   |                 
+                 |   |> not used:624                    |   |                 
+                 |   |> not used:625                    | 74|* not used       
+                 |   |> not used:626                    |   |                 
+                 |   |> not used:627     not used:1035 >|   |                 
+                 |   |> not used:628                    |   |                 
+                 |   |> not used:629                    | 75|* not used       
+                 |   |> not used:630                    |   |                 
+                 |   |> not used:631     not used:1037 >|   |                 
+                 |   |> not used:632                    |   |                 
+                 |   |> not used:633                    | 76|* not used       
+                 |   |> not used:634                    |   |                 
+                 |   |> not used:635     not used:1039 >|   |                 
+                 |   |> not used:636                    |   |                 
+                 |   |> not used:637                    | 77|* not used       
+                 |   |> not used:638                    |   |                 
+                 |   |> not used:639     not used:1041 >|   |                 
+                 |   |> not used:640                    |   |                 
+                 |   |> not used:641                    | 78|* not used       
+                 |   |> not used:642                    |   |                 
+                 |   |> not used:643     not used:1043 >|   |                 
+                 |   |> not used:644                    |   |                 
+                 |   |> not used:645                    | 79|* not used       
+                 |   |> not used:646                    |   |                 
+                 |   |> not used:647     not used:1045 >|   |                 
+                 |   |> not used:648                    |   |                 
+                 |   |> not used:649                    |   |                 
+                 |   |> not used:650                    |   |                 
+                 |   |> not used:651                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK K PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block K
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block K
+                 ____________________________________________
+                 |   |> not used:652                    |   |                 
+                 |   |> not used:653                    |   |                 
+                 |   |> not used:654                    |   |                 
+                 |   |> not used:655                    |   |                 
+                 |   |> not used:656                    | 82|* not used       
+                 |   |> not used:657                    |   |                 
+                 |   |> not used:658     not used:1047 >|   |                 
+                 |   |> not used:659                    |   |                 
+                 |   |> not used:660                    | 83|* not used       
+                 |   |> not used:661                    |   |                 
+                 |   |> not used:662     not used:1049 >|   |                 
+                 |   |> not used:663                    |   |                 
+                 |   |> not used:664                    | 84|* not used       
+                 |   |> not used:665                    |   |                 
+                 |   |> not used:666     not used:1051 >|   |                 
+                 |   |> not used:667                    |   |                 
+                 |   |> not used:668                    | 85|* not used       
+                 |   |> not used:669                    |   |                 
+                 |   |> not used:670     not used:1053 >|   |                 
+                 |   |> not used:671                    |   |                 
+                 |   |> not used:672                    | 86|* not used       
+                 |   |> not used:673                    |   |                 
+                 |   |> not used:674     not used:1055 >|   |                 
+                 |   |> not used:675                    |   |                 
+                 |   |> not used:676                    | 87|* not used       
+                 |   |> not used:677                    |   |                 
+                 |   |> not used:678     not used:1057 >|   |                 
+                 |   |> not used:679                    |   |                 
+                 |   |> not used:680                    | 88|* not used       
+                 |   |> not used:681                    |   |                 
+                 |   |> not used:682     not used:1059 >|   |                 
+                 |   |> not used:683                    |   |                 
+                 |   |> not used:684                    | 89|* not used       
+                 |   |> not used:685                    |   |                 
+                 |   |> not used:686     not used:1061 >|   |                 
+                 |   |> not used:687                    |   |                 
+                 |   |> not used:688                    |   |                 
+                 |   |> not used:689                    |   |                 
+                 |   |> not used:690                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK L PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |(S_1)
+XXXXXXXXXXXXXXXX................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |(act_0)
+..........++++++XXXXXX++XX......................................................
+| 3 |(q_0)
+..............++++++++X+++++++..................................................
+| 4 |(q_3)
+..................++++++++++XX++++..............................................
+| 5 |(acc(3)_C)
+......................+X++X+++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |(act_2)
+..............................XXXXXXXXXXXX++++..................................
+| 8 |(S_2)
+..................................++++++++++XX++XX..............................
+| 9 |(\u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\)
+......................................++++XX++X+++++++..........................
+|10 |(q_1)
+..........................................+++++X+++X++X+++......................
+|11 |(q_2)
+..............................................++++X+++++XX++++..................
+|12 |(act_3)
+..................................................++XX++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |(act_1)
+................................................................XXXXXXXXXXXXXX++
+________________________________________________________________________________
+
+Total count of outputs placed        =  12 
+Total count of unique Product Terms  =  70 
+Total Product Terms to be assigned   =  70 
+Max Product Terms used / available   =  70 /  80   = 87.51 %
+
+
+Control Signals for Logic Block L
+---------------------------------
+CLK pin19: clk
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : /q_0.Q * /q_1.Q * q_2.Q * /q_3.Q 
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block L
+                 ____________________________________________
+                 |   |= >rt(2).QI                       |   |                 
+                 |   |= >reset                          |   |                 
+                 |   |= >acc(1).Q                       |   |                 
+                 |   |= >\u6:MODULE_..                  |   |                 
+                 |   |= >q_1.Q                          | 91|= (S_1)          
+                 |   |= >ro(2).QI                       |   |                 
+                 |   |= >q_0.Q           not used:1063 >|   |                 
+                 |   |> not used:698                    |   |                 
+                 |   |= >rt(0).QI                       | 92|= (act_0)        
+                 |   |= >acc(0).Q                       |   |                 
+                 |   |= >ro(0).QI                (q_0) =|   |                 
+                 |   |= >rt(1).QI                       |   |                 
+                 |   |= >acc(2).Q                       | 93|= (q_3)          
+                 |   |> not used:704                    |   |                 
+                 |   |> not used:705        (acc(3)_C) =|   |                 
+                 |   |= >S_2.CMB                        |   |                 
+                 |   |= >ro(3).QI                       | 94|* not used       
+                 |   |= >acc(3).Q                       |   |                 
+                 |   |> not used:709           (act_2) =|   |                 
+                 |   |> not used:710                    |   |                 
+                 |   |= >q_2.Q                          | 95|= (S_2)          
+                 |   |> not used:712                    |   |                 
+                 |   |= >ro(1).QI       (\u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\) =|   |                 
+                 |   |= >q_3.Q                          |   |                 
+                 |   |> not used:715                    | 96|= (q_1)          
+                 |   |> not used:716                    |   |                 
+                 |   |> not used:717             (q_2) =|   |                 
+                 |   |> not used:718                    |   |                 
+                 |   |> not used:719                    | 97|= (act_3)        
+                 |   |= >rt(3).QI                       |   |                 
+                 |   |= >S_1.CMB         not used:1075 >|   |                 
+                 |   |> not used:722                    |   |                 
+                 |   |> not used:723                    | 98|* not used       
+                 |   |> not used:724                    |   |                 
+                 |   |> not used:725           (act_1) =|   |                 
+                 |   |> not used:726                    |   |                 
+                 |   |> not used:727                    |   |                 
+                 |   |> not used:728                    |   |                 
+                 |   |> not used:729                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    6  |    8  |
+                 | Buried Macrocells  |    6  |    8  |
+                 | PIM Input Connects |   20  |   36  |
+                 ______________________________________
+                                          32  /   52   = 61  %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK M PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block M
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block M
+                 ____________________________________________
+                 |   |> not used:730                    |   |                 
+                 |   |> not used:731                    |   |                 
+                 |   |> not used:732                    |   |                 
+                 |   |> not used:733                    |   |                 
+                 |   |> not used:734                    |103|* not used       
+                 |   |> not used:735                    |   |                 
+                 |   |> not used:736     not used:1079 >|   |                 
+                 |   |> not used:737                    |   |                 
+                 |   |> not used:738                    |104|* not used       
+                 |   |> not used:739                    |   |                 
+                 |   |> not used:740     not used:1081 >|   |                 
+                 |   |> not used:741                    |   |                 
+                 |   |> not used:742                    |105|* not used       
+                 |   |> not used:743                    |   |                 
+                 |   |> not used:744     not used:1083 >|   |                 
+                 |   |> not used:745                    |   |                 
+                 |   |> not used:746                    |106|* not used       
+                 |   |> not used:747                    |   |                 
+                 |   |> not used:748     not used:1085 >|   |                 
+                 |   |> not used:749                    |   |                 
+                 |   |> not used:750                    |107|* not used       
+                 |   |> not used:751                    |   |                 
+                 |   |> not used:752     not used:1087 >|   |                 
+                 |   |> not used:753                    |   |                 
+                 |   |> not used:754                    |108|* not used       
+                 |   |> not used:755                    |   |                 
+                 |   |> not used:756     not used:1089 >|   |                 
+                 |   |> not used:757                    |   |                 
+                 |   |> not used:758                    |109|* not used       
+                 |   |> not used:759                    |   |                 
+                 |   |> not used:760     not used:1091 >|   |                 
+                 |   |> not used:761                    |   |                 
+                 |   |> not used:762                    |110|* not used       
+                 |   |> not used:763                    |   |                 
+                 |   |> not used:764     not used:1093 >|   |                 
+                 |   |> not used:765                    |   |                 
+                 |   |> not used:766                    |   |                 
+                 |   |> not used:767                    |   |                 
+                 |   |> not used:768                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK N PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block N
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block N
+                 ____________________________________________
+                 |   |> not used:769                    |   |                 
+                 |   |> not used:770                    |   |                 
+                 |   |> not used:771                    |   |                 
+                 |   |> not used:772                    |   |                 
+                 |   |> not used:773                    |112|* not used       
+                 |   |> not used:774                    |   |                 
+                 |   |> not used:775     not used:1095 >|   |                 
+                 |   |> not used:776                    |   |                 
+                 |   |> not used:777                    |113|* not used       
+                 |   |> not used:778                    |   |                 
+                 |   |> not used:779     not used:1097 >|   |                 
+                 |   |> not used:780                    |   |                 
+                 |   |> not used:781                    |114|* not used       
+                 |   |> not used:782                    |   |                 
+                 |   |> not used:783     not used:1099 >|   |                 
+                 |   |> not used:784                    |   |                 
+                 |   |> not used:785                    |115|* not used       
+                 |   |> not used:786                    |   |                 
+                 |   |> not used:787     not used:1101 >|   |                 
+                 |   |> not used:788                    |   |                 
+                 |   |> not used:789                    |116|* not used       
+                 |   |> not used:790                    |   |                 
+                 |   |> not used:791     not used:1103 >|   |                 
+                 |   |> not used:792                    |   |                 
+                 |   |> not used:793                    |117|* not used       
+                 |   |> not used:794                    |   |                 
+                 |   |> not used:795     not used:1105 >|   |                 
+                 |   |> not used:796                    |   |                 
+                 |   |> not used:797                    |118|* not used       
+                 |   |> not used:798                    |   |                 
+                 |   |> not used:799     not used:1107 >|   |                 
+                 |   |> not used:800                    |   |                 
+                 |   |> not used:801                    |119|* not used       
+                 |   |> not used:802                    |   |                 
+                 |   |> not used:803     not used:1109 >|   |                 
+                 |   |> not used:804                    |   |                 
+                 |   |> not used:805                    |   |                 
+                 |   |> not used:806                    |   |                 
+                 |   |> not used:807                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK O PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |UNUSED
+++++++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |UNUSED
+..........................++++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |UNUSED
+..................................++++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |UNUSED
+..........................................++++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  0 
+Total count of unique Product Terms  =  0 
+Total Product Terms to be assigned   =  0 
+Max Product Terms used / available   =   0 /  80   = 0.0  %
+
+
+Control Signals for Logic Block O
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AH : <not used>
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block O
+                 ____________________________________________
+                 |   |> not used:808                    |   |                 
+                 |   |> not used:809                    |   |                 
+                 |   |> not used:810                    |   |                 
+                 |   |> not used:811                    |   |                 
+                 |   |> not used:812                    |122|* not used       
+                 |   |> not used:813                    |   |                 
+                 |   |> not used:814     not used:1111 >|   |                 
+                 |   |> not used:815                    |   |                 
+                 |   |> not used:816                    |123|* not used       
+                 |   |> not used:817                    |   |                 
+                 |   |> not used:818     not used:1113 >|   |                 
+                 |   |> not used:819                    |   |                 
+                 |   |> not used:820                    |124|* not used       
+                 |   |> not used:821                    |   |                 
+                 |   |> not used:822     not used:1115 >|   |                 
+                 |   |> not used:823                    |   |                 
+                 |   |> not used:824                    |125|* not used       
+                 |   |> not used:825                    |   |                 
+                 |   |> not used:826     not used:1117 >|   |                 
+                 |   |> not used:827                    |   |                 
+                 |   |> not used:828                    |126|* not used       
+                 |   |> not used:829                    |   |                 
+                 |   |> not used:830     not used:1119 >|   |                 
+                 |   |> not used:831                    |   |                 
+                 |   |> not used:832                    |127|* not used       
+                 |   |> not used:833                    |   |                 
+                 |   |> not used:834     not used:1121 >|   |                 
+                 |   |> not used:835                    |   |                 
+                 |   |> not used:836                    |128|* not used       
+                 |   |> not used:837                    |   |                 
+                 |   |> not used:838     not used:1123 >|   |                 
+                 |   |> not used:839                    |   |                 
+                 |   |> not used:840                    |129|* not used       
+                 |   |> not used:841                    |   |                 
+                 |   |> not used:842     not used:1125 >|   |                 
+                 |   |> not used:843                    |   |                 
+                 |   |> not used:844                    |   |                 
+                 |   |> not used:845                    |   |                 
+                 |   |> not used:846                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    0  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    0  |   36  |
+                 ______________________________________
+                                           0  /   52   = 0   %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+LOGIC BLOCK P PLACEMENT   (20:46:09)
+
+Messages:
+
+
+________________________________________________________________________________
+          1111111111222222222233333333334444444444555555555566666666667777777777
+01234567890123456789012345678901234567890123456789012345678901234567890123456789
+________________________________________________________________________________
+| 0 |acc(3)
+++X+++++++++++++................................................................
+| 1 |UNUSED
+......++++++++++++++++..........................................................
+| 2 |UNUSED
+..........++++++++++++++++......................................................
+| 3 |UNUSED
+..............++++++++++++++++..................................................
+| 4 |UNUSED
+..................++++++++++++++++..............................................
+| 5 |UNUSED
+......................++++++++++++++++..........................................
+| 6 |acc(0)
+..........................X+++++++++++++++......................................
+| 7 |UNUSED
+..............................++++++++++++++++..................................
+| 8 |acc(2)
+..................................X+++++++++++++++..............................
+| 9 |UNUSED
+......................................++++++++++++++++..........................
+|10 |acc(1)
+..........................................X+++++++++++++++......................
+|11 |UNUSED
+..............................................++++++++++++++++..................
+|12 |UNUSED
+..................................................++++++++++++++++..............
+|13 |UNUSED
+......................................................++++++++++++++++..........
+|14 |UNUSED
+..........................................................++++++++++++++++......
+|15 |UNUSED
+................................................................++++++++++++++++
+________________________________________________________________________________
+
+Total count of outputs placed        =  4 
+Total count of unique Product Terms  =  4 
+Total Product Terms to be assigned   =  4 
+Max Product Terms used / available   =   4 /  80   = 5.1  %
+
+
+Control Signals for Logic Block P
+---------------------------------
+CLK pin19: <not used>
+CLK pin22: <not used>
+CLK pin99: <not used>
+CLK pin102: <not used>
+CLK PT      : AL : acc(3)_C.CMB 
+PRESET      : AH : <not used>
+RESET       : AH : <not used>
+OE 0        : AH : <not used>
+OE 1        : AH : <not used>
+OE 2        : AH : <not used>
+OE 3        : AH : <not used>
+
+
+
+                              Logic Block P
+                 ____________________________________________
+                 |   |= >act_2.Q                        |   |                 
+                 |   |> not used:848                    |   |                 
+                 |   |> not used:849                    |   |                 
+                 |   |> not used:850                    |   |                 
+                 |   |= >act_0.Q                        |131|= acc(3)         
+                 |   |> not used:852                    |   |                 
+                 |   |> not used:853     not used:1127 >|   |                 
+                 |   |= >act_3.Q                        |   |                 
+                 |   |> not used:855                    |132|* not used       
+                 |   |> not used:856                    |   |                 
+                 |   |= >acc(3)_C.CMB    not used:1129 >|   |                 
+                 |   |> not used:858                    |   |                 
+                 |   |> not used:859                    |133|* not used       
+                 |   |= >act_1.Q                        |   |                 
+                 |   |> not used:861     not used:1131 >|   |                 
+                 |   |> not used:862                    |   |                 
+                 |   |> not used:863                    |134|= acc(0)         
+                 |   |> not used:864                    |   |                 
+                 |   |> not used:865     not used:1133 >|   |                 
+                 |   |> not used:866                    |   |                 
+                 |   |> not used:867                    |135|= acc(2)         
+                 |   |> not used:868                    |   |                 
+                 |   |> not used:869     not used:1135 >|   |                 
+                 |   |> not used:870                    |   |                 
+                 |   |> not used:871                    |136|= acc(1)         
+                 |   |> not used:872                    |   |                 
+                 |   |> not used:873     not used:1137 >|   |                 
+                 |   |> not used:874                    |   |                 
+                 |   |> not used:875                    |137|* not used       
+                 |   |> not used:876                    |   |                 
+                 |   |> not used:877     not used:1139 >|   |                 
+                 |   |> not used:878                    |   |                 
+                 |   |> not used:879                    |138|* not used       
+                 |   |> not used:880                    |   |                 
+                 |   |> not used:881     not used:1141 >|   |                 
+                 |   |> not used:882                    |   |                 
+                 |   |> not used:883                    |   |                 
+                 |   |> not used:884                    |   |                 
+                 |   |> not used:885                    |   |                 
+                 ____________________________________________
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | I/O Macrocells     |    4  |    8  |
+                 | Buried Macrocells  |    0  |    8  |
+                 | PIM Input Connects |    5  |   36  |
+                 ______________________________________
+                                           9  /   52   = 17  %
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+PINOUT INFORMATION   (20:46:09)
+
+
+Device:  cy37256p160
+Package: cy37256p160-83ac
+
+                     1  :  GND
+                     2  :  ro(0)
+                     3  :  ro(1)
+                     4  :  ro(2)
+                     5  :  ro(3)
+                     6  :  Not Used
+                     7  :  Not Used
+                     8  :  Not Used
+                     9  :  Not Used
+                    10  :  GND
+                    11  :  rt(2)
+                    12  :  rt(3)
+                    13  :  rt(0)
+                    14  :  rt(1)
+                    15  :  Not Used
+                    16  :  Not Used
+                    17  :  Not Used
+                    18  :  Not Used
+                    19  :  clk
+                    20  :  VCC
+                    21  :  GND
+                    22  :  reset
+                    23  :  Not Used
+                    24  :  Not Used
+                    25  :  Not Used
+                    26  :  Not Used
+                    27  :  Not Used
+                    28  :  Not Used
+                    29  :  Not Used
+                    30  :  Not Used
+                    31  :  GND
+                    32  :  Not Used
+                    33  :  Not Used
+                    34  :  Not Used
+                    35  :  Not Used
+                    36  :  Not Used
+                    37  :  Not Used
+                    38  :  Not Used
+                    39  :  Not Used
+                    40  :  VCC
+                    41  :  GND
+                    42  :  Not Used
+                    43  :  Not Used
+                    44  :  Not Used
+                    45  :  Not Used
+                    46  :  Not Used
+                    47  :  Not Used
+                    48  :  Not Used
+                    49  :  Not Used
+                    50  :  GND
+                    51  :  Not Used
+                    52  :  Not Used
+                    53  :  Not Used
+                    54  :  Not Used
+                    55  :  Not Used
+                    56  :  Not Used
+                    57  :  Not Used
+                    58  :  Not Used
+                    59  :  Not Used
+                    60  :  VCC
+                    61  :  GND
+                    62  :  VCC
+                    63  :  Not Used
+                    64  :  Not Used
+                    65  :  Not Used
+                    66  :  Not Used
+                    67  :  Not Used
+                    68  :  Not Used
+                    69  :  Not Used
+                    70  :  Not Used
+                    71  :  GND
+                    72  :  Not Used
+                    73  :  Not Used
+                    74  :  Not Used
+                    75  :  Not Used
+                    76  :  Not Used
+                    77  :  Not Used
+                    78  :  Not Used
+                    79  :  Not Used
+                    80  :  VCC
+                    81  :  GND
+                    82  :  Not Used
+                    83  :  Not Used
+                    84  :  Not Used
+                    85  :  Not Used
+                    86  :  Not Used
+                    87  :  Not Used
+                    88  :  Not Used
+                    89  :  Not Used
+                    90  :  GND
+                    91  :  (S_1)
+                    92  :  (act_0)
+                    93  :  (q_3)
+                    94  :  Not Used
+                    95  :  (S_2)
+                    96  :  (q_1)
+                    97  :  (act_3)
+                    98  :  Not Used
+                    99  :  Not Used
+                   100  :  VCC
+                   101  :  GND
+                   102  :  Not Used
+                   103  :  Not Used
+                   104  :  Not Used
+                   105  :  Not Used
+                   106  :  Not Used
+                   107  :  Not Used
+                   108  :  Not Used
+                   109  :  Not Used
+                   110  :  Not Used
+                   111  :  GND
+                   112  :  Not Used
+                   113  :  Not Used
+                   114  :  Not Used
+                   115  :  Not Used
+                   116  :  Not Used
+                   117  :  Not Used
+                   118  :  Not Used
+                   119  :  Not Used
+                   120  :  VCC
+                   121  :  GND
+                   122  :  Not Used
+                   123  :  Not Used
+                   124  :  Not Used
+                   125  :  Not Used
+                   126  :  Not Used
+                   127  :  Not Used
+                   128  :  Not Used
+                   129  :  Not Used
+                   130  :  GND
+                   131  :  acc(3)
+                   132  :  Not Used
+                   133  :  Not Used
+                   134  :  acc(0)
+                   135  :  acc(2)
+                   136  :  acc(1)
+                   137  :  Not Used
+                   138  :  Not Used
+                   139  :  Not Used
+                   140  :  VCC
+                   141  :  GND
+                   142  :  VCC
+                   143  :  Not Used
+                   144  :  Not Used
+                   145  :  Not Used
+                   146  :  Not Used
+                   147  :  Not Used
+                   148  :  Not Used
+                   149  :  Not Used
+                   150  :  Not Used
+                   151  :  GND
+                   152  :  Not Used
+                   153  :  Not Used
+                   154  :  Not Used
+                   155  :  Not Used
+                   156  :  Not Used
+                   157  :  Not Used
+                   158  :  Not Used
+                   159  :  Not Used
+                   160  :  VCC
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+RESOURCE UTILIZATION (20:46:09)
+
+
+
+  Information: Macrocell Utilization.
+
+                     Description        Used     Max
+                 ______________________________________
+                 | Dedicated Inputs   |    0  |    1  |
+                 | Clock/Inputs       |    2  |    4  |
+                 | I/O Macrocells     |   18  |  128  |
+                 | Buried Macrocells  |   14  |  128  |
+                 | PIM Input Connects |   33  |  624  |
+                 ______________________________________
+                                          67  /  885   = 7   %
+
+
+
+                                      Required     Max (Available)
+          CLOCK/LATCH ENABLE signals     5           20
+          Input REG/LATCH signals        8          133
+          Input PIN signals              0            0
+          Input PINs using I/O cells     8            8
+          Output PIN signals             4          120
+
+
+          Total PIN signals             14          133
+          Macrocells Used               24          256
+          Unique Product Terms          74         1280
+
+
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+PRESET/RESET AND OUTPUT ENABLE COMBINATIONS
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  18 
+count of output equations =  8 
+==>OE: GND or VCC
+   count of OE equations =  8 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  2 
+count of output equations =  0 
+==>OE: GND or VCC
+   count of OE equations =  0 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  2 
+count of output equations =  0 
+==>OE: GND or VCC
+   count of OE equations =  0 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  2 
+count of output equations =  0 
+==>OE: GND or VCC
+   count of OE equations =  0 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  2 
+count of output equations =  0 
+==>OE: GND or VCC
+   count of OE equations =  0 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  10 
+count of output equations =  0 
+==>OE: GND or VCC
+   count of OE equations =  0 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  12 
+count of output equations =  0 
+==>OE: GND or VCC
+   count of OE equations =  0 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  11 
+count of output equations =  0 
+==>OE: GND or VCC
+   count of OE equations =  0 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  6 
+count of output equations =  0 
+==>OE: GND or VCC
+   count of OE equations =  0 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  12 
+count of output equations =  1 
+==>OE: GND or VCC
+   count of OE equations =  1 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  10 
+count of output equations =  1 
+==>OE: GND or VCC
+   count of OE equations =  1 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  11 
+count of output equations =  1 
+==>OE: GND or VCC
+   count of OE equations =  1 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  6 
+count of output equations =  1 
+==>OE: GND or VCC
+   count of OE equations =  1 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  2 
+count of output equations =  1 
+==>OE: GND or VCC
+   count of OE equations =  1 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  2 
+count of output equations =  1 
+==>OE: GND or VCC
+   count of OE equations =  1 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  2 
+count of output equations =  1 
+==>OE: GND or VCC
+   count of OE equations =  1 
+
+
+PRESET: NONE-COMBINATORIAL
+RESET : NONE-COMBINATORIAL
+CLOCK PT : NULL
+Total unique inputs =  2 
+count of output equations =  1 
+==>OE: GND or VCC
+   count of OE equations =  1 
+
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+JEDEC ASSEMBLE             (20:46:09)
+
+Messages:
+  Information: Processing JEDEC for Logic Block 1.
+  Information: Processing JEDEC for Logic Block 2.
+  Information: Processing JEDEC for Logic Block 3.
+  Information: Processing JEDEC for Logic Block 4.
+  Information: Processing JEDEC for Logic Block 5.
+  Information: Processing JEDEC for Logic Block 6.
+  Information: Processing JEDEC for Logic Block 7.
+  Information: Processing JEDEC for Logic Block 8.
+  Information: Processing JEDEC for Logic Block 9.
+  Information: Processing JEDEC for Logic Block 10.
+  Information: Processing JEDEC for Logic Block 11.
+  Information: Processing JEDEC for Logic Block 12.
+  Information: Processing JEDEC for Logic Block 13.
+  Information: Processing JEDEC for Logic Block 14.
+  Information: Processing JEDEC for Logic Block 15.
+  Information: Processing JEDEC for Logic Block 16.
+  Information: JEDEC output file 'micro.pin' created.
+  Information: JEDEC output file 'micro.jed' created.
+
+
+Summary:
+                 Error Count = 0      Warning Count = 0
+
+Completed Successfully at 20:46:09
+----------------------------------------------------------------------------
+PLD Compiler Software:        C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+TIMING PATH ANALYSIS       (20:46:09) using Package: cy37256p160-83ac
+
+Messages:
+
+----------------------------------------------------------------------------
+Signal Name | Delay Type  |   tmax   | Path Description
+----------------------------------------------------------------------------
+reg::(act_0)[92]
+inp::acc(0).Q
+              tSCS            19.0 ns    1 pass
+out::act_0
+              tCOpt           20.0 ns    1 pass
+----------------------------------------------------------------------------
+reg::(q_3)[93]
+inp::reset
+              tS              8.0 ns     1 pass
+inp::q_0.Q
+              tSCS            12.0 ns    1 pass
+out::q_3
+              tCO             8.0 ns   
+----------------------------------------------------------------------------
+reg::(q_1)[96]
+inp::reset
+              tS              8.0 ns     1 pass
+inp::q_0.Q
+              tSCS            12.0 ns    1 pass
+out::q_1
+              tCO             8.0 ns   
+----------------------------------------------------------------------------
+reg::(act_3)[97]
+inp::acc(0).Q
+---->\u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\
+---->S_1
+              tSCS            41.0 ns    3 passes
+out::act_3
+              tCOpt           20.0 ns    1 pass
+----------------------------------------------------------------------------
+reg::acc(3)[131]
+inp::act_3.Q
+              tSCS            19.0 ns    1 pass
+out::acc(3)
+---->acc(3)_C
+              tCOpt           31.0 ns    2 passes
+----------------------------------------------------------------------------
+reg::acc(0)[134]
+inp::act_0.Q
+              tSCS            19.0 ns    1 pass
+out::acc(0)
+---->acc(3)_C
+              tCOpt           31.0 ns    2 passes
+----------------------------------------------------------------------------
+reg::acc(2)[135]
+inp::act_2.Q
+              tSCS            19.0 ns    1 pass
+out::acc(2)
+---->acc(3)_C
+              tCOpt           31.0 ns    2 passes
+----------------------------------------------------------------------------
+reg::acc(1)[136]
+inp::act_1.Q
+              tSCS            19.0 ns    1 pass
+out::acc(1)
+---->acc(3)_C
+              tCOpt           31.0 ns    2 passes
+----------------------------------------------------------------------------
+reg::(q_0)[1065]
+inp::reset
+              tS              8.0 ns     1 pass
+inp::q_0.Q
+              tSCS            12.0 ns    1 pass
+out::q_0
+              tCO             8.0 ns   
+----------------------------------------------------------------------------
+reg::(act_2)[1069]
+inp::acc(0).Q
+---->\u6:MODULE_9:g1:a0:g0:u0:ga:g1:ua0\
+              tSCS            30.0 ns    2 passes
+out::act_2
+              tCOpt           20.0 ns    1 pass
+----------------------------------------------------------------------------
+reg::(q_2)[1073]
+inp::reset
+              tS              8.0 ns     1 pass
+inp::q_1.Q
+              tSCS            12.0 ns    1 pass
+out::q_2
+              tCO             8.0 ns   
+----------------------------------------------------------------------------
+reg::(act_1)[1077]
+inp::acc(0).Q
+              tSCS            19.0 ns    1 pass
+out::act_1
+              tCOpt           20.0 ns    1 pass
+----------------------------------------------------------------------------
+
+Worst Case Path Summary
+-----------------------
+
+                     tS = 8.0 ns for q_3.T 
+                   tSCS = 41.0 ns for act_3.D  using product term clock
+                   tSCS = 12.0 ns for q_3.T  using clock signal clk
+                    tCO = 31.0 ns for acc(3).C 
+
+
+
+Summary:
+                 Error Count = 0      Warning Count = 0
+
+Completed Successfully  

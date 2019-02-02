@@ -1,0 +1,40 @@
+* Subcircuit _OPAMPNPN can be found in the AMP Model Library
+.PARSET OPAMP _OPAMPNPN
++ VNOISE    = 20    ; spectral noise density in [nV/sqrt(Hz)] 
++ GBW       = 10MEG ; gain-bandwidth product 
++ TN        = 25    ; nominal temperature in [C] 
++ TMIN      = -55   ; minimum temperature of operation (simulation) in [C] 
++ TMAX      = 125   ; maximum temperature of operation (simulation) in [C] 
++ SRPN      = 10    ; positive going slew rate for nominal temperature in [V/us]
++ SRPMIN    = 10.5  ; positive going slew rate for min temperature in [V/us] 
++ SRPMAX    = 9.8   ; positive going slew rate for max temperature in [V/us] 
++ SRN       = 9.5   ; negative going slew rate in [V/us] 
++ VCC       = 15    ; typical positive supply voltage 
++ VIN_CM_MAX= 14.5  ; higher limit of input common mode voltage 
++ VEE       = -15   ; typical negative supply voltage 
++ VIN_CM_MIN= -12.5 ; lower limit of input common mode voltage 
++ IBIAS_N   = 30E-9 ; input bias current for nominal temperature 
++ IBIAS_MIN = 40E-9 ; input bias current for minimum temperature 
++ ROUT      = 200   ; output resistance 
++ ROAC      = 50    ; output resistance for alternating current 
++ AVD       = 1000K ; open loop voltage gain in [V/V] 
++ IOSN      = 10E-10 ; input offset current for nominal temperature 
++ IOSMIN    = 20E-10 ; input offset current for minimum temperature 
++ IOSMAX    = 15E-10 ; input offset current for maximum temperature 
++ VOSN      = .001  ; input offset voltage for nominal temperature 
++ VOSMIN    = .002  ; input offset voltage for minimum temperature 
++ VOSMAX    = .0001 ; input offset voltage for maximum temperature 
++ CMRR      = 120   ; common mode rejection ratio in [dB] 
++ FCMRR     = 1000  ; 3dB frequency of common mode rejection ratio 
++ PSRR      = 100   ; average power supply rejection ratio in [dB] 
++ FPSRRP    = 1000  ; 3dB frequency of positive power supply rejection ratio 
++ FPSRRN    = 1000  ; 3dB frequency of negative power supply rejection ratio 
++ ISUP      = .003  ; positive supply current 
++ ISUP0     = .002  ; extrapolated supply current for VCC=0 
++ OVRSHT    = 10    ; overshoot of small signal pulse response in [] 
++ PHIM      = 60    ; phase margin for 0dB frequency in [deg] 
++ PHIM_OVRSHT= 0    ; phase margin/overshoot switch [1/0] 
++ ISCP      = 0.02  ; output positive short-circuit current 
++ ISCN      = 0.03  ; output negative short-circuit current 
++ VOUT_MIN  = -14.0 ; minimum output voltage 
++ VOUT_MAX  = 14.0  ; maximum output voltage 

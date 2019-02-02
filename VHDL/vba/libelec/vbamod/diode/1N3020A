@@ -1,0 +1,14 @@
+***** MODEL PARAMETERS EXTRACTED FROM TECAP *****
+.MODEL  1N3020A   D
++ RS     = 0.724695      
++ EG     = 1.11          
++ XTI    = 3             
++ VJ     = 0.784558      
++ M      = 0.371018      
++ FC     = 0.99          
++ BV     = 8.881430E+00  
++ CJO    = 1.361120E-09  STAT 1.111350E-09 1.667025E-09 :GAUSS
++ IS     = 2.014110E-14  
++ N      = 1.004540E+00  
++ TT     = 1.000000E-07  
++ PMAX   = 1.000000E+00  

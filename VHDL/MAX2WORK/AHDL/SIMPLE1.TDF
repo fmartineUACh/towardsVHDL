@@ -1,0 +1,30 @@
+SUBDESIGN simple1
+(
+	clk		: INPUT;
+	reset	: INPUT;
+	d		: INPUT;
+	ena     : INPUT;
+	q		: OUTPUT;
+)
+VARIABLE
+	ss: MACHINE WITH STATES (s0, s1);
+BEGIN
+	ss.clk = clk;
+	ss.reset = reset;
+	ss.ena = ena;
+
+	CASE ss IS
+		WHEN s0 =>
+			q = GND;
+
+			IF d THEN
+				ss = s1;
+			END IF;
+		WHEN s1 =>
+			q = VCC;
+
+			IF !d THEN
+				ss = s0;
+			END IF;
+	END CASE;
+END;

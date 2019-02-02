@@ -1,0 +1,194 @@
+.SUBCKT MAX2003 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+
+* DIABLO model of a MAXIM MAX2003_SAV fast-charge controller
+* Created by George Overton - June 1997
+
+* MAX2003 PinSeq:
+* 1 = CCMD (charge-enabled mode input)
+* 2 = DCMD (discharge-enable mode input)
+* 3 = DVEN (negative delta voltage enable input)
+* 4 = TM1 (programmable input #1)
+* 5 = TM2 (programmable input #2)
+* 6 = TS (temperature sense-voltage input)
+* 7 = BAT (input voltage of a single battery cell)
+* 8 = VSS (ground)
+* 9 = SNS (current sense input)
+* 10 = TC0 (temperature cuttoff-voltage input)
+* 11 = MCV (maximum cell voltage input)
+* 12 = TEMP (temperature status output)
+* 13 = CHG (charge status output)
+* 14 = MOD (modulation output)
+* 15 = DIS (discharge-switch control output)
+* 16 = VCC (power supply voltage input)
+
+RCCMD 1 0 1MEG
+RDCMD 2 0 1MEG
+RDVEN 3 0 1MEG
+RTM1 4 0 1MEG
+RTM2 5 0 1MEG
+RTS 6 0 1MEG
+RBAT 7 0 50MEG
+RLOAD 8 16 10K
+RSNS 9 0 1MEG
+RTC0 10 0 1MEG
+RMCV 11 0 1MEG
+RTEMP 12 0 1MEG
+RCHG 13 0 1MEG
+RMOD 14 0 0.01
+RDIS 15 0 1MEG
+
+* Charge control state machine
+ECCSM state 0 FUNC(5) 16 8 1 0 2 0 7 0 9 0 CC_STATE_MACHINE 0 0 0 BREAKPOINT
+R1 state 0 1
+
+* Discharge mode control
+EDIS 18 0 FUNC(1) state 0 DISCHARGE_MODE
+R3 18 0 1T
+
+* Discharge-switch control input (pin15)
+* DIS output is controlled by the DCMD input
+* and enabled by state 2
+R2 16 17 100
+SDIS 17 15 18 0 DIS_SW OFF
+.MODEL DIS_SW SW (VT=0.5 VH=0.1)
+
+* Fast-charge control - modulation output (pin 14)
+EFC 14 0 FUNC(2) state 0 16 8 FAST_CHARGE_MODE
+
+.FUNC
+#ifndef CC_STATE_MACHINE
+#define CC_STATE_MACHINE
+CC_STATE_MACHINE(power, ccmd, dcmd, bat, sns, state, sm, lsm, bp) 
+{
+     // Test for DC operating point
+     if (phase == 0)
+     {
+          state=0;
+     } else {
+          // Reset exit code for state machine
+          ccsm_exit=0;
+          // Check power supply is within range
+          if ((power >= 4.5) && (power <= 5.5))
+          {
+               if (state == 0)
+               {
+                    // Charge-pending mode
+                    state=1;  // Power supply is ok
+                    ccsm_exit=1;
+               }
+          } else {
+               state=0;  // Power supply is out of range
+               ccsm_exit=1;
+          }
+          // If power supply is within range then engage state machine
+          if ((state != 0) && (ccsm_exit == 0))
+          { 
+               // State 1 (Power-up mode)
+               // Check if move to Discharge mode (state 2) required
+               if (state == 1)
+               // Looking for rising edge on DCMD
+               {
+                    if ((dcmd >= 2.5) && (dcmd > old_dcmd))
+                    {
+                         state=2; // Discharge mode
+                         ccsm_exit=1;
+                    }
+               }
+               // Check if move to Fast-Charge mode required by
+               // monitoring the CCMD input and check if the
+               // cell voltage is within limits
+               // NO causes change to state 3 else state 4
+               if ((state==1) && (ccsm_exit==0) && (ccmd==0))
+               {
+                    // Monitor single cell voltage
+                    if ((bat - sns) <= (0.2*power))
+                    {
+                         state=3; // Charge-pending mode
+                         ccsm_exit=1;                
+                    }
+               }                
+          }
+
+          // State 2 (Discharge mode)
+          if ((state == 2) && (ccsm_exit == 0))
+          {
+               // Monitor single cell voltage
+               if ((bat - sns) <= (0.2*power))
+               {
+                    state=1; // Terminate discharge mode
+                    ccsm_exit=1;
+               }
+          }
+
+          // State 3 (Charge pending mode)
+          if ((state == 3) && (ccsm_exit == 0))
+          {
+               // Monitor single cell voltage
+               if ((bat - sns) >= (0.2*power))
+               {
+                    state=4; // Fast-charge mode
+                    ccsm_exit=1;
+               }
+               // Looking for rising edge on DCMD in case discharge mode is requested
+               {
+                    if ((dcmd >= 2.5) && (dcmd > old_dcmd))
+                    {
+                         state=2; // Discharge mode
+                         ccsm_exit=1;
+                    }
+               }
+          }
+
+          // State 4 (Initiate fast-charge)
+          if ((state == 4) && (ccsm_exit == 0))
+          // Check for negative-delta voltage termination
+          {
+               if (time>=bp)
+               {
+                    lsm = sm;
+                    sm = (bat-sns);
+                    bp = time+34;
+               }
+               if (sm < (lsm-12E-3))
+               {
+                    state = 1;
+                    ccsm_exit = 1;
+                    bp = -1;
+                    sm = 0;
+               }
+          }
+          // Looking for rising edge on DCMD in case discharge mode is requested
+          {
+               if ((dcmd >= 2.5) && (dcmd > old_dcmd))
+               {
+                    state=2; // Discharge mode
+                    ccsm_exit=1;
+               }
+          }
+     }     
+     return state;
+}
+#endif
+
+#ifndef DISCHARGE_MODE
+#define DISCHARGE_MODE
+DISCHARGE_MODE(state)
+{
+  // Enable discharge mode if state = 2
+  if (state == 2) return 1;
+  else return 0;
+}
+#endif
+
+#ifndef FAST_CHARGE_MODE
+#define FAST_CHARGE_MODE
+FAST_CHARGE_MODE(state, fvcc)
+{
+     // Enable fast-charge mode if state = 4
+     if (state == 4) return (fvcc-0.2);
+     else return 0;
+}
+#endif
+.ENDFUNC
+
+.ENDS MAX2003

@@ -1,0 +1,76 @@
+.PARSET UA7915 _UA7915
++ VREF     = -15       STAT -15.6    -14.4    :GAUSS
++ VREF_TC  = 3.0E-4
++ LINE_RG  = 8.8E-4    STAT 1.09E-4  1.2E-2   :GAUSS
++ LOAD_RG  = 8E-3      STAT 0.99E-3  5E-2     :GAUSS
++ RR_F3    = 10K
++ ZO_F3    = 1K
++ IO_MAX   = -2.1      STAT -3.3     -1.3     :GAUSS
++ IO_MIN   = -2.5E-3
++ IO_SC    = -1.2
++ I_Q      = -1.5E-3   STAT -2.0E-3  -0.5E-4  :GAUSS
++ I_Q_D    = 6.67E-5   STAT 0        5E-3     :GAUSS
++ I_Q_TC   = 0.1E-6
++ VIN_MAX  = -40
++ VDRP_MAX = -2.3
++ VDRP_MIN = -1.1
++ VDRP_TC  = -2.5E-3
++ P_SHDN   = 50
++ P_SDN_TC = 0
+*
+* NOTES: From National Semiconductor Datasheet 1987 No.1          
+*
+*   PARAMETER         DEFINITIONS                            UNITS 
+*
+*    VREF:      Reference voltage of Vout                     V    
+*
+*    VREF_TC:   Temperture coefficient of VREF                V/C  
+*
+*                 VREF(T1) = VREF(T0)*(1+VREF_TC*(T1-T0))          
+*
+*    LINE_RG:   Line regulation  dVo/dVin                     
+*
+*    LOAD_RG:   Load regulation  dVo/dIo                      ohm  
+*
+*    RR_F3:     Ripple rejection cutoff frequency             Hz   
+*
+*               RR = 20LN (1/LINE_RG) dB                          
+*
+*    ZO_F3:     Output resistance cutoff frequency            Hz   
+*
+*    IO_MAX:    Maximum output current                        A    
+*
+*    IO_MIN:    Minimum output current                        A    
+*
+*    IO_SC:     Short circuit current                         A    
+*
+*    I_Q:       Quicient current of the common terminal       A    
+*
+*    I_Q_D:     Dynamic range of I_Q as a function of load         
+*
+*                 I_Q_D= dIq/dIo                              
+*
+*    I_Q_TC:    Temperture coefficient of I_Q                 A/C  
+*
+*                 I_Q(T1) = I_Q(T0)*(1+I_Q_TC*(T1-T0))             
+*
+*    VIN_MAX:   Maximum input voltage                         V    
+*
+*    VDRP_MAX:  Dropout voltage  corresponding to IO_MAX      V    
+*
+*    VDRP_MIN:  Dropout voltage  corresponding to IO_MIN      V    
+*
+*    VDRP_TC:   Temperture coefficient of VDRP                V/C  
+*
+*                 VDRP(T1) = VDRP(T0)*(1+VDRP_TC*(T1-T0))          
+*
+*    P_SHDN:    Power shut_down limit. If it is specified     Watt 
+*               as " Internally limitted "in the DATASHEET,        
+*               we will take                                       
+*
+*                 P_SHDN = IO_SC* VIN_MAX                          
+*
+*    P_SDN_TC:  Temperture coefficient of P_SHDN              V/C  
+*
+*                 P_SHDN(T1) = P_SHDN(T0)*(1+P_SDN_TC*(T1-T0))     
+*

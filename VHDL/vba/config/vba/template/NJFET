@@ -1,0 +1,15 @@
+.MODEL NJFET NJF
++ AF     = 1.00E+00  STAT 5 :GAUSS ; Flicker noise exponent
++ BETA   = 1.00E-04  STAT 5 :GAUSS ; Transconductance [A/V**2]
++ CGD    = 0.00E+00  STAT 5 :GAUSS ; Zero bias G-D junction [F]
++ CGS    = 0.00E+00  STAT 5 :GAUSS ; Zero bias G-S junction [F]
++ FC     = 5.00E-01  STAT 5 :GAUSS ; Forward-bias coefficient
++ IS     = 1.00E-14  STAT 5 :GAUSS ; Gate junction saturation current [A]
++ KF     = 0.00E+00  STAT 5 :GAUSS ; Flicker noise coefficient
++ LAMBDA = 0.00E+00  STAT 5 :GAUSS ; Channel length modulation [1/V]
++ PB     = 1.00E+00  STAT 5 :GAUSS ; Gate junction potential [V]
++ RD     = 0.00E+00  STAT 5 :GAUSS ; Drain ohmic resistance [OHMS]
++ RS     = 0.00E+00  STAT 5 :GAUSS ; Source ohmic resistance [OHMS]
++ VTO    = -2.00E+00 STAT 5 :GAUSS ; Threshold voltage [V]
++ M      = 5.00E-01  STAT 5 :GAUSS
++ PMAX   = 2.50E-01                ; Maximum noise disipation [W]

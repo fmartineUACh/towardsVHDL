@@ -1,0 +1,33 @@
+.PARSET LF155 _LF155
++ VNOISE     = 20     STAT 15    25    :GAUSS  ; spectral noise density in [nV/sqrt(Hz)]
++ GBW        = 2500K  STAT 1200K 4MEG  :GAUSS  ; gain-bandwidth product
++ TN         = 25                              ; nominal temperature in [C]
++ TMIN       = -55                             ; minimum temperature of operation (simulation) in [C]
++ TMAX       = 125                             ; maximum temperature of operation (simulation) in [C]
++ SR         = 5      STAT 3     7     :GAUSS  ; slew rate in [V/us]
++ VCC        = 15                              ; typical positive supply voltage
++ VIN_CM_MAX = 14.7   STAT 14.5  14.8  :GAUSS  ; higher limit of input common mode voltage
++ VEE        = -15                             ; typical negative supply voltage
++ VIN_CM_MIN = -11.8  STAT -11.9 -11.6 :GAUSS  ; lower limit of input common mode voltage
++ IBIAS_N    = 30P    STAT 20P   100P  :GAUSS  ; input bias current for nominal temperature
++ ROUT       = 300                             ; output resistance
++ ROAC       = 70     STAT 50    100   :GAUSS  ; output resistance for alternating current
++ AVD        = 200K   STAT 50K   500K  :GAUSS  ; open loop voltage gain in [V/V]
++ IOSN       = 3P     STAT -10P  10P   :GAUSS  ; input offset current for nominal temperature
++ VOSN       = 3M     STAT -5M   5M    :GAUSS  ; input offset voltage for nominal temperature
++ VOSMIN     = 5M     STAT -7M   7M    :GAUSS  ; input offset voltage for minimum temperature
++ VOSMAX     = 2M     STAT -7M   7M    :GAUSS  ; input offset voltage for maximum temperature
++ CMRR       = 100    STAT 85    120   :GAUSS  ; common mode rejection ratio in [dB]
++ FCMRR      = 90     STAT 70    200   :GAUSS  ; 3dB frequency of common mode rejection ratio
++ PSRR       = 100    STAT 85    120   :GAUSS  ; average power supply rejection ratio in [dB]
++ FPSRRP     = 700    STAT 500   1K    :GAUSS  ; 3dB frequency of positive power supply rejection ratio
++ FPSRRN     = 60     STAT 50    100   :GAUSS  ; 3dB frequency of negative power supply rejection ratio
++ ISUP       = .0033                           ; supply current
++ ISUP0      = .002                            ; extrapolated supply current for VCC=0
++ OVERSHOOT  = 6                               ; overshoot of small signal pulse response in []
++ PHIM       = 60                              ; phase margin for 0dB frequency in [deg]
++ PHIM_OVRSHT= 0                               ; phase margin/overshoot switch [1/0]
++ ISCP       = 33M    STAT 20M   40M   :GAUSS  ; output positive short-circuit current
++ ISCN       = 26M    STAT 20M   30M   :GAUSS  ; output negative short-circuit current
++ VOUT_MIN   = -13.2  STAT -13.3 -13   :GAUSS  ; minimum output voltage
++ VOUT_MAX   = 13.2   STAT 13    13.3  :GAUSS  ; maximum output voltage

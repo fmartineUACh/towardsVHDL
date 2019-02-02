@@ -1,0 +1,57 @@
+8
+32
+Library|New Library|0|101
+Library|Open Library|0|102
+Library|Close Library|0|103
+Library|Delete Library|0|106
+Library|Exit|0|105
+Edit|Undo|0|111
+Edit|Redo|0|112
+Edit|Cut Text|0|113
+Edit|Copy Text|0|114
+Edit|Paste Text|0|115
+Edit|Clear Text|0|116
+Edit|Select All|0|117
+View|Name Sort|0|201
+View|Type Sort|0|202
+View|Date Sort|0|203
+Model|New Model|0|131
+Model|Open Model|0|132
+Model|Copy Model|0|134
+Model|Move Model|0|133
+Model|Delete Model|0|135
+Model|Rename Model|0|136
+Model|Find Model|0|137
+Model|Page Setup|0|123
+Model|Print|0|124
+Tools|Customize|0|141
+Window|Cascade Windows|0|151
+Window|Tile Windows|0|152
+Window|Arrange Icons|0|153
+Help|Help|0|161
+Help|Technical Support|0|163
+Help|About|0|164
+Hidden|Select Help|0|161
+22
+NewLibraryBtn|C|new library
+OpenLibraryBtn|C|open library
+DeleteLibraryBtn|C|delete library
+ExitBtn|C|exit
+NewModelBtn|C|new model
+OpenModelBtn|C|open model
+CopyModelBtn|C|copy model
+MoveModelBtn|C|move model
+DeleteModelBtn|C|delete model
+RenameModelBtn|C|rename model
+NameSortBtn|C|name sort
+TypeSortBtn|C|type sort
+DateSortBtn|C|date sort
+PrintBtn|C|print
+UndoBtn|C|undo
+RedoBtn|C|redo
+CutBtn|C|cut text
+CopyBtn|C|copy text
+PasteBtn|C|paste text
+FindBtn|C|find model
+TileViewBtn|C|tile windows
+HelpBtn|C|help

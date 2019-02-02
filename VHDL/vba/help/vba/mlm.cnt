@@ -1,0 +1,10 @@
+:Base vbanalog.hlp
+:Title VeriBest Model Library Manager Help
+1 VeriBest Model Library Manager Online Help
+2 VeriBest Model Library Manager Main=VBA_LibraryModelLibraryManager
+3 Library=MLM_LibraryLibraryPulldownMenu
+3 Edit=MLM_LibraryEditPulldownMenu
+3 View=MLM_LibraryViewPulldownMenu
+3 Model=MLM_LibraryModelPulldownMenu
+3 Tools=MLM_LibraryToolsPulldownMenu
+3 Window=MLM_LibraryWindowPulldownMenu

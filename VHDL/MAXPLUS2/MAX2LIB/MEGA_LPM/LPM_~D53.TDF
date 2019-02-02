@@ -1,0 +1,194 @@
+--------------------------------------------------------------------
+--
+--	LPM_CLSHIFT Parameterized Megafunction
+--
+--	Copyright (C) 1991-1997 Altera Corporation
+--	Any megafunction design, and related net list (encrypted or decrypted),
+--	support information, device programming or simulation file, and any other
+--	associated documentation or information provided by Altera or a partner
+--	under Altera's Megafunction Partnership Program may be used only to
+--	program PLD devices (but not masked PLD devices) from Altera.  Any other
+--	use of such megafunction design, net list, support information, device
+--	programming or simulation file, or any other related documentation or
+--	information is prohibited for any other purpose, including, but not
+--	limited to modification, reverse engineering, de-compiling, or use with
+--	any other silicon devices, unless such use is explicitly licensed under
+--	a separate agreement with Altera or a megafunction partner.  Title to
+--	the intellectual property, including patents, copyrights, trademarks,
+--	trade secrets, or maskworks, embodied in any such megafunction design,
+--	net list, support information, device programming or simulation file, or
+--	any other related documentation or information provided by Altera or a
+--	megafunction partner, remains with Altera, the megafunction partner, or
+--	their respective licensors.  No other licenses, including any licenses
+--	needed under any third party's intellectual property, are provided herein.
+--
+--	Version 1.0
+--
+--------------------------------------------------------------------
+
+PARAMETERS
+(
+	LPM_WIDTH,
+	LPM_WIDTHDIST = CEIL(LOG2(LPM_WIDTH)),
+	LPM_SHIFTTYPE = "LOGICAL"		% ROTATE, LOGICAL or ARITHMETIC %
+);
+
+--
+--	Constants
+--
+CONSTANT ov_bits = 2^LPM_WIDTHDIST;
+
+SUBDESIGN lpm_clshift
+(
+	data[LPM_WIDTH-1..0]			: INPUT = GND;
+	distance[LPM_WIDTHDIST-1..0]	: INPUT = GND;
+	direction						: INPUT = GND;
+	result[LPM_WIDTH-1..0]			: OUTPUT;
+	underflow						: OUTPUT;
+	overflow						: OUTPUT;
+)
+
+VARIABLE
+	% Bit array for barrel shifter %
+	sbit[LPM_WIDTHDIST..0][LPM_WIDTH-1..0]	: NODE;
+
+	% Overflow per row %
+	IF (LPM_SHIFTTYPE == "LOGICAL" # LPM_SHIFTTYPE == "ARITHMETIC") GENERATE
+		ov[ov_bits-1..0]					: NODE; -- overflow nodes
+		uf[LPM_WIDTH..0]					: NODE; -- underflow nodes
+		inz[LPM_WIDTH..0]					: NODE; -- input not zero nodes
+		lzero[LPM_WIDTH-1..LPM_WIDTH-2^(LPM_WIDTHDIST-1)]	: NODE; -- GNDs for left shift
+		IF (LPM_SHIFTTYPE == "ARITHMETIC") GENERATE
+			msb[2^(LPM_WIDTHDIST-1)-1..0]	: NODE; -- copy of MSB for right arithmetic shift
+		ELSE GENERATE
+			rzero[2^(LPM_WIDTHDIST-1)-1..0]	: NODE; -- GNDs for LOGICAL right shift
+		END GENERATE;
+	END GENERATE;
+
+BEGIN
+
+	ASSERT (LPM_WIDTH > 1)
+			REPORT "Value of LPM_WIDTH parameter must be greater than or equal to 2"
+			SEVERITY ERROR
+			HELP_ID LPM_CLSHIFT_WIDTH;
+
+	ASSERT (LPM_WIDTHDIST > 0)	-- Must have enough distance inputs
+			REPORT "Value of LPM_WIDTHDIST parameter must be greater than 0"
+			SEVERITY ERROR
+			HELP_ID LPM_CLSHIFT_WIDTHDIST;
+
+	ASSERT (LPM_WIDTHDIST <= CEIL(LOG2(LPM_WIDTH)))
+			REPORT "Too many distance inputs for the requested I/O vector width of % (max. = CEIL(LOG2(LPM_WIDTH)))"
+				LPM_WIDTH
+			SEVERITY ERROR
+			HELP_ID LPM_CLSHIFT_DISTANCE;
+
+	ASSERT (LPM_SHIFTTYPE == "ROTATE"
+			# LPM_SHIFTTYPE == "LOGICAL"
+			# LPM_SHIFTTYPE == "ARITHMETIC")
+			REPORT "Illegal value for LPM_SHIFTTYPE parameter (%) -- value must be ROTATE, LOGICAL, or ARITHMETIC"
+				LPM_SHIFTTYPE
+			SEVERITY ERROR
+			HELP_ID LPM_CLSHIFT_SHIFTTYPE;
+
+	% initial value is simply data[] for all shift types %
+	sbit[0][] = data[];
+
+	% Shift depending on LPM_SHIFTTYPE parameter value %
+	IF (LPM_SHIFTTYPE == "ROTATE") GENERATE
+		FOR erow IN 0 TO LPM_WIDTHDIST-1 GENERATE
+			sbit[erow+1][] = distance[erow] & !direction -- shift left
+								& (sbit[erow][LPM_WIDTH-1-2^erow..0],
+									sbit[erow][LPM_WIDTH-1..LPM_WIDTH-2^erow])
+						   # distance[erow] & direction  -- shift right
+								& (sbit[erow][(2^erow)-1..0],
+									sbit[erow][LPM_WIDTH-1..2^erow])
+						   # !distance[erow] & sbit[erow][];
+		END GENERATE;
+		underflow = GND;
+		overflow = GND;
+	ELSE GENERATE
+		lzero[] = GND;	% Group of GNDs for left shift %
+		ov[0] = GND;	% start of overflow chain %
+
+		IF (LPM_SHIFTTYPE == "LOGICAL") GENERATE
+			rzero[] = GND;	% Group of GNDs for right shift %
+			FOR erow IN 0 TO LPM_WIDTHDIST-1 GENERATE
+				sbit[erow+1][] = distance[erow] & !direction  -- shift left
+									& (sbit[erow][LPM_WIDTH-1-2^erow..0],
+										lzero[LPM_WIDTH-1..LPM_WIDTH-2^erow])
+							   # distance[erow] & direction   -- shift right
+									& (rzero[(2^erow)-1..0],
+										sbit[erow][LPM_WIDTH-1..2^erow])
+							   # !distance[erow] & sbit[erow][];
+				% Test for overflow: %
+				% For LOGICAL shift left, overflow is a 1 bit %
+				% in any of the dropped bits %
+				FOR ebit IN 0 TO (2^erow)-1 GENERATE
+					ov[2^erow + ebit] = distance[erow] & sbit[erow][LPM_WIDTH-1-ebit]
+										# ov[2^erow + ebit - 1];
+				END GENERATE;
+			END GENERATE;
+			overflow = ov[ov_bits-1] & !direction;
+
+			% test for input not zero (needed for underflow): %
+			inz[LPM_WIDTH] = GND;
+			FOR ebit IN LPM_WIDTH-1 TO 0 GENERATE
+				inz[ebit] = data[ebit] # inz[ebit + 1];
+			END GENERATE;
+
+			% test for underflow: %
+			% For LOGICAL shift right, %
+			% underflow is a zero result when the input was non-zero %
+			uf[LPM_WIDTH] = GND;
+			FOR ebit IN LPM_WIDTH-1 TO 0 GENERATE
+				uf[ebit] = sbit[LPM_WIDTHDIST][ebit] # uf[ebit + 1];
+			END GENERATE;
+			underflow = direction & !uf[0] & inz[0];
+		ELSE GENERATE -- "ARITHMETIC" shift type
+			msb[] = data[LPM_WIDTH-1]; -- copies of MSB
+			FOR erow IN 0 TO LPM_WIDTHDIST-1 GENERATE
+				sbit[erow+1][] = distance[erow] & !direction -- shift left
+									& (sbit[erow][LPM_WIDTH-1-2^erow..0],
+										lzero[LPM_WIDTH-1..LPM_WIDTH-2^erow])
+							   # distance[erow] & direction  -- shift right
+									& (msb[(2^erow)-1..0],
+										sbit[erow][LPM_WIDTH-1..2^erow])
+							   # !distance[erow] & sbit[erow][];
+				% Test for overflow: %
+				% For ARITHMETIC shift left, overflow is a bit that is different %
+				% from the sign bit in any of the dropped bits, OR a resulting %
+				% sign bit that is different from the original sign bit %
+				FOR ebit IN 0 TO (2^erow)-1 GENERATE
+					ov[2^erow + ebit] = distance[erow]
+											& (sbit[erow][LPM_WIDTH-1-ebit] $ data[LPM_WIDTH-1])
+										# ov[2^erow + ebit - 1];
+				END GENERATE;
+			END GENERATE;
+			overflow = (ov[ov_bits-1]
+							# (sbit[LPM_WIDTHDIST][LPM_WIDTH-1] $ data[LPM_WIDTH-1]))
+					 & !direction;
+
+			% test for input not all sign bit (needed for underflow): %
+			inz[LPM_WIDTH] = GND;
+			FOR ebit IN LPM_WIDTH-1 TO 0 GENERATE
+				inz[ebit] = (data[ebit] $ data[LPM_WIDTH-1])
+							# inz[ebit + 1];
+			END GENERATE;
+
+			% test for underflow: %
+			% For ARITHMETIC shift right, underflow is a result where all %
+			% bits are the same as the sign bit, and the input bits are not %
+			% all the same as the sign bit. %
+			uf[LPM_WIDTH] = GND;
+			FOR ebit IN LPM_WIDTH-1 TO 0 GENERATE
+				uf[ebit] = (sbit[LPM_WIDTHDIST][ebit] $ data[LPM_WIDTH-1])
+						 # uf[ebit + 1];
+			END GENERATE;
+			underflow = direction & !uf[0] & inz[0];
+		END GENERATE;
+	END GENERATE;
+
+	% Connect outputs %
+	result[] = sbit[LPM_WIDTHDIST][];
+END;

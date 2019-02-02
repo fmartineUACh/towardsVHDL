@@ -1,0 +1,72 @@
+.SUBCKT _DBUFFERZ 1 2 3
++ VOH   = 3.1V
++ VOL   = 0.2V
++ VIH   = 2V
++ VIL   = 0.8V
++ HYST  = 0
++ TR    = 0ns
++ TF    = 0ns
++ TPLH  = 9ns
++ TPHL  = 7ns
++ TECH  = 11
++ SILD  = 1.0
++ IOH   = 0.4mA
++ IOL   = 16mA
++ IOZ   = 40uA
++ TPHLZ = 9ns
++ TPZHL = 9ns
+* DBUFFERZ PinSeq: OE A Y
+* Created by Jerzy Teterwak on Wed Jan  5 15:28:23 MST 1994
+"TR_1=TR > 1E-11? TR: 1E-11"
+"TF_1=TF > 1E-11? TF: 1E-11"
+"INTYPE = ABS(HYST-1)< 0.5? 1: 3"
+"LHDEL = (TPLH-0.5*TR_1)>0.0? TPLH-0.5*TR_1: 0.0"
+"HLDEL = (TPHL-0.5*TF_1)>0.0? TPHL-0.5*TF_1: 0.0"
+RIN1  1  0  1E+08
+RIN2  2  0  1E+08
+ROUT1 30 0  1E+08
+ROUT2 3  0  1E+08
+AZ    10 BUFFER(1) 1 IMP 0 0 0
+AGATE 30 BUFFER(1) 2 GATE 0 0 0
+GZ    30 3  FUNC(2) 30 3 10 0 DBUFF_IMP "IOZ"
+.FUNC
+#ifndef DBUFF_IMP
+#define DBUFF_IMP
+DBUFF_IMP(vin,vcont,ioz)
+ {
+   d_dvcont = 0.0;
+   if(vcont < 0.5)
+    {
+      out = -ioz;
+      d_dvin = 0.0;
+    }
+   else
+    {
+      out = vin*1e3;
+      d_dvin = 1e3;
+    }
+   return out;
+ }
+#endif
+.ENDFUNC
+.MODEL GATE DIGITAL
++ INPUTFLG = "INTYPE"
++ LHBITTRL = "VIH"
++ HLBITTRL = "VIL"
++ LHDELAYT = "LHDEL"
++ HLDELAYT = "HLDEL"
++ LHRISETM = "TR_1"
++ HLRISETM = "TF_1"
++ HIGHLEV  = "VOH"
++ LOWLEV   = "VOL"
+.MODEL IMP DIGITAL
++ INPUTFLG = 3
++ LHBITTRL = "VIH"
++ HLBITTRL = "VIL"
++ LHDELAYT = "TPZHL"
++ HLDELAYT = "TPHLZ"
++ LHRISETM = 1.0E-11
++ HLRISETM = 1.0E-11
++ HIGHLEV  = 1.0
++ LOWLEV   = 0.0
+.ENDS _DBUFFERZ

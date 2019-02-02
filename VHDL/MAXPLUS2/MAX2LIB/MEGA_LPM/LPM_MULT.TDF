@@ -1,0 +1,413 @@
+--------------------------------------------------------------------
+--
+--	LPM_MULT Parameterized Macrofunction
+--
+--	Copyright (C) 1991-1997 Altera Corporation
+--	Any megafunction design, and related net list (encrypted or decrypted),
+--	support information, device programming or simulation file, and any other
+--	associated documentation or information provided by Altera or a partner
+--	under Altera's Megafunction Partnership Program may be used only to
+--	program PLD devices (but not masked PLD devices) from Altera.  Any other
+--	use of such megafunction design, net list, support information, device
+--	programming or simulation file, or any other related documentation or
+--	information is prohibited for any other purpose, including, but not
+--	limited to modification, reverse engineering, de-compiling, or use with
+--	any other silicon devices, unless such use is explicitly licensed under
+--	a separate agreement with Altera or a megafunction partner.  Title to
+--	the intellectual property, including patents, copyrights, trademarks,
+--	trade secrets, or maskworks, embodied in any such megafunction design,
+--	net list, support information, device programming or simulation file, or
+--	any other related documentation or information provided by Altera or a
+--	megafunction partner, remains with Altera, the megafunction partner, or
+--	their respective licensors.  No other licenses, including any licenses
+--	needed under any third party's intellectual property, are provided herein.
+--
+--	Version 6.0
+--
+--------------------------------------------------------------------
+----------------------------------
+-- Top level design for LPM_MULT
+----------------------------------
+INCLUDE "lpm_add_sub";
+INCLUDE "multcore";
+INCLUDE "bypassff";
+INCLUDE "altshift";
+
+
+PARAMETERS 
+(
+	LPM_WIDTHA,									-- Size of the multiplicand input 
+	LPM_WIDTHB,									-- Size of the multiplier input
+	LPM_WIDTHP = (LPM_WIDTHA + LPM_WIDTHB),		-- Size of the result (output)
+	LPM_WIDTHR = 0,								-- Old result size, kept for bakward compatibility
+	LPM_WIDTHS,									-- Size of the sum input
+	LPM_REPRESENTATION  = "UNSIGNED",			-- Number representation: UNSIGNED or SIGNED
+	LPM_PIPELINE = 0,							-- Pipeline latency
+	LATENCY = 0,								-- Old latency, kept for backward compatibility
+	INPUT_A_IS_CONSTANT = "NO",					-- More optimized design if input A is a constant
+	INPUT_B_IS_CONSTANT = "NO",					-- More optimized design if input B is a constant
+	USE_EAB = "OFF",							-- Use EABs when set to "ON"
+	DEVICE_FAMILY
+);
+
+
+-- Some useful functions ...
+DEFINE MAX(a, b) 			= a > b ? a : b;
+DEFINE MIN(a, b) 			= a < b ? a : b;
+
+-- Has the user used the old latency parameter (LATENCY)?
+CONSTANT ZLATENCY 			= USED(LATENCY) ? LATENCY : LPM_PIPELINE;	
+
+-- In non-EAB implementations, determine the umber of 4-bit blocks for constant input cases 
+CONSTANT BLOCKS 			= (INPUT_A_IS_CONSTANT == "YES") ? CEIL(LPM_WIDTHB DIV 4) :
+															   CEIL(LPM_WIDTHA DIV 4);	
+
+-- For cases where there will be a leading (leftmost) zero output, one has to be careful
+-- to avoid stuck-at-ground FFs or primitives. 
+CONSTANT NEED_LEAD_ZERO		= -((LPM_REPRESENTATION == "UNSIGNED" & (LPM_WIDTHA == 1 # LPM_WIDTHB == 1)) #
+ 			   				   (LPM_WIDTHA == 1 & LPM_WIDTHB == 1));
+
+-- Various output widths, with and without the sum input used.
+CONSTANT FULL_WIDTHR 		= LPM_WIDTHA + LPM_WIDTHB;		-- Natural size of multiplier result
+CONSTANT RES_WIDTH 			= USED(LPM_WIDTHR) ? LPM_WIDTHR : LPM_WIDTHP; -- Use the old parameter?
+CONSTANT SUM_RESULT_WIDTH 	= MAX(FULL_WIDTHR, LPM_WIDTHS);	-- Size of result when sum input is used
+
+-- Adjusted size for result_node primitive to take care of leading zero cases.
+CONSTANT RESULT_NODE_WIDTH	= (NEED_LEAD_ZERO == 1) ? FULL_WIDTHR-1 : FULL_WIDTHR; 
+ 			   		
+-- Height of the CPA-based (FLEX/FAST) paraller adder in non_EAB implementations.
+CONSTANT CPA_LEVELS 		= (LPM_WIDTHA == 1 # LPM_WIDTHB == 1 # 
+							  (LPM_WIDTHA == 2 & LPM_WIDTHB == 2)) ? 0 : CEIL(LOG2(LPM_WIDTHB));
+
+-- In EAB implementations, check whether the multiplier will fit in a single EAB. If so,
+-- no parallel adders will be needed. Note that one has to consider "odd-shaped" multipliers
+-- such as 2x6 or 1x7 as candidtaes for a single EAB implementation. 
+CONSTANT EAB_NEEDS_NO_ADDER	= -((INPUT_A_IS_CONSTANT == "YES" # INPUT_B_IS_CONSTANT == "YES") &
+								(LPM_WIDTHA <= 8 & LPM_WIDTHB <= 8) #
+							   (INPUT_A_IS_CONSTANT == "NO" & INPUT_B_IS_CONSTANT == "NO") &
+ 								(LPM_WIDTHA + LPM_WIDTHB <= 8));
+
+-- Maximum number of pipe regsiter stages possible for a given implementation. Needed to determine
+-- maximum usable latency of the multiplier core and the required external latency. Note that
+-- for the case of EAB-based implementations, we have at most 3 usable stages.
+CONSTANT TOT_STAGES 		= (USE_EAB == "OFF" # (USE_EAB == "ON" & DEVICE_FAMILY != "FLEX10K")) ?
+								((INPUT_A_IS_CONSTANT == "YES" # INPUT_B_IS_CONSTANT == "YES") ? 
+							   			CEIL(LOG2(BLOCKS))+1 : (CPA_LEVELS+1)) : 3;
+
+-- For non-pipelined and single-level (1 LCELL) cases, this parameter is simply 1,
+-- For pipelined cases, it's the maximum usable latency attainable from the multiplier core.							   
+CONSTANT INT_LATENCY		= ZLATENCY == 0 ? 1 : (MIN(TOT_STAGES-1, ZLATENCY));
+
+-- Latency of the "sum" input pipe
+CONSTANT SUM_EXT_LATENCY 	= (ZLATENCY > TOT_STAGES) ? (ZLATENCY - TOT_STAGES) : 0;
+ 
+-- Determine height and width of the external latency FFs needed to compensate for the limited
+-- available latency of the multiplier core. Note that these values are dependent on
+-- whether sum input has been used and on the requested size of result.
+
+-- External latency with the sum port not used.
+CONSTANT NOSUM_EXT_LATENCY 	= (ZLATENCY >= TOT_STAGES) ? (ZLATENCY + 1 - TOT_STAGES) : 0;
+-- External latency with the sum input used. 
+CONSTANT SUM_LATENCY		= ZLATENCY <= TOT_STAGES ? ZLATENCY : TOT_STAGES;
+-- Effective Width and depth of the external latency pipe. 
+DEFINE   EXT_LAT_WIDTH()	= USED(sum) ? MIN(SUM_RESULT_WIDTH, RES_WIDTH) :
+							  (NEED_LEAD_ZERO == 1 ? MIN(RES_WIDTH, FULL_WIDTHR)-1 : 
+													 MIN(RES_WIDTH, FULL_WIDTHR));
+DEFINE   EXT_LAT_DEPTH()	= USED(sum) ? SUM_EXT_LATENCY : NOSUM_EXT_LATENCY; 
+								  
+
+SUBDESIGN lpm_mult
+( 
+	dataa	[LPM_WIDTHA-1..0]		: INPUT;
+	datab	[LPM_WIDTHB-1..0]		: INPUT;
+	sum		[LPM_WIDTHS-1..0]		: INPUT = GND;
+	aclr							: INPUT = GND;
+	clock							: INPUT = GND;
+ 	result	[RES_WIDTH-1..0] 		: OUTPUT;
+)
+
+
+VARIABLE
+
+	-- For the special case where there is a leading zero, the result width is just 1, and
+	-- there is no sum input, no multiplier core is needed because the result is trivially GND.
+	IF !(!USED(sum) & NEED_LEAD_ZERO == 1 & RES_WIDTH == 1) GENERATE
+
+		IF (INPUT_A_IS_CONSTANT == "YES" # INPUT_B_IS_CONSTANT == "YES") GENERATE
+			------------------------------------------------------------
+			-- Declarations for cases that have one input a constant  --
+			------------------------------------------------------------
+			-- If port A is the constant one, swap the roles of LPM_WIDTHA and LPM_WIDTHB.
+			-- Turn off subfactor extraction to prevent size expansion in FLEX/NORMAL case.
+			IF INPUT_A_IS_CONSTANT == "YES" GENERATE
+				mult_core :  multcore WITH (LPM_WIDTHA = LPM_WIDTHB, 
+											LPM_WIDTHB = LPM_WIDTHA,
+										    LPM_REPRESENTATION = LPM_REPRESENTATION,
+											USE_EAB = USE_EAB,
+										    LATENCY = INT_LATENCY, 
+											ONE_INPUT_IS_CONSTANT = "YES",
+										    SUBFACTOR_EXTRACTION = "OFF");
+
+			ELSE GENERATE
+				mult_core :  multcore WITH (LPM_WIDTHA = LPM_WIDTHA, 
+											LPM_WIDTHB = LPM_WIDTHB,
+										    LPM_REPRESENTATION = LPM_REPRESENTATION,
+											USE_EAB = USE_EAB,
+										    LATENCY = INT_LATENCY, 
+											ONE_INPUT_IS_CONSTANT = "YES",
+									   	    SUBFACTOR_EXTRACTION = "OFF");
+			END GENERATE;
+
+		ELSE GENERATE
+			------------------------------------------------------------
+			-- Declarations for cases that have no input a constant  --
+			------------------------------------------------------------
+			mult_core :  multcore WITH (LPM_WIDTHA = LPM_WIDTHA, 
+										LPM_WIDTHB = LPM_WIDTHB,
+									    LPM_REPRESENTATION = LPM_REPRESENTATION, 
+										USE_EAB = USE_EAB,
+									    LATENCY = INT_LATENCY, 
+										ONE_INPUT_IS_CONSTANT = "NO");
+		END GENERATE;
+	END GENERATE;
+	
+	-- If sum input is used, then the followings are needed as well ...
+	IF USED(sum) GENERATE
+		IF USED(clock) & (ZLATENCY >= TOT_STAGES) GENERATE
+			result_node[RESULT_NODE_WIDTH-1..0] 	: DFF;
+		ELSE GENERATE
+			result_node[RESULT_NODE_WIDTH-1..0] 	: NODE;
+		END GENERATE;
+		
+		sadder					: lpm_add_sub WITH (LPM_WIDTH =	SUM_RESULT_WIDTH, LPM_PIPELINE = 0);	
+		sum_latency_ffs			: altshift    WITH (WIDTH = LPM_WIDTHS, DEPTH = SUM_LATENCY);
+	END GENERATE;
+	
+	-- If external latency width is non-zero, then we need the external latency pipe, too.
+	-- Note that altshift takes care of 0 depth, so won't check for nonzero depth. This
+	-- simplifies the coding in logic section.
+	IF EXT_LAT_WIDTH() > 0 GENERATE
+		external_latency_ffs	: altshift WITH (WIDTH = EXT_LAT_WIDTH(), DEPTH = EXT_LAT_DEPTH());	
+	END GENERATE;
+	
+
+
+BEGIN
+
+	ASSERT REPORT "LPM_WIDTHA = %" 			LPM_WIDTHA 			SEVERITY DEBUG;	
+	ASSERT REPORT "LPM_WIDTHB = %" 			LPM_WIDTHB 			SEVERITY DEBUG;
+	ASSERT REPORT "LPM_WIDTHP = %" 			RES_WIDTH 			SEVERITY DEBUG;
+	ASSERT REPORT "LPM_WIDTHS = %" 			LPM_WIDTHS			SEVERITY DEBUG;
+	ASSERT REPORT "LPM_REPRES = %" 			LPM_REPRESENTATION 	SEVERITY DEBUG;
+	ASSERT REPORT "ZLATENCY = %" 			ZLATENCY 			SEVERITY DEBUG;
+	ASSERT REPORT "INT_LATENCY = %" 		INT_LATENCY 		SEVERITY DEBUG;
+	ASSERT REPORT "EXT_LATENCY_DEPTH() = %" EXT_LAT_DEPTH() 	SEVERITY DEBUG;
+	ASSERT REPORT "EXT_LATENCY_WIDTH() = %" EXT_LAT_WIDTH() 	SEVERITY DEBUG;
+	ASSERT REPORT "CPA_LEVELS = %" 			CPA_LEVELS 			SEVERITY DEBUG;
+		
+	ASSERT (LPM_REPRESENTATION == "SIGNED" # LPM_REPRESENTATION == "UNSIGNED")
+			REPORT "Illegal value for LPM_REPRESENTATION parameter (""%"") -- value must be ""SIGNED"" or ""UNSIGNED""" 
+				LPM_REPRESENTATION
+			SEVERITY ERROR
+			HELP_ID LPM_MULT_REPRESENTATION;
+
+	ASSERT (LPM_WIDTHA > 0)
+			REPORT "Value of LPM_WIDTHA parameter must be greater than 0"
+			SEVERITY ERROR
+			HELP_ID LPM_MULT_WIDTHA;
+
+	ASSERT (LPM_WIDTHB > 0)
+			REPORT "Value of LPM_WIDTHB parameter must be greater than 0"
+			SEVERITY ERROR
+			HELP_ID LPM_MULT_WIDTHB;
+
+	ASSERT (SUM_RESULT_WIDTH <= RES_WIDTH)
+			REPORT "Value of LPM_WIDTHP parameter is too low -- % least significant bits of the result have been discarded" (SUM_RESULT_WIDTH - RES_WIDTH)
+			SEVERITY WARNING
+			HELP_ID LPM_MULT_WIDTHP;
+
+	ASSERT (USED(clock) ? ZLATENCY > 0 : ZLATENCY == 0)
+			REPORT "Value of LPM_PIPELINE (LATENCY) parameter must be greater than 0 if clock input is used and vice versa"
+			SEVERITY ERROR
+			HELP_ID LPM_MULT_CLOCK_WITHOUT_LATENCY;
+
+	ASSERT (ZLATENCY <= TOT_STAGES # TOT_STAGES == 1)
+			REPORT "Value of LPM_PIPELINE (LATENCY) parameter (%) should be lower -- use % for best performance/utilization" ZLATENCY, INT_LATENCY
+			SEVERITY INFO
+			HELP_ID LPM_MULT_CLOCK_LATENCY_VALUE;
+
+	ASSERT !(USED(LATENCY) & USED(LPM_PIPELINE) & (LATENCY != LPM_PIPELINE))
+			REPORT "LPM_PIPELINE and LATENCY are both used and have inconsistent values" 
+			SEVERITY ERROR
+			HELP_ID LPM_MULT_LATENCY_INCONSIST;
+
+	ASSERT !(USED(sum) & LPM_WIDTHS == 0) 
+		   REPORT "Value of LPM_WIDTHS parameter must be greater than 0 if the sum port is used" 
+		   SEVERITY ERROR
+		   HELP_ID LPM_MULT_WIDTHS;
+
+	ASSERT (USE_EAB == "ON" # USE_EAB == "OFF")
+			REPORT "Illegal value for USE_EAB parameter (""%"") -- value must be ""ON"" or ""OFF""" 
+				USE_EAB
+			SEVERITY ERROR
+			HELP_ID LPM_MULT_USE_EAB;
+
+	ASSERT (USE_EAB == "OFF" # (USE_EAB == "ON" & DEVICE_FAMILY == "FLEX10K"))
+			REPORT "Current device family (%) does not support EABs. USE_EAB parameter setting is ignored." DEVICE_FAMILY
+			SEVERITY WARNING
+			HELP_ID LPM_MULT_EAB_DEVICE;
+
+
+	IF !USED(sum) GENERATE
+		---------------------------
+		--   sum input not used  --
+		---------------------------
+		-- This is a trivial case. There is a leading zero and we have asked for 1 output bit!
+		-- The output is trivially stuck at GND.
+	 	IF NEED_LEAD_ZERO == 1 & RES_WIDTH == 1 GENERATE
+			result[] = GND;
+				
+		 ELSE GENERATE
+			-- Connect the inputs (and clock and aclr if used) to the multiplier core
+			IF INPUT_A_IS_CONSTANT == "YES" GENERATE
+				mult_core.dataa[] = datab[];
+				mult_core.datab[] = dataa[];
+			ELSE GENERATE
+				mult_core.dataa[] = dataa[];
+				mult_core.datab[] = datab[];
+			END GENERATE;
+
+			-- Distinguish between the cases that both clock and aclr have been used
+			-- and the case with just the clock connected. This is needed for EAB-based
+			-- implementations as we will use the aclr input to check whether registers
+			-- internal to EABs can be exploited or one should put external registers.
+			IF USED(clock) & (INT_LATENCY > 0) GENERATE
+				IF USED(aclr) GENERATE
+					mult_core.(clock, aclr) = (clock, aclr);
+				ELSE GENERATE
+					mult_core.clock = clock;
+				END GENERATE;
+			END GENERATE;	
+ 
+			-- Connections to external latency FFs. Note that we have to separate the 
+			-- trivially stuck-at-GND leading zero case to not have stuck-at-GND FFs.
+ 			IF RES_WIDTH <= FULL_WIDTHR GENERATE		-- case when fewer result bits are desired.
+				IF NEED_LEAD_ZERO == 1 GENERATE			-- case when leading zero is present
+					external_latency_ffs.data[] = mult_core.result[FULL_WIDTHR-2..FULL_WIDTHR-RES_WIDTH];
+					result[RES_WIDTH-2..0] = external_latency_ffs.result[];
+					result[RES_WIDTH-1] = GND;			-- force the ouput bit permanently to GND
+					
+				ELSE GENERATE							-- no leading zero case
+					external_latency_ffs.data[] = mult_core.result[FULL_WIDTHR-1..FULL_WIDTHR-RES_WIDTH];
+					result[] = external_latency_ffs.result[];
+				END GENERATE;
+		
+			ELSE GENERATE
+				-- When extension of result bits to the left is needed, the leading zero case
+				-- (which can show up in a SIGNED case as well) should be handled separately 
+				IF NEED_LEAD_ZERO == 1 GENERATE
+					external_latency_ffs.data[] = mult_core.result[FULL_WIDTHR-2..0];
+					result[FULL_WIDTHR-2..0] = external_latency_ffs.result[]; 
+					result[RES_WIDTH-1..FULL_WIDTHR-1] = GND;
+				
+				ELSE GENERATE
+					external_latency_ffs.data[] = mult_core.result[];
+					result[FULL_WIDTHR-1..0] = external_latency_ffs.result[];
+
+					-- Perform sign extension of the output
+					IF LPM_REPRESENTATION == "UNSIGNED" GENERATE
+						result[RES_WIDTH-1..FULL_WIDTHR] = GND;
+					ELSE GENERATE
+						result[RES_WIDTH-1..FULL_WIDTHR] = external_latency_ffs.result[FULL_WIDTHR-1];
+					END GENERATE;
+
+				END GENERATE;
+			END GENERATE;
+		END GENERATE;
+		
+	ELSE GENERATE
+		----------------------------
+		--     sum input used    ---
+		----------------------------	
+		-- Sum input latency stages
+		sum_latency_ffs.data[] = sum[];
+		IF ZLATENCY > 0 GENERATE
+			sum_latency_ffs.(clock, aclr) = (clock, aclr);
+		END GENERATE;
+			
+		-- Perform sign extension on the sum side of the adder
+		sadder.datab[LPM_WIDTHS-1..0] = sum_latency_ffs.result[];
+		IF SUM_RESULT_WIDTH > LPM_WIDTHS GENERATE
+			IF LPM_REPRESENTATION == "SIGNED" GENERATE
+				sadder.datab[SUM_RESULT_WIDTH-1..LPM_WIDTHS] = sum_latency_ffs.result[LPM_WIDTHS-1];
+			ELSE GENERATE
+				sadder.datab[SUM_RESULT_WIDTH-1..LPM_WIDTHS] = GND;
+			END GENERATE;
+		END GENERATE;
+			
+		-- Multiplier core connections and sign extension on the multiplier side of the adder			 	
+		IF INPUT_A_IS_CONSTANT == "YES" GENERATE
+			mult_core.dataa[] = datab[];
+			mult_core.datab[] = dataa[];
+		ELSE GENERATE
+			mult_core.dataa[] = dataa[];
+			mult_core.datab[] = datab[];
+		END GENERATE;
+
+		IF USED(clock) & (INT_LATENCY > 0) GENERATE
+			IF USED(aclr) GENERATE
+				mult_core.(clock, aclr) = (clock, aclr);
+			ELSE GENERATE
+				mult_core.clock = clock;
+			END GENERATE;
+		END GENERATE;
+
+		-- Connections to the sum adder
+ 		IF NEED_LEAD_ZERO == 1 GENERATE
+			result_node[FULL_WIDTHR-2..0] = mult_core.result[FULL_WIDTHR-2..0];
+			sadder.dataa[FULL_WIDTHR-2..0] = result_node[];	
+			sadder.dataa[FULL_WIDTHR-1] = GND;		
+			IF SUM_RESULT_WIDTH > FULL_WIDTHR GENERATE
+				sadder.dataa[SUM_RESULT_WIDTH-1..FULL_WIDTHR] = GND;
+			END GENERATE;
+				
+		ELSE GENERATE
+			result_node[] = mult_core.result[];			
+			sadder.dataa[FULL_WIDTHR-1..0] = result_node[];		
+			IF SUM_RESULT_WIDTH > FULL_WIDTHR GENERATE
+				IF LPM_REPRESENTATION == "UNSIGNED" GENERATE
+					sadder.dataa[SUM_RESULT_WIDTH-1..FULL_WIDTHR] = GND;
+				ELSE GENERATE						
+					sadder.dataa[SUM_RESULT_WIDTH-1..FULL_WIDTHR] = result_node[FULL_WIDTHR-1];
+				END GENERATE;
+			END GENERATE;
+		END GENERATE;	
+				
+		-- (Sign) extension if output width is longer than that of the sum adder
+		IF RES_WIDTH > SUM_RESULT_WIDTH GENERATE
+			external_latency_ffs.data[] = sadder.result[];
+			result[SUM_RESULT_WIDTH-1..0] = external_latency_ffs.result[];
+			IF LPM_REPRESENTATION == "UNSIGNED" GENERATE
+				result[RES_WIDTH-1..SUM_RESULT_WIDTH] = GND;
+	 		ELSE GENERATE
+		 		result[RES_WIDTH-1..SUM_RESULT_WIDTH] = result[SUM_RESULT_WIDTH-1];
+ 			END GENERATE;
+ 		
+		ELSE GENERATE
+			external_latency_ffs.data[] = sadder.result[SUM_RESULT_WIDTH-1..SUM_RESULT_WIDTH-RES_WIDTH];
+			result[] = external_latency_ffs.result[];
+ 		END GENERATE;
+	
+		-- Multiplier core output node clock connection
+		IF USED(clock) & ZLATENCY >= TOT_STAGES GENERATE
+			result_node[].(clk, clrn) = (clock, !aclr);
+		END GENERATE;
+	END GENERATE;
+	
+	-- External latency FFs clock connections
+	IF EXT_LAT_DEPTH() > 0 GENERATE
+		external_latency_ffs.(clock, aclr) = (clock, aclr);
+	END GENERATE;
+END;
+
+

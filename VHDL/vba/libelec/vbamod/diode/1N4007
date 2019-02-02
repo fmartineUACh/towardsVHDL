@@ -1,0 +1,13 @@
+***** MODEL PARAMETERS EXTRACTED FROM TECAP *****
+.MODEL  1N4007   D
++ RS     = 0.245876      
++ EG     = 1.11          
++ XTI    = 3                   
++ VJ     = 0.279887      
++ M      = 0.308836      
++ FC     = 0.99          
++ BV     = 1.000000E+03  
++ CJO    = 2.211030E-11  STAT 1.805298E-11 2.707948E-11 :GAUSS
++ IS     = 4.950520E-10  STAT 4.084186E-11 6.000621E-09 :GAUSS
++ N      = 1.582940E+00  
++ TT     = 1.000000E-07  

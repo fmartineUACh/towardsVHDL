@@ -1,0 +1,111 @@
+.SUBCKT NICD 1 2
++ CAPACITY = 1.7
++ CELLS = 1
++ SOC = 50
+
+* NICD PinSeq: TERM+ TERM-
+* DIABLO Model Of a NICD Battery
+* Created by George Overton - August 1996
+
+* Monitor state of charge in the cell
+E_CHARGE CHARGE 0 STEP_FUNC(2) CHARGE 0 0 7 CELL_CHARGE "CAPACITY" "SOC" maxstep=10
+R_CHARGE CHARGE 0 1T
+
+* Used to measure current flowing through the cell
+V_CELL 3 2 0
+
+* Convert cell current measurement into a voltage
+H_CURRENT 7 0 V_CELL 1
+R_CURRENT 7 0 1
+
+* Control output voltage of the cell
+E_CELL 1 3 STEP_FUNC(2) CHARGE 0 6 0 CELL_VOLTS "CAPACITY" "CELLS"
+
+* Leakage resistance of cell
+R_RETENTION 1 2 10K
+
+* Add inertia to the voltage developed across the cell
+E_INERTIA 4 0 STEP_FUNC(2) 7 0 CHARGE 0 CELL_INERTIA "CAPACITY"
+D_INERT1 4 5 DIODE
+R_INERT1 5 6 300K
+R_INERT2 6 0 10MEG
+C_INERT1 6 0 300u
+
+.FUNC
+#ifndef CELL_CHARGE
+#define CELL_CHARGE
+CELL_CHARGE(actual_charge, icell, capacity, soc)
+{
+  // Test for DC Operating Point calculation
+  if (phase == 0)
+  {
+    // Initial charge in the cell in AmpSeconds
+    charge = soc * 0.01 * capacity * 3600;
+  } else {
+    // Calculate new value of charge for positive time only
+    if (time_flag == 1)
+    {
+      // Note that "old_actual_charge" must be used here to get the last converged timestep
+      charge = old_actual_charge - (timestep * icell);
+      // Check for charge limits
+      if (charge < 0) charge = 0;
+      if (charge > capacity * 3600) charge = capacity * 3600;
+    }
+  }
+  return charge;
+}
+#endif
+.ENDFUNC
+
+.FUNC
+#ifndef CELL_VOLTS
+#define CELL_VOLTS
+CELL_VOLTS(cell_charge, iv, cell_capacity, no_of_cells)
+{
+  // Calculate cell voltage as a function of cell charge
+    TEN_PC = (0.1 * cell_capacity * 3600);
+    voltage = (1 - exp(-cell_charge / TEN_PC)) * iv;
+    // Calculate difference between simulation temperature and nominal temperature (27degC)
+    diff_temp = temp - 27;
+    // Calculate required shift in output voltage due to temperature
+    voltage_shift = diff_temp * (-4E-3);
+    // Calculate shift in output voltage due to diode in inertial voltage circuit
+    diode_shift = diff_temp * 2.4E-3;
+    // Remove shift caused by diode and add correct shift to the output voltage
+    voltage = voltage - diode_shift + voltage_shift;
+    // Prevent cell voltage dropping below zero volts
+    if (voltage <=0 ) voltage = 0;
+  return (voltage * no_of_cells);
+}
+#endif
+.ENDFUNC
+
+.FUNC
+#ifndef CELL_INERTIA
+#define CELL_INERTIA
+CELL_INERTIA(i_cell, cellcharge, cellcapacity)
+{
+  // Add inertia to the voltage developed across the cell
+  if (i_cell > 0)
+  {
+    // Cell is in charge mode
+    SEVENTY_PC = (0.7 * cellcapacity * 3600);
+    NINETY_PC = (0.9 * cellcapacity * 3600);
+    if ((cellcharge >= SEVENTY_PC) && (cellcharge < NINETY_PC))
+    {
+      inertial_voltage = 2.279;
+    } else {
+      inertial_voltage = 2.029;
+    }
+  } else {
+    // Cell is in discharge mode
+    inertial_voltage = 1.621;
+    // Use following figure for DC temperature sweep
+    // inertial_voltage = 1.926;
+  }
+  return inertial_voltage;
+}
+#endif
+.ENDFUNC
+
+.ENDS NICD

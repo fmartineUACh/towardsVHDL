@@ -1,0 +1,26 @@
+micro.vhd #Entity micro 4
+micro.vhd #Architecture a_micro micro 12
+micro.vhd #Instance u1 gcm 17
+micro.vhd #Instance u2 reg_ins 18
+micro.vhd #Instance u3 reg_dato 19
+micro.vhd #Instance u4 pcount 20
+micro.vhd #Instance u5 deco_ins 21
+micro.vhd #Instance u6 alu 22
+micro.vhd #Instance u7 acc1 23
+micro.vhd #Instance u8 acct 24
+modulos.vhd #Entity gcm 18
+modulos.vhd #Entity reg_dato 23
+modulos.vhd #Entity pcount 29
+modulos.vhd #Entity reg_ins 35
+modulos.vhd #Entity deco_ins 40
+modulos.vhd #Entity alu 46
+modulos.vhd #Entity acc1 52
+modulos.vhd #Entity acct 59
+modulos.vhd #Architecture a_gcm gcm 64
+modulos.vhd #Architecture a_dato reg_dato 91
+modulos.vhd #Architecture a_pc pcount 103
+modulos.vhd #Architecture a_reg reg_ins 117
+modulos.vhd #Architecture a_deco deco_ins 128
+modulos.vhd #Architecture a_alu alu 148
+modulos.vhd #Architecture a_acc acc1 173
+modulos.vhd #Architecture a_acct acct 184

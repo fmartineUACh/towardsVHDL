@@ -1,0 +1,33 @@
+.PARSET LF355 _LF155
++ VNOISE     = 20     ; spectral noise density in [nV/sqrt(Hz)]
++ GBW        = 2500K  ; gain-bandwidth product
++ TN         = 25     ; nominal temperature in [C]
++ TMIN       = 0      ; minimum temperature of operation (simulation) in [C]
++ TMAX       = 70     ; maximum temperature of operation (simulation) in [C]
++ SR         = 5      ; slew rate in [V/us]
++ VCC        = 15     ; typical positive supply voltage
++ VIN_CM_MAX = 15     ; higher limit of input common mode voltage
++ VEE        = -15    ; typical negative supply voltage
++ VIN_CM_MIN = -11.8  ; lower limit of input common mode voltage
++ IBIAS_N    = 30P    ; input bias current for nominal temperature
++ ROUT       = 300    ; output resistance
++ ROAC       = 70     ; output resistance for alternating current
++ AVD        = 200K   ; open loop voltage gain in [V/V]
++ IOSN       = 3P     ; input offset current for nominal temperature
++ VOSN       = 3M     ; input offset voltage for nominal temperature
++ VOSMIN     = 3.1M   ; input offset voltage for minimum temperature
++ VOSMAX     = 2.8M   ; input offset voltage for maximum temperature
++ CMRR       = 100    ; common mode rejection ratio in [dB]
++ FCMRR      = 30     ; 3dB frequency of common mode rejection ratio
++ PSRR       = 100    ; average power supply rejection ratio in [dB]
++ FPSRRP     = 700    ; 3dB frequency of positive power supply rejection ratio
++ FPSRRN     = 60     ; 3dB frequency of negative power supply rejection ratio
++ ISUP       = .003   ; supply current
++ ISUP0      = .002   ; extrapolated supply current for VCC=0
++ OVERSHOOT  = 6      ; overshoot of small signal pulse response in []
++ PHIM       = 60     ; phase margin for 0dB frequency in [deg]
++ PHIM_OVRSHT= 0      ; phase margin/overshoot switch [1/0]
++ ISCP       = 33M    ; output positive short-circuit current
++ ISCN       = 26M    ; output negative short-circuit current
++ VOUT_MIN   = -13.2  ; minimum output voltage
++ VOUT_MAX   = 13.2   ; maximum output voltage

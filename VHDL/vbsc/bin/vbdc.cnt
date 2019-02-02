@@ -1,0 +1,69 @@
+:Base vbdc.hlp>dialog
+:Title Table of Contents
+1 Welcome to VeriBest Design Capture
+2 Help Topics=HIDR_SBKDOCTYPE
+1 Helpful Hints and Migration Information
+2 Design Migration=DESIGN_MIGRATION
+2 Command Migration=COMMAND_MIGRATION
+1 Integration to Other VeriBest Tools - Procedure Snapshots
+2 Integrating with VeriBest Graphical High Level Design=INT_VBGHLD>launch
+2 Integrating with PCB layout
+3 Introduction=Integrating_PCB>launch
+3 Project Settings
+4 Central Library=PCB_Central_Library>launch
+4 Design=PCB_Design>launch
+2 Symbol Placement in the Schematic Design=PCD_Symbol_Placement>launch
+3 Text Properties that Affect Expedition PCB
+4 Introduction=Properties_that_Affect>launch
+4 Fix and BlockFix Frozen Package Properties=BlockFix_Frozen>launch
+4 Rooms and Clusters=Rooms_Clusters>launch
+3 Packaging the Design
+4 Introduction=Packaging_Designs>launch
+4 Resolving Symbol Name Mismatch=Resolving_Symbol_Name_Mismatch>launch
+3 Back Annotation, Forward Annotation and Expedition PCB Indicators
+4 Introduction=Back_Annotation_Integration>launch
+4 Back Annotation to the Schematic=Back_Annotation_Schematic>launch
+4 Forward Annotation - Database Load and Netload=Forward_Annotation>launch
+4 Expedition PCB Indicators=HIDD_PCBINTEGRATION>launch
+2 Cross Probing=Cross_Probing>launch
+2 Net Classes=Int_Net_Classes>launch
+2 Net Properties=Net_Properties_Int>launch
+1 Integrating with VeriBest VHDL and VeriBest Verilog Simulators=Integrating_VHDL_Simulator>launch
+1 Integrating with VeriBest Analog=INT_VBAnalog>launch
+1 Main Window
+2 Using the Main Window=HIDR_MAINFRAME
+1 Menus
+2 File Menu=file_menu>dialog
+2 Edit Menu=edit_menu
+2 View Menu=view_menu
+2 Project Menu=project_menu
+2 Place Menu=place_menu
+2 Debug Menu=debug_menu
+2 Tools Menu=tools_menu
+2 Window Menu=window_menu
+2 Help Menu=help_menu
+1 Other Utilities
+2 ACMakerPlus =HIDD_ACMAKER
+2 ASCII In=HIDD_ASCIN
+2 ASCII Out=HIDD_ASCOUT
+2 Back Annotation=HIDD_BAMPLUS
+2 CDB to ASCII=HIDD_CDB2ASC
+2 CDB to BOM=HIDD_CDB2BOM
+2 CDB to EDIF=HIDD_CDB2EDIF
+2 CDB to Motive=HIDD_CDB2MOTIVE
+2 CDB to SPICE=HIDD_CDB2SPICE
+2 CDB to Verilog=HIDD_CDB2VLOG
+2 CDB to VHDL=HIDD_CDB2VHDL
+2 Compile CDB=HIDD_CDBC
+2 Cross Reference=HIDD_CROSSREF
+2 Generate Verilog=HIDD_VERIGEN
+2 Generate VHDL=HIDD_VHDLGEN
+2 Library Scaler=HIDD_LIBSCALE
+2 Packager=HIDD_PACKAGER
+2 Plotting=HIDD_PLOT_CCT
+2 Symbol Manager=HIDD_MANAGER
+2 VeriBest Connections=VeriBest_Connections
+1 Text Properties
+2 Text Property Descriptions=Text_Properties
+1 Internal Error Messages
+2 Error Messages=VeriBest_Design_Capture_Internal_Error_Messages

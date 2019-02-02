@@ -1,0 +1,1386 @@
+!
+!
+!
+!
+!
+!	Translated Microstation Font 41
+!
+!
+!
+!
+!
+*NAME defont41
+!
+*HEIGHT	70
+*ILS	7/5
+!
+!
+!
+*CHARACTER \32		!' '	ascii 32
+*WIDTH  40
+!
+!	no vectors
+!
+*CHARACTER  !		!'!' ascii 33
+*WIDTH  41
+*VECTORS
+ 26  31
+ 23  22
+ 29  21
+ 30  30
+ 26  31
+*END_VECTOR
+ 26  43
+ 26  92
+!
+*CHARACTER  "		!'"' ascii 34
+*WIDTH  44
+*VECTORS
+ 21  92
+ 21  68
+*END_VECTOR
+ 33  92
+ 34  68
+!
+*CHARACTER  #		!'#' ascii 35
+*WIDTH  56
+*VECTORS
+ 25  44
+ 24  62
+ 24  76
+*END_VECTOR
+ 32  81
+ 33  68
+ 33  46
+*END_VECTOR
+ 10  61
+ 46  73
+*END_VECTOR
+ 45  63
+ 11  54
+!
+*CHARACTER  $		!'$' ascii 36
+*WIDTH  64
+*VECTORS
+ 51  92
+ 28  83
+ 13  74
+ 10  69
+ 12  65
+ 31  67
+ 40  69
+ 50  67
+ 54  58
+ 54  50
+ 46  42
+ 41  38
+ 21  26
+ 12  26
+ 10  29
+*END_VECTOR
+ 31  91
+ 32  92
+ 35  20
+!
+*CHARACTER  %		!'%' ascii 37
+*WIDTH  68
+*VECTORS
+ 15  91
+ 10  88
+ 10  81
+ 19  80
+ 22  86
+ 15  91
+*END_VECTOR
+ 51  33
+ 46  30
+ 46  23
+ 53  21
+ 58  24
+ 57  31
+ 51  33
+*END_VECTOR
+ 58  92
+ 37  60
+ 22  38
+ 10  20
+!
+*CHARACTER  &		!'&' ascii 38
+*WIDTH  67
+*VECTORS
+ 55  76
+ 42  77
+ 33  76
+ 24  76
+ 17  69
+ 17  62
+ 20  60
+ 54  60
+*END_VECTOR
+ 20  60
+ 12  51
+ 11  44
+ 15  39
+ 16  38
+ 37  35
+ 49  37
+ 57  44
+*END_VECTOR
+ 37  35
+ 36  17
+*END_VECTOR
+ 36  76
+ 36  91
+!
+*CHARACTER  '		!''' ascii 39
+*WIDTH  36
+*VECTORS
+ 26  92
+ 25  67
+!
+*CHARACTER  (		!'(' ascii 40
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  )		!')' ascii 41
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  *		!'*' ascii 42
+*WIDTH  65
+*VECTORS
+ 33  78
+ 36  40
+*END_VECTOR
+ 43  75
+ 21  39
+*END_VECTOR
+ 17  55
+ 34  59
+ 55  61
+*END_VECTOR
+ 22  70
+ 49  46
+!
+*CHARACTER  +		!'+' ascii 43
+*WIDTH  59
+*VECTORS
+ 35  42
+ 32  69
+*END_VECTOR
+ 17  55
+ 49  58
+!
+*CHARACTER  ,		!',' ascii 44
+*WIDTH  43
+*VECTORS
+ 21  49
+ 29  40
+ 33  31
+ 32  24
+ 28  17
+ 21  11
+ 17  9
+!
+*CHARACTER  -		!'-' ascii 45
+*WIDTH  56
+*VECTORS
+ 21  56
+ 46  56
+!
+*CHARACTER  .		!'.' ascii 46
+*WIDTH  43
+*VECTORS
+ 27  31
+ 21  29
+ 21  22
+ 28  20
+ 33  23
+ 32  30
+ 27  31
+!
+*CHARACTER  /		!'/' ascii 47
+*WIDTH  68
+*VECTORS
+ 10  20
+ 37  63
+ 53  85
+ 58  92
+ 53  88
+!
+*CHARACTER  0		!'0' ascii 48
+*WIDTH  68
+*VECTORS
+ 26  89
+ 20  85
+ 15  78
+ 13  76
+ 11  65
+ 10  53
+ 11  40
+ 18  25
+ 27  20
+ 36  20
+ 44  25
+ 52  35
+ 53  38
+ 57  51
+ 57  68
+ 53  81
+ 47  89
+ 40  93
+ 33  92
+ 26  89
+!
+*CHARACTER  1		!'1' ascii 49
+*WIDTH  43
+*VECTORS
+ 33  20
+ 28  92
+! 
+*CHARACTER  2		!'2' ascii 50
+*WIDTH  76
+*VECTORS
+ 66  23
+ 15  20
+ 49  60
+ 55  70
+ 57  76
+ 58  84
+ 53  91
+ 47  93
+ 42  93
+ 24  85
+ 10  66
+*END_VECTOR
+!
+*CHARACTER  3		!'3' ascii 51
+*WIDTH  68
+*VECTORS
+ 12  77
+ 16  84
+ 25  91
+ 33  93
+ 40  90
+ 43  83
+ 41  76
+ 35  69
+ 34  68
+ 44  68
+ 50  64
+ 56  57
+ 57  55
+ 57  39
+ 56  38
+ 52  29
+ 46  23
+ 36  20
+ 24  20
+ 15  24
+ 10  30
+!
+*CHARACTER  4		!'4' ascii 52
+*WIDTH  68
+*VECTORS
+ 42  20
+ 42  92
+ 10  59
+*END_VECTOR
+ 10  58
+ 58  60
+!
+*CHARACTER  5		!'5' ascii 53
+*WIDTH  80
+*VECTORS
+ 60  92
+ 11  88
+ 11  60
+ 11  88
+ 11  60
+ 23  64
+ 37  67
+ 46  68
+ 55  67
+ 62  63
+ 68  52
+ 70  43
+ 68  35
+ 62  26
+ 53  21
+ 45  20
+ 26  20
+ 20  22
+ 11  28
+ 10  29
+!
+*CHARACTER  6		!'6' ascii 54
+*WIDTH  67
+*VECTORS
+ 40  92
+ 34  88
+ 28  84
+ 25  80
+ 20  74
+ 21  75
+ 17  70
+ 13  62
+ 11  55
+ 10  48
+ 10  37
+ 12  31
+ 17  25
+ 23  21
+ 29  19
+ 37  19
+ 45  21
+ 50  25
+ 54  30
+ 57  36
+ 57  46
+ 54  51
+ 49  56
+ 43  58
+ 36  57
+ 30  55
+ 22  49
+ 19  44
+ 15  38
+ 13  30
+ 13  30
+!
+*CHARACTER  7		!'7' ascii 55
+*WIDTH  68
+*VECTORS
+ 27  20
+ 58  92
+ 10  92
+!
+*CHARACTER  8		!'8' ascii 56
+*WIDTH  68
+*VECTORS
+ 37  70
+ 42  78
+ 42  86
+ 37  92
+ 30  92
+ 23  86
+ 20  79
+ 20  70
+ 22  66
+ 29  67
+ 37  70
+*END_VECTOR
+ 22  66
+ 17  63
+ 13  57
+ 11  50
+ 10  37
+ 12  30
+ 16  22
+ 23  20
+ 31  19
+ 38  20
+ 45  23
+ 45  23
+ 51  28
+ 57  38
+ 58  50
+ 54  61
+ 49  66
+ 41  69
+ 30  69
+ 22  66
+!
+*CHARACTER  9		!'9' ascii 57
+*WIDTH  68
+*VECTORS
+ 29  20
+ 49  53
+ 29  20
+ 49  53
+ 54  61
+ 56  68
+ 58  77
+ 55  87
+ 46  92
+ 37  93
+ 29  92
+ 21  88
+ 15  83
+ 11  76
+ 10  66
+ 12  59
+ 18  53
+ 28  50
+ 37  50
+ 45  51
+ 49  53
+!
+*CHARACTER  :		!':' ascii 58
+*WIDTH  43
+*VECTORS
+ 27  68
+ 21  65
+ 21  58
+ 28  56
+ 33  59
+ 32  66
+ 27  68
+*END_VECTOR
+ 27  44
+ 21  40
+ 22  33
+ 29  32
+ 33  35
+ 32  42
+ 27  44
+!
+*CHARACTER  ;		!';' ascii 59
+*WIDTH  49
+*VECTORS
+ 27  46
+ 34  37
+ 38  31
+ 38  21
+ 33  14
+ 27  8
+ 23  6
+*END_VECTOR
+ 27  68
+ 22  65
+ 22  58
+ 31  57
+ 34  63
+ 27  68
+!
+*CHARACTER  <		!'<' ascii 60
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  =		!'=' ascii 61
+*WIDTH  56
+*VECTORS
+ 21  56
+ 46  56
+*END_VECTOR
+ 46  43
+ 21  43
+!
+*CHARACTER  >		!'>' ascii 62
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  ?		!'?' ascii 63
+*WIDTH  67
+*VECTORS
+ 12  65
+ 16  75
+ 23  85
+ 33  90
+ 44  91
+ 51  88
+ 57  77
+ 55  69
+ 49  63
+ 40  59
+ 33  54
+ 28  45
+ 28  39
+*END_VECTOR
+ 28  29
+ 23  26
+ 23  20
+ 32  19
+ 33  27
+ 28  29
+!
+*CHARACTER  @		!'@' ascii 64
+*WIDTH  71
+*VECTORS
+ 61  25
+ 50  20
+ 32  20
+ 23  22
+ 13  29
+ 10  37
+ 10  46
+ 15  59
+ 21  67
+ 31  76
+ 41  80
+ 49  80
+ 54  77
+ 58  67
+ 58  58
+ 54  47
+ 45  42
+ 41  44
+ 44  55
+ 44  65
+ 38  67
+ 29  59
+ 26  52
+ 27  39
+ 32  38
+ 41  47
+!
+*CHARACTER  A		!'A' ascii 65
+*WIDTH  68
+*VECTORS
+ 10  21
+ 32  90
+ 58  20
+*END_VECTOR
+ 16  42
+ 47  54
+!
+*CHARACTER  B		!'B' ascii 66
+*WIDTH  67
+*VECTORS
+ 13  20
+ 11  75
+*END_VECTOR
+ 10  72
+ 27  86
+ 34  91
+ 41  91
+ 45  88
+ 42  77
+ 39  73
+ 12  47
+*END_VECTOR
+ 13  22
+ 25  20
+ 34  21
+ 41  25
+ 50  33
+ 55  43
+ 57  51
+ 56  59
+ 53  66
+ 50  71
+ 39  73
+!
+*CHARACTER  C		!'C' ascii 67
+*WIDTH  68
+*VECTORS
+ 50  88
+ 42  90
+ 33  90
+ 26  85
+ 21  81
+ 17  74
+ 13  67
+ 11  58
+ 10  50
+ 11  39
+ 12  32
+ 17  25
+ 24  20
+ 34  20
+ 42  25
+ 48  30
+ 54  38
+ 57  47
+ 58  52
+!
+*CHARACTER  D		!'D' ascii 68
+*WIDTH  68
+*VECTORS
+ 12  75
+ 15  21
+ 37  35
+ 48  46
+ 56  58
+ 58  65
+ 57  74
+ 53  86
+ 46  89
+ 28  84
+ 10  67
+!
+*CHARACTER  E		!'E' ascii 69
+*WIDTH  67
+*VECTORS
+ 13  74
+ 15  22
+ 57  47
+*END_VECTOR
+ 14  47
+ 45  65
+*END_VECTOR
+ 10  67
+ 48  90
+!
+*CHARACTER  F		!'F' ascii 70
+*WIDTH  68
+*VECTORS
+ 15  21
+ 15  73
+*END_VECTOR
+ 10  67
+ 55  90
+*END_VECTOR
+ 58  68
+ 15  48
+!
+*CHARACTER  G		!'G' ascii 71
+*WIDTH  68
+*VECTORS
+ 41  90
+ 33  88
+ 26  82
+ 21  75
+ 17  67
+ 12  52
+ 10  39
+ 11  29
+ 14  23
+ 25  20
+ 35  23
+ 41  28
+ 42  30
+ 49  39
+ 52  43
+ 57  59
+ 58  40
+*END_VECTOR
+ 57  59
+ 27  46
+!
+*CHARACTER  H		!'H' ascii 72
+*WIDTH  69
+*VECTORS
+ 10  92
+ 11  21
+*END_VECTOR
+ 11  49
+ 59  73
+*END_VECTOR
+ 58  20
+ 56  92
+!
+*CHARACTER  I		!'I' ascii 73
+*WIDTH  43
+*VECTORS
+ 31  91
+ 33  20
+!
+*CHARACTER  J		!'J' ascii 74
+*WIDTH  69
+*VECTORS
+ 57  90
+ 59  44
+ 58  37
+ 55  30
+ 50  24
+ 42  21
+ 35  21
+ 29  24
+ 24  35
+ 23  46
+ 23  55
+!
+*CHARACTER  K		!'K' ascii 75
+*WIDTH  68
+*VECTORS
+ 10  61
+ 58  26
+*END_VECTOR
+ 10  57
+ 39  88
+*END_VECTOR
+ 10  20
+ 10  92
+!
+*CHARACTER  L		!'L' ascii 76
+*WIDTH  71
+*VECTORS
+ 10  91
+ 12  20
+ 61  46
+!
+*CHARACTER  M		!'M' ascii 77
+*WIDTH  68
+*VECTORS
+ 10  22
+ 10  90
+ 34  24
+*END_VECTOR
+ 32  23
+ 56  92
+ 58  20
+!
+*CHARACTER  N		!'N' ascii 78
+*WIDTH  68
+*VECTORS
+ 11  20
+ 10  87
+ 58  20
+ 55  92
+!
+*CHARACTER  O		!'O' ascii 79
+*WIDTH  68
+*VECTORS
+ 34  85
+ 23  74
+ 16  62
+ 13  54
+ 11  47
+ 10  38
+ 10  31
+ 12  25
+ 17  20
+ 27  22
+ 35  29
+ 42  35
+ 48  43
+ 52  51
+ 55  59
+ 57  68
+ 58  74
+ 58  82
+ 54  88
+ 49  90
+ 38  88
+ 34  85
+!
+*CHARACTER  P		!'P' ascii 80
+*WIDTH  68
+*VECTORS
+ 10  20
+ 10  72
+ 30  86
+ 38  89
+ 45  91
+ 51  92
+ 56  90
+ 58  83
+ 54  74
+ 48  67
+ 41  61
+ 30  52
+ 21  46
+ 10  42
+!
+*CHARACTER  Q		!'Q' ascii 81
+*WIDTH  68
+*VECTORS
+ 34  85
+ 23  74
+ 16  62
+ 13  54
+ 11  47
+ 10  38
+ 10  31
+ 12  23
+ 19  20
+ 27  22
+ 35  29
+ 42  35
+ 48  43
+ 52  51
+ 55  59
+ 57  68
+ 58  74
+ 58  81
+ 54  88
+ 49  90
+ 40  88
+ 34  85
+*END_VECTOR
+ 42  20
+ 29  29
+!
+*CHARACTER  R		!'R' ascii 82
+*WIDTH  68
+*VECTORS
+ 12  21
+ 10  58
+ 12  90
+*END_VECTOR
+ 10  86
+ 24  90
+ 40  92
+ 49  92
+ 54  90
+ 57  84
+ 52  78
+ 45  73
+ 41  72
+ 33  68
+ 18  61
+ 12  58
+ 10  58
+*END_VECTOR
+ 10  60
+ 58  20
+!
+*CHARACTER  S		!'S' ascii 83
+*WIDTH  68
+*VECTORS
+ 48  85
+ 44  92
+ 36  89
+ 30  86
+ 25  82
+ 15  69
+ 11  64
+ 10  60
+ 10  53
+ 19  52
+ 30  58
+ 37  62
+ 47  64
+ 54  63
+ 57  57
+ 58  51
+ 57  44
+ 54  38
+ 50  31
+ 45  26
+ 38  21
+ 31  20
+ 25  21
+ 20  24
+ 14  30
+!
+*CHARACTER  T		!'T' ascii 84
+*WIDTH  68
+*VECTORS
+ 10  69
+ 58  92
+*END_VECTOR
+ 29  78
+ 32  20
+!
+*CHARACTER  U		!'U' ascii 85
+*WIDTH  68
+*VECTORS
+ 55  90
+ 58  42
+ 55  35
+ 50  29
+ 41  24
+ 28  20
+ 18  20
+ 12  23
+ 10  32
+ 10  37
+ 12  86
+!
+*CHARACTER  V		!'V' ascii 86
+*WIDTH  68
+*VECTORS
+ 10  89
+ 33  20
+ 45  44
+ 58  92
+!
+*CHARACTER  W		!'W' ascii 87
+*WIDTH  68
+*VECTORS
+ 10  92
+ 20  20
+ 27  51
+ 34  92
+ 37  65
+ 41  46
+ 47  21
+*END_VECTOR
+ 46  21
+ 53  55
+ 55  70
+ 58  92
+!
+*CHARACTER  X		!'X' ascii 88
+*WIDTH  69
+*VECTORS
+ 10  20
+ 53  92
+*END_VECTOR
+ 16  90
+ 59  20
+!
+*CHARACTER  Y		!'Y' ascii 89
+*WIDTH  68
+*VECTORS
+ 10  90
+ 34  50
+ 36  20
+*END_VECTOR
+ 34  50
+ 58  92
+!
+*CHARACTER  Z		!'Z' ascii 90
+*WIDTH  68
+*VECTORS
+ 16  86
+ 58  92
+ 10  20
+ 55  23
+!
+*CHARACTER  [		!'[' ascii 91
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  \		!'\' ascii 92
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  ]		!']' ascii 93
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  ^		!'^' ascii 94
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  _		!'_' ascii 95
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  `		!'`' ascii 96
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  a		!'a' ascii 97
+*WIDTH  68
+*VECTORS
+ 10  21
+ 32  90
+ 58  20
+*END_VECTOR
+ 16  42
+ 47  54
+!
+*CHARACTER  b		!'b' ascii 98
+*WIDTH  67
+*VECTORS
+ 13  20
+ 11  75
+*END_VECTOR
+ 10  72
+ 27  86
+ 34  91
+ 41  91
+ 45  88
+ 42  77
+ 39  73
+ 12  47
+*END_VECTOR
+ 13  22
+ 25  20
+ 34  21
+ 41  25
+ 50  33
+ 55  43
+ 57  51
+ 56  59
+ 53  66
+ 50  71
+ 39  73
+!
+*CHARACTER  c		!'c' ascii 99
+*WIDTH  68
+*VECTORS
+ 50  88
+ 42  90
+ 33  90
+ 26  85
+ 21  81
+ 17  74
+ 13  67
+ 11  58
+ 10  50
+ 11  39
+ 12  32
+ 17  25
+ 24  20
+ 34  20
+ 42  25
+ 48  30
+ 54  38
+ 57  47
+ 58  52
+!
+*CHARACTER  d		!'d' ascii 100
+*WIDTH  68
+*VECTORS
+ 12  75
+ 15  21
+ 37  35
+ 48  46
+ 56  58
+ 58  65
+ 57  74
+ 53  86
+ 46  89
+ 28  84
+ 10  67
+!
+*CHARACTER  e		!'e' ascii 101
+*WIDTH  67
+*VECTORS
+ 13  74
+ 15  22
+ 57  47
+*END_VECTOR
+ 14  47
+ 45  65
+*END_VECTOR
+ 10  67
+ 48  90
+!
+*CHARACTER  f		!'f' ascii 102
+*WIDTH  68
+*VECTORS
+ 15  21
+ 15  73
+*END_VECTOR
+ 10  67
+ 55  90
+*END_VECTOR
+ 58  68
+ 15  48
+!
+*CHARACTER  g		!'g' ascii 103
+*WIDTH  68
+*VECTORS
+ 41  90
+ 33  88
+ 26  82
+ 21  75
+ 17  67
+ 12  52
+ 10  39
+ 11  29
+ 14  23
+ 25  20
+ 35  23
+ 41  28
+ 42  30
+ 49  39
+ 52  43
+ 57  59
+ 58  40
+*END_VECTOR
+ 57  59
+ 27  46
+!
+*CHARACTER  h		!'h' ascii 104
+*WIDTH  69
+*VECTORS
+ 10  92
+ 11  21
+*END_VECTOR
+ 11  49
+ 59  73
+*END_VECTOR
+ 58  20
+ 56  92
+!
+*CHARACTER  i		!'i' ascii 105
+*WIDTH  43
+*VECTORS
+ 31  91
+ 33  20
+!
+*CHARACTER  j		!'j' ascii 106
+*WIDTH  69
+*VECTORS
+ 57  90
+ 59  44
+ 58  37
+ 55  30
+ 50  24
+ 42  21
+ 35  21
+ 29  24
+ 24  35
+ 23  46
+ 23  55
+!
+*CHARACTER  k		!'k' ascii 107
+*WIDTH  68
+*VECTORS
+ 10  61
+ 58  26
+*END_VECTOR
+ 10  57
+ 39  88
+*END_VECTOR
+ 10  20
+ 10  92
+!
+*CHARACTER  l		!'l' ascii 108
+*WIDTH  71
+*VECTORS
+ 10  91
+ 12  20
+ 61  46
+!
+*CHARACTER  m		!'m' ascii 109
+*WIDTH  68
+*VECTORS
+ 10  22
+ 10  90
+ 34  24
+*END_VECTOR
+ 32  23
+ 56  92
+ 58  20
+!
+*CHARACTER  n		!'n' ascii 110
+*WIDTH  68
+*VECTORS
+ 11  20
+ 10  87
+ 58  20
+ 55  92
+!
+*CHARACTER  o		!'o' ascii 111
+*WIDTH  68
+*VECTORS
+ 34  85
+ 23  74
+ 16  62
+ 13  54
+ 11  47
+ 10  38
+ 10  31
+ 12  25
+ 17  20
+ 27  22
+ 35  29
+ 42  35
+ 48  43
+ 52  51
+ 55  59
+ 57  68
+ 58  74
+ 58  82
+ 54  88
+ 49  90
+ 38  88
+ 34  85
+!
+*CHARACTER  p		!'p' ascii 112
+*WIDTH  68
+*VECTORS
+ 10  20
+ 10  72
+ 30  86
+ 38  89
+ 45  91
+ 51  92
+ 56  90
+ 58  83
+ 54  74
+ 48  67
+ 41  61
+ 30  52
+ 21  46
+ 10  42
+!
+*CHARACTER  q		!'q' ascii 113
+*WIDTH  68
+*VECTORS
+ 34  85
+ 23  74
+ 16  62
+ 13  54
+ 11  47
+ 10  38
+ 10  31
+ 12  23
+ 19  20
+ 27  22
+ 35  29
+ 42  35
+ 48  43
+ 52  51
+ 55  59
+ 57  68
+ 58  74
+ 58  81
+ 54  88
+ 49  90
+ 40  88
+ 34  85
+*END_VECTOR
+ 42  20
+ 29  29
+!
+*CHARACTER  r		!'r' ascii 114
+*WIDTH  68
+*VECTORS
+ 12  21
+ 10  58
+ 12  90
+*END_VECTOR
+ 10  86
+ 24  90
+ 40  92
+ 49  92
+ 54  90
+ 57  84
+ 52  78
+ 45  73
+ 41  72
+ 33  68
+ 18  61
+ 12  58
+ 10  58
+*END_VECTOR
+ 10  60
+ 58  20
+!
+*CHARACTER  s		!'s' ascii 115
+*WIDTH  68
+*VECTORS
+ 48  85
+ 44  92
+ 36  89
+ 30  86
+ 25  82
+ 15  69
+ 11  64
+ 10  60
+ 10  53
+ 19  52
+ 30  58
+ 37  62
+ 47  64
+ 54  63
+ 57  57
+ 58  51
+ 57  44
+ 54  38
+ 50  31
+ 45  26
+ 38  21
+ 31  20
+ 25  21
+ 20  24
+ 14  30
+!
+*CHARACTER  t		!'t' ascii 116
+*WIDTH  68
+*VECTORS
+ 10  69
+ 58  92
+*END_VECTOR
+ 29  78
+ 32  20
+!
+*CHARACTER  u		!'u' ascii 117
+*WIDTH  68
+*VECTORS
+ 55  90
+ 58  42
+ 55  35
+ 50  29
+ 41  24
+ 28  20
+ 18  20
+ 12  23
+ 10  32
+ 10  37
+ 12  86
+!
+*CHARACTER  v		!'v' ascii 118
+*WIDTH  68
+*VECTORS
+ 10  89
+ 33  20
+ 45  44
+ 58  92
+!
+*CHARACTER  w		!'w' ascii 119
+*WIDTH  68
+*VECTORS
+ 10  92
+ 20  20
+ 27  51
+ 34  92
+ 37  65
+ 41  46
+ 47  21
+*END_VECTOR
+ 46  21
+ 53  55
+ 55  70
+ 58  92
+!
+*CHARACTER  x		!'x' ascii 120
+*WIDTH  69
+*VECTORS
+ 10  20
+ 53  92
+*END_VECTOR
+ 16  90
+ 59  20
+!
+*CHARACTER  y		!'y' ascii 121
+*WIDTH  68
+*VECTORS
+ 10  90
+ 34  50
+ 36  20
+*END_VECTOR
+ 34  50
+ 58  92
+!
+*CHARACTER  z		!'z' ascii 122
+*WIDTH  68
+*VECTORS
+ 16  86
+ 58  92
+ 10  20
+ 55  23
+!
+*CHARACTER  {		!'{' ascii 123
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  |		!'|' ascii 124
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  }		!'}' ascii 125
+*WIDTH  0
+!
+!	no vectors
+!
+!
+*CHARACTER  ~		!'~' ascii 126
+*WIDTH  0
+!
+!	no vectors
+!
+!

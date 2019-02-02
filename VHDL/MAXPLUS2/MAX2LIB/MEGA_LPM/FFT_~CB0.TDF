@@ -1,0 +1,269 @@
+INCLUDE "fft_delay";
+INCLUDE "lpm_counter";
+INCLUDE "lpm_mux";
+INCLUDE "lpm_ram_dq";
+INCLUDE "lpm_rom";
+INCLUDE "mult_h";
+INCLUDE "fft";
+DEFINE ISEVEN(x) = (CEIL(x DIV 2) == FLOOR(x DIV 2))?1:0;
+
+PARAMETERS
+(
+	WIDTH_DATA = 8,
+	TWIDDLE_FILE = "tw4.mif",
+	WIDTH_TWIDDLE = 8,
+	WIDTH_EXPONENT = 6,
+	WIDTH_ADD = 4
+);
+-- SWAPPING tells wheather OR NOT the first bank swaps after every FFT, OR IF it stays the same.
+-- IF SWAPPING = 1, THEN swap directions on each successive FFT run
+-- IF SWAPPING = 0, don't swap initial direction.
+CONSTANT SWAPPING = ISEVEN(WIDTH_ADD);
+CONSTANT DEBUG = 0;
+
+
+CONSTANT PIPE_TWIDDLE = 2;
+CONSTANT PIPE_DATA = 3;
+-- CONSTANT PIPE = mult_h(WIDTH_DATA+1, WIDTH_TWIDDLE) + 6;
+
+SUBDESIGN fft_on_chip
+(
+	clock:INPUT;
+	start_fft:INPUT;
+	done:OUTPUT;
+	data_in_re[WIDTH_DATA-1..0]:INPUT;
+	data_in_im[WIDTH_DATA-1..0]:INPUT;
+	load_bank_reset:INPUT;
+	load_bank_enable:INPUT;
+	unload_bank_reset:INPUT;
+	unload_bank_enable:INPUT;
+	data_out_re[WIDTH_DATA-1..0]:OUTPUT;
+	data_out_im[WIDTH_DATA-1..0]:OUTPUT;
+	exponent[WIDTH_EXPONENT-1..0]:OUTPUT;
+	load_nRUN:INPUT;
+)
+VARIABLE
+	-- (possibly) delayed version of datain
+	data_in_re_d[WIDTH_DATA-1..0]:NODE;
+	data_in_im_d[WIDTH_DATA-1..0]:NODE;
+
+	load_address[WIDTH_ADD-1..0]:NODE;
+	unload_address[WIDTH_ADD-1..0]:NODE;
+	load_counter:lpm_counter WITH (
+		LPM_DIRECTION = "UP",
+		LPM_WIDTH = WIDTH_ADD);
+	unload_counter:lpm_counter WITH (
+		LPM_DIRECTION = "up",
+		LPM_WIDTH = WIDTH_ADD);
+	engine:fft WITH (
+		WIDTH_DATA = WIDTH_DATA, 
+		WIDTH_TWIDDLE = WIDTH_TWIDDLE,
+		WIDTH_ADD  = WIDTH_ADD,
+		PIPE_DATA = PIPE_DATA, -- MULT_H(WIDTH_DATA+1, WIDTH_TWIDDLE) + 6,
+		
+		WIDTH_EXPONENT = WIDTH_EXPONENT,
+		PIPE_TWIDDLE = PIPE_TWIDDLE
+	);
+	ram_right_data[2*WIDTH_DATA-1..0]:NODE;
+	ram_right_address[WIDTH_ADD-1..0]:NODE;
+	ram_right_we:NODE;
+	ram_right:lpm_ram_dq WITH  (
+		LPM_WIDTH = 2*WIDTH_DATA, 
+		LPM_WIDTHAD = WIDTH_ADD,
+		LPM_INDATA = "registered",
+		LPM_ADDR   = "registered",
+		LPM_OUTDATA = "registered"
+	);
+	ram_left_data[2*WIDTH_DATA-1..0]:NODE;
+	ram_left_address[WIDTH_ADD-1..0]:NODE;
+	ram_left_we:NODE;
+	ram_left:lpm_ram_dq WITH  (
+		LPM_WIDTH = 2*WIDTH_DATA, 
+		LPM_WIDTHAD = WIDTH_ADD,
+		LPM_INDATA = "registered",
+		LPM_ADDR   = "registered",
+		LPM_OUTDATA = "registered"
+	);
+	rom_twiddle:lpm_rom WITH  ( 
+		LPM_WIDTH = 2*WIDTH_TWIDDLE, 
+		LPM_WIDTHAD = WIDTH_ADD - 1,
+		LPM_FILE = TWIDDLE_FILE,
+		LPM_ADDR   = "registered",
+		LPM_OUTDATA = "registered"
+	);
+
+	we_l, we_r:NODE;
+	add_r[WIDTH_ADD..1]:NODE;
+	add_l[WIDTH_ADD..1]:NODE;
+	add_tw[WIDTH_ADD-1..1]:NODE;
+	data_right_re[WIDTH_DATA-1..0], data_right_im[WIDTH_DATA-1..0]:NODE;
+	data_left_re[WIDTH_DATA-1..0], data_left_im[WIDTH_DATA-1..0]:NODE;
+	twiddle_re[WIDTH_TWIDDLE-1..0], twiddle_im[WIDTH_TWIDDLE-1..0]:NODE;
+	engine_out_re[WIDTH_DATA..1]:NODE;
+	engine_out_im[WIDTH_DATA..1]:NODE;
+	datamuxr:lpm_mux WITH (LPM_WIDTH=WIDTH_DATA*2, LPM_SIZE = 2, LPM_WIDTHS = 1);
+
+IF (SWAPPING==0) GENERATE
+	wer:NODE;
+ELSE GENERATE
+	left_address[WIDTH_ADD-1..0]:DFF;
+	right_address[WIDTH_ADD-1..0]:DFF;
+	datamuxl:lpm_mux WITH (LPM_WIDTH=WIDTH_DATA*2, LPM_SIZE = 2, LPM_WIDTHS = 1);
+	wemuxl  :lpm_mux WITH (LPM_WIDTH=1,            LPM_SIZE = 2, LPM_WIDTHS = 1);
+	left_address_mux,right_address_mux:
+		lpm_mux WITH (LPM_WIDTH=WIDTH_ADD, LPM_SIZE = 2, LPM_WIDTHS = 1);
+	wel,wer:NODE;
+	-- IF direction is low,   read from the left bank, write TO the right bank
+	-- IF direction is high,  read from the right bank, write TO the left bank
+	direction:NODE;
+	data_out_mux:lpm_mux WITH (LPM_WIDTH = WIDTH_DATA*2, LPM_SIZE = 2, LPM_WIDTHS = 1);
+END GENERATE;
+
+	addmuxr :lpm_mux WITH (LPM_WIDTH=WIDTH_ADD,    LPM_SIZE = 2, LPM_WIDTHS = 1);
+	addmuxl :lpm_mux WITH (LPM_WIDTH=WIDTH_ADD,    LPM_SIZE = 2, LPM_WIDTHS = 1);
+	wemuxr  :lpm_mux WITH (LPM_WIDTH=1,            LPM_SIZE = 2, LPM_WIDTHS = 1);
+	muxdir:NODE;
+
+BEGIN
+	IF (DEBUG) GENERATE
+		ASSERT (SWAPPING != 1) REPORT "fft SWAPPING is on" SEVERITY INFO;
+		ASSERT (SWAPPING != 0) REPORT "fft SWAPPING is off" SEVERITY INFO;
+	END GENERATE;
+
+	load_counter.clock = clock;
+	load_counter.sclr  = load_bank_reset;
+	load_counter.clk_en= load_bank_enable;
+	unload_counter.clock = clock;
+	unload_counter.sclr  = unload_bank_reset;
+	unload_counter.clk_en= unload_bank_enable;
+	
+	IF (SWAPPING==0) GENERATE
+		(data_out_re[], data_out_im[]) = ram_left.q[];
+	ELSE GENERATE
+		data_out_mux.data[0][] = ram_left.q[];
+		data_out_mux.data[1][] = ram_right.q[];
+		data_out_mux.sel[] = direction;
+		(data_out_re[], data_out_im[]) = data_out_mux.result[];
+	END GENERATE;
+
+	engine.clock = clock;
+	engine.start_fft = start_fft;
+	exponent[] = engine.exponent[];
+	we_r = engine.we_right;
+	we_l = engine.we_left;
+	add_r[] = engine.add_right[];
+	add_l[] = engine.add_left[];
+	add_tw[] = engine.add_twiddle[];
+	done = DFF(.d=engine.done,.clk=clock);
+
+	(engine_out_re[], engine_out_im[]) = (engine.data_out_re[], engine.data_out_im[]);
+	muxdir = load_nRUN;
+	load_address[] = load_counter.q[];
+
+	-- create a bit-reversed address, without generating a WARNING message
+	-- about group range directions differing.
+	FOR i IN 0 TO WIDTH_ADD-1 GENERATE
+		unload_address[i] = unload_counter.q[WIDTH_ADD-i-1];
+	END GENERATE;
+
+	IF (SWAPPING==1) GENERATE
+		-- now, depending on data_dir, set the right AND left addresses.
+		left_address[].clk = clock;
+		right_address[].clk = clock;
+		left_address_mux.data[1][] = load_address[];
+		left_address_mux.data[0][] = unload_address[];
+		left_address[] = left_address_mux.result[];
+		left_address_mux.sel[] = direction;
+		right_address_mux.data[1][] = load_address[];
+		right_address_mux.data[0][] = unload_address[];
+		right_address[] = right_address_mux.result[];
+		right_address_mux.sel[] = !direction;
+	END GENERATE;
+
+	IF (SWAPPING==0) GENERATE
+		(data_in_re_d[], data_in_im_d[]) = (data_in_re[], data_in_im[]);
+	ELSE GENERATE
+		(data_in_re_d[], data_in_im_d[]) = fft_delay((data_in_re[], data_in_im[]),clock) WITH 
+			(WIDTH = WIDTH_DATA*2, CYCLES = 1);
+	END GENERATE;
+
+	datamuxr.data[0][] = (engine_out_re[], engine_out_im[]);
+	datamuxr.data[1][] = (data_in_re_d[], data_in_im_d[]);
+	datamuxr.sel[]     = muxdir;
+
+	IF (SWAPPING==0) GENERATE
+		addmuxr.data[1][]  = load_address[];
+		addmuxl.data[1][]  = unload_address[];
+	ELSE GENERATE
+		datamuxl.data[0][] = (engine_out_re[], engine_out_im[]);
+		datamuxl.data[1][] = (data_in_re_d[], data_in_im_d[]);
+		datamuxl.sel[]     = muxdir;
+		addmuxr.data[1][]  = right_address[];
+		addmuxl.data[1][]  = left_address[];
+	END GENERATE;
+
+	addmuxr.data[0][]  = add_r[];
+	addmuxr.sel[]      = muxdir;
+	addmuxl.data[0][]  = add_l[];
+	addmuxl.sel[]      = muxdir;
+	wemuxr.data[0][0]  = we_r;
+
+	IF (SWAPPING==0) GENERATE
+		wemuxr.data[1][0]  = load_bank_enable;
+	ELSE GENERATE
+		wemuxr.data[1][0]  = fft_delay(load_bank_enable AND !direction,clock) WITH (WIDTH=1,CYCLES=1);
+		wemuxl.data[0][0]  = we_l;
+		wemuxl.data[1][0]  = fft_delay(load_bank_enable AND direction,clock) WITH (WIDTH=1, CYCLES=1);
+		wemuxl.sel[]       = muxdir;
+		wel = wemuxl.result[];
+	END GENERATE;
+	wer = wemuxr.result[];
+	wemuxr.sel[]       = muxdir;
+
+
+	-- Hook up the right ram block
+	ram_right_address[] = fft_delay(addmuxr.result[],clock) WITH (WIDTH = WIDTH_ADD, CYCLES=1);
+	ram_right.address[] = ram_right_address[];
+	ram_right.inclock = clock;
+	ram_right.outclock = clock;
+	ram_right_data[]    = fft_delay(datamuxr.result[], clock) WITH (WIDTH = WIDTH_DATA*2, CYCLES = 1);
+	ram_right.data[]    = ram_right_data[];
+	ram_right_we = DFF(.d=wer,.clk=clock);
+	ram_right.we = ram_right_we;
+	-- Hook up the left ram block
+	ram_left_address[]  = fft_delay(addmuxl.result[],clock) WITH (WIDTH = WIDTH_ADD, CYCLES=1);
+	ram_left.address[] = ram_left_address[];
+	ram_left.inclock = clock;
+	ram_left.outclock = clock;
+	ram_left.data[] = ram_left_data[];
+	ram_left.we =     ram_left_we;
+	IF (SWAPPING==0) GENERATE
+		ram_left_data[]     = fft_delay((engine_out_re[], engine_out_im[]), clock) WITH (WIDTH = WIDTH_DATA*2, CYCLES = 1);
+		ram_left_we = DFF(.d=we_l,.clk=clock);
+	ELSE GENERATE
+		ram_left_data[]     = fft_delay(datamuxl.result[], clock) WITH (WIDTH = WIDTH_DATA*2, CYCLES = 1);
+		ram_left_we = DFF(.d=wel,.clk=clock);
+		direction = engine.data_direction;
+	END GENERATE;
+
+	-- Hook up the ROM block
+	rom_twiddle.address[] = add_tw[];
+	rom_twiddle.inclock = clock;
+	rom_twiddle.outclock = clock;
+
+	-- 
+	-- connect data from the rams TO the fft engine.
+	--
+	-- do the left ram/data
+	(data_left_re[], data_left_im[]) = ram_left.q[];
+	(engine.data_left_in_re[], engine.data_left_in_im[])  = (data_left_re[], data_left_im[]);
+
+	-- do the right data
+	(data_right_re[], data_right_im[]) = ram_right.q[];
+	(engine.data_right_in_re[],engine.data_right_in_im[]) = (data_right_re[], data_right_im[]);
+
+	-- AND the twiddle data.
+	(twiddle_re[], twiddle_im[]) = rom_twiddle.q[];
+	(engine.twiddle_re[], engine.twiddle_im[])      = (twiddle_re[], twiddle_im[]);
+END;
+

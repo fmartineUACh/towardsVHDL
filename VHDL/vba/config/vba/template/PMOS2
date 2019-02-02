@@ -1,0 +1,127 @@
+.Model PMOS2 PMOS
+
++ LEVEL	= 2		; Geometry-based, analytic MOSFET model
+
+*****************************
+* Level specific parameters *
+*****************************
+
++ LAMBDA = 0.0		; Channel length modulation
++ DELTA	= 0.0		; Width effect on threshold voltage
++ VMAX	= 0.0		; Maximum drift velocity of carriers
++ NEFF	= 1.0		; Total channel charge coefficient
++ XJ	= 0.0		; Metallurgical junction depth
++ UCRIT	= 1.0E04	; Critical field for mobility degradation
++ UEXP	= 0.0		; Critical field exponent in mobility degradation
++ UTRA	= 0.0		; Transverse field coefficient
++ NFS	= 0.0		; Fast surface state density
+
+************
+* Geometry *
+************
+
++ TOX	= 1.0E-7	; gate oxide thickness (m)
++ LD	= 0.0		; lateral diffusion (m)
++ LMLT	= 1.0		; length multiplier
++ WD	= 0.0		; lateral diffusion (m)
++ WMLT	= 1.0		; width multiplier
++ DEL	= 0.0		; channnel length reduction (m)
++ DL	= 0.0		; length offset (m)
++ DW	= 0.0		; width offset (m)
++ LDIF	= 0.0		; length of lightly doped diffusion (m)
++ HDIF	= 0.0		; length of heavily doped diffusion (m)
+
+*******************
+* Stress analysis *
+*******************
+
++ PMAX	= 2.5E-1	; max power (W)
+
+************************
+* Overlap capacitances *
+************************
+
++ CGBO	= 0.0		; gate-bulk overlap capacitance (F/m)
++ CGDO	= 0.0		; gate-drain overlap capacitance (F/m)
++ CGSO	= 0.0		; gate-source overlap capacitance (F/m)
++ FRINGE= 0.0		; fringing field factor (m)
+
+****************
+* Capacitances *
+****************
+
++ CBD	= 0.0		; zero bias bulk-drain junction capacitance (F)
++ CBS	= 0.0		; zero bias bulk-source junction capacitance (F)
++ CJ	= 0.0		; zero bias bulk junction bottom capacitance (F)
++ CJSW	= 0.0		; zero bias bulk junction sidewall capacitance (F/m)
++ MJ	= 0.5		; bulk junction bottom grading coefficient
++ PB	= 0.8		; diode bottom wall junction potential (V)
++ FC	= 0.5		; forward bias junction capacitance coefficient
++ MJSW	= 0.33		; bulk junction sizewall grading coefficient
++ PBSW	= 0.8		; diode sidewall junction potential (V)
++ CTA	= 0.0		; temperature coefficient for bottom capacitance (1/deg)
++ CTP	= 0.0		; temperature coefficient for periphery capacitance (1/deg)
+
+*******************
+* Leakage current *
+*******************
+
++ IS	= 1.0E-14	; bulk junction saturation current (A)
++ JS	= 0.0		; bulk junction saturation current per unit area (A/m^2)
++ ISSW	= 0.0		; sidewall junction saturation current (A)
++ JSSW	= 0.0		; sidewall junction saturation current per
+			; meter of junction perimeter (A/m)
+
+*************************
+* Parasitic resistances *
+*************************
+
++ RS	= 0.0		; source resistance (Ohm)
++ RD	= 0.0		; drain resistance (Ohm)
++ RSH	= 0.0		; drain and source diffusion sheet resistance (Ohm/sq)
++ TRS	= 0.0		; temperature coefficient of source resistor (1/deg)
++ TRD	= 0.0		; temperature coefficient of drain resistor (1/deg)
++ TRSH	= 0.0		; temperature coefficient of sheet resistance (1/deg)
+
+*********************
+* Threshold voltage *
+*********************
+
++ VTO	= 0.0		; zero-bias threshold voltage (V)
++ NSS	= 0.0		; surface state density	(1/cm^2)
++ TPG	= -1.0		; type of gate material
++ PHI	= 0.6		; surface potential for strong inversion (V)
++ GAMMA	= 0.0		; bulk threshold parameter (V)
++ NSUB	= 0.0		; substrate doping (1/cm^3)
++ TCV	= 0.0		; temperature coefficient of threshold voltage (V/deg)
+
+************
+* Mobility *
+************
+
++ UO	= 400.0		; mobility (cm^2/(V sec))
++ KP	= 2.0E-05	; transconductance (A/V^2)
++ BEX	= -1.5		; temperature coefficient for transconductance
+
+*********
+* Noise *
+*********
+
++ KF	= 0.0		; Flicker noise coefficient
++ AF	= 1.0		; frequency exponent
+
+****************
+* Charge model *
+****************
+
++ XQC	= 1.0
++ QOPT	= -1		; Charge model selection
+
+*******************************************
+* Parameters of ASPEC (QOPT) charge model *
+*******************************************
+
++ CF1	= 0.0
++ CF2	= 0.1
++ CF3	= 1.0
++ XCG	= 0.66667

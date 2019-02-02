@@ -1,0 +1,191 @@
+:Base pgvbdc.hlp>launch
+:Title VeriBest Design Capture Process Guide
+1 Welcome to the VeriBest Design Capture Process Guide
+2 About This Process Guide=HIDR_MAINFRAME
+2 Mouse Mappings=Mouse_Conventions
+2 Object Selection=Object_Selection
+2 Context Sensitive Popup Menus=Context_Sensitive_Popup
+2 Prompts and Error Messages =Prompts_Error_Messages
+2 Online Help and Documentation=Online_Help
+2 Customer Support=Customer_Support
+1 Project Files
+2 Introduction=Project_Files_Intro
+2 What is a Project?=What_Project
+2 Creating a New Project=Creating_New_Project
+2 Copying a Project=Copying_Project
+2 Modifying a Project
+3 Introduction=Modifying_Project
+3 Central Library=PCB_Central_Library@vbdc.hlp>launch2
+3 Design=Design_Option_Info
+3 File Locations=Configuring_Project_1
+3 Libraries=Other_Libraries_Option
+1 Approaches to Hierarchical Design
+2 Top-Down Design Entry=Top_Down_Design_Entry
+2 Bottom-Up Design Entry=Bottom_Up_Design_Entry
+2 Middle-Out Design Entry=Middle_Out_Design_Entry
+1 Basic Design Entry
+2 Creating Schematics=Basic_Design_Entry
+3 Symbol Placement
+4 Introduction=Symbol_Placement_1
+4 Symbol Command=Symbol_Command_1
+4 Device Command=Device_Command_1
+1 Block Placement=Block_Placement_1
+1 Instance Names=Instance_Names_1
+2 Vectored Symbols
+3 Introduction=Vectored_Symbols_1
+3 Connectivity Rules for Vectored Symbols=Connectivity_Vectored_Symbols
+3 Example of Connectivity for Vectored Blocks=Example_Connectivity_Vectored_Blocks
+3 Expansion of Properties Attached to Vectored Symbols and Blocks=Expanding_Vectored_Symbols_Blocks
+3 Representation of Vectored Symbols in the Utilities=Representation_Vectored_Symbols
+2 Wiring the Schematic
+3 Wiring=Wiring_Schematic_1
+3 Placing Wires=Placing_Wires_1
+3 Any-Angle Wiring=Any_Angle_Wiring_1
+3 Wire Graphics=Wire_Graphics
+3 Wire Names=Wire_Names
+3 Placing Buses=Placing_Buses_1
+3 Automatically Routing Wires and Buses=Automatically_Routing_Wires_Buses
+2 Nets and Buses
+3 Introduction=Nets_Buses_1
+2 Naming Conventions=Bus_Name_Conventions
+3 Connectivity Rules
+4 Introduction=Connectivity_Rules_1
+4 Linking Nets Across Hiearchy
+5 Introduction=Linking_Nets_Across_Hierarchy
+5 Example 1=Example_1
+5 Example 2=Example_2
+5 Example 3=Example_3
+5 Example 4=Example_4
+5 Example 5=Example_5
+5 Example 6=Example_6
+4 Linking Nets Across Sheets (Inter-sheet Connections)=Linking_Nets_Across_Sheets
+4 Linking Nets on a Sheet (Intra-sheet Connections)=Linking_Nets_on_Sheet
+4 Global Nets=Global_Nets
+3 Net Names
+4 Supported Characters=Supported_Characters_Nets
+4 Logical Inversion=Overscoring@vbdc.hlp>launch
+4 Modifying Net Names=Net_Names_Modifying
+4 Placing Net Names=Placing_Net_Names
+3 Buses
+4 Introduction=Buses_Information
+4 Ripping Wires from Buses=Ripping_Wires_Buses
+4 Sub-Buses=Sub_Buses
+4 Bus Aliasing=Bus_Aliasing
+4 Bus Pins =Bus_Pins
+3 Connectors
+4 Interpage Connectors=Interpage_Connectors
+4 Intrapage Conncetors=Intrapage_Connectors
+4 Physical Connectors=Physical_Connectors
+4 Edge Connectors =Edge_Connectors
+3 Modifying Wires and Buses
+4 Disconnecting Wires=Disconnecting_Wires
+4 Moving Wires and Wire Segments=Moving_Wires
+4 Adding Vertices to Wires=Adding_Vertices
+4 Cutting Wires=Cutting_Wires
+4 Deleting Wires=Deleting_Wires_1
+2 Assigning Text Properties to Elements
+3 Introduction=Assigning_Properties_Elements
+3 Types of Text=Types_Text
+3 Levels of Text
+4 Schematic Text=Schematic_Text
+4 Instance Text=Instance_Text
+2 Text Justification=Text_Justification_1
+2 Edit Properties for Text=Properties_command
+2 Editing Options
+3 Move=HID_SC_MOVE@vbdc.hlp>launch2
+3 Copy=HID_EDIT_COPY@vbdc.hlp>launch2
+3 Paste=HID_EDIT_PASTE@vbdc.hlp>launch2
+3 Delete=HID_EDIT_DELETE@vbdc.hlp>launch2
+3 Align=HID_EDIT_ALIGN@vbdc.hlp>launch2
+3 Rotate=HID_EDIT_ROTATE@vbdc.hlp>launch2
+3 Array Copy=HID_EDIT_ARRAYCOPY@vbdc.hlp>launch2
+3 Inform=HID_EDIT_INFORM@vbdc.hlp>launch2
+3 Graphic Elements =Graphic_Elements
+2 Viewing Options
+3 Application Window Views=Application_Window_Views
+3 Modifying the User Environment=Modifying_Environment
+1 Verify the Design
+2 Using the Verify Command=Verifying_Design_1
+1 Compiling the Design
+2 Common Database Compiler=HIDD_CDBC@vbdc.hlp>launch2
+1 Packaging the Design
+2 Packager=Packaging_Designs
+2 Processing Options=Packager_Processing_Options
+2 Packager Generated Files=Packager_Generated_Files
+2 Basic Packager Operation=Packager_Basic_Operation
+2 Packaging Hierarchical Symbols=Packaging_Hierarchical_Symbols
+2 Frozen Package Property=Frozen_Package_Property_1
+2 How Block, Fix and BlockFix Relate=block_Relate
+2 How Fix and BlockFix Affect Expedition PCB=BlockFix_Affect_PCB
+2 Floorplan Properties and Packager=Floorplan_Properties_Packager
+2 How Packager Augments the Design with Power and Ground Pins=Augments_Power_Ground_Pins
+2 How Packager Handles the Supply Rename Property=Packager_Supply_Rename_Property
+2 Packager Examples=Packager_Examples_1
+1 Plotting the Design
+2 Introduction=Plotting_Designs
+2 Methods of Submitting the Plot File=Methods_Submitting_Plot
+2 Export Control Files
+3 Control Files=Plotter_Control_Files
+3 Format=Plotter_Control_File_Format
+1 Project File Settings=Plot_Project_Settings
+1 Multiple Fonts=Multiple_Fonts
+1 Output to Plotter (HPGL, HPGL/2, or PostScript)=Output_Plotter
+1 HPGL/2 Features=HPGL2_Features
+1 HPGL and HPGL/2 Output Coordinates=HPGL_Output_Coordinates
+1 PostScript Code Generated=PostScript_Code_Generated
+1 Plotting Troubleshooting=Plotting_Troubleshooting
+1 Limitation and Configuration Information
+2 Configuration Files=Limitation_Configuration_Information
+4 Configuration File Syntax=Configuration_File_Syntax
+4 Configuring a Project
+5 Project Configuration Files=Configuring_Project_1
+9 Bom Configuraton=CDB2BOM_Config_File@vbdc.hlp>launch2
+9 Bus Contents=Bus_Contents_File>launch2
+8 CDB Discard
+9 Discard File=CDB_Discard_File
+9 Discard File Entries=Discard_File_entries
+9 Discard File Syntax=Discard_File_Syntax
+2 CrossRef Configuration=Cross_ref_config_file@vbdc.hlp>launch2
+2 EDIF Configuration=EDIF_Configuration_File
+3 Fonts
+4 Font File=Fonts_1
+4 Font File Keywords=Font_File_Keywords
+2 Global Signals=Global_File@vbdc.hlp>launch2
+2 HDL String Map=HDL_String_Map
+2 HPGL Plot Configuration=Plotter_Control_Files
+2 HPGL2 Plot Configuration=Plotter_Control_Files
+2 Pin Types=Pin_Types_1
+2 PostScript Plot Configuration=Plotter_Control_Files
+3 Project Options
+4 Options File=Project_Options_1
+4 Project Options Entries=Project_Options_Entries
+3 Text Properties
+4 Text Property File=Text_Properties_Config_File
+4 Text Property File Entries=Text_Property_File_Entries
+4 Important Property File Information=Important_Property_File_Information
+2 Verification Rules=Verification_Rules
+2 Verilog Configuration=VLOG_Configuration@vbdc.hlp>launch2
+2 VHDL Configuration=VHDL_Configuration_File_Format@vbdc.hlp>launch2
+2 Windows Plot Configuration=Plotter_Control_Files
+1 User-Specific Options=User_Specific_Options
+1 Other VBDC Utilities
+2 ACMAKERPlus=HIDD_ACMAKER@vbdc.hlp>launch2
+2 ASCII In=HIDD_ASCIN@vbdc.hlp>launch2
+2 ASCII Out=HIDD_ASCOUT@vbdc.hlp>launch2
+2 Back Annotation=HIDD_BAMPLUS@vbdc.hlp>launch2
+2 CDB to ASCII=HIDD_CDB2ASC@vbdc.hlp>launch2
+2 CDB to BOM=HIDD_CDB2BOM@vbdc.hlp>launch2
+2 CDB to EDIF=HIDD_CDB2EDIF@vbdc.hlp>launch2
+2 CDB to Motive=HIDD_CDB2MOTIVE@vbdc.hlp>launch2
+2 CDB to SPICE=HIDD_CDB2SPICE@vbdc.hlp>launch2
+2 CDB to Verilog=HIDD_CDB2VLOG@vbdc.hlp>launch2
+2 CDB to VHDL=HIDD_CDB2VHDL@vbdc.hlp>launch2
+2 Compile CDB=HIDD_CDBC@vbdc.hlp>launch2
+2 Cross Reference=HIDD_CROSSREF@vbdc.hlp>launch2
+2 Generate Verilog=HIDD_VERIGEN@vbdc.hlp>launch2
+2 Generate VHDL=HIDD_VHDLGEN@vbdc.hlp>launch2
+2 GHLD to HDL=HIDD_G2HDL@vbdc.hlp>launch2
+2 Library Scale=HIDD_LIBSCALE@vbdc.hlp>launch2
+2 Plotting=HIDD_PLOT_CCT@vbdc.hlp>launch2
+2 Symbol Manager=HIDD_MANAGER@vbdc.hlp>launch2
+2 VeriBest Connections=VeriBest_Connections @vbdc.hlp>launch2

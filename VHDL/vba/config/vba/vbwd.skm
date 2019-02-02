@@ -1,0 +1,79 @@
+revision 3|vbwd
+m|&File
+i|&Open...|C|Open File
+i|-
+i|Open &Configuration...|C|Open Configuration
+i|&Save Configuration|C|Save Configuration|CTRL+S
+i|Save Configuration &As...|C|Save Configuration As
+i|&Data Export...|C|Data Export
+i|-
+i|Page Set&up...|C|Page Setup
+i|&Print...|C|Print|CTRL+P
+i|-
+i|E&xit|C|Exit
+m|&Edit
+i|Load &Waveform...|C|Load Waveform|INS
+i|&Delete Waveform|C|Delete Waveform|DEL
+i|&Active Group Waveforms...|C|Active Group Waveforms
+i|-
+i|&Insert Label...|C|Insert Label
+i|&Edit Label...|C|Edit Label
+i|Dele&te Label|C|Delete Label
+i|Mo&ve Label|C|Move Label
+i|-
+i|Marker &Keyin...|C|Marker Keyin
+i|-
+i|&Copy to Clipboard|C|Copy to Clipboard|CTRL+C
+m|&View
+i|Display/&Hide Waveform|C|Toggle Waveform
+i|&Data Points|C|Toggle Data Points
+i|&Wrap Phase|C|Toggle Phase Wrap
+i|Line &Style|C|Toggle Line Style
+i|-
+i|&Grid|C|Toggle Grid
+i|-
+i|&Reference Point|C|Toggle Reference Point
+i|&Marker|C|Toggle Marker
+i|&Swap Markers|C|Swap Markers
+i|-
+i|&Fit|C|Fit All
+i|&Previous View|C|Previous View
+i|-
+i|Waveform Pr&operties...|C|Waveform Properties
+i|Group S&tatistics...|C|Group Statistics
+m|F&ormat
+i|&Waveform...|C|Format Waveform
+i|&Graph...|C|Format Graph
+i|&Legend...|C|Format Legend
+i|La&bel...|C|Format Label
+m|&Tools
+i|&Customize...|C|Customize
+i|&Options...|C|Options
+i|-
+i|&FFT...|C|Fast Fourier Transform
+i|&Waveform Calculator...|C|Waveform Calculator
+m|&Help
+i|&Contents|C|Help
+i|&Technical Support|C|Technical Support
+i|&About Analog Waveform Displayer...|C|About
+t|1
+l
+b|OpenBtn|C|open file
+b|OpenConfigBtn|C|open configuration
+b|SaveConfigBtn|C|save configuration
+b|ExitBtn|C|exit
+b|separator
+b|separator
+b|LoadCurveBtn|C|load waveform
+b|CurveHideDispBtn|C|toggle waveform
+b|RemoveCurveBtn|C|delete waveform
+b|separator
+b|separator
+b|FitBtn|C|fit all
+b|PrevViewBtn|C|previous view
+b|separator
+b|separator
+b|CalculatorBtn|C|waveform calculator
+b|separator
+b|separator
+b|HelpBtn|C|help

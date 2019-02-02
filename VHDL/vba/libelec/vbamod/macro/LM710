@@ -1,0 +1,17 @@
+.PARSET LM710 _LM710                                 
++ VCC    = 12		                 ; positive supply voltage
++ VEE    = -6		                 ; negative supply voltage
++ VINMAX = 7.5	                         ; maximum common mode input voltage
++ VINMIN = -5		                 ; minimum common mode input voltage
++ TN     = 25		                 ; nominal temperature in [C]
++ TMIN   = -55	                         ; minimum temperature in [C]
++ VOS    = 0.6E-3  STAT -2E-3 2E-2  :GAUSS ; input offset voltage
++ VOS_TC = 3E-6                            ; temp coefficient of offset voltage
++ IB     = 13E-6   STAT 10E-6 20E-6 :GAUSS ; input bias current for nominal temp
++ IBMIN  = 27E-6 	                         ; input bias current for minimum temp
++ IOS    = 0.75E-6 STAT -3E-6 3E-6  :GAUSS ; input offset current for nominal temp
++ IOSMIN = 1.8E-6                          ; input offset current for minimum temp
++ AV     = 1.7E3   STAT 1E+3  1E4   :GAUSS ; voltage gain
++ ISUP   = 5.2E-3                          ; supply current
++ CIN    = 1E-12                           ; input capacitance
++ COUT   = 1E-12                           ; output capacitance

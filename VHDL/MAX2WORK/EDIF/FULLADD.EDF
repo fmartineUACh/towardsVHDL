@@ -1,0 +1,129 @@
+(edif ALTERA
+ (edifVersion 2 0 0)
+ (edifLevel 0)
+ (keywordMap (keywordLevel 0))
+ (status
+  (written
+   (timeStamp 1996 10 7 11 23 7 )
+   (author "Cadence Design Systems")
+   (program "sir2alt" (version "9502-1.4"))))
+ (library alt_max2
+  (edifLevel 0)
+  (technology
+   (numberDefinition))
+  (cell a74 (cellType GENERIC)
+   (view hdl (viewType NETLIST)
+    (interface
+     (port clrn (direction INPUT))
+     (port d (direction INPUT))
+     (port clk (direction INPUT))
+     (port pren (direction INPUT))
+     (port q (direction OUTPUT))
+     (port qn (direction OUTPUT)))))
+  (cell a32 (cellType GENERIC)
+   (view hdl (viewType NETLIST)
+    (interface
+     (port y (direction OUTPUT))
+     (port a (direction INPUT))
+     (port b (direction INPUT)))))
+  (cell a08 (cellType GENERIC)
+   (view hdl (viewType NETLIST)
+    (interface
+     (port y (direction OUTPUT))
+     (port a (direction INPUT))
+     (port b (direction INPUT)))))
+  (cell a86 (cellType GENERIC)
+   (view hdl (viewType NETLIST)
+    (interface
+     (port y (direction OUTPUT))
+     (port a (direction INPUT))
+     (port b (direction INPUT))))))
+ (library fulladd_lib
+  (edifLevel 0)
+  (technology
+   (numberDefinition))
+  (cell fulladd (cellType GENERIC)
+   (view hdl (viewType NETLIST)
+    (interface
+     (port cout (direction OUTPUT))
+     (port latchsum (direction OUTPUT))
+     (port sum (direction OUTPUT))
+     (port a (direction INPUT))
+     (port b (direction INPUT))
+     (port cin (direction INPUT))
+     (port clk (direction INPUT)))
+    (contents
+     (instance (rename p1_40p "p1$40p")
+      (viewRef hdl (cellRef a74 (libraryRef alt_max2))))
+     (instance (rename p1_41p "p1$41p")
+      (viewRef hdl (cellRef a32 (libraryRef alt_max2))))
+     (instance (rename p1_42p "p1$42p")
+      (viewRef hdl (cellRef a08 (libraryRef alt_max2))))
+     (instance (rename p1_43p "p1$43p")
+      (viewRef hdl (cellRef a32 (libraryRef alt_max2))))
+     (instance (rename p1_44p "p1$44p")
+      (viewRef hdl (cellRef a86 (libraryRef alt_max2))))
+     (instance (rename p1_45p "p1$45p")
+      (viewRef hdl (cellRef a86 (libraryRef alt_max2))))
+     (instance (rename p1_46p "p1$46p")
+      (viewRef hdl (cellRef a08 (libraryRef alt_max2))))
+     (instance (rename p1_47p "p1$47p")
+      (viewRef hdl (cellRef a08 (libraryRef alt_max2))))
+     (net unnamed_1_a08_42p_y
+      (joined
+       (portRef a (instanceRef p1_43p))
+       (portRef y (instanceRef p1_42p))))
+     (net unnamed_1_a08_46p_y
+      (joined
+       (portRef y (instanceRef p1_46p))
+       (portRef b (instanceRef p1_41p))))
+     (net unnamed_1_a08_47p_y
+      (joined
+       (portRef y (instanceRef p1_47p))
+       (portRef b (instanceRef p1_43p))))
+     (net unnamed_1_a32_41p_a
+      (joined
+       (portRef y (instanceRef p1_43p))
+       (portRef a (instanceRef p1_41p))))
+     (net unnamed_1_a86_44p_a
+      (joined
+       (portRef y (instanceRef p1_45p))
+       (portRef a (instanceRef p1_44p))))
+     (net cout
+      (joined
+       (portRef y (instanceRef p1_41p))
+       (portRef cout)))
+     (net latchsum
+      (joined
+       (portRef q (instanceRef p1_40p))
+       (portRef latchsum)))
+     (net sum
+      (joined
+       (portRef y (instanceRef p1_44p))
+       (portRef d (instanceRef p1_40p))
+       (portRef sum)))
+     (net a
+      (joined
+       (portRef a (instanceRef p1_47p))
+       (portRef a (instanceRef p1_45p))
+       (portRef a (instanceRef p1_42p))
+       (portRef a)))
+     (net b
+      (joined
+       (portRef a (instanceRef p1_46p))
+       (portRef b (instanceRef p1_45p))
+       (portRef b (instanceRef p1_42p))
+       (portRef b)))
+     (net cin
+      (joined
+       (portRef b (instanceRef p1_47p))
+       (portRef b (instanceRef p1_46p))
+       (portRef b (instanceRef p1_44p))
+       (portRef cin)))
+     (net clk
+      (joined
+       (portRef clk (instanceRef p1_40p))
+       (portRef clk)))))))
+ (design fulladd
+  (cellRef fulladd
+   (libraryRef fulladd_lib))))

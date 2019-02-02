@@ -1,0 +1,9 @@
+.PARSET LM105 _LM105
++ VREF    = 1.80   STAT 0 :GAUSS  ; reference voltage
++ VREF_TC = -20E-6 STAT 0 :GAUSS  ; reference voltage temp. coeff. 
++ LOAD_RG = 2E-4   STAT 0 :GAUSS  ; load regulation coeff. 
++ RR_F3   = 10K    STAT 0 :GAUSS  ; ripple rejection cutoff freq. 
++ ZO_F3   = 50K    STAT 0 :GAUSS  ; output imp. cutoff freq.
++ I_Q     = 0.8E-3 STAT 0 :GAUSS  ; standby current 
++ VIN_MAX = 50     STAT 0 :GAUSS  ; max. input voltage 
++ VIN_MIN = 8.5    STAT 0 :GAUSS  ; min. input voltage

@@ -1,0 +1,10 @@
+micro.vhd #Entity micro 4
+micro.vhd #Architecture a_micro micro 12
+micro.vhd #Instance u1 gcm 17
+micro.vhd #Instance u2 reg_ins 18
+micro.vhd #Instance u3 reg_dato 19
+micro.vhd #Instance u4 pcount 20
+micro.vhd #Instance u5 deco_ins 21
+micro.vhd #Instance u6 alu 22
+micro.vhd #Instance u7 acc1 23
+micro.vhd #Instance u8 acct 24

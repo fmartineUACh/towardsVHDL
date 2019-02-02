@@ -1,0 +1,72 @@
+.PARSET UA7815 _UA7815
++ VREF     = 15
++ VREF_TC  = -0.4E-3
++ LINE_RG  = 5E-4
++ LOAD_RG  = 8E-3
++ RR_F3    = 10K
++ ZO_F3    = 10K
++ IO_MAX   = 2.2
++ IO_MIN   = 1E-6
++ IO_SC    = 0.75
++ I_Q      = 4.4E-3
++ I_Q_D    = 5E-4
++ I_Q_TC   = -0.25E-3
++ VIN_MAX  = 35
++ VDRP_MAX = 2
++ VDRP_MIN = 2
++ VDRP_TC  = 0
++ P_SHDN   = 50
++ P_SDN_TC = 0
+*
+* NOTES:
+*
+*   PARAMETER         DEFINITIONS                            UNITS 
+*
+*    VREF:      Reference voltage of Vout                     V    
+*
+*    VREF_TC:   Temperture coefficient of VREF                V/C  
+*
+*                 VREF(T1) = VREF(T0)*(1+I_Q_TC*(T1-T0))           
+*
+*    LINE_RG:   Line regulation  dVo/dVin                     
+*
+*    LOAD_RG:   Load regulation  dVo/dIo                      ohm  
+*
+*    RR_F3:     Ripple rejection cutoff frequency             Hz   
+*
+*               RR = 20LN (1/LINE_RG) dB                          
+*
+*    ZO_F3:     Output resistance cutoff frequency            Hz   
+*
+*    IO_MAX:    Maximum output current                        A    
+*
+*    IO_MIN:    Minimum output current                        A    
+*
+*    IO_SC:     Short circuit current                         A    
+*
+*    I_Q:       Quicient current of the common terminal       A    
+*
+*    I_Q_D:     Dynamic range of I_Q as a function of              
+*
+*               load I_Q_D= dIq/dIo                           
+*
+*    I_Q_TC:    Temperture coefficient of I_Q                 A/C  
+*
+*                 I_Q(T1) = I_Q(T0)*(1+I_Q_TC*(T1-T0))             
+*
+*    VIN_MAX:   Maximum input voltage                         V    
+*
+*    VDRP_MAX:  Dropout voltage  corresponding to IO_MAX      V    
+*
+*    VDRP_MIN:  Dropout voltage  corresponding to IO_MIN      V    
+*
+*    VDRP_TC:   Temperture coefficient of VDRP                V/C  
+*
+*                 VDRP(T1) = VDRP(T0)*(1+I_Q_TC*(T1-T0))           
+*
+*    P_SHDN:    Power shut_down limit                         Watt 
+*
+*    P_SDN_TC:  Temperture coefficient of P_SHDN              V/C  
+*
+*                 P_SHDN(T1) = P_SHDN(T0)*(1+I_Q_TC*(T1-T0))       
+*

@@ -1,0 +1,93 @@
+NDB006
+The number of symbol table entries is: 1
+The length of the symbol table is: 13
+
+Index Hierarchy Path
+----- --------------
+!	&null_hpath&
+
+The number of name info structs is : 81
+
+InsOrder BitField SymTableIndex NextSyn SynParent Loc ChainType NextChain ChainParent FanOut DirExp ParExp ShareExp NodeName
+-------- -------- ------------- ------- --------- --- --------- --------- ----------- ------ ------ ------ -------- --------
+"	IdL3	!	16	12	:100	"Z
+#	IdL3	!	16	12	:101	"[
+$	IdL3	!	16	12	:102	"\
+%	IdL3	!	16	12	:103	"]
+&	IdL3	!	16	12	:104	"^
+'	IdL3	!	16	12	:105	"_
+(	IdL3	!	16	12	:106	"`
+)	IdL3	!	16	12	:107	"a
+*	IdL3	!	14	22	:45	"#
++	IdL3	!	14	22	:46	"$
+,	IdL3	!	14	22	:47	"%
+-	IdL3	!	14	22	:48	"&
+.	IdL3	!	14	22	:49	"'
+/	IdL3	!	14	22	:50	"(
+0	IdL3	!	14	22	:51	")
+1	IdL3	!	14	22	:52	"*
+2	IdL3	!	14	22	:53	"+
+3	IdL3	!	14	22	:54	",
+4	IdL3	!	14	22	:55	"-
+5	IdL3	!	14	22	:56	".
+6	IdL3	!	14	22	:57	"/
+7	IdL3	!	14	22	:58	"0
+8	IdL3	!	14	22	:59	"1
+9	IdL3	!	14	22	:60	"2
+:	IdL3	!	14	22	:61	"3
+;	IdL3	!	14	22	:62	"4
+<	IdL3	!	14	22	:63	"5
+=	IdL3	!	14	22	:64	"6
+>	IdL3	!	14	22	:65	"7
+?	IdL3	!	14	22	:66	"8
+@	IdL3	!	14	22	:67	"9
+A	IdL3	!	14	22	:68	":
+B	IdL3	!	14	22	:69	";
+C	IdL3	!	14	22	:70	"<
+D	IdL3	!	14	22	:71	"=
+E	IdL3	!	14	22	:72	">
+F	IdL3	!	14	22	:73	"?
+G	IdL3	!	14	22	:74	"@
+H	IdL3	!	14	12	:75	"A
+I	IdL3	!	14	12	:76	"B
+J	IdL3	!	14	12	:77	"C
+K	IdL3	!	14	12	:78	"D
+L	IdL3	!	14	12	:79	"E
+M	IdL3	!	14	12	:80	"F
+N	IdL3	!	14	12	:81	"G
+O	IdL3	!	14	12	:82	"H
+P	IdL3	!	14	12	:83	"I
+Q	IdL3	!	16	12	:84	"J
+R	IdL3	!	16	12	:85	"K
+S	IdL3	!	16	12	:86	"L
+T	IdL3	!	16	12	:87	"M
+U	IdL3	!	16	12	:88	"N
+V	IdL3	!	16	12	:89	"O
+W	IdL3	!	16	12	:90	"P
+X	IdL3	!	16	12	:91	"Q
+Y	IdL3	!	16	12	:92	"R
+Z	IdL3	!	16	12	:93	"S
+[	IdL3	!	16	12	:94	"T
+\	IdL3	!	16	12	:95	"U
+]	IdL3	!	16	12	:96	"V
+^	IdL3	!	16	12	:97	"W
+_	IdL3	!	16	12	:98	"X
+`	IdL3	!	16	12	:99	"Y
+a	IdLL	!	3	10	clk	p
+b	IdL#	!	8	7	count0	""
+c	IdL#	!	8	7	count1	"!
+d	IdL#	!	8	7	count2	~
+e	IdL#	!	8	7	count3	}
+f	IdL#	!	8	7	count4	|
+g	IdL#	!	8	7	count5	{
+h	IdL#	!	8	7	count6	z
+i	IdL#	!	8	7	count7	y
+j	IdLL	!	3	2	enable	o
+k	IdLM	!	11	6	time0	x
+l	IdLM	!	11	6	time1	w
+m	IdLM	!	11	6	time2	v
+n	IdLM	!	11	6	time3	u
+o	IdLM	!	11	6	time4	t
+p	IdLM	!	11	6	time5	s
+q	IdLM	!	11	6	time6	r
+r	IdLM	!	11	6	time7	q

@@ -1,0 +1,10 @@
+CONSTANT IO_ADDRESS = H"0370";
+
+SUBDESIGN decode2 
+(
+	a[15..0]	: INPUT; 
+	ce			: OUTPUT;
+)
+BEGIN
+	ce = (a[15..0] == IO_ADDRESS);
+END;

@@ -1,0 +1,48 @@
+TITLE "Keyboard Encoder";
+
+INCLUDE "74151";
+INCLUDE "74154";
+INCLUDE "4count";
+
+FUNCTION debounce (clk, key_pressed)
+	RETURNS (pulse);
+
+SUBDESIGN keyboard
+(
+   clk                 :   INPUT;  % 50-KHz clock            %
+   col[3..0]           :   INPUT;  % keyboard columns        %
+   row[3..0], d[3..0]  :   OUTPUT; % keyboard rows, key code %
+   strobe              :   OUTPUT; % key code is valid       %
+)
+VARIABLE
+   key_pressed   :   NODE; % VCC when key d[3..0] is pressed %
+   mux           :   74151;
+   decoder       :   74154;
+   counter       :   4count;
+   opencol[3..0] :   TRI;
+BEGIN
+	% Drive keyboard rows with a decoder and      %
+	% open-collector outputs.                     %
+
+	row[] = opencol[].out;
+	opencol[].in = GND;
+	opencol[].oe = decoder.(o0n,o1n,o2n,o3n);
+	decoder.(b,a) = counter.(qd,qc);
+
+	% Sense keyboard columns with a multiplexer   %
+
+	mux.d[3..0] = col[3..0];
+	mux.(b,a) = counter.(qb,qa);
+	key_pressed = !mux.y;
+
+	% Scan keyboard until a key is pressed.       %
+	% Drive key's code onto d[] outputs           %
+
+	counter.clk = clk;
+	counter.cin = !key_pressed;
+	d[] = counter.(qd,qc,qb,qa);
+
+	% Generate strobe when key has settled        %
+
+	strobe = debounce(clk, key_pressed);
+END;

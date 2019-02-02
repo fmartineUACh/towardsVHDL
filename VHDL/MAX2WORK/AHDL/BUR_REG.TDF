@@ -1,0 +1,13 @@
+SUBDESIGN bur_reg
+(
+	clk, load, d[7..0]	: INPUT;
+	q[7..0]				: OUTPUT;
+)
+VARIABLE
+	ff[7..0]				: DFFE;
+BEGIN
+	ff[].clk = clk;
+	ff[].ena = load;
+	ff[].d = d[];
+	q[] = ff[].q;
+END;

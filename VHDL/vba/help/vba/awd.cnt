@@ -1,0 +1,10 @@
+:Base vbanalog.hlp
+:Title Table of Contents
+1 VeriBest Analog Waveform Displayer Command Reference
+2 VeriBest Analog Waveform Main=VBA_ResultsWaveformDisplay
+2 File=AWD_DisplayerFilePulldownMenu
+2 Edit=AWD_DisplayerEditPulldownMenu
+2 View=AWD_DisplayerViewPulldownMenu
+2 Format=AWD_DisplayerFormatPulldownMenu
+2 Tools=AWD_DisplayerToolsPulldownMenu
+:include awdcommand.cnt

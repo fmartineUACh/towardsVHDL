@@ -1,0 +1,23 @@
+.PARSET 74AC14 _DINVERTER
+* Converted from DMB model by dmbg2par on Wed Jan  5 15:56:41 MST 1994
+* Technology mapping:
+*     AC - 0; ACT - 1; ALS - 2; AS - 3; FAST - 4
+*     H - 5; HC - 6; HCT - 7; L - 8; LS - 9; S - 10
+*     TTL - 11
+*
++ VOH   =   4.9V     	; Output High Level
++ VOL   =   0.1V     	; Output Low Level
++ VIH   =   3.5V     	; Input High Level
++ VIL   =   1V     	; Input Low Level
++ HYST  =   1     	; Hysteresis/Regular (1/0)
++ TR    =   0ns     	; Low-To-High Transition Time
++ TF    =   0ns     	; High-To-Low Transition Time
++ TPLH  =   7ns     	; Low-To-High Propagation Delay
++ TPHL  =   6ns     	; High-To-Low Propagation Delay
++ TECH  =   0     	; Technology
++ SILD  =   1.0     	; Number of Standard Input Loads
++ IOH   =   24mA     	; Output High Current
++ IOL   =   24mA     	; Output Low Current 
++ IOZ   =   0.5uA     	; Output Off-State Current
++ TPHLZ =   7ns     	; Active State To Off-State Propagation Delay
++ TPZHL =   7ns     	; Off-State To Active State Propagation Delay

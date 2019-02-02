@@ -1,0 +1,475 @@
+----------------------------------------------------------------------
+-- addcore: The adder core subdesign of LPM_ADD_SUB  				--
+-- 			 addcore implements an adder optimized for FLEX/FAST,	--
+--			 FLEX/NORMAL, and MAX cases by using					--
+--																	--
+--    FLEX/FAST: a carry-chain implementation with chain breaking	--
+--				 when a maximum carry chain length smaller than 	--
+--				 adder width has been specified.					--
+--																	--
+--	FLEX/NORMAL: a ripple carry structure.							--
+--																	--
+-- 		   MAX : a ripple carry structure between 8-bit sub-adders  --
+--				 and 8-bit carry-look-ahead within each sub-adder.	-- 
+----------------------------------------------------------------------
+
+INCLUDE "addcore.inc";
+
+PARAMETERS
+(
+	WIDTH,
+	CONSTANT_CIN = 0,
+	CARRY_CHAIN,
+	CARRY_CHAIN_LENGTH,
+	DEVICE_FAMILY
+);
+
+-- parameters related to FLEX/FAST case.
+CONSTANT CARRY_LEN 	   = (CARRY_CHAIN_LENGTH <= 2) ? 0 : (CARRY_CHAIN_LENGTH - 2);
+DEFINE FULL_WIDTH()    = WIDTH + (-USED(cin)) + (-USED(cout)); 
+DEFINE CBASE() 		   = -(!USED(cin));
+DEFINE FULL_CNT(n, c)  = (c <= 2 # n < c) ? 0 : (1 + (FULL_CNT(n-(c-1)+1, c)));
+DEFINE FULL_SEGS() 	   = FULL_CNT(FULL_WIDTH(), CARRY_CHAIN_LENGTH);
+DEFINE PART_WIDTH()    = (FULL_WIDTH() - (CARRY_LEN*FULL_SEGS() - USED(cin)));
+DEFINE NEED_PART_SEG() = (PART_WIDTH() <= 1) ? 0 : PART_WIDTH(); 
+DEFINE TOT_SEGS() 	   = (NEED_PART_SEG() == 0) ? FULL_SEGS() : (FULL_SEGS()+1);
+
+-- parameters related to MAX cases.
+CONSTANT TOT_BLOCKS   = CEIL(WIDTH DIV 8);
+CONSTANT FULL_BLOCKS  = FLOOR(WIDTH DIV 8);
+CONSTANT REM_WIDTH    = WIDTH MOD 8;
+CONSTANT REM_BLOCKS   = (REM_WIDTH > 0) ? 1 : 0; 
+
+-- use FLEX/FAST or switch to NORMAL?
+DEFINE NEED_CHAIN()	  = (WIDTH > 2 # (WIDTH == 2 & USED(cin) & CONSTANT_CIN == 0)) &
+						(CARRY_CHAIN != "IGNORE") & (CARRY_LEN > 1) ? 1 : 0;
+
+
+SUBDESIGN addcore
+(
+	dataa[WIDTH-1..0]	: INPUT = GND;
+	datab[WIDTH-1..0]	: INPUT = GND;
+	cin					: INPUT = GND;
+	result[WIDTH-1..0]	: OUTPUT;
+	cout				: OUTPUT;
+	bg_out, bp_out		: OUTPUT;			-- block generate/propagate outputs
+)
+
+VARIABLE
+	IF WIDTH == 1 GENERATE	
+		cin_carry : NODE;
+
+	ELSE GENERATE
+		IF (DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") GENERATE
+			IF NEED_CHAIN() == 1 GENERATE
+				----------------------
+				-- FLEX/FAST cases	--
+				----------------------
+				cin_carry : CARRY;
+
+				IF TOT_SEGS() == 1 GENERATE
+					pcarry[0][WIDTH+(-USED(cout))-2..0] : CARRY;
+
+				ELSE GENERATE
+					first_carry[CARRY_LEN+CBASE()-1..0] : CARRY;
+		
+					IF NEED_PART_SEG() > 0 GENERATE
+						IF TOT_SEGS() > 2 GENERATE
+							pcarry[TOT_SEGS()-2..1][CARRY_LEN-1..0] : CARRY;
+						END GENERATE;
+
+						IF !(PART_WIDTH() == 2 & USED(cout)) GENERATE
+							part_carry[PART_WIDTH()-2..0] : CARRY;
+						END GENERATE;
+
+					ELSE GENERATE
+						pcarry[TOT_SEGS()-1..1][CARRY_LEN-1..0] : CARRY;
+					END GENERATE;
+		
+  					chain_strt[TOT_SEGS()-1..1] : CARRY;
+					chain_term[TOT_SEGS()-2..0] : LCELL;
+				END GENERATE;
+
+				-- block gen/prop signals are non-GND only when
+				-- width of the adder is 8.
+				IF WIDTH == 8 GENERATE
+	 				prop_node[3..0] : NODE;
+					genr_node[3..0] : NODE;
+					gp0 : NODE;
+				END GENERATE;
+
+			ELSE GENERATE
+				--------------------------
+				-- FLEX/NORMAL cases	--
+				--------------------------
+				cin_carry : NODE;
+ 				pcarry[WIDTH-1..0] : NODE;
+
+				IF WIDTH == 8 GENERATE
+		 			prop_node[3..0] : NODE;
+					genr_node[3..0] : NODE;
+					gp0 : NODE;
+				END GENERATE;
+			END GENERATE;
+
+		ELSE GENERATE
+			------------------------------
+			-- MAX cases with WIDTH = 8	--
+			------------------------------
+			-- this special case implements the 8-bit gdf version in tdf.
+			IF WIDTH == 8 GENERATE
+	 			gn[7..0] 	: NODE; 	
+				gs[7..1] 	: SOFT; 
+				pp[7..0] 	: NODE;
+				ps[7..0] 	: SOFT;
+				psi[7..0] 	: NODE;
+				pc[6..0] 	: NODE;
+				gc[2..0] 	: NODE;
+				g2c[2..0] 	: NODE;
+				p2c[2..0] 	: NODE;
+
+				g3 			: NODE;
+				g4 			: SOFT;
+				g2cp[2..1] 	: SOFT;
+				gcp[2] 		: SOFT;
+	
+				cin_carry 			: NODE;
+				cin_node[6..0]		: NODE;
+				result_node[7..0] 	: SOFT;
+				cout_node			: SOFT;
+
+ 				prop_node[3..0] 	: SOFT;
+				genr_node[3..0] 	: SOFT; 
+				gp0 				: NODE;
+
+ 			ELSE GENERATE
+				--------------------------------------
+				-- all MAX cases with WIDTH != 8	--
+				--------------------------------------
+				-- this case will use recursive call to itself to 
+				-- implement a group of 8-bit MAX adders.
+				cin_carry			: NODE;
+				adder[TOT_BLOCKS-1..0] 	: addcore WITH (WIDTH = 8);
+ 			END GENERATE;
+		END GENERATE;
+	END GENERATE;
+		
+
+BEGIN
+	assert report "WIDTH = %, USED(cin) = %, NEED_CHAIN = %, CBASE = %" WIDTH, USED(cin), NEED_CHAIN(), CBASE() SEVERITY DEBUG;	
+	assert report "TOT_SEGS = %, FULL_SEGS = %, FULL_WIDTH = %, PART_WIDTH = %" TOT_SEGS(), FULL_SEGS(), FULL_WIDTH(), PART_WIDTH() SEVERITY DEBUG;	
+
+	-- cin is common between single-segment and multi-segment chains.
+	cin_carry = cin;
+ 
+	IF WIDTH == 8 GENERATE
+		FOR I IN 0 TO 3 GENERATE
+			prop_node[I] = (dataa[2*I+1] # datab[2*I+1]) & (dataa[2*I] # datab[2*I]);  
+			genr_node[I] = (dataa[2*I+1] & datab[2*I+1]) # (dataa[2*I+1] # datab[2*I+1]) & 
+						   (dataa[2*I] & datab[2*I]);
+		END GENERATE;
+	
+		gp0 = prop_node[2] & (genr_node[1] # prop_node[1] & genr_node[0]);
+		bg_out = genr_node[3] # prop_node[3] & (genr_node[2] # gp0);
+		bp_out = prop_node[0] & prop_node[1] & prop_node[2] & prop_node[3];
+	
+	ELSE GENERATE
+		bg_out = GND;
+		bp_out = GND;
+	END GENERATE;
+
+	-- the special case WIDTH = 1 is straightforward and no carry chains are needed.
+	IF WIDTH == 1 GENERATE
+		result[0]  = dataa[0] $ datab[0] $ cin_carry;
+		cout = dataa[0] & datab[0] # dataa[0] & cin_carry # datab[0] & cin_carry;
+
+	ELSE GENERATE
+		IF (DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K")  GENERATE 
+			IF NEED_CHAIN() == 1 GENERATE
+				----------------------
+				-- FLEX/FAST cases	--
+				----------------------
+				result[0] = dataa[0] $ datab[0] $ cin_carry; 
+
+				IF TOT_SEGS() == 1 GENERATE
+					-- single-segment chain case
+					pcarry[0][0] = (dataa[0] & datab[0]) # (dataa[0] # datab[0]) & cin_carry;
+	
+					IF WIDTH > 2 GENERATE
+						FOR I IN 1 TO WIDTH-2 GENERATE
+							pcarry[0][I] = (dataa[I] & datab[I]) # 
+										   (dataa[I] # datab[I]) & pcarry[0][I-1];
+						END GENERATE;
+					END GENERATE;
+	
+					result[WIDTH-1..1] = dataa[WIDTH-1..1] $ datab[WIDTH-1..1] $ pcarry[0][WIDTH-2..0];
+					IF USED(cout) GENERATE
+						pcarry[0][WIDTH-1] = (dataa[WIDTH-1] & datab[WIDTH-1]) # 
+											 (dataa[WIDTH-1] # datab[WIDTH-1]) & pcarry[0][WIDTH-2];
+						cout = pcarry[0][WIDTH-1];
+					END GENERATE;
+	
+				ELSE GENERATE
+					-- multi-segment chain case
+					-- the first segment
+					first_carry[0] = (dataa[0] & datab[0]) # (dataa[0] # datab[0]) & cin_carry;
+					FOR I IN 1 TO CARRY_LEN+CBASE()-1 GENERATE
+						first_carry[I] = (dataa[I] & datab[I]) # 
+									     (dataa[I] # datab[I]) & first_carry[I-1];
+
+						result[I] = (dataa[I] $ datab[I]) $ first_carry[I-1];
+					END GENERATE;
+					chain_term[0] = first_carry[CARRY_LEN+CBASE()-1];
+					
+					-- segment(s) sandwiched between first and last segments.
+					IF TOT_SEGS() > 2 GENERATE
+						FOR J IN 1 TO TOT_SEGS()-2 GENERATE
+							chain_strt[J] = chain_term[J-1];
+							pcarry[J][0] = (dataa[J*CARRY_LEN+CBASE()]  & 
+											datab[J*CARRY_LEN+CBASE()]) # 
+										   (dataa[J*CARRY_LEN+CBASE()]  # 
+											datab[J*CARRY_LEN+CBASE()]) & 
+										    chain_strt[J];
+
+							result[J*CARRY_LEN+CBASE()] = dataa[J*CARRY_LEN+CBASE()] $ 
+													   	  datab[J*CARRY_LEN+CBASE()] $ 
+											   		   	  chain_strt[J];
+						
+							FOR I IN 1 TO CARRY_LEN-1 GENERATE
+								pcarry[J][I] = (dataa[J*CARRY_LEN+I+CBASE()]  & 
+												datab[J*CARRY_LEN+I+CBASE()]) # 
+											   (dataa[J*CARRY_LEN+I+CBASE()]  # 
+												datab[J*CARRY_LEN+I+CBASE()]) & 
+												pcarry[J][I-1];
+	
+								result[J*CARRY_LEN+CBASE()+I] = (dataa[J*CARRY_LEN+CBASE()+I]  $ 
+															  	 datab[J*CARRY_LEN+CBASE()+I]) $ 
+				 							 				  	 pcarry[J][I-1];
+							END GENERATE;
+							chain_term[J] = pcarry[J][CARRY_LEN-1];
+	
+						END GENERATE;
+					END GENERATE;
+
+					-- last segment, either partially complete or a full (complete) chain
+					IF NEED_PART_SEG() > 0 GENERATE
+ 						-----------------------------------------
+						-- there is a partially complete chain --
+						-----------------------------------------
+			 			chain_strt[TOT_SEGS()-1] = chain_term[TOT_SEGS()-2];
+	
+						result[(TOT_SEGS()-1)*CARRY_LEN+CBASE()] = dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()] $ 
+															       datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()] $ 
+															       chain_strt[TOT_SEGS()-1];
+						IF PART_WIDTH() == 2 & USED(cout) GENERATE
+							cout = (dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]  & 
+									datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]) # 
+									(dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]  # 
+									 datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]) & 
+									 chain_strt[TOT_SEGS()-1];
+
+						ELSE GENERATE
+							part_carry[0] = (dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]  & 
+											 datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]) # 
+											(dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]  # 
+											 datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]) & 
+										 	 chain_strt[TOT_SEGS()-1];
+
+							FOR I IN 1 TO PART_WIDTH()-2 GENERATE
+								part_carry[I] = (dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I]  & 
+											 	 datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I]) # 
+										   		(dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I]  # 
+											 	 datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I]) & 
+											 	 part_carry[I-1];
+	
+								result[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I] = 
+											 	dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I] $ 
+									 		 	datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I] $ 
+									 		 	part_carry[I-1];
+							END GENERATE;
+
+							IF USED(cout) GENERATE
+								cout = part_carry[PART_WIDTH()-2];
+
+							ELSE GENERATE
+ 								result[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+PART_WIDTH()-1] = 
+												 dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+PART_WIDTH()-1] $ 
+										 		 datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+PART_WIDTH()-1] $ 
+										 		 part_carry[PART_WIDTH()-2];
+							END GENERATE;
+						END GENERATE;
+			 	
+					ELSE GENERATE
+						------------------------------
+						-- all chains are complete	--
+						------------------------------
+		 				chain_strt[TOT_SEGS()-1] = chain_term[TOT_SEGS()-2];
+						pcarry[TOT_SEGS()-1][0] = (dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]  & 
+												   datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]) # 
+									   			  (dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]  # 
+												   datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()]) & 
+												   chain_strt[TOT_SEGS()-1];
+	
+						result[(TOT_SEGS()-1)*CARRY_LEN+CBASE()] = dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()] $ 
+															       datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()] $ 
+															       chain_strt[TOT_SEGS()-1];
+	
+						FOR I IN 1 TO CARRY_LEN-1 GENERATE
+							pcarry[TOT_SEGS()-1][I] = (dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I]  & 
+													   datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I]) # 
+										   			  (dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I]  # 
+													   datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I]) & 
+													   pcarry[TOT_SEGS()-1][I-1];
+
+							result[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I] = 
+													  (dataa[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I]  $ 
+												       datab[(TOT_SEGS()-1)*CARRY_LEN+CBASE()+I]) $ 
+													   pcarry[(TOT_SEGS()-1)][I-1];
+						END GENERATE;
+
+						IF USED(cout) GENERATE
+							cout = pcarry[TOT_SEGS()-1][CARRY_LEN-1];
+	
+						ELSE GENERATE
+							result[TOT_SEGS()*CARRY_LEN+CBASE()] = (dataa[TOT_SEGS()*CARRY_LEN+CBASE()]  $ 
+							 									 	datab[TOT_SEGS()*CARRY_LEN+CBASE()]) $ 
+										 						 	pcarry[(TOT_SEGS()-1)][CARRY_LEN-1];
+						END GENERATE;
+					END GENERATE;
+				END GENERATE;
+	
+			ELSE GENERATE
+				assert report "FLEX/NORMAL" severity DEBUG;
+				--------------------------
+				-- FLEX/NORMAL cases	--
+				--------------------------
+	 			pcarry[0] = (dataa[0] & datab[0]) # (dataa[0] & cin_carry) # 
+							(datab[0] & cin_carry);
+
+				FOR I IN 1 TO WIDTH-1 GENERATE
+					pcarry[I] = (dataa[I] & datab[I]) # (dataa[I] # datab[I]) & pcarry[I-1];
+				END GENERATE;
+	
+				result[0] = dataa[0] $ datab[0] $ cin_carry;
+				result[WIDTH-1..1] = (dataa[WIDTH-1..1] $ pcarry[WIDTH-2..0]) $ datab[WIDTH-1..1];
+				cout = pcarry[WIDTH-1];
+
+ 			END GENERATE;
+
+		ELSE GENERATE
+			IF WIDTH == 8 GENERATE  
+			assert report "MAX device with size 8" severity DEBUG;
+				------------------------------
+				-- MAX cases with WIDTH = 8	--
+				------------------------------
+				-- GENERATE (gn, gs) and PROPAGATE (!pp, !ps) functions
+				pp[0] = dataa[0] !# datab[0];
+				ps[0] = pp[0];
+				psi[0] = !ps[0];
+				gn[0] = dataa[0] & datab[0];
+				gc[0] = gn[0];
+
+				FOR I in 1 TO 7 GENERATE
+					pp[I] = dataa[I] !# datab[I];
+					ps[I] = pp[I];
+					psi[I] = !ps[I];
+					gn[I] = dataa[I] & datab[I];
+					gs[I] = gn[I];
+				END GENERATE;
+
+				-- Propagate cin all through 7 stages
+				pc[0] = psi[0] & cin_carry;
+				FOR I in 1 TO 6 GENERATE
+					pc[I] = psi[I] & pc[I-1];
+				END GENERATE;
+	
+				g3 = psi[3] & !gs[3];
+				-- g4 is the GENERATE function of first 4 bit positions
+				g4 = gn[3] $ (gc[2] & g3);
+
+				-- Propagate g4 through the positions 4-7
+				-- p2c is the propagated carry with g4 as carry input. 
+				p2c[0] = g4 & psi[4];
+				p2c[1] = p2c[0] & psi[5];
+				p2c[2] = p2c[1] & psi[6];
+
+				-- gc is the generated carry at poistions 0 - 3.
+				gc[0] = gn[0];
+				gc[1] = gn[1] # psi[1] & gc[0];
+				gc[2] = gn[2] # psi[2] & gc[1];
+	
+				-- gcp is the generated carry at poistion 4 - 6.				
+				gcp[2] = gc[2];
+				g2c[0] = gn[4];
+				g2c[1] = gn[5] # psi[5] & g2c[0];
+				g2c[2] = gn[6] # psi[6] & g2c[1];
+	
+				g2cp[1] = g2c[1];
+				g2cp[2] = g2c[2];
+
+				-- cin_node is the total (propagated + generated) carry 
+				-- input to each bit post 
+				cin_node[0] = gc[0] # pc[0];
+				cin_node[1] = gc[1] # pc[1];
+				cin_node[2] = gcp[2] # pc[2];
+				cin_node[3] = g4 # pc[3];
+				cin_node[4] = g2c[0] # pc[4] # p2c[0];
+				cin_node[5] = g2cp[1] # pc[5] # p2c[1];
+				cin_node[6] = g2cp[2] # pc[6] # p2c[2];
+
+				-- compute result (sum) bits. Note that (!ps[I] & !gs[I])
+				-- is the same as (data[I] $ datab[I]). However, using ps[I]
+				-- and gs[I] (or equivalently, pp[I] and gn[I]) results
+				-- in more common factors that can be crammed in shared
+				-- expanders and thus reduce cell count.
+				result_node[0] = (pp[0] # gn[0]) !$ cin_carry;
+				FOR I in 1 TO 7 GENERATE
+					IF I == 3 GENERATE
+						result_node[I] = g3 $ cin_node[I-1];
+					ELSE GENERATE
+						result_node[I] = (psi[I] & !gs[I]) $ cin_node[I-1];
+					END GENERATE;
+				END GENERATE;
+			
+				-- cout
+ 				cout_node = gn[7] $ (psi[7] & !gs[7] & cin_node[6]);
+
+				-- all outputs are SOFT-buffered.
+			 	result[] = result_node[];
+				cout = cout_node;
+
+ 			ELSE GENERATE
+				----------------------------------
+				-- MAX cases with WIDTH != 8 	--
+				----------------------------------
+				IF FULL_BLOCKS > 0 GENERATE
+					FOR I IN 0 TO FULL_BLOCKS-1 GENERATE
+						adder[I].dataa[] = dataa[(I+1)*8-1..I*8];
+						adder[I].datab[] = datab[(I+1)*8-1..I*8];
+						result[(I+1)*8-1..I*8] = adder[I].result[];
+					END GENERATE;
+				END GENERATE;
+
+				IF REM_BLOCKS == 1 GENERATE
+					adder[TOT_BLOCKS-1].dataa[REM_WIDTH-1..0] = dataa[WIDTH-1..(TOT_BLOCKS-1)*8];
+					adder[TOT_BLOCKS-1].datab[REM_WIDTH-1..0] = datab[WIDTH-1..(TOT_BLOCKS-1)*8];
+					result[WIDTH-1..(TOT_BLOCKS-1)*8] = adder[TOT_BLOCKS-1].result[REM_WIDTH-1..0];
+				END GENERATE;
+
+				adder[0].cin = cin_carry;
+				IF TOT_BLOCKS > 1 GENERATE
+					FOR I IN 1 TO TOT_BLOCKS-1 GENERATE
+						adder[I].cin = adder[I-1].cout;
+					END GENERATE;
+				END GENERATE;
+
+				IF REM_BLOCKS == 1 GENERATE						
+					cout = adder[TOT_BLOCKS-1].result[REM_WIDTH];
+				ELSE GENERATE
+					cout = adder[TOT_BLOCKS-1].cout;
+				END GENERATE;
+				
+			END GENERATE;
+		END GENERATE;
+	END GENERATE;
+END;

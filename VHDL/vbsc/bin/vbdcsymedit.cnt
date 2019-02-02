@@ -1,0 +1,39 @@
+:Base vbdcsymedit.hlp>dialog
+:Title Table of Contents
+1 Welcome to VBDC Symbol Editor
+2 Help Topics=HIDR_SBKDOCTYPE
+2 Customer Support=Customer_Support
+1 Main Window
+2 Using the Main Window=Main_Window 
+2 Mouse Mappings=Mouse_Conventions
+2 Context-Sensitive Popup Menus=Context_Sensitive_Popup
+2 File Naming Conventions=File_Naming_Conventions
+1 Using the Symbol Editor - Procedure Snapshots
+2 Symbol Editor Overview=Symbol_Editor_Overview>launch
+2 Creating Symbols=Creating_Symbols_Ed>launch
+2 Proposed Symbol Library Creation Process=Proposed_Symbol_Library_Creation_Process>launch
+2 Symbol Library Creation=Symbol_Library_Creation_Ed>launch
+2 Opening a Symbol=Opening_Symbol_Ed>launch
+2 Creating a Symbol=Creating_Symbol_Symed>launch
+2 Symbol Types=Symbol_Types_Ed>launch
+2 Grid=Grid_Ed>launch
+2 Symbol Graphics=Symbol_Graphics_Ed>launch
+2 Graphics Linestring 90 Degree Angle Lock=Any_Angle_Graphics_Linestring>launch
+2 Symbol Pins=Symbol_Pins>launch
+2 Pin Types=Pin_Types_Ed>launch
+2 Text Property Placement=Symbol_Pin_Properties>launch
+2 Text Property Adjustments for Symbol Rotations=Property_Placement_Ed>launch
+2 Text Property Override=Property_Override_Ed>launch
+2 Symbol Origin=Symbol_Origin>launch
+2 Verifying the Symbol=HIDD_SYM_VERIFY@vbdc.hlp>launch
+2 Automatically Updating the Time, Date, and Page=Updating_Property@vbdc.hlp>launch
+1 Menus
+2 File Menu=file_menu>dialog
+2 Edit Menu=edit_menu
+2 View Menu=view_menu
+2 Place Menu=place_menu
+2 Tools Menu=tools_menu
+2 Window Menu=window_menu
+2 Help Menu=help_menu
+1 Text Properties
+2 Text Property Descriptions=Text_Properties

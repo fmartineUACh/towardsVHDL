@@ -1,0 +1,237 @@
+.Model PMOS5 PMOS
+
++ LEVEL	= 5		; BSIM2 deep-submicron MOSFET model
+
+*****************************
+* Level specific parameters *
+*****************************
+
++ VFB	= 0.0		; Flat-band voltage
++ LVFB	= 0.0		; Length dependence of Vfb
++ WVFB	= 0.0		; Width dependence of Vfb
++ LPHI	= 0.0
++ WPHI	= 0.0
++ K1	= 0.0		; Bulk (body) effect coefficient
++ LK1	= 0.0
++ WK1	= 0.0
++ K2	= 0.0		; Non-uniform channel doping coefficient
++ LK2	= 0.0
++ WK2	= 0.0
++ ETA0	= 0.0		; Drain-induced barrier lowering at Vbs=0
++ LETA0	= 0.0		; Vds dependence of threshold voltage;Vdd=0
++ WETA0	= 0.0
++ ETAB	= 0.0		; Sensitivity of ETA to Vbs
++ LETAB	= 0.0
++ WETAB	= 0.0
++ MU0	= 0.0		; Low-field mobility; Vds=0, Vgs=Vth
++ LMU0	= 0.0
++ WMU0	= 0.0
++ MU0B	= 0.0		; Sensitivity of MU0 to Vbs
++ LMU0B	= 0.0
++ WMU0B	= 0.0
++ MUS0	= 0.0		; High-field mobility; Vds=Vdd, Vgs=Vth
++ LMUS0	= 0.0
++ WMUS0	= 0.0
++ MUSB	= 0.0		; Sensitivity of MUS to Vbs
++ LMUSB	= 0.0
++ WMUSB	= 0.0
++ MU20	= 0.0		; Empirical parameter for output resistance
++ LMU20	= 0.0		; Vds dependence of mu in tanh term
++ WMU20	= 0.0
++ MU2B	= 0.0		; Sensitivity of MU2 to Vbs
++ LMU2B	= 0.0
++ WMU2B	= 0.0
++ MU2G	= 0.0		; Sensitivity of MU2 to Vgs
++ LMU2G	= 0.0
++ WMU2G	= 0.0
++ MU30	= 0.0		; Empirical parameter for output resistance
++ lMU30	= 0.0		; Vds dependence of MU in linear term
++ WMU30	= 0.0
++ MU3B	= 0.0		; Sensitivity of MU3 to Vbs
++ LMU3B	= 0.0
++ WMU3B	= 0.0
++ MU3G	= 0.0		; Sensitivity of MU3 to Vgs
++ LMU3G	= 0.0
++ WMU3G	= 0.0
++ MU40	= 0.0		; Empirical parameter for output resistance
++ LMU40	= 0.0		; Vds dependence of MU in linear term
++ WMU40	= 0.0
++ MU4B	= 0.0		; Sensitivity of MU4 to Vbs
++ LMU4B	= 0.0
++ WMU4B	= 0.0
++ MU4G	= 0.0		; Sensitivity of MU4 to Vgs
++ LMU4G	= 0.0
++ WMU4G	= 0.0
++ UA0	= 0.0		; 1st ord. vertical-field mobility reduction
++ LUA0	= 0.0		; Linear Vgs dependence of mobility
++ WUA0	= 0.0
++ UAB	= 0.0		; Sensitivity of UA to Vbs
++ LUAB	= 0.0
++ WUAB	= 0.0
++ UB0	= 0.0		; 2nd ord. vertical-field mobility reduction
++ LUB0	= 0.0		; Quadratic Vgs dependence of mobility
++ WUB0	= 0.0
++ UBB	= 0.0		; Sensitivity of UB to Vbs
++ LUBB	= 0.0
++ WUBB	= 0.0
++ U10	= 0.0		; Velocity saturation coefficient
++ LU10	= 0.0		; Vds dependence of mobility
++ WU10	= 0.0
++ U1B	= 0.0		; Sensitivity of U1 to Vbs
++ LU1B	= 0.0
++ WU1B	= 0.0
++ U1D	= 0.0		; Sensitivity of U1 to Vds
++ LU1D	= 0.0
++ WU1D	= 0.0
++ N0	= 0.0		; Subthreshold swing coefficient
++ LN0	= 0.0		; Subthreshol slope at Vds=0, Vbs=0
++ WN0	= 0.0
++ NB	= 0.0		; Sensitivity of N to Vbs
++ LNB	= 0.0
++ WNB	= 0.0
++ ND	= 0.0		; Sensitivity of N to Vds
++ LND	= 0.0
++ WND	= 0.0
++ VOF0	= 0.0		; Vth offset for subthreshold; Vds=0 Vbs=0
++ LVOF0	= 0.0		; Threshold voltage offset at Vds=0, Vbs=0
++ WVOF0	= 0.0
++ VOFB	= 0.0		; Sensitivity of Vof to Vbs
++ LVOFB	= 0.0
++ WVOFB	= 0.0
++ VOFD	= 0.0		; Sensitivity of Vof to Vds
++ LVOFD	= 0.0
++ WVOFD	= 0.0
++ AI0	= 0.0		; Hot-electron coefficient; Rout degradation
++ LAI0	= 0.0		; Pre-factor of hot-electron effect
++ WAI0	= 0.0
++ AIB	= 0.0		; Sensitivity of AI to Vbs
++ LAIB	= 0.0
++ WAIB	= 0.0
++ BI0	= 0.0		; Hot-electron exponent; Rout degradation
++ LBI0	= 0.0
++ WBI0	= 0.0
++ BIB	= 0.0		; Sensitivity of BI to Vbs
++ LBIB	= 0.0
++ WBIB	= 0.0
++ VGHIGH = 0.0		; Upper bound of transition region
++ LVGHIGH = 0.0
++ WVGHIGH = 0.0
++ VGLOW	= 0.0		; Lower bound of transition region
++ LVGLOW = 0.0
++ WVGLOW = 0.0
++ VDD	= 0.0		; Drain supply voltage; maximum Vds
++ VGG	= 0.0		; Gate supply voltage; maximum Vgs
++ VBB	= 0.0		; Body supply voltage; maximum Vbs
++ WDF	= 0.0		; NOT USED: Default width
++ TEMP	= 0		; NOT USED: Device temperature
++ XPART	= 0.0		; NOT USED: Channel charge partitioning flag
+
+************
+* Geometry *
+************
+
++ TOX	= 1.0E-7	; gate oxide thickness (m)
++ LD	= 0.0		; lateral diffusion (m)
++ LMLT	= 1.0		; length multiplier
++ WD	= 0.0		; lateral diffusion (m)
++ WMLT	= 1.0		; width multiplier
++ DEL	= 0.0		; channnel length reduction (m)
++ DL	= 0.0		; length offset (m)
++ DW	= 0.0		; width offset (m)
++ LDIF	= 0.0		; length of lightly doped diffusion (m)
++ HDIF	= 0.0		; length of heavily doped diffusion (m)
+
+*******************
+* Stress analysis *
+*******************
+
++ PMAX	= 2.5E-1	; max power (W)
+
+************************
+* Overlap capacitances *
+************************
+
++ CGBO	= 0.0		; gate-bulk overlap capacitance (F/m)
++ CGDO	= 0.0		; gate-drain overlap capacitance (F/m)
++ CGSO	= 0.0		; gate-source overlap capacitance (F/m)
++ FRINGE= 0.0		; fringing field factor (m)
+
+****************
+* Capacitances *
+****************
+
++ CBD	= 0.0		; zero bias bulk-drain junction capacitance (F)
++ CBS	= 0.0		; zero bias bulk-source junction capacitance (F)
++ CJ	= 0.0		; zero bias bulk junction bottom capacitance (F)
++ CJSW	= 0.0		; zero bias bulk junction sidewall capacitance (F/m)
++ MJ	= 0.5		; bulk junction bottom grading coefficient
++ PB	= 0.8		; diode bottom wall junction potential (V)
++ FC	= 0.5		; forward bias junction capacitance coefficient
++ MJSW	= 0.33		; bulk junction sizewall grading coefficient
++ PBSW	= 0.8		; diode sidewall junction potential (V)
++ CTA	= 0.0		; temperature coefficient for bottom capacitance (1/deg)
++ CTP	= 0.0		; temperature coefficient for periphery capacitance (1/deg)
+
+*******************
+* Leakage current *
+*******************
+
++ IS	= 1.0E-14	; bulk junction saturation current (A)
++ JS	= 0.0		; bulk junction saturation current per unit area (A/m^2)
++ ISSW	= 0.0		; sidewall junction saturation current (A)
++ JSSW	= 0.0		; sidewall junction saturation current per
+			; meter of junction perimeter (A/m)
+
+*************************
+* Parasitic resistances *
+*************************
+
++ RS	= 0.0		; source resistance (Ohm)
++ RD	= 0.0		; drain resistance (Ohm)
++ RSH	= 0.0		; drain and source diffusion sheet resistance (Ohm/sq)
++ TRS	= 0.0		; temperature coefficient of source resistor (1/deg)
++ TRD	= 0.0		; temperature coefficient of drain resistor (1/deg)
++ TRSH	= 0.0		; temperature coefficient of sheet resistance (1/deg)
+
+*********************
+* Threshold voltage *
+*********************
+
++ VTO	= 0.0		; zero-bias threshold voltage (V)
++ NSS	= 0.0		; surface state density	(1/cm^2)
++ TPG	= -1.0		; type of gate material
++ PHI	= 0.6		; surface potential for strong inversion (V)
++ GAMMA	= 0.0		; bulk threshold parameter (V)
++ NSUB	= 0.0		; substrate doping (1/cm^3)
++ TCV	= 0.0		; temperature coefficient of threshold voltage (V/deg)
+
+************
+* Mobility *
+************
+
++ UO	= 400.0		; mobility (cm^2/(V sec))
++ KP	= 2.0E-05	; transconductance (A/V^2)
++ BEX	= -1.5		; temperature coefficient for transconductance
+
+*********
+* Noise *
+*********
+
++ KF	= 0.0		; Flicker noise coefficient
++ AF	= 1.0		; frequency exponent
+
+****************
+* Charge model *
+****************
+
++ XQC	= 1.0
++ QOPT	= -1		; Charge model selection
+
+*******************************************
+* Parameters of ASPEC (QOPT) charge model *
+*******************************************
+
++ CF1	= 0.0
++ CF2	= 0.1
++ CF3	= 1.0
++ XCG	= 0.66667

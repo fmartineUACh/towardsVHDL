@@ -1,0 +1,24 @@
+
+     | | | | | | |
+   _________________
+  -|               |-
+  -|               |-
+  -|               |-
+  -|    CYPRESS    |-
+  -|               |-
+  -|               |-   Warp VHDL Synthesis Compiler: Version 6.0.1 IR 18
+  -|               |-   Copyright (C) 1991-2000 Cypress Semiconductor
+   |_______________|
+     | | | | | | |
+
+======================================================================
+Options:    -swork lc37256
+======================================================================
+
+vhdlfe V6.0.1 IR 18:  VHDL parser
+Wed Jun 19 15:30:01 2002
+
+Setting library 'work' to directory 'lc37256'
+
+vhdlfe:  No errors.
+

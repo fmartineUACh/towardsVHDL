@@ -1,0 +1,14 @@
+INCLUDE "4count";
+INCLUDE "16dmux";
+
+SUBDESIGN macro2
+(
+	clk			: INPUT;
+	out[15..0]	: OUTPUT;
+)
+VARIABLE
+	q[3..0]		: NODE;
+BEGIN
+	(q[3..0], ) = 4count (clk, , , , , GND, , , , );
+	out[15..0]  = 16dmux (q[3..0]);
+END;

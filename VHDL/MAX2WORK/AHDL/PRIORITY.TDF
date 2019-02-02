@@ -1,0 +1,16 @@
+SUBDESIGN priority
+(
+	low, middle, high		: INPUT;
+	highest_level[1..0]	: OUTPUT;
+)
+BEGIN
+	IF high THEN
+		highest_level[] = 3;
+	ELSIF middle THEN
+		highest_level[] = 2;
+	ELSIF low THEN
+		highest_level[] = 1;
+	ELSE
+		highest_level[] = 0;
+	END IF;
+END;

@@ -1,0 +1,13 @@
+***** MODEL PARAMETERS EXTRACTED FROM TECAP *****
+.MODEL  BAT17   D
++ RS     = 2.6658        
++ EG     = 1.11          
++ XTI    = 3                
++ VJ     = 0.0811482     
++ M      = 0.115374      
++ FC     = 0.99          
++ BV     = 4.000000E+00  
++ CJO    = 5.889500E-13  STAT 4.808757E-13 7.213135E-13 :GAUSS
++ IS     = 1.089230E-09  
++ N      = 1.053160E+00  
++ TT     = 1.000000E-10  

@@ -1,0 +1,13 @@
+:Base vbanalog.hlp
+:Title VeriBest Analog Help
+1 VeriBest Analog Application Online Help
+2 File=VBA_File
+2 Project=VBA_Project
+2 Library=VBA_Library
+2 Setup=VBA_Setup
+2 Run=VBA_Run
+2 Results=VBA_Results
+2 Tools=VBA_Tools
+:include mlm.cnt
+:include awd.cnt
+:include awc.cnt

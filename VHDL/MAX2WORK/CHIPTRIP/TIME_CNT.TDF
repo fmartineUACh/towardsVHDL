@@ -1,0 +1,19 @@
+SUBDESIGN time_cnt
+(
+	enable, clk		: INPUT;
+	time[7..0]		: OUTPUT;
+)
+VARIABLE
+	count[7..0]		: DFF;
+BEGIN
+	count[].clk = clk;
+	time[] = count[];
+
+	IF enable THEN
+		count[].d = count[].q + 1;
+	ELSE
+		count[].d = count[].q;
+	END IF;
+	
+END;
+

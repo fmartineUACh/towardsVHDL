@@ -1,0 +1,22 @@
+* Subcircuit _REF_ZNR can be found in the DIODE Model Library
+.PARSET REF_ZNR _REF_ZNR
++ VZ   = 6.2      STAT 5.9       6.5	:GAUSS
++ VZTC = 0.3M     STAT -0.62M    0.62M	:GAUSS
++ IFZ  = 7.5M     STAT 7.4M      7.6M	:GAUSS
++ RZ   = 5        STAT 4         15	:GAUSS
++ VR   = 4.8      STAT 4.5       5.2	:GAUSS
++ IR   = 0.1U     STAT 0.01U     10U	:GAUSS
++ CJ   = 100P     STAT 20P       500P	:GAUSS
+
+* DEFINITIONS:
+*                                           units
+*                                           -----
+* VZ   - Zener voltage                       [V]      
+* VZTC - VZ temperature coeficient           [V/deg-C]
+* IFZ  - Nominal zener current               [A]      
+* RZ   - Zener impedance                     [Ohms]   
+*        (valid only if RZ>30m/IFZ)                   
+* VR   - Voltage condition for IR test       [V]      
+*        (usually  VR=0.8VZ)                          
+* IR   - Reverse leakage current @ VR        [A]      
+* CJ   - Capacitance at zero voltage         [F]      

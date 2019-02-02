@@ -1,0 +1,15 @@
+***** MODEL PARAMETERS EXTRACTED FROM TECAP *****
+.MODEL  RD6_2E   D
++ RS     = 0.589177      
++ EG     = 1.11          
++ XTI    = 3             
++ IBV    = 0.011607      
++ VJ     = 0.720157      
++ M      = 0.352001      
++ FC     = 0.99          
++ BV     = 6.291820E+00  
++ CJO    = 1.204030E-10  STAT 9.830864E-11 1.474630E-10 :GAUSS
++ IS     = 9.153440E-16  
++ N      = 1.004580E+00  
++ TT     = 1.000000E-07  
++ PMAX   = 5.000000E-01  

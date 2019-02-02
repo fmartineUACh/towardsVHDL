@@ -1,0 +1,11 @@
+OPTIONS BIT0 = MSB;
+SUBDESIGN group1
+(
+	a[1..2] : INPUT;
+	d[1..2] : OUTPUT;
+)
+
+BEGIN
+	d[] = a[] + B"10";
+END;
+

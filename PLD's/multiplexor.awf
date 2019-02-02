@@ -1,0 +1,37 @@
+$WAVE
+$SIGNAL 1 a -1 0 IN 400000
+1 Stimulator="KEY:KEY:Override:65/0,1:A:1:0ps;100ns"
+$SIGNAL 2 b -1 0 IN 400000
+2 Stimulator="KEY:KEY:Override:68/0,1:D:1:0ps;100ns"
+$SIGNAL 3 O -1 0 OUT 400000
+$SIGNAL 4 s -1 0 IN 400000
+4 Stimulator="KEY:KEY:Override:84/0,1:T:1:0ps"
+$EVENTS
+I 0 "e#3#bitc2 01"
+S 1 0
+S 2 0
+S 3 0
+S 4 0
+1 0
+2 0
+3 0
+4 0
+D 1
+4 1
+1 1
+T 100000
+D 1
+4 0
+D 2
+3 1
+T 200000
+D 1
+4 1
+D 2
+3 0
+T 100000
+1 1
+2 0
+3 0
+4 1
+$ENDWAVE

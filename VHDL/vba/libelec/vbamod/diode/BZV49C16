@@ -1,0 +1,15 @@
+***** MODEL PARAMETERS EXTRACTED FROM TECAP *****
+.MODEL  BZV49C16   D
++ RS     = 1.63882       
++ EG     = 1.11          
++ XTI    = 3             
++ IBV    = 0.000679461   
++ VJ     = 0.582208      
++ M      = 0.321027      
++ FC     = 0.99          
++ BV     = 1.682630E+01  
++ CJO    = 2.749940E-11  STAT 2.245317E-11 3.367975E-11 :GAUSS
++ IS     = 1.120020E-12  
++ N      = 1.293510E+00  
++ TT     = 1.000000E-07  
++ PMAX   = 1.000000E+00  

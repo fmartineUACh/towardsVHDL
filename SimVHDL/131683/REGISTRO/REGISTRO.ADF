@@ -1,0 +1,10 @@
+[Project]
+Current config=GENERIC
+VCS=0
+modified=10
+[Configurations]
+GENERIC=registro
+
+[Files]
+/A:\REGISTRO\REGISTRO.VHD=4, 1 29497296 359568384, 0, , , ,
+

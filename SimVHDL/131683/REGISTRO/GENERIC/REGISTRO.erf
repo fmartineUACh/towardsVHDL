@@ -1,0 +1,6 @@
+MESSAGE "File: A:\REGISTRO\REGISTRO.VHD" 
+MESSAGE "Compile Entity "proyecto"" 
+MESSAGE "Compile Architecture "corrimiento" of Entity "proyecto"" 
+MESSAGE "Top-Level unit detected" 
+MESSAGE "Entity  =>   proyecto" 
+MESSAGE "Compile success 0 Errors 0 Warnings  Analysis time :  13.0 [s]" 

@@ -1,0 +1,123 @@
+--------------------------------------------------------------------
+--
+--	LPM_ROM Parameterized Megafunction
+--
+--	Copyright (C) 1991-1997 Altera Corporation
+--	Any megafunction design, and related net list (encrypted or decrypted),
+--	support information, device programming or simulation file, and any other
+--	associated documentation or information provided by Altera or a partner
+--	under Altera's Megafunction Partnership Program may be used only to
+--	program PLD devices (but not masked PLD devices) from Altera.  Any other
+--	use of such megafunction design, net list, support information, device
+--	programming or simulation file, or any other related documentation or
+--	information is prohibited for any other purpose, including, but not
+--	limited to modification, reverse engineering, de-compiling, or use with
+--	any other silicon devices, unless such use is explicitly licensed under
+--	a separate agreement with Altera or a megafunction partner.  Title to
+--	the intellectual property, including patents, copyrights, trademarks,
+--	trade secrets, or maskworks, embodied in any such megafunction design,
+--	net list, support information, device programming or simulation file, or
+--	any other related documentation or information provided by Altera or a
+--	megafunction partner, remains with Altera, the megafunction partner, or
+--	their respective licensors.  No other licenses, including any licenses
+--	needed under any third party's intellectual property, are provided herein.
+--
+--	Version 1.0
+--
+--------------------------------------------------------------------
+
+INCLUDE "altrom.inc";
+
+PARAMETERS
+(
+	LPM_WIDTH,
+	LPM_WIDTHAD,
+	LPM_NUMWORDS = 2^LPM_WIDTHAD,
+	LPM_ADDRESS_CONTROL = "REGISTERED",
+	LPM_OUTDATA = "REGISTERED",
+	LPM_FILE,
+	DEVICE_FAMILY
+);
+
+SUBDESIGN lpm_rom
+(
+	address[LPM_WIDTHAD-1..0]	: INPUT = GND;
+	inclock						: INPUT = VCC;
+	outclock					: INPUT = VCC;
+	memenab						: INPUT = VCC;
+	q[LPM_WIDTH-1..0]			: OUTPUT;
+)
+
+VARIABLE
+	IF (LPM_ADDRESS_CONTROL == "REGISTERED") GENERATE
+		srom	: altrom WITH (WIDTH=LPM_WIDTH,
+							AD_WIDTH=LPM_WIDTHAD,
+							NUMWORDS=LPM_NUMWORDS,
+							FILE=LPM_FILE,
+							REGISTERINPUTMODE="ADDRESS_CONTROL");
+	ELSE GENERATE
+		srom	: altrom WITH (WIDTH=LPM_WIDTH,
+							AD_WIDTH=LPM_WIDTHAD,
+							NUMWORDS=LPM_NUMWORDS,
+							FILE=LPM_FILE,
+							REGISTERINPUTMODE="DEFAULT");
+	END GENERATE;
+
+	otri[LPM_WIDTH-1..0]	: TRI;
+
+BEGIN
+
+	ASSERT (LPM_WIDTH > 0)
+			REPORT "Value of LPM_WIDTH parameter value must be greater than 0"
+			SEVERITY ERROR
+			HELP_ID LPM_ROM_WIDTH;
+
+
+	ASSERT (LPM_WIDTHAD > 0)
+			REPORT "Value of LPM_WIDTHAD parameter value must be greater than 0"
+			SEVERITY ERROR
+			HELP_ID LPM_ROM_WIDTHAD;
+
+	ASSERT (LPM_NUMWORDS > 2^(LPM_WIDTHAD-1) & LPM_NUMWORDS <= 2^LPM_WIDTHAD)
+			REPORT "Value of LPM_NUMWORDS parameter requires % address lines, but LPM_WIDTHAD value, which defines the number of address lines, is %"
+				CEIL(LOG2(LPM_NUMWORDS)), LPM_WIDTHAD
+			SEVERITY ERROR
+			HELP_ID LPM_ROM_NUMWORDS;
+
+	ASSERT (LPM_ADDRESS_CONTROL == "REGISTERED" # LPM_ADDRESS_CONTROL == "UNREGISTERED")
+			REPORT "Illegal value for LPM_ADDRESS_CONTROL parameter (%) -- value must be REGISTERED (the default) or UNREGISTERED"
+				LPM_ADDRESS_CONTROL
+			SEVERITY ERROR
+			HELP_ID LPM_ROM_ADDRESS_CONTROL;
+
+	ASSERT (LPM_OUTDATA == "REGISTERED" # LPM_OUTDATA == "UNREGISTERED")
+			REPORT "Illegal value for LPM_OUTDATA parameter (%) -- value must be REGISTERED or UNREGISTERED (the default)"
+				LPM_OUTDATA
+			SEVERITY ERROR
+			HELP_ID LPM_ROM_OUTDATA;
+
+	ASSERT (  LPM_ADDRESS_CONTROL == "REGISTERED" & USED(inclock)
+			# LPM_ADDRESS_CONTROL == "UNREGISTERED" & USED(inclock) == 0)
+			REPORT "Value of LPM_ADDRESS_CONTROL parameter (%) is not consistent with the use of the inclock port"
+				LPM_ADDRESS_CONTROL
+			SEVERITY ERROR
+			HELP_ID LPM_ROM_ADDRESS_CONTROL_CLOCK;
+
+	ASSERT (  LPM_OUTDATA == "REGISTERED" & USED(outclock)
+			# LPM_OUTDATA == "UNREGISTERED" & USED(outclock) == 0)
+			REPORT "Value of LPM_OUTDATA parameter (%) is not consistent with the use of the outclock port"
+				LPM_OUTDATA
+			SEVERITY ERROR
+			HELP_ID LPM_ROM_OUTDATA_CLOCK;
+
+	srom.address[] = address[];
+	IF (USED(inclock)) GENERATE
+		srom.clocki = inclock;
+	END GENERATE;
+	IF (USED(outclock)) GENERATE
+		srom.clocko = outclock;
+	END GENERATE;
+	otri[] = srom.q[];
+	otri[].oe = memenab;
+	q[] = otri[];
+END;

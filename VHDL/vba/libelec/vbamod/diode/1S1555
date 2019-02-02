@@ -1,0 +1,13 @@
+***** MODEL PARAMETERS EXTRACTED FROM TECAP *****
+.MODEL  1S1555   D
++ RS     = 0.785619      
++ EG     = 1.11          
++ XTI    = 3             
++ VJ     = 0.404356      
++ M      = 0.0997173     
++ FC     = 0.99          
++ BV     = 3.500000E+01  
++ CJO    = 1.954000E-12  STAT 1.595434E-12 2.393151E-12 :GAUSS
++ IS     = 6.034120E-09  
++ N      = 1.999350E+00  
++ TT     = 1.000000E-07  

@@ -1,0 +1,25 @@
+SUBDESIGN ss_def 
+(
+	clk, reset, count	: INPUT;
+	ss_out					: MACHINE OUTPUT;
+)
+VARIABLE
+	ss: MACHINE WITH STATES (s1, s2, s3, s4, s5);
+BEGIN
+	ss_out = ss;
+
+	CASE ss IS
+		WHEN s1=>
+     		IF count THEN ss = s2; ELSE ss = s1; END IF;
+   		WHEN s2=>
+     		IF count THEN ss = s3; ELSE ss = s2; END IF;
+   		WHEN s3=>
+     		IF count THEN ss = s4; ELSE ss = s3; END IF;
+   		WHEN s4=>
+     		IF count THEN ss = s5; ELSE ss = s4; END IF;
+   		WHEN s5=>
+     		IF count THEN ss = s1; ELSE ss = s5; END IF;
+	END case;
+
+	ss.(clk, reset) = (clk, reset);
+END;

@@ -1,0 +1,20 @@
+Cypress Package: cy37256p160-83ac  PinOut File: micro.pin
+
+This file was created on 11/08/2002 at 20:46:09 
+by C37KFIT.EXE    22/DEC/2000  [v4.02 ] 6.2 IR 27
+
+==========
+ro(0) in <> Disabled Normal 2 <> [Auto] 
+ro(1) in <> Disabled Normal 3 <> [Auto] 
+ro(2) in <> Disabled Normal 4 <> [Auto] 
+ro(3) in <> Disabled Normal 5 <> [Auto] 
+rt(2) in <> Disabled Normal 11 <> [Auto] 
+rt(3) in <> Disabled Normal 12 <> [Auto] 
+rt(0) in <> Disabled Normal 13 <> [Auto] 
+rt(1) in <> Disabled Normal 14 <> [Auto] 
+clk gclk <> Disabled Normal 19 <> [Auto] 
+reset in <> Disabled Normal 22 <> [Auto] 
+acc(3) inout <> Disabled Normal 131 <> [Auto] 
+acc(0) inout <> Disabled Normal 134 <> [Auto] 
+acc(2) inout <> Disabled Normal 135 <> [Auto] 
+acc(1) inout <> Disabled Normal 136 <> [Auto] 

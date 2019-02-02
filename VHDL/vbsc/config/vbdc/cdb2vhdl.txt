@@ -1,0 +1,6 @@
+Default libraries and data types for CDB2VHDL
+
+$TYPES
+scalar		std_logic
+vector		std_logic_vector
+$END

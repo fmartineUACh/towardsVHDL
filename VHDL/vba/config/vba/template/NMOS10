@@ -1,0 +1,324 @@
+.Model NMOS10 NMOS
+
++ LEVEL	= 10		; BSIM3v3 deep-submicron MOSFET Model
+
+**********************
+* Process Parameters *
+**********************
+
++ XJ	= 1.5E-7	; Junction Depth
+* + XT	= 1.55E-07	; Doping depth (not used when K1 and K2 are defined)
++ NCH	= 1.7E17	; Channel Doping Concentration (Npeak)
++ NGATE	= 0.0		; Poly-gate doping concentration
+
+*****************
+* DC Parameters *
+*****************
+
++ WINT	= -2.021015E-07	; Width offset param from I-V without bias
++ LINT	= 3.75860E-08	; Length offset param from I-V without bias
++ K1	= 0.53		; First-order body effect coefficient
++ K2	= -0.0186	; Second-order body effect coefficient
++ K3	= 80.0		; Narrow width coefficient
++ K3B	= 0.0		; Body effect coefficient of K3 (1/V)
++ W0	= 2.5E-06	; Narrow width parameter
++ NLX	= 1.74E-07	; Lateral non-uniform doping coefficient
++ DVT0W	= 0.0		; 1-st coefficient of narrow width effect on Vth
++ DVT1W	= 5.3E6		; 2-nd coefficient of narrow width effect on Vth
++ DVT2W	= -0.032	; Body-bias coeff narrow width effect on Vth
++ DVT0	= 2.2		; 1-st coefficient of short-channel effect on Vth
++ DVT1	= 0.53		; 2-nd coefficient of short-channel effect on Vth
++ DVT2	= -0.032	; Body-bias short-channel effect on Vth
++ UA	= 2.25E-09	; 1st-order mobility degradation coefficient
++ UB	= 5.87E-19	; 2nd-order mobility degradation coefficient
++ UC	= 4.65E-10	; Body-effect of mobility degradation
++ VSAT	= 8.0E04	; Saturation velocity at Temp = Tnom
++ A0	= 1.0		; Bulk charge effect for channel length
++ AGS	= 0.0		; Gate bias coefficient of the Abulk
++ B0	= 0.0		; Bulk charge effect coeff for channel width
++ B1	= 0.0		; Bulk charge effect width offset
++ KETA	= -0.047	; Body-bias coeff of the bulk charge effect
++ A1	= 0.0		; First non-saturation factor
++ A2	= 1.0		; Second non-saturation factor
++ RDSW	= 0.0		; parasitic resistance per unit width
++ PRWG	= 0.0		; Gate bias coefficient of Rdsw
++ PRWB	= 0.0		; Body-effect on parasitic resistance
++ WR	= 1.0		; Width offset from Weff for Rds calculation
++ DWG	= 0.0		; Weff's gate dependence
++ DWB	= 0.0		; Weff's substrate body bias dependence
++ VOFF	= -0.08		; Offset voltage in the subthreshold region
++ NFACTOR = 1.0		; Subthreshold swing factor
++ ETA0	= 0.08		; DIBL coefficient in subthreshold region
++ ETAB	= -0.07		; Body-bias coeff for subthreshold DIBL
++ DSUB	= 0.56		; DIBL coefficient exp in subthreshold region
++ CIT	= 0.0		; Interface trap capacitance
++ CDSC	= 2.4E-04	; Drain/Source to channel coupling capacitance
++ CDSCD	= 0.0		; drain-bias sensitivity of Cdsc
++ CDSCB	= 0.0		; Body-bias sensitivity of Cdsc
++ PCLM	= 1.3		; Channel length modulation parameter
++ PDIBLC1 = 0.39	; 1-st output resistance DIBL correction
++ PDIBLC2 = 0.0086	; 2-nd output resistance DIBL correction
++ PDIBLCB = 0.0		; Body-effect on DIBL
++ DROUT	= 0.56		; L dependence of DIBL corr. par. in Rout
++ PSCBE1 = 4.24E08	; 1-st substrate current body-effect
++ PSCBE2 = 1.0E-05	; 2-nd substrate current body-effect
++ PVAG	= 0.0		; Gate dependence of Early voltage
++ DELTA	= 0.01		; Effective Vds parameter
++ ALPHA0 = 0.0		; substrate current model parameter
++ BETA0	= 30.0		; substrate current model parameter
+* + VBM	= -5.0		; Maximum applied body bias (not used when K1 and K2 are defined)
+	
+*********************************
+* AC and Capacitance Parameters *
+*********************************
+
++ CAPMOD = 1		; Short channel model
++ XPART	= 0.0		; charge partitioning rate flag
++ CGSL	= 0.0		; Light doped source-gate region overlap capacitance
++ CGDL	= 0.0		; Light doped drain-gate region overlap capacitance
++ CKAPPA = 0.6		; Coef for lightly doped region overlap capacitance
+			; Fringing field capacitance
++ CLC	= 0.1E-06	; Constant term for the short channel model
++ CLE	= 0.6		; Exponential term for the short channel model
+
+*********************************
+* Temperature Effect parameters	*
+*********************************
+
++ UTE	= -1.5		; Mobility temperature exp
++ KT1	= -0.11		; Temperature coefficient for threshold voltage
++ KT1L	= 0.0		; Channel length sensitivity of kt1
++ KT2	= 0.022		; Body-bias coefficient of Vth temp effect
++ UA1	= 4.31E-09	; Temperature coefficient for UA
++ UB1	= -7.61E-18	; Temperature coefficient for UB
++ UC1	= -5.6E-11	; Temperature coefficient for UC
++ AT	= 33000		; Temperature coefficient for saturation velocity
++ PRT	= 0.0		; Temperature coefficient of parasitic resistance
+
+********************
+* Bound Parameters *
+********************
+
++ LMIN	= 0.0		; Minimum channel length
++ LMAX	= 1.0		; Maximum channel length
++ WMIN	= 0.0		; Minimum channel width
++ WMAX	= 1.0		; Maximum channel width
+
+**********************
+* W and L Parameters *
+**********************
+
++ WL	= 0.0		; Length dependence for width offset
++ WLN	= 1.0		; Power of Wl
++ WW	= 0.0		; Width dependence for width offset
++ WWN	= 1.0		; Power of Ws
++ WWL	= 0.0		; Length, width cross term for width offset
++ LL	= 0.0		; Length dependence for length offset
++ LLN	= 1.0		; Power of Ll
++ LW	= 0.0		; Width dependence for length offset
++ LWN	= 1.0		; Power of Lw
++ LWL	= 0.0		; Length, width cross term for length offset
+
+******************
+* NQS Parameters *
+******************
+
++ NQSMOD = 0		; Switch off the NQS Model
++ ELM	= 5.0		; Elmore Constant
+
+*********
+* Noise *
+*********
+
++ NOIMOD = 1		; Noise model
++ KF	= 0.0		; Flicker noise coefficient for NOIMOD=1
++ AF	= 1.0		; frequency exponent
++ NOIA = 1.0e20		; Noise parameter A
++ NOIB = 5.0e4		; Noise parameter B
++ NOIC = 1.4e-12	; Noise parameter C
++ EM	= 4.1e7		; saturated field
++ EF	= 1.0		; Flicker exponent for NOIMOD=2
+
+*********************
+* Length Dependence *
+*********************
+
++ LNSUB = 0.0	LVTH0 = 0.0	LU0 = 0.0	LCDSC = 0.0	LCDSCD = 0.0
++ LCDSCB = 0.0	LCIT = 0.0	LXJ = 0.0	LXT = 0.0	LNFACTOR = 0.0
++ LVSAT = 0.0	LDELTA = 0.0	LAT = 0.0	LA0 = 0.0	LAGS = 0.0
++ LA1 = 0.0	LA2 = 0.0	LKETA = 0.0	LW0 = 0.0	LNLX = 0.0
++ LNCH = 0.0	LGAMMA1 = 0.0	LGAMMA2 = 0.0	LVBX = 0.0
++ LVBM = 0.0	LK1 = 0.0	LKT1 = 0.0	LKT1L = 0.0	LK3 = 0.0
++ LK3B = 0.0	LK2 = 0.0	LKT2 = 0.0	LDVT0 = 0.0	LDVT1 = 0.0
++ LDVT2 = 0.0	LDROUT = 0.0	LDSUB = 0.0	LDWG = 0.0	LDWB = 0.0
++ LDVT0W = 0.0	LDVT1W = 0.0	LDVT2W = 0.0	LUA = 0.0	LUA1 = 0.0
++ LUB = 0.0	LUB1 = 0.0	LUC = 0.0	LUC1 = 0.0	LB0 = 0.0
++ LB1 = 0.0	LWR = 0.0	LUTE = 0.0	LVOFF = 0.0	LRDSW = 0.0
++ LPRWG = 0.0	LPRWB = 0.0	LETA0 = 0.0	LETAB = 0.0
++ LPRT = 0.0	LPCLM = 0.0	LPDIBL1 = 0.0	LPDIBL2 = 0.0
++ LPDIBLB = 0.0	LPSCBE1 = 0.0	LPSCBE2 = 0.0	LPVAG = 0.0	LALPHA0 = 0.0
++ LBETA0 = 0.0	LELM = 0.0	LCGSL = 0.0	LCGDL = 0.0	LCKAPPA = 0.0
++ LCF = 0.0	LCLC = 0.0	LCLE = 0.0	LNOIA = 0.0	LNOIB = 0.0
++ LNOIC = 0.0	LEM = 0.0	LEF = 0.0	LNGATE = 0.0
+
+********************
+* Width Dependence * W
+********************
+
++ WNSUB = 0.0	WVTH0 = 0.0	WU0 = 0.0	WCDSC = 0.0	WCDSCD = 0.0
++ WCDSCB = 0.0	WCIT = 0.0	WXJ = 0.0	WXT = 0.0	WNFACTOR = 0.0
++ WVSAT = 0.0	WDELTA = 0.0	WAT = 0.0	WA0 = 0.0	WAGS = 0.0
++ WA1 = 0.0	WA2 = 0.0	WKETA = 0.0	WW0 = 0.0	WNLX = 0.0
++ WNCH = 0.0	WGAMMA1 = 0.0	WGAMMA2 = 0.0	WVBX = 0.0
++ WVBM = 0.0	WK1 = 0.0	WKT1 = 0.0	WKT1L = 0.0	WK3 = 0.0
++ WK3B = 0.0	WK2 = 0.0	WKT2 = 0.0	WDVT0 = 0.0	WDVT1 = 0.0
++ WDVT2 = 0.0	WDROUT = 0.0	WDSUB = 0.0	WDWG = 0.0	WDWB = 0.0
++ WDVT0W = 0.0	WDVT1W = 0.0	WDVT2W = 0.0	WUA = 0.0	WUA1 = 0.0
++ WUB = 0.0	WUB1 = 0.0	WUC = 0.0	WUC1 = 0.0	WB0 = 0.0
++ WB1 = 0.0	WWR = 0.0	WUTE = 0.0	WVOFF = 0.0	WRDSW = 0.0
++ WPRWG = 0.0	WPRWB = 0.0	WETA0 = 0.0	WETAB = 0.0
++ WPRT = 0.0	WPCLM = 0.0	WPDIBL1 = 0.0	WPDIBL2 = 0.0
++ WPDIBLB = 0.0	WPSCBE1 = 0.0	WPSCBE2 = 0.0	WPVAG = 0.0	WALPHA0 = 0.0
++ WBETA0 = 0.0	WELM = 0.0	WCGSL = 0.0	WCGDL = 0.0	WCKAPPA = 0.0
++ WCF = 0.0	WCLC = 0.0	WCLE = 0.0	WNOIA = 0.0	WNOIB = 0.0
++ WNOIC = 0.0	WEM = 0.0	WEF = 0.0	WNGATE = 0.0
+
+*************************
+* Cross-term dependence * P
+*************************
+
++ PNSUB = 0.0	PVTH0 = 0.0	PU0 = 0.0	PCDSC = 0.0	PCDSCD = 0.0
++ PCDSCB = 0.0	PCIT = 0.0	PXJ = 0.0	PXT = 0.0	PNFACTOR = 0.0
++ PVSAT = 0.0	PDELTA = 0.0	PAT = 0.0	PA0 = 0.0	PAGS = 0.0
++ PA1 = 0.0	PA2 = 0.0	PKETA = 0.0	PW0 = 0.0	PNLX = 0.0
++ PNCH = 0.0	PGAMMA1 = 0.0	PGAMMA2 = 0.0	PVBX = 0.0
++ PVBM = 0.0	PK1 = 0.0	PKT1 = 0.0	PKT1L = 0.0	PK3 = 0.0
++ PK3B = 0.0	PK2 = 0.0	PKT2 = 0.0	PDVT0 = 0.0	PDVT1 = 0.0
++ PDVT2 = 0.0	PDROUT = 0.0	PDSUB = 0.0	PDWG = 0.0	PDWB = 0.0
++ PDVT0W = 0.0	PDVT1W = 0.0	PDVT2W = 0.0	PUA = 0.0	PUA1 = 0.0
++ PUB = 0.0	PUB1 = 0.0	PUC = 0.0	PUC1 = 0.0	PB0 = 0.0
++ PB1 = 0.0	PWR = 0.0	PUTE = 0.0	PVOFF = 0.0	PRDSW = 0.0
++ PPRWG = 0.0	PPRWB = 0.0	PETA0 = 0.0	PETAB = 0.0
++ PPRT = 0.0	PPCLM = 0.0	PPDIBL1 = 0.0	PPDIBL2 = 0.0
++ PPDIBLB = 0.0	PPSCBE1 = 0.0	PPSCBE2 = 0.0	PPVAG = 0.0	PALPHA0 = 0.0
++ PBETA0 = 0.0	PELM = 0.0	PCGSL = 0.0	PCGDL = 0.0	PCKAPPA = 0.0
++ PCF = 0.0	PCLC = 0.0	PCLE = 0.0	PNOIA = 0.0	PNOIB = 0.0
++ PNOIC = 0.0	PEM = 0.0	PEF = 0.0	PNGATE = 0.0
+
+***************************************************************************
+* PreCalculated parameters. These parameters might be define by user
+***************************************************************************
+* GAMMA1		; Body-effect coefficient near the interface
+* GAMMA2		; Body-effect coefficient in the bulk
+* VBX			; Vbs at which the depletion width equals xt
+* CF			; fringing field capacitance
+* DLC	= LINT		; Length offset fitting parameter from C-V
+* DWC	= WINT		; Width offset fitting parameter from C-V
+***************************************************************************
+
+*********************
+* Common parameters *
+*********************
+	
+************
+* Geometry *
+************
+
++ TOX	= 1.0E-07	; gate oxide thickness (m)
++ LD	= 0.0		; lateral diffusion (m)
++ LMLT	= 1.0		; length multiplier
++ WD	= 0.0		; lateral diffusion (m)
++ WMLT	= 1.0		; width multiplier
++ DEL	= 0.0		; channnel length reduction (m)
++ DL	= 0.0		; length offset (m)
++ DW	= 0.0		; width offset (m)
++ LDIF	= 0.0		; length of lightly doped diffusion (m)
++ HDIF	= 0.0		; length of heavily doped diffusion (m)
+
+*******************
+* Stress analysis *
+*******************
+
++ PMAX	= 2.5E-1	; max power (W)
+
+************************
+* Overlap capacitances *
+************************
+
++ CGBO	= 0.0		; gate-bulk overlap capacitance (F/m)
++ CGDO	= 0.0		; gate-drain overlap capacitance (F/m)
++ CGSO	= 0.0		; gate-source overlap capacitance (F/m)
++ FRINGE= 0.0		; fringing field factor (m)
+
+****************
+* Capacitances *
+****************
+
++ CBD	= 0.0		; zero bias bulk-drain junction capacitance (F)
++ CBS	= 0.0		; zero bias bulk-source junction capacitance (F)
++ CJ	= 0.0		; zero bias bulk junction bottom capacitance (F)
++ CJSW	= 0.0		; zero bias bulk junction sidewall capacitance (F/m)
++ MJ	= 0.5		; bulk junction bottom grading coefficient
++ PB	= 0.8		; diode bottom wall junction potential (V)
++ FC	= 0.5		; forward bias junction capacitance coefficient
++ MJSW	= 0.33		; bulk junction sizewall grading coefficient
++ PBSW	= 0.8		; diode sidewall junction potential (V)
++ CTA	= 0.0		; temperature coefficient for bottom capacitance (1/deg)
++ CTP	= 0.0		; temperature coefficient for periphery capacitance (1/deg)
+
+*******************
+* Leakage current *
+*******************
+
++ IS	= 1.0E-14	; bulk junction saturation current (A)
++ JS	= 0.0		; bulk junction saturation current per unit area (A/m^2)
++ ISSW	= 0.0		; sidewall junction saturation current (A)
++ JSSW	= 0.0		; sidewall junction saturation current per
+			; meter of junction perimeter (A/m)
+
+*************************
+* Parasitic resistances *
+*************************
+
++ RS	= 0.0		; source resistance (Ohm)
++ RD	= 0.0		; drain resistance (Ohm)
++ RSH	= 0.0		; drain and source diffusion sheet resistance (Ohm/sq)
++ TRS	= 0.0		; temperature coefficient of source resistor (1/deg)
++ TRD	= 0.0		; temperature coefficient of drain resistor (1/deg)
++ TRSH	= 0.0		; temperature coefficient of sheet resistance (1/deg)
+
+*********************
+* Threshold voltage *
+*********************
+
++ VTH0	= 0.7		; zero-bias threshold voltage (V)
++ NSS	= 0.0		; surface state density	(1/cm^2)
++ TPG	= 1.0		; type of gate material
++ PHI	= 0.6		; surface potential for strong inversion (V)
++ GAMMA	= 0.0		; bulk threshold parameter (V)
+* + NSUB = 6.0e16	; substrate doping (1/cm^3) (not used when K1 and K2 are defined)
++ TCV	= 0.0		; temperature coefficient of threshold voltage (V/deg)
+
+************
+* Mobility *
+************
+
++ U0	= 670.0		; mobility (cm^2/(V sec))
++ KP	= 2.0E-5	; transconductance (A/V^2)
++ BEX	= -1.5		; temperature coefficient for transconductance
+
+****************
+* Charge model *
+****************
+
++ XQC	= 1.0
++ QOPT	= -1		; Charge model selection
+
+*******************************************
+* Parameters of ASPEC (QOPT) charge model *
+*******************************************
+
++ CF1	= 0.0
++ CF2	= 0.1
++ CF3	= 1.0
++ XCG	= 0.66667

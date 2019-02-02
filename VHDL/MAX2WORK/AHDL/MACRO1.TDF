@@ -1,0 +1,17 @@
+INCLUDE "4count";
+INCLUDE "16dmux";
+
+SUBDESIGN macro1
+(
+	clk			: INPUT;
+	out[15..0]	: OUTPUT;
+)
+VARIABLE
+	counter		: 4count;
+	decoder		: 16dmux;
+BEGIN
+	counter.clk = clk;
+	counter.dnup = GND;
+	decoder.(d,c,b,a) = counter.(qd,qc,qb,qa);
+	out[15..0] = decoder.q[15..0];
+END;

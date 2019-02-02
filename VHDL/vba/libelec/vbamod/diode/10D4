@@ -1,0 +1,15 @@
+* CREATED BY ANALOG MODEL BUILDER (AMB V4.5.3.0) ON THU JUL  2 16:45:47 1992
+.MODEL 10D4 D
++ AF     = 1             
++ EG     = 1.11          
++ FC     = 0.5                    
++ KF     = 0             
++ M      = 0.415         
++ RS     = 0.0213        
++ VJ     = 0.454         
++ XTI    = 3             
++ BV     = 4.000000E+02  
++ CJO    = 4.520000E-11  STAT 3.690565E-11 5.535847E-11 :GAUSS
++ IS     = 1.280000E-09  STAT 1.093525E-10 1.498274E-08 :GAUSS
++ N      = 1.640000E+00  
++ TT     = 0.000000E+00  

@@ -1,0 +1,143 @@
+
+     | | | | | | |
+   _________________
+  -|               |-
+  -|               |-
+  -|               |-
+  -|    CYPRESS    |-
+  -|               |-
+  -|               |-   Warp VHDL Synthesis Compiler: Version 6.2 IR 28.4
+  -|               |-   Copyright (C) 1991-2001 Cypress Semiconductor
+   |_______________|
+     | | | | | | |
+
+======================================================================
+Compiling:  modulos.vhd
+Options:    -m -yu -e10 -w100 -o1 -ygs -fO -fP -v10 -yh -dc37256 -pcy37256p160-83ac -a modulos.vhd -b micro.vhd -u procesador.hie -uch0000
+======================================================================
+
+vhdlfe V6.2 IR 27:  VHDL parser
+Fri Nov 08 20:46:04 2002
+
+Library 'work' => directory 'lc37256'
+Linking 'C:\CYPRESS\WARP\bin\std.vhd'.
+Linking 'C:\CYPRESS\WARP\lib\common\cypress.vhd'.
+Linking 'C:\CYPRESS\WARP\lib\common\work\cypress.vif'.
+Library 'ieee' => directory 'C:\CYPRESS\WARP\lib\ieee\work'
+Linking 'C:\CYPRESS\WARP\lib\ieee\work\stdlogic.vif'.
+Library 'ieee' => directory 'C:\CYPRESS\WARP\lib\ieee\work'
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_mth.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_gen.vif'.
+Library 'ieee' => directory 'C:\CYPRESS\WARP\lib\ieee\work'
+Library 'ieee' => directory 'C:\CYPRESS\WARP\lib\ieee\work'
+Library 'ieee' => directory 'C:\CYPRESS\WARP\lib\ieee\work'
+Library 'ieee' => directory 'C:\CYPRESS\WARP\lib\ieee\work'
+Library 'ieee' => directory 'C:\CYPRESS\WARP\lib\ieee\work'
+Library 'ieee' => directory 'C:\CYPRESS\WARP\lib\ieee\work'
+Library 'ieee' => directory 'C:\CYPRESS\WARP\lib\ieee\work'
+modulos.vhd (line 69, col 14):  Note: Substituting module 'add_vi_ss' for '+'.
+modulos.vhd (line 70, col 32):  Note: Substituting module 'cmp_vv_ss' for '='.
+modulos.vhd (line 108, col 15):  Note: Substituting module 'add_vi_ss' for '+'.
+modulos.vhd (line 109, col 22):  Note: Substituting module 'cmp_vv_ss' for '='.
+modulos.vhd (line 152, col 20):  Note: Substituting module 'cmp_vv_ss' for '='.
+modulos.vhd (line 154, col 23):  Note: Substituting module 'cmp_vv_ss' for '='.
+modulos.vhd (line 156, col 23):  Note: Substituting module 'cmp_vv_ss' for '='.
+modulos.vhd (line 158, col 23):  Note: Substituting module 'cmp_vv_ss' for '='.
+modulos.vhd (line 159, col 18):  Note: Substituting module 'add_vv_ss' for '+'.
+modulos.vhd (line 160, col 26):  Note: Substituting module 'cmp_vv_ss' for '='.
+modulos.vhd (line 162, col 23):  Note: Substituting module 'cmp_vv_ss' for '='.
+modulos.vhd (line 164, col 23):  Note: Substituting module 'cmp_vv_ss' for '='.
+
+vhdlfe:  No errors.
+
+
+tovif V6.2 IR 27:  High-level synthesis
+Fri Nov 08 20:46:04 2002
+
+Linking 'C:\CYPRESS\WARP\bin\std.vhd'.
+Linking 'C:\CYPRESS\WARP\lib\common\cypress.vhd'.
+Linking 'C:\CYPRESS\WARP\lib\common\work\cypress.vif'.
+Linking 'C:\CYPRESS\WARP\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_mth.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\mod_gen.vif'.
+Linking 'C:\CYPRESS\WARP\lib\common\stdlogic\madd_sub.vif'.
+Added package 'modu' to library 'work'
+Added entity 'gcm' to library 'work'
+Added entity 'reg_dato' to library 'work'
+Added entity 'pcount' to library 'work'
+Added entity 'reg_ins' to library 'work'
+Added entity 'deco_ins' to library 'work'
+Added entity 'alu' to library 'work'
+Added entity 'acc1' to library 'work'
+Added entity 'acct' to library 'work'
+Added architecture 'a_gcm' to library 'work'
+Added architecture 'a_dato' to library 'work'
+Added architecture 'a_pc' to library 'work'
+Added architecture 'a_reg' to library 'work'
+Added architecture 'a_deco' to library 'work'
+Added architecture 'a_alu' to library 'work'
+Added architecture 'a_acc' to library 'work'
+Added architecture 'a_acct' to library 'work'
+Added entity 'add_vi_ss_generic0' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'add_ss_generic1' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'finc_generic2' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_vv_ss_generic3' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_ss_generic4' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'add_vi_ss_generic5' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'add_ss_generic6' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'finc_generic7' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_vv_ss_generic8' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_ss_generic9' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_vv_ss_generic10' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_ss_generic11' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_vv_ss_generic12' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_ss_generic13' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_vv_ss_generic14' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_ss_generic15' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_vv_ss_generic16' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_ss_generic17' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'add_vv_ss_generic18' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'add_ss_generic19' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'madd_sub_generic20' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_vv_ss_generic21' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_ss_generic22' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_vv_ss_generic23' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_ss_generic24' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_vv_ss_generic25' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+Added entity 'cmp_ss_generic26' to library 'work'
+Added architecture 'generic_instance' to library 'work'
+
+tovif:  No errors.
+

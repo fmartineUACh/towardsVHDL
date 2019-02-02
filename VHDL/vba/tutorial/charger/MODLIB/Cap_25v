@@ -1,0 +1,5 @@
+.MODEL CAP_25V C
++ CJ     = 0.0
++ DEFW   = 1E-06
++ NARROW = 0.0
++ VOMAX  = 25

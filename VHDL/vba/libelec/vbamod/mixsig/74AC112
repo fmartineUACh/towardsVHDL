@@ -1,0 +1,42 @@
+.PARSET 74AC112 _SNRNJKFF
+* Converted from DMB model by dmbff2par on Wed Jan  5 16:36:43 MST 1994
+* Technology mapping:
+*     AC - 0; ACT - 1; ALS - 2; AS - 3; FAST - 4
+*     H - 5; HC - 6; HCT - 7; L - 8; LS - 9; S - 10
+*     TTL - 11
+*
+* Latching parameter coding:
+* 0 - 0 is latched; 1 - 1 is latched; 2 - no latching occurs
+*
++ VOH   =   4.9V     	; Output High Level
++ VOL   =   0.1V     	; Output Low Level
++ VIH   =   3.5V     	; Input High Level
++ VIL   =   2.5V     	; Input Low Level
++ HYST  =   0     	; Hysteresis/Regular (1/0)
++ TR    =   0ns     	; Low-To-High Transition Time
++ TF    =   0ns     	; High-To-Low Transition Time
++ TPG   =   0.0     	; Propagation Delay "Global"
++ TPCLH =   7ns   	; Lo-To-Hi Delay From the Clock Input
++ TPRHL =   6ns   	; Hi-To-Lo Delay From the Reset Input
++ TPSLH =   7ns   	; Lo-To-Hi Delay From the Set Input
++ LHHLDF =  1ns     	; Lo-To-Hi and Hi-To-Lo Delay Difference (TLH-THL)
++ QNQDIF =  0.0     	; Propogation Delay Difference (TPQ - TPQ~)
++ CLKTYP =  4     	; Clock Input Type
++ TECH  =   0     	; Technology
++ SILDD =   1.0     	; Number of Standard Input Loads (D Input)
++ SILDJ =   1.0     	; Number of Standard Input Loads (J Input)
++ SILDK =   1.0     	; Number of Standard Input Loads (K Input)
++ SILDT =   1.0     	; Number of Standard Input Loads (T Input)
++ SILDC =   1.0     	; Number of Standard Input Loads (C Input)
++ SILDR =   1.0     	; Number of Standard Input Loads (R Input)
++ SILDS =   1.0     	; Number of Standard Input Loads (S Input)
++ IOH   =   24mA     	; Output High Current
++ IOL   =   24mA     	; Output Low Current 
++ DLTCH0 =  2     	; Input Latching (D Input, Q = 0)
++ JLTCH0 =  2     	; Input Latching (J Input, Q = 0)
++ KLTCH0 =  2     	; Input Latching (K Input, Q = 0)
++ TLTCH0 =  2     	; Input Latching (T Input, Q = 0)
++ DLTCH1 =  2     	; Input Latching (D Input, Q = 1)
++ JLTCH1 =  2     	; Input Latching (J Input, Q = 1)
++ KLTCH1 =  2     	; Input Latching (K Input, Q = 1)
++ TLTCH1 =  2     	; Input Latching (T Input, Q = 1)

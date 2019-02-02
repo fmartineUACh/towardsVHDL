@@ -1,0 +1,38 @@
+SUBDESIGN recover 
+(
+	clk : INPUT;
+	go  : INPUT; 
+	ok	: OUTPUT;
+)
+VARIABLE
+	sequence : MACHINE 
+				OF BITS (q[2..0])
+				WITH STATES (	
+					idle, 
+					one, 
+					two, 
+					three, 
+					four, 
+	illegal1, 	
+	illegal2, 	
+	illegal3);
+BEGIN
+	sequence.clk = clk;
+
+	CASE sequence IS
+		WHEN idle =>
+			IF go THEN
+				sequence = one;
+			END IF;
+		WHEN one =>
+			sequence = two;
+		WHEN two =>
+			sequence = three;
+		WHEN three =>
+			sequence = four;
+		WHEN OTHERS =>
+			sequence = idle;
+	END CASE;
+
+	ok = (sequence == four);
+END;

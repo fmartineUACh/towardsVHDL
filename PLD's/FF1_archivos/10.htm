@@ -1,0 +1,743 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0047)http://det.bp.ehu.es/vhdl/pagina/express/10.htm -->
+<HTML><HEAD><TITLE>Práctica 10: Flip-Flops</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="Daniel Jiménez Iglesias          danieljimenez@mailcity.com" 
+name=Author>
+<META content="Daniel Jiménez Iglesias y Juan Carlos Cárdenas Bonelli" 
+name=Author>
+<META content="Juan Carlos Cárdenas Bonelli     juanky.cardenas@mailcity.com" 
+name=Author>
+<META content="MSHTML 5.50.4134.100" name=GENERATOR></HEAD>
+<BODY bgProperties=fixed background=10_archivos/fondo00.jpg>
+<SCRIPT language=JavaScript><!--
+MSFPhover = 
+  (((navigator.appName == "Netscape") && 
+  (parseInt(navigator.appVersion) >= 3 )) || 
+  ((navigator.appName == "Microsoft Internet Explorer") && 
+  (parseInt(navigator.appVersion) >= 4 ))); 
+function MSFPpreload(img) 
+{
+  var a=new Image(); a.src=img; return a; 
+}
+// -->
+
+</SCRIPT>
+
+<SCRIPT language=JavaScript><!--
+if(MSFPhover) { MSFPnav1n=MSFPpreload('boto10.jpg'); 
+MSFPnav1h=MSFPpreload('boto11.jpg'); }
+// --></SCRIPT>
+
+<SCRIPT language=JavaScript><!--
+if(MSFPhover) { MSFPnav2n=MSFPpreload('boto20.jpg'); 
+MSFPnav2h=MSFPpreload('boto21.jpg'); }
+// --></SCRIPT>
+
+<SCRIPT language=JavaScript><!--
+if(MSFPhover) { MSFPnav3n=MSFPpreload('boto30.jpg'); 
+MSFPnav3h=MSFPpreload('boto31.jpg'); }
+// --></SCRIPT>
+
+<SCRIPT language=JavaScript><!--
+if(MSFPhover) { MSFPnav4n=MSFPpreload('boto40.jpg'); 
+MSFPnav4h=MSFPpreload('boto41.jpg'); }
+// --></SCRIPT>
+
+<DIV align=center>
+<CENTER>
+<TABLE height=1 cellSpacing=5 cellPadding=2 width="92%" border=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=center align=middle width="100%" height=8><A name=top></A><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/08.htm"><IMG height=47 
+      alt=Multiplicador src="10_archivos/image07.jpg" width=67 
+      border=0></A><SMALL><IMG height=55 alt="Práctica 10: Flip-Flops" 
+      src="10_archivos/ex10-00.jpg" width=457 
+      lowsrc=images/ex10-00.gif></SMALL><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/11.htm"><IMG height=46 
+      alt=Contador src="10_archivos/image08.jpg" width=65 
+border=0></A><BR></TD></TR>
+  <TR>
+    <TD vAlign=center align=left width="100%" height=1><FONT face=Verdana 
+      size=2>Un flip flop es un circuito electrónico, llamdo también simplemente 
+      biestable, que tiene dos estados estables. El flip flop es un elemento 
+      básico de memoria que es capaz de almacenar un número binario (bit), es 
+      decir, que permanece indefinidamente en uno de sus dos estados posibles 
+      aunque haya desaparecido la señal de excitación que provocó su transición 
+      al estado actual.</FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="100%" height=1><SMALL><FONT 
+      face=Verdana>
+      <P align=left>Debido a su amplia utilización, los flip flops se han 
+      convertido en un elemento fundamental dentro de los circuitos 
+      secuenciales</FONT></SMALL></P>
+      <P align=left><SMALL><FONT face=Verdana>Elige en la lista una práctica 
+      para empezar, sin más que pinchar en el botón adecuado. Para volver pulsa 
+      el botón que está al lado del título</FONT></SMALL></P></TD></TR>
+  <TR>
+    <TD align=middle width="100%" height=245>
+      <DIV align=left>
+      <TABLE style="FLOAT: left" height=1 cellSpacing=4 cellPadding=2 
+      width="100%" border=0>
+        <TBODY>
+        <TR>
+          <TD vAlign=center width="28%" height=1>
+            <P><A href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#1"><IMG 
+            height=29 alt="Entidad 1" src="10_archivos/enti1.jpg" width=200 
+            border=0></A></P></TD>
+          <TD vAlign=center width="72%" height=1><FONT face=Arial 
+            size=3><STRONG>Entidad para un Flip flop RS</STRONG></FONT></TD></TR>
+        <TR>
+          <TD vAlign=center width="28%" height=1>
+            <P><A href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#2"><IMG 
+            height=29 alt="Arquitectura 1" src="10_archivos/arqui1.jpg" 
+            width=200 border=0></A></P></TD>
+          <TD vAlign=center width="72%" height=1><FONT face=Arial 
+            size=3><STRONG>Arquitectura para un Flip flop 
+        RS</STRONG></FONT></TD></TR>
+        <TR>
+          <TD vAlign=center width="28%" height=1>
+            <P><A href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#3"><IMG 
+            height=29 alt="Entidad 2" src="10_archivos/enti2.jpg" width=200 
+            border=0></A></P></TD>
+          <TD vAlign=center width="72%" height=1><FONT face=Arial 
+            size=3><STRONG>Entidad para un Flip flop D</STRONG></FONT></TD></TR>
+        <TR>
+          <TD vAlign=center width="28%" height=1>
+            <P><A href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#4"><IMG 
+            height=29 alt="Arquitectura 2" src="10_archivos/arqui2.jpg" 
+            width=200 border=0></A></P></TD>
+          <TD vAlign=center width="72%" height=1><FONT face=Arial 
+            size=3><STRONG>Arquitectura para un Flip flop 
+D</STRONG></FONT></TD></TR>
+        <TR>
+          <TD vAlign=center width="28%" height=1>
+            <P><A href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#5"><IMG 
+            height=29 alt="Entidad 3" src="10_archivos/enti3.jpg" width=200 
+            border=0></A></P></TD>
+          <TD vAlign=center width="72%" height=1><FONT face=Arial 
+            size=3><STRONG>Entidad para un Flip flop JK</STRONG></FONT></TD></TR>
+        <TR>
+          <TD vAlign=center width="28%" height=1>
+            <P><A href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#6"><IMG 
+            height=29 alt="Arquitectura 3" src="10_archivos/arqui3.jpg" 
+            width=199 border=0></A></P></TD>
+          <TD vAlign=center width="72%" height=1><FONT face=Arial 
+            size=3><STRONG>Arquitectura para un Flip flop 
+        JK</STRONG></FONT></TD></TR>
+        <TR>
+          <TD vAlign=center width="28%" height=1>
+            <P><A href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#7"><IMG 
+            height=29 alt="Entidad 4" src="10_archivos/enti4.jpg" width=200 
+            border=0></A></P></TD>
+          <TD vAlign=center width="72%" height=1><FONT face=Arial 
+            size=3><STRONG>Entidad para un Flip flop T</STRONG></FONT></TD></TR>
+        <TR>
+          <TD vAlign=center width="28%" height=1>
+            <P><A href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#8"><IMG 
+            height=29 alt=Arquitectura4 src="10_archivos/arqui4.jpg" width=200 
+            border=0></A></P></TD>
+          <TD vAlign=center width="72%" height=1><FONT face=Arial 
+            size=3><STRONG>Arquitectura para un Flip flop 
+        T</STRONG></FONT></TD></TR></TBODY></TABLE></DIV>
+      <P>&nbsp;</P></TD></TR>
+  <TR>
+    <TD align=middle width="100%" height=1><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/simula.htm#10"><IMG 
+      height=25 alt="Pulsa aquí para simular los ejemplos construidos." 
+      src="10_archivos/image03.jpg" width=640 
+border=0></A></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center>&nbsp;</P>
+<P align=left>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="85%"><FONT face=Impact color=#000000><BIG><BIG><A 
+      name=1></A>Entidad 1: </BIG></BIG></FONT><FONT face=Impact size=5>Flip 
+      Flop RS</FONT></TD>
+    <TD width="7%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#top"><IMG height=42 
+      alt="Ir al principio de esta página" src="10_archivos/image01.gif" 
+      width=59 align=right border=0></A></TD></TR></TBODY></TABLE>
+<P align=left><FONT face="MS Sans Serif">El flip flop RS es la unidad de memoria 
+más simple, y en base a él, se diseñan flip flops más avanzados. El circuito 
+tiene dos entradas,<EM>Set</EM> (<STRONG>s</STRONG>) y <EM>Reset</EM> 
+(<STRONG>r</STRONG>), y dos salidas, llamadas <STRONG>q</STRONG> y 
+<STRONG>notq</STRONG> (que es la negada de la salida <STRONG>q</STRONG>). 
+</FONT></P>
+<DIV align=center>
+<CENTER>
+<TABLE 
+style="PADDING-RIGHT: 1px; MARGIN-TOP: 20px; PADDING-LEFT: 1px; FLOAT: right; MARGIN-RIGHT: 85px" 
+cellSpacing=1 width="45%" border=1>
+  <TBODY>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+      face="OCR A Extended"><STRONG>clk</STRONG></FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended"><STRONG>S</STRONG></FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended"><STRONG>R</STRONG></FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended"><STRONG>q</STRONG></FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">q</FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">X</FONT></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><IMG height=160 alt="flip flop RS" src="10_archivos/ex10-01.gif" 
+width=253 align=middle border=1></P>
+<P align=center>&nbsp;</P>
+<DIV align=center>
+<CENTER>
+<TABLE width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD width="4%"><FONT face="OCR A Extended">1<BR>2</FONT><BR><FONT 
+      face="OCR A Extended">3<BR>4<BR>5<BR>6<BR>7<BR>8</FONT></TD>
+    <TD width="53%"><STRONG>l<FONT face="OCR A Extended">ibrary</STRONG> 
+      ieee;<BR><STRONG>use</STRONG> 
+      ieee.std_logic_1164.all;<BR><STRONG>entity</STRONG> flipfloRS 
+      <STRONG>is</STRONG> <STRONG>port</STRONG> (<BR>&nbsp; r,s,clk:&nbsp; 
+      <STRONG>in</STRONG> std_logic;<BR>&nbsp; 
+      q:<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; buffer</STRONG> 
+      std_logic;<BR>&nbsp; notq:&nbsp;&nbsp;&nbsp;&nbsp; <STRONG>out</STRONG> 
+      std_logic<BR>);<BR><STRONG>end</STRONG> flipfloRS;</FONT></TD>
+    <TD width="43%">
+      <P align=left><FONT face="MS Sans Serif">Se define como entradas las 
+      señales <STRONG>s</STRONG>, <STRONG>r</STRONG> y la señal de reloj clk, 
+      La</FONT>.<FONT face="MS Sans Serif">senal de salida <STRONG>q</STRONG>, 
+      se define como buffer para poder emplear su valor, y asignarselo a la 
+      señal de salida <STRONG>notq</STRONG>&nbsp;&nbsp; 
+  </FONT><BR></P></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center>&nbsp;</P>
+<P align=center>&nbsp;</P>
+<P align=center>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="85%"><FONT face=Impact color=#000000><BIG><BIG><A 
+      name=2></A>Arquitectura 1: </BIG></BIG></FONT><FONT face=Impact 
+      size=5>Flip Flop RS</FONT></TD>
+    <TD width="7%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#top"><IMG height=42 
+      alt="Ir al principio de esta página" src="10_archivos/image01.gif" 
+      width=59 align=right border=0></A></TD></TR></TBODY></TABLE>
+<P align=left><FONT face="MS Sans Serif">Cuando la señal de entrada <EM>set</EM> 
+(s) esta activa a nivel lógico uno, la señal de salida q pasa a valer uno, si la 
+entrada <EM>reset</EM> &nbsp; U(r) es la que esta activa a nivel lógico uno,la 
+salida<STRONG> q </STRONG>pasa &nbsp; a valer uno. Nunca se puede dar el caso de 
+que esten activas simultaneamente las dos señales de entrada, <STRONG>r</STRONG> 
+y <STRONG>s</STRONG>.</FONT></P>
+<DIV align=center>
+<CENTER>
+<TABLE width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD width="7%"><FONT 
+      face="OCR A Extended">1<BR>2<BR>3<BR>4<BR>5<BR>6<BR>7<BR>8<BR>9<BR>10<BR>11<BR>12</FONT><FONT 
+      face="OCR A Extended" size=3><IMG height=11 
+      alt="Acabado el proceso, se hace la asignación de la señal de salida notq" 
+      src="10_archivos/image02.gif" width=25></FONT><FONT 
+      face="OCR A Extended"><BR>13</FONT></TD>
+    <TD width="57%"><FONT face="OCR A Extended"><STRONG>architecture</STRONG> 
+      archiflipfloRS <STRONG>of</STRONG> flipfloRS 
+      <STRONG>is</STRONG><BR><STRONG>begin</STRONG><BR><STRONG>process</STRONG> 
+      (clk)<BR><STRONG>begin</STRONG><BR><STRONG>if</STRONG> 
+      (clk'<STRONG>event</STRONG> <STRONG>and</STRONG> clk='1') 
+      <STRONG>then</STRONG> <BR>&nbsp;&nbsp;&nbsp; <STRONG>if</STRONG> 
+      (r='1')<STRONG>and</STRONG>(s='0') <STRONG>then</STRONG> q &lt;= 
+      '0';<BR>&nbsp;&nbsp;&nbsp; <STRONG>elsif</STRONG> 
+      (r='0')<STRONG>and</STRONG>(s='1')<STRONG>then</STRONG> q &lt;='1'; 
+      <BR><STRONG>end</STRONG> <STRONG>if</STRONG>;<BR><STRONG>end</STRONG> 
+      <STRONG>if</STRONG>;<BR><STRONG>end</STRONG> 
+      <STRONG>process</STRONG>;<BR>notq &lt;= <STRONG>not</STRONG> 
+      q;<BR><STRONG>end</STRONG> archiflipfloRS;</FONT></TD>
+    <TD width="36%"><FONT face="MS Sans Serif">La asignación del valor de la 
+      señal <STRONG>notq</STRONG> debe de hacerse a la salida del proceso, para 
+      que la señal <STRONG>q</STRONG>, ya haya actualizado su valor. 
+  </FONT></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=left><FONT face="MS Sans Serif">Es reseñable de esta arquitectura la 
+utilización de la sentencia <STRONG>event</STRONG>, que detecta cuando cambia la 
+señal a la que esta asociada. En el caso de esta arquitectura, es empleada para 
+detectar un flanco de reloj (clk).&nbsp; La sentencia booleana 
+clk'<STRONG>event</STRONG> <STRONG>and</STRONG> clk='1' indicará si se ha 
+producido un flanco de subida en la señal de reloj clk. El falnco de bajada se 
+indica con la sentencia clk'<STRONG>event</STRONG> <STRONG>and</STRONG> 
+clk='0'.</FONT></P>
+<P align=left>&nbsp;</P>
+<TABLE width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="25%"></TD>
+    <TD width="25%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/simula.htm"><IMG height=28 
+      alt="Qué debes saber antes de simular" src="10_archivos/image09.jpg" 
+      width=211 lowsrc=image09.gif border=0></A></TD>
+    <TD width="25%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/practica/ffrs.vhd"><IMG 
+      height=28 alt="Pulsa aquí para ver el código fuente" 
+      src="10_archivos/image10.jpg" width=211 lowsrc=image10.gif 
+border=0></A></TD>
+    <TD width="25%"></TD></TR></TBODY></TABLE>
+<P align=left>&nbsp;</P>
+<P align=left>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="85%"><BIG><BIG><FONT face=Impact color=#000000><A 
+      name=3></A>Entidad 2: </FONT></BIG></BIG><FONT face=Impact size=5>Flip 
+      Flop D</FONT></TD>
+    <TD width="7%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#top"><IMG height=42 
+      alt="Ir al principio de esta página" src="10_archivos/image01.gif" 
+      width=59 align=right border=0></A></TD></TR></TBODY></TABLE>
+<P align=left><FONT face="MS Sans Serif">Este circuito tiene como entradas las 
+señales de reloj (clk) y de información (d), siendo activa por flanco de subida. 
+Como salida se tiene al puerto q.</FONT></P>
+<P align=left>&nbsp;</P>
+<DIV align=center>
+<CENTER>
+<TABLE 
+style="PADDING-RIGHT: 1px; MARGIN-TOP: 30px; PADDING-LEFT: 1px; FLOAT: right; MARGIN-RIGHT: 85px" 
+cellSpacing=1 width="45%" border=1>
+  <TBODY>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+      face="OCR A Extended"><STRONG>clk</STRONG></FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended"><STRONG>D</STRONG></FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended"><STRONG>q</STRONG></FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><IMG height=151 alt="flip flop D" src="10_archivos/ex10-03.gif" 
+width=247 border=1></P>
+<P align=center>&nbsp;</P>
+<DIV align=center>
+<CENTER>
+<TABLE width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD width="6%"><FONT 
+      face="OCR A Extended">1<BR>2<BR>3<BR>4<BR>5<BR>6<BR>7</FONT></TD>
+    <TD width="60%"><FONT face="OCR A Extended"><STRONG>library</STRONG> 
+      ieee;<BR><STRONG>use</STRONG> 
+      ieee.std_logic_1164.<STRONG>all</STRONG>;<BR><STRONG>entity</STRONG> 
+      flipflopd <STRONG>is</STRONG> <STRONG>port</STRONG> (<BR>&nbsp; d,clk: 
+      <STRONG>in</STRONG> std_logic;<BR>&nbsp; q&nbsp;&nbsp;&nbsp; : 
+      <STRONG>out</STRONG> std_logic<BR>);<BR><STRONG>end</STRONG> 
+      flipflopd;</FONT></TD>
+    <TD width="34%"></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P><FONT face="MS Sans Serif">Esta entidad es muy sencilla ya que las entradas y 
+la salida son de un único bit de ancho.</FONT></P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="85%"><FONT face=Impact color=#000000><BIG><BIG><A 
+      name=4></A>Arquitectura 2: </BIG></BIG></FONT><FONT face=Impact 
+      size=5>Flip Flop D</FONT></TD>
+    <TD width="7%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#top"><IMG height=42 
+      alt="Ir al principio de esta página" src="10_archivos/image01.gif" 
+      width=59 align=right border=0></A></TD></TR></TBODY></TABLE>
+<P><FONT face="MS Sans Serif">El circuito opera de la siguiente forma: cuando 
+hay un flanco de subida en el puerto de entrada clk, y la entrada d vale '1', 
+entonces la salida q pasa a tomar el valor de d. Cuando clk está a nivel bajo, 
+la entrada d se encuentra desabilitada, manteniendo q el valor anterior. Esta es 
+la base de su operatividad como memoria.</FONT></P>
+<P>&nbsp;</P>
+<DIV align=center>
+<CENTER>
+<TABLE width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD width="6%"><FONT face="OCR A Extended">1 <BR>2 <BR>3 <BR>4 
+      <BR>5</FONT><FONT face="OCR A Extended" size=3><IMG height=11 
+      alt="Si hay un flanco de subida en la señal de reloj (clk) se ejecuta la sentencia q <= d." 
+      src="10_archivos/image02.gif" width=25></FONT><FONT 
+      face="OCR A Extended"><BR>6 <BR>7 <BR>8 </FONT></TD>
+    <TD width="60%"><FONT face="OCR A Extended"><STRONG>architecture</STRONG> 
+      archiflipflopd <STRONG>of</STRONG> lipflopd 
+      <STRONG>is</STRONG><BR><STRONG>begin</STRONG><BR><STRONG>process</STRONG> 
+      (clk)<BR><STRONG>begin</STRONG><BR><STRONG>if</STRONG> 
+      (clk'<STRONG>event</STRONG> <STRONG>and</STRONG> clk='1') 
+      <STRONG>then</STRONG> q &lt;= d;<BR><STRONG>end</STRONG> 
+      <STRONG>if</STRONG>;<BR><STRONG>end</STRONG> 
+      <STRONG>process</STRONG>;<BR><STRONG>end</STRONG> 
+archiflipflopd;</FONT></TD>
+    <TD width="34%"><FONT face="MS Sans Serif">En este diseño, solo se 
+      especifica que pasa con la salida <STRONG>q</STRONG> cuando hay un flanco 
+      de subida, quedando sin especificar que sucede con <STRONG>q</STRONG> si 
+      no se da ese flanco.</FONT></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P>&nbsp;</P>
+<P><FONT face="MS Sans Serif">En la líne 5 tenemos un caso de memoria implícita 
+ya que solamente se especifíca que se debe hacer con la señal de salida 
+<STRONG>q</STRONG> cuando aparece un flanco de subida en la señal <STRONG>de 
+reloj</STRONG>, por lo que la salida <STRONG>q</STRONG>, mantendra su valor 
+anterior mientras no se de dicho flanco..</FONT></P>
+<P>&nbsp;</P>
+<TABLE width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="25%"></TD>
+    <TD width="25%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/simula.htm"><IMG height=28 
+      alt="Qué debes saber antes de simular" src="10_archivos/image09.jpg" 
+      width=211 lowsrc=image09.gif border=0></A></TD>
+    <TD width="25%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/practica/ffd.vhd"><IMG 
+      height=28 alt="Pulsa aquí para ver el código fuente" 
+      src="10_archivos/image10.jpg" width=211 lowsrc=image10.gif 
+border=0></A></TD>
+    <TD width="25%"></TD></TR></TBODY></TABLE>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="85%"><FONT face=Impact color=#000000><BIG><BIG><A 
+      name=5></A>Entidad 3: </BIG></BIG></FONT><FONT face=Impact size=5>Flip 
+      Flop JK</FONT></TD>
+    <TD width="7%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#top"><IMG height=42 
+      alt="Ir al principio de esta página" src="10_archivos/image01.gif" 
+      width=59 align=right border=0></A></TD></TR></TBODY></TABLE>
+<P><FONT face="MS Sans Serif">El flip flop JK se emplea para eliminar la 
+incertidumbre cuando las señales de entrada J=K=1, en el caso del flip flop RS, 
+esta asignación de los valores de las entradas estaban prohibidas en el caso del 
+RS,sin embargo aquí en el JK, se dará la función basculamiento,</FONT></P>
+<P>&nbsp;</P>
+<DIV align=center>
+<CENTER>
+<TABLE 
+style="PADDING-RIGHT: 1px; MARGIN-TOP: 20px; PADDING-LEFT: 1px; FLOAT: right; MARGIN-RIGHT: 85px" 
+cellSpacing=1 width="45%" border=1>
+  <TBODY>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+      face="OCR A Extended"><STRONG>clk</STRONG></FONT></TD>
+    <TD vAlign=center align=middle width="14%"><STRONG>J</STRONG></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended"><STRONG>K</STRONG></FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended"><STRONG>q</STRONG></FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">q</FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">L</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%"><FONT 
+face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">H</FONT></TD>
+    <TD vAlign=center align=middle width="14%"><FONT 
+      face="OCR A Extended">notq</FONT></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><IMG height=160 alt="flip flop JK" src="10_archivos/ex10-02.gif" 
+width=251 border=1></P>
+<P align=center>&nbsp;</P>
+<DIV align=center>
+<CENTER>
+<TABLE width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD width="7%"><FONT face="OCR A Extended">1<BR>2<BR>3</FONT><FONT 
+      face="OCR A Extended" size=3><IMG height=11 
+      alt="Llamada a la librería rtlpkg, para avilitar la utilización de sus componentes." 
+      src="10_archivos/image02.gif" width=25></FONT><FONT 
+      face="OCR A Extended"><BR>4<BR>5<BR>6<BR>7<BR>8<BR>9<BR>10<BR>11</FONT></TD>
+    <TD width="50%">
+      <P align=left><FONT face="OCR A Extended"><STRONG>library</STRONG> 
+      ieee;<BR><STRONG>use</STRONG> 
+      ieee.std_logic_1164.<STRONG>all</STRONG>;<BR><STRONG>use</STRONG> 
+      <STRONG>work</STRONG>.rtlpkg.<STRONG>all</STRONG>;<BR><STRONG>entity</STRONG> 
+      ffjk <STRONG>is</STRONG><BR><STRONG>port</STRONG> (<BR>&nbsp;&nbsp;&nbsp; 
+      j&nbsp;&nbsp;&nbsp; : <STRONG>in</STRONG> std_logic; 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 
+      k&nbsp;&nbsp;&nbsp; : <STRONG>in</STRONG> std_logic; 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 
+      clk&nbsp; : <STRONG>in</STRONG> std_logic; 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>&nbsp;&nbsp;&nbsp; 
+      q&nbsp;&nbsp;&nbsp; : <STRONG>out</STRONG> std_logic 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR>);<BR><STRONG>end</STRONG> 
+      ffjk;</FONT></P></TD>
+    <TD width="49%"><FONT face="MS Sans Serif">En el flip flop JK, las 
+      entradas J K son análogas a las entradas <EM>set&nbsp; </EM>(s)<EM> </EM>y 
+      <EM>reset</EM> (r), 
+respectivamente.</FONT></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center>&nbsp;</P>
+<P align=center>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="85%"><BIG><BIG><FONT face=Impact color=#000000><A 
+      name=6></A>Arquitectura 3: </FONT></BIG></BIG><FONT face=Impact 
+      size=5>Flip Flop JK</FONT></TD>
+    <TD width="7%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#top"><IMG height=42 
+      alt="Ir al principio de esta página" src="10_archivos/image01.gif" 
+      width=59 align=right border=0></A></TD></TR></TBODY></TABLE>
+<P align=left>&nbsp;</P>
+<P align=left><FONT face="MS Sans Serif">El flip flop JK es el más completo de 
+,los flip flops que se emplean. Tiene dos entradas J y K, similares a las 
+entradas S y R de un flip flop RS. La estrada J realiza la función <EM>set</EM> 
+y la entrada K la función <EM>reset</EM> . La principal diferencia entre ambos 
+es que J y K pueden valer uno simultáneamente, a diferencia del flip flop RS, en 
+este caso la salida cambia de estado, pasando a valer lo contrario de lo que 
+valía antes.Es el basculamiento</FONT></P>
+<P align=left>&nbsp;</P>
+<DIV align=center>
+<CENTER>
+<TABLE width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD width="7%"><FONT 
+      face="OCR A Extended">1<BR>2<BR>3<BR>4<BR>5<BR>6</FONT><FONT 
+      face="OCR A Extended" size=3><IMG height=11 
+      alt='Llamada al componente "dff" localizado en la librería rtlpkg, declarada en la entidad.' 
+      src="10_archivos/image02.gif" width=25></FONT><FONT 
+      face="OCR A Extended"><BR>7</FONT></TD>
+    <TD width="64%">
+      <P align=left><FONT face="OCR A Extended"><STRONG>architecture</STRONG> 
+      archffjk <STRONG>of</STRONG> ffjk 
+      <STRONG>is</STRONG><BR><STRONG>signal</STRONG> qx, dx : 
+      std_logic;<BR><STRONG>begin</STRONG><BR>dx&nbsp;&nbsp;&nbsp; &lt;= (j 
+      <STRONG>and</STRONG> <STRONG>not</STRONG>(qx)) <STRONG>or</STRONG> (not(k) 
+      <STRONG>and</STRONG> qx);<BR>q&nbsp;&nbsp;&nbsp;&nbsp; &lt;= qx;<BR>d1:dff 
+      <STRONG>port</STRONG> 
+      <STRONG>map</STRONG>(dx,clk,qx);<BR><STRONG>end</STRONG> 
+      archffjk;</FONT></P></TD>
+    <TD width="29%"></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=left>&nbsp;</P>
+<P align=left><FONT face="MS Sans Serif">En este ejemplo, se ha implementado un 
+flip flop JK, basándonos en la operatividad de un flip flop d, previamente 
+descrito en la librería rtlpkg.Esto se hace através de la utilización de las 
+señales qx y dx, </FONT></P>
+<P align=left>&nbsp;</P>
+<TABLE width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="25%"></TD>
+    <TD width="25%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/simula.htm"><IMG height=28 
+      alt="Qué debes saber antes de simular" src="10_archivos/image09.jpg" 
+      width=211 lowsrc=image09.gif border=0></A></TD>
+    <TD width="25%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/practica/ffjk.vhd"><IMG 
+      height=28 alt="Pulsa aquí para ver el código fuente" 
+      src="10_archivos/image10.jpg" width=211 lowsrc=image10.gif 
+border=0></A></TD>
+    <TD width="25%"></TD></TR></TBODY></TABLE>
+<P align=left>&nbsp;</P>
+<P align=left>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="85%"><FONT face=Impact color=#000000><BIG><BIG><A 
+      name=7></A>Entidad 4: </BIG></BIG></FONT><FONT face=Impact size=5>Flip 
+      Flop T</FONT></TD>
+    <TD width="7%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#top"><IMG height=42 
+      alt="Ir al principio de esta página" src="10_archivos/image01.gif" 
+      width=59 align=right border=0></A></TD></TR></TBODY></TABLE>
+<P align=left><FONT face="MS Sans Serif">El flip flop T, dispone de una única 
+entrada de control <STRONG>t</STRONG>. Activado por flancos de subida, es 
+empleado como un contador de flancos.La salida q, mantendra su valor anterior 
+hasta la llegada del siguente flanco. </FONT></P>
+<P align=left>&nbsp;</P>
+<DIV align=center>
+<CENTER>
+<TABLE 
+style="PADDING-RIGHT: 1px; MARGIN-TOP: 30px; PADDING-LEFT: 1px; FLOAT: right; MARGIN-RIGHT: 85px" 
+height=63 cellSpacing=1 width="45%" border=1>
+  <TBODY>
+  <TR>
+    <TD vAlign=center align=middle width="13%" height=17><FONT 
+      face="OCR A Extended">clk</FONT></TD>
+    <TD vAlign=center align=middle width="14%" height=17><FONT 
+      face="OCR A Extended">T</FONT></TD>
+    <TD vAlign=center align=middle width="14%" height=17><FONT 
+      face="OCR A Extended">q</FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%" height=11><FONT 
+      face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%" height=11><FONT 
+      face="OCR A Extended">L</FONT></TD>
+    <TD vAlign=center align=middle width="14%" height=11><FONT 
+      face="OCR A Extended">q</FONT></TD></TR>
+  <TR>
+    <TD vAlign=center align=middle width="13%" height=17><FONT 
+      face=Wingdings>ñ</FONT></TD>
+    <TD vAlign=center align=middle width="14%" height=17><FONT 
+      face="OCR A Extended">H</FONT></TD>
+    <TD vAlign=center align=middle width="14%" height=17><FONT 
+      face="OCR A Extended">not q</FONT></TD></TR></TBODY></TABLE></CENTER></DIV>
+<P align=center><IMG height=149 alt="flip flop T" src="10_archivos/ex10-04.gif" 
+width=242 border=1></P>
+<P align=center>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD width="7%"><FONT 
+      face="OCR A Extended">1<BR>2<BR>3<BR>4<BR>5<BR>6<BR>7</FONT></TD>
+    <TD width="50%">
+      <P align=left><FONT face="OCR A Extended"><STRONG>library</STRONG> 
+      ieee;<BR><STRONG>use</STRONG> 
+      ieee.std_logic_1164.all;<BR><STRONG>entity</STRONG> tff 
+      <STRONG>is</STRONG> <STRONG>port</STRONG> (<BR>&nbsp;&nbsp;&nbsp; t, clk : 
+      <STRONG>in</STRONG> std_logic;<BR>&nbsp;&nbsp;&nbsp; 
+      q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <STRONG>buffer</STRONG> 
+      std_logic<BR>);<BR><STRONG>end</STRONG> tff;</FONT></P></TD>
+    <TD width="49%"><FONT face="MS Sans Serif">En el flip flop T, las únicas 
+      entradas seran la señal de reloj, <STRONG>clk</STRONG>, y la señal 
+      <STRONG>t,</STRONG> dandonos por salida 
+  <STRONG>q.</STRONG></FONT></TD></TR></TBODY></TABLE>
+<P align=left>&nbsp;</P>
+<P align=left>&nbsp;</P>
+<P align=left>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="85%"><FONT face=Impact color=#000000><BIG><BIG><A 
+      name=8></A>Arquitectura 4: </BIG></BIG></FONT><FONT face=Impact 
+      size=5>Flip Flop T</FONT></TD>
+    <TD width="7%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/10.htm#top"><IMG height=42 
+      alt="Ir al principio de esta página" src="10_archivos/image01.gif" 
+      width=59 align=right border=0></A></TD></TR></TBODY></TABLE>
+<P align=left><FONT face="MS Sans Serif">El flip flop T basa toda su 
+operatividad en el valor lógico de su única entrada de control. Si&nbsp; en t 
+tenemos el nivel lógico uno, la salida q basculara, cambiando constantemente su 
+valor según le bayan llegando los flancos de subida del reloj. Si la entrada t 
+esta a nivel lógico cero, el flip flop mantiene su valor anterior a modo de una 
+memoria. </FONT></P>
+<P align=left>&nbsp;</P>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" bgColor=#ffffff border=0>
+  <TBODY>
+  <TR>
+    <TD width="7%"><FONT 
+      face="OCR A Extended">1<BR>2<BR>3<BR>4<BR>5</FONT><FONT 
+      face="OCR A Extended" size=3><IMG height=11 
+      alt='Si la senal de entrada "t" está a nivel alto, la salida "q" se invierte.' 
+      src="10_archivos/image02.gif" width=25></FONT><FONT 
+      face="OCR A Extended"><BR>6</FONT><FONT face="OCR A Extended" size=3><IMG 
+      height=11 
+      alt='La salida (señal "q") mantiene su valor si la señal de control t no está a 1 lógico' 
+      src="10_archivos/image02.gif" width=25></FONT><FONT 
+      face="OCR A Extended"><BR>7<BR>8<BR>9<BR>10</FONT></TD>
+    <TD width="64%">
+      <P align=left><FONT face="OCR A Extended"><STRONG>architecture</STRONG> 
+      architff <STRONG>of</STRONG> tff 
+      <STRONG>is</STRONG><BR><STRONG>begin</STRONG><BR>&nbsp;&nbsp;&nbsp; 
+      <STRONG>process</STRONG> (clk) 
+      <STRONG>begin</STRONG><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <STRONG>if</STRONG> (clk'<STRONG>event</STRONG> <STRONG>and</STRONG> clk = 
+      '1') 
+      <STRONG>then</STRONG><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <STRONG>if</STRONG> (t = '1') <STRONG>then</STRONG> q &lt;= 
+      <STRONG>not</STRONG>(q);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <STRONG>else</STRONG> q &lt;= 
+      q;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <STRONG>end</STRONG> 
+      if<STRONG>;</STRONG><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      <STRONG>end</STRONG> <STRONG>if</STRONG>;<BR>&nbsp;&nbsp;&nbsp; 
+      <STRONG>end</STRONG> <STRONG>process</STRONG>;<BR><STRONG>end</STRONG> 
+      architff;</FONT></P></TD>
+    <TD width="35%"><FONT face="OCR A Extended">S</FONT><FONT 
+      face="MS Sans Serif">i la entrada de control <STRONG>t</STRONG> esta a 
+      nivel lógico alto el flip flop bascula, si esta a nivel bajo, mantiene su 
+      valor anterior.</FONT></TD></TR></TBODY></TABLE>
+<P align=left>&nbsp;</P>
+<TABLE width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD width="25%"></TD>
+    <TD width="25%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/simula.htm"><IMG height=28 
+      alt="Qué debes saber antes de simular" src="10_archivos/image09.jpg" 
+      width=211 lowsrc=image09.gif border=0></A></TD>
+    <TD width="25%"><A 
+      href="http://det.bp.ehu.es/vhdl/pagina/express/practica/fft.vhd"><IMG 
+      height=28 alt="Pulsa aquí para ver el código fuente" 
+      src="10_archivos/image10.jpg" width=211 lowsrc=image10.gif 
+border=0></A></TD>
+    <TD width="25%"></TD></TR></TBODY></TABLE>
+<P align=center><IMG height=10 alt="Separa01.gif (636 bytes)" 
+src="10_archivos/separa01.gif" width=708></P>
+<DL>
+  <DD>
+  <P align=center>&nbsp;</P></DD></DL>
+<P>&nbsp;</P></BODY></HTML>

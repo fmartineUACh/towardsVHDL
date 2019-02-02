@@ -1,0 +1,679 @@
+--------------------------------------------------------------------
+--
+--	LPM_ADD_SUB Parameterized Megafunction
+--
+--	Copyright (C) 1991-1997 Altera Corporation
+--	Any megafunction design, and related net list (encrypted or decrypted),
+--	support information, device programming or simulation file, and any other
+--	associated documentation or information provided by Altera or a partner
+--	under Altera's Megafunction Partnership Program may be used only to
+--	program PLD devices (but not masked PLD devices) from Altera.  Any other
+--	use of such megafunction design, net list, support information, device
+--	programming or simulation file, or any other related documentation or
+--	information is prohibited for any other purpose, including, but not
+--	limited to modification, reverse engineering, de-compiling, or use with
+--	any other silicon devices, unless such use is explicitly licensed under
+--	a separate agreement with Altera or a megafunction partner.  Title to
+--	the intellectual property, including patents, copyrights, trademarks,
+--	trade secrets, or maskworks, embodied in any such megafunction design,
+--	net list, support information, device programming or simulation file, or
+--	any other related documentation or information provided by Altera or a
+--	megafunction partner, remains with Altera, the megafunction partner, or
+--	their respective licensors.  No other licenses, including any licenses
+--	needed under any third party's intellectual property, are provided herein.
+--
+--	Version 2.0
+--
+--------------------------------------------------------------------
+---------------------------------------------
+-- top level design for lpm_add_sub design --
+---------------------------------------------
+INCLUDE "lpm_add_sub";
+INCLUDE "addcore";
+INCLUDE "look_add";
+INCLUDE "bypassff";
+INCLUDE "altshift";
+
+PARAMETERS 
+(
+	LPM_WIDTH,
+	LPM_REPRESENTATION = "SIGNED",
+	LPM_DIRECTION = "DEFAULT",		-- controlled by add_sub port
+	ONE_INPUT_IS_CONSTANT = "NO",
+	LPM_PIPELINE = 0,
+	OPTIMIZE_FOR_SPEED = 5,
+	CARRY_CHAIN = "IGNORE",
+	CARRY_CHAIN_LENGTH = 32,
+	DEVICE_FAMILY,
+	STYLE
+);
+
+
+DEFINE   MIN(a, b)    = a < b ? a : b;
+CONSTANT LATENCY      = LPM_PIPELINE;
+DEFINE CONSTANT_CIN() = (LPM_DIRECTION == "SUB" # (LPM_DIRECTION == "ADD" & !USED(cin)) #
+						(LPM_DIRECTION == "DEFAULT" & !USED(cin) & !USED(add_sub))) ? 1 : 0;
+
+CONSTANT INT_LATENCY = MIN(LPM_WIDTH, (LATENCY+1));
+CONSTANT EXT_LATENCY = (LATENCY >= LPM_WIDTH) ? (LATENCY - LPM_WIDTH + 1) : 0;
+
+CONSTANT RWIDTH		 = LPM_WIDTH MOD INT_LATENCY;	-- width of the right side
+CONSTANT LWIDTH		 = INT_LATENCY - RWIDTH;		-- width of the left side
+
+-- SUBWIDTH0 = width of the right side adders 
+-- SUBWIDTH1 = width of the left side adders 
+CONSTANT SUB_WIDTH1  = FLOOR(LPM_WIDTH DIV INT_LATENCY);	
+CONSTANT SUB_WIDTH0	 = SUB_WIDTH1 + 1;
+
+-- Number of 8-bit adder blocks in carry-look-ahead cases.
+CONSTANT BLOCKS = CEIL(LPM_WIDTH DIV 8);
+
+SUBDESIGN lpm_add_sub
+( 
+	dataa[LPM_WIDTH-1..0]		: INPUT = GND;
+	datab[LPM_WIDTH-1..0]		: INPUT = GND;
+	cin							: INPUT = GND;
+	add_sub						: INPUT = VCC;
+	clock						: INPUT = GND;
+	aclr						: INPUT = GND;
+	result[LPM_WIDTH-1..0]		: OUTPUT;
+	cout						: OUTPUT;
+	overflow					: OUTPUT;
+)
+
+
+VARIABLE
+
+	IF (DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") GENERATE
+		IF (CARRY_CHAIN != "IGNORE") GENERATE
+			IF USED(add_sub) & ONE_INPUT_IS_CONSTANT == "NO" GENERATE
+				datab_node[LPM_WIDTH-1..0] : LCELL; 
+			ELSE GENERATE
+				datab_node[LPM_WIDTH-1..0] : NODE; 
+			END GENERATE;
+
+		ELSE GENERATE
+			IF USED(add_sub) & ONE_INPUT_IS_CONSTANT == "NO" GENERATE
+				datab_node[LPM_WIDTH-1..0] : SOFT; 
+			ELSE GENERATE
+				datab_node[LPM_WIDTH-1..0] : NODE; 
+			END GENERATE;
+		END GENERATE;
+	
+	ELSE GENERATE
+		IF USED(add_sub) & ONE_INPUT_IS_CONSTANT == "NO" GENERATE
+			datab_node[LPM_WIDTH-1..0] : SOFT; 
+		ELSE GENERATE
+			datab_node[LPM_WIDTH-1..0] : SOFT; 
+		END GENERATE;
+	END GENERATE;
+
+ 	cin_node : NODE; 
+				
+
+	IF INT_LATENCY > 1 GENERATE
+		IF LPM_REPRESENTATION == "UNSIGNED" & LPM_DIRECTION != "SUB" GENERATE
+			add_sub_ff[INT_LATENCY-2..0]	: bypassff    WITH (WIDTH = 1);
+		END GENERATE;
+
+		----------------------------------------------
+		-- cases where pipeline structure is needed --
+		----------------------------------------------	
+		IF !(DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") GENERATE
+			----------------------------------
+			-- 		    non-FLEX cases		--
+			----------------------------------
+			-- if a nonhomogenous adder, generate the longer (right side) adders 
+			IF RWIDTH > 0 GENERATE 
+				adder0[RWIDTH-1..0] 						: lpm_add_sub
+															  WITH (LPM_WIDTH = SUB_WIDTH0,
+																	LPM_DIRECTION = "ADD",
+																	LPM_PIPELINE = 0);							  		  
+				datab0_ff[INT_LATENCY-1..0][RWIDTH-1..0]	: bypassff WITH (WIDTH = SUB_WIDTH0);
+			END GENERATE;
+	
+			-- generate the shorter (left side) adders
+			adder1[LWIDTH-1..0]								: lpm_add_sub 
+															  WITH (LPM_WIDTH = SUB_WIDTH1,
+																	LPM_DIRECTION = "ADD",
+																	LPM_PIPELINE = 0);							  		  
+			datab1_ff[INT_LATENCY-1..0][LWIDTH-1..0] 		: bypassff WITH (WIDTH = SUB_WIDTH1);
+		
+			-- inter-stage carry holders
+			carry_ff[INT_LATENCY-1..0]						: bypassff WITH (WIDTH = 1);
+
+			-- dataa pipeline registers 
+			dataa_ff[INT_LATENCY-2..0]						: bypassff WITH (WIDTH = LPM_WIDTH);																  		  											  	
+										  
+		ELSE GENERATE
+			----------------------------------------------
+			-- 				FLEX cases					--
+			----------------------------------------------
+			-- if a nonhomogenous adder, generate the longer (right side) adders 
+			IF RWIDTH > 0 GENERATE 
+				adder0[RWIDTH-1..0] 						: lpm_add_sub 
+															  WITH (LPM_WIDTH = SUB_WIDTH0 + 1,
+																	LPM_DIRECTION = "ADD",
+																	LPM_PIPELINE = 0);							  		  
+				IF RWIDTH > 1 GENERATE
+					adder0_0[RWIDTH-1..1] 					: lpm_add_sub
+															  WITH (LPM_WIDTH = SUB_WIDTH0 + 1,
+																	LPM_DIRECTION = "ADD",
+																	LPM_PIPELINE = 0);							  		  
+				END GENERATE;
+				datab0_ff[INT_LATENCY-1..0][RWIDTH-1..0]	: bypassff	WITH (WIDTH = SUB_WIDTH0+1);
+				adder1_0[LWIDTH-1..0]						: lpm_add_sub
+															  WITH (LPM_WIDTH = SUB_WIDTH1 + 1,
+																	LPM_DIRECTION = "ADD",
+																	LPM_PIPELINE = 0);							  		  
+				adder1[LWIDTH-1..0]							: lpm_add_sub 
+															  WITH (LPM_WIDTH = SUB_WIDTH1 + 1,
+																	LPM_DIRECTION = "ADD",
+																	LPM_PIPELINE = 0);							  		  
+
+			ELSE GENERATE
+				adder1[LWIDTH-1..0]							: lpm_add_sub 
+															  WITH (LPM_WIDTH = SUB_WIDTH1 + 1,
+																	LPM_DIRECTION = "ADD",
+																	LPM_PIPELINE = 0);							  		  
+				IF LWIDTH > 1 GENERATE
+					adder1_0[LWIDTH-1..1]					: lpm_add_sub
+															  WITH (LPM_WIDTH = SUB_WIDTH1 + 1,
+																	LPM_DIRECTION = "ADD",
+																	LPM_PIPELINE = 0);							  		  
+				END GENERATE;											  
+			END GENERATE;
+	
+			datab1_ff[INT_LATENCY-1..0][LWIDTH-1..0] 		: bypassff    WITH (WIDTH = SUB_WIDTH1+1);
+			IF LPM_REPRESENTATION == "SIGNED" GENERATE
+				sign_ff[INT_LATENCY-2..0]					: bypassff    WITH (WIDTH = 2);
+			END GENERATE;
+		END GENERATE; 		
+	
+	ELSE GENERATE
+		----------------------------------
+		-- non-pipelined adder cases	--
+		----------------------------------
+ 
+		-- Will use a look-ahead type adder for FLEX/NORMAL with OPTIMIZE_FOR_SPEED > 5 or
+		-- MAX/FAST cases. Will use a ripple type adder for all other cases. 
+		IF ((DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") & 
+		   (CARRY_CHAIN != "IGNORE" # (CARRY_CHAIN == "IGNORE" & OPTIMIZE_FOR_SPEED <= 5))) #
+		   (!(DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") & 
+		   (STYLE == "NORMAL" & OPTIMIZE_FOR_SPEED <= 5)) GENERATE
+
+			adder : addcore WITH (WIDTH = LPM_WIDTH, CONSTANT_CIN = CONSTANT_CIN()); 
+			
+		ELSE GENERATE
+			adder[BLOCKS-1..0] 	: addcore WITH (WIDTH = 8, CONSTANT_CIN = CONSTANT_CIN());
+			look_aheader 		: look_add WITH (WIDTH = BLOCKS);
+		END GENERATE;
+ 	END GENERATE;
+
+ 	result_node	[LPM_WIDTH-1..0] 						: NODE;
+	cout_node											: NODE; 				 	
+	result_ext_latency_ffs								: altshift WITH (WIDTH = LPM_WIDTH, 
+																		 DEPTH = EXT_LATENCY);
+	carry_ext_latency_ffs								: altshift WITH (WIDTH = 1, 
+																		 DEPTH = EXT_LATENCY);
+	oflow_ext_latency_ffs								: altshift WITH (WIDTH = 1, 
+																		 DEPTH = EXT_LATENCY);
+
+
+BEGIN
+
+	ASSERT REPORT "LPM_WIDTH = %" 	LPM_WIDTH 	SEVERITY DEBUG;
+	ASSERT REPORT "LATENCY = %"	 	LATENCY 	SEVERITY DEBUG;
+	ASSERT REPORT "LWIDTH = %" 		LWIDTH 		SEVERITY DEBUG;
+	ASSERT REPORT "RWIDTH = %" 		RWIDTH 		SEVERITY DEBUG;
+	ASSERT REPORT "INT_LATENCY = %" INT_LATENCY SEVERITY DEBUG;
+	ASSERT REPORT "EXT_LATENCY = %" EXT_LATENCY SEVERITY DEBUG;
+	ASSERT REPORT "SUB_WIDTH1 = %" 	SUB_WIDTH1 	SEVERITY DEBUG;
+
+	ASSERT (LPM_REPRESENTATION == "SIGNED" # LPM_REPRESENTATION == "UNSIGNED")
+			REPORT "Illegal value for LPM_REPRESENTATION parameter (""%"") -- value must be ""SIGNED"" or ""UNSIGNED""" 
+				LPM_REPRESENTATION
+			SEVERITY ERROR
+			HELP_ID LPM_ADD_SUB_REPRESENTATION;
+
+	ASSERT (LPM_WIDTH > 0)
+			REPORT "LPM_WIDTH parameter value must be greater than 0"
+			SEVERITY ERROR
+			HELP_ID LPM_ADD_SUB_WIDTH;
+
+	ASSERT (USED(clock) ? LATENCY > 0 : LATENCY == 0)
+			REPORT "Value of LPM_PIPELINE parameter must be greater than 0 if clock input is used and vice versa"
+			SEVERITY ERROR
+			HELP_ID LPM_ADD_SUB_CLOCK_WITHOUT_LATENCY;
+
+	ASSERT (LATENCY <= LPM_WIDTH)
+			REPORT "Value of LPM_PIPELINE parameter (%) should be lower -- use % for best performance/utilization" LATENCY, INT_LATENCY
+			SEVERITY INFO
+			HELP_ID LPM_ADD_SUB_CLOCK_LATENCY_VALUE;
+
+	ASSERT (LPM_WIDTH > 0)
+			REPORT "Value of LPM_WIDTH parameter must be greater than 0"
+			SEVERITY ERROR
+			HELP_ID LPM_ADD_SUB_WIDTH2;
+
+	ASSERT (LPM_REPRESENTATION == "UNSIGNED" # LPM_REPRESENTATION == "SIGNED")
+			REPORT "Illegal value for LPM_REPRESENTATION parameter (%) -- value must be UNSIGNED (the default) or SIGNED"
+				LPM_REPRESENTATION
+			SEVERITY ERROR
+			HELP_ID LPM_ADD_SUB_REPRESENTATION2;
+
+	ASSERT (ONE_INPUT_IS_CONSTANT == "YES" # ONE_INPUT_IS_CONSTANT == "NO")
+			REPORT "Illegal value for ONE_INPUT_IS_CONSTANT parameter (%) -- value must be YES or NO (the default)"
+				ONE_INPUT_IS_CONSTANT
+			SEVERITY ERROR
+			HELP_ID LPM_ADD_SUB_ICONSTANT;
+
+	ASSERT (LPM_DIRECTION == "DEFAULT" # LPM_DIRECTION == "ADD" # LPM_DIRECTION == "SUB")
+			REPORT "Illegal value for LPM_DIRECTION parameter (%) -- value must be ADD, SUB, or DEFAULT"
+				LPM_DIRECTION
+			SEVERITY ERROR
+			HELP_ID LPM_ADD_SUB_DIRECTION;
+
+	ASSERT (LPM_DIRECTION == "DEFAULT" # USED(add_sub) == 0)
+			REPORT "Value of LPM_DIRECTION parameter (%) is not consistent with the use of the add_sub port"
+				LPM_DIRECTION
+			SEVERITY ERROR
+			HELP_ID LPM_ADD_SUB_DIRECTION_ADD_SUB;
+
+--  The next assertion is not implemented because MAX+PLUS II implementation 
+--  differs from the LPM standard. Both overflow and cout are allowed 
+--  in MAX+PLUS II.
+
+--	ASSERT (USED(overflow) == 0 # USED(cout) == 0)
+--			REPORT "Can't use overflow port if cout port is used"
+--			SEVERITY ERROR
+--			HELP_ID LPM_ADD_SUB_OVERCOUT;
+
+
+	----------------------------------------------------------------------
+	IF LPM_DIRECTION == "SUB" GENERATE	
+		datab_node[] = !datab[];
+	ELSE GENERATE
+		IF USED(add_sub) GENERATE
+			datab_node[] = datab[] $ !add_sub;
+		ELSE GENERATE
+			datab_node[] = datab[];
+		END GENERATE;
+	END GENERATE;
+		
+	IF USED(cin) GENERATE
+		cin_node = cin;
+	ELSE GENERATE
+		IF LPM_DIRECTION == "SUB" GENERATE	
+			cin_node = VCC;
+		ELSE GENERATE
+			cin_node = !add_sub;
+ 		END GENERATE;
+	END GENERATE;
+
+
+	IF INT_LATENCY > 1 GENERATE
+		IF LPM_REPRESENTATION == "UNSIGNED" & LPM_DIRECTION != "SUB" GENERATE
+			add_sub_ff[0].d[0] = add_sub;
+			IF INT_LATENCY > 2 GENERATE
+				add_sub_ff[INT_LATENCY-2..1].d[0] = add_sub_ff[INT_LATENCY-3..0].q[0];
+			END GENERATE;
+			add_sub_ff[].(clk, clrn) = (clock, !aclr);
+		END GENERATE;
+
+		IF !(DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") GENERATE
+			----------------------------------------------
+			-- 				non-FLEX cases				--
+			----------------------------------------------
+			-- clock connections 
+			dataa_ff[].(clk, clrn) = (clock, !aclr);
+			IF RWIDTH > 0 GENERATE
+				datab0_ff[INT_LATENCY-2..0][].(clk, clrn) = (clock, !aclr);
+			END GENERATE;
+					
+			datab1_ff[INT_LATENCY-2..0][].(clk, clrn) = (clock, !aclr);
+			carry_ff[INT_LATENCY-2..0].(clk, clrn) = (clock, !aclr);
+
+ 			-- dataa connections as we have intermediate subadders.
+			dataa_ff[0].d[] = dataa[];
+			IF INT_LATENCY > 2 GENERATE
+				dataa_ff[INT_LATENCY-2..1].d[] = dataa_ff[INT_LATENCY-3..0].q[];
+			END GENERATE;
+			
+			-- datab input connections
+			IF RWIDTH > 0 GENERATE
+				IF RWIDTH > 1 GENERATE
+					FOR I IN 1 TO RWIDTH-1 GENERATE
+						datab0_ff[0][I].d[] = datab_node[(I+1)*SUB_WIDTH0-1..I*SUB_WIDTH0];
+					END GENERATE;
+				END GENERATE;
+		
+				FOR I IN 0 TO LWIDTH-1 GENERATE
+					datab1_ff[0][I].d[] = datab_node[(I+1)*SUB_WIDTH1+RWIDTH*SUB_WIDTH0-1..
+													I*SUB_WIDTH1+RWIDTH*SUB_WIDTH0];
+				END GENERATE;												
+	
+			ELSE GENERATE
+				IF LWIDTH > 1 GENERATE
+   					FOR I IN 1 TO LWIDTH-1 GENERATE
+						datab1_ff[0][I].d[] = datab_node[(I+1)*SUB_WIDTH1-1..I*SUB_WIDTH1];
+					END GENERATE;												
+				END GENERATE;
+			END GENERATE;
+	
+			-- some adder connections
+			IF RWIDTH > 0 GENERATE   
+				-- The nonhomogeneous adder case. Note that with RWIDTH > 0, 
+				-- INT_LATENCY must have been > 1.
+				-- longer (right hand side) adder(s) connection(s)	
+				-- the upper right-most adder is connected to the input nodes
+				adder0[0].dataa[] = dataa[SUB_WIDTH0-1..0];
+				adder0[0].datab[] = datab_node[SUB_WIDTH0-1..0];
+				adder0[0].cin 	  = cin_node;
+		    	carry_ff[0].d[]   = adder0[0].cout;
+
+				-- if more than one right-side adder, make the input and carry connections
+    			IF RWIDTH > 1 GENERATE
+	  				FOR I IN 1 TO RWIDTH-1 GENERATE
+ 						adder0[I].dataa[] = dataa_ff[I-1].q[(I+1)*SUB_WIDTH0-1..I*SUB_WIDTH0];
+    					adder0[I].datab[] = datab0_ff[I-1][I].q[];
+		    			adder0[I].cin     = carry_ff[I-1].q[];
+    					carry_ff[I].d[]   = adder0[I].cout;
+    				END GENERATE;	
+	    		END GENERATE;
+	
+	    	 	-- first left-hand-side adder connections
+				adder1[0].dataa[]    = dataa_ff[RWIDTH-1].q[SUB_WIDTH1+RWIDTH*SUB_WIDTH0-1..RWIDTH*SUB_WIDTH0];
+			    adder1[0].datab[]    = datab1_ff[RWIDTH-1][0].q[];
+		    	adder1[0].cin 	     = carry_ff[RWIDTH-1].q[];
+	   			carry_ff[RWIDTH].d[] = adder1[0].cout;
+
+		    ELSE GENERATE 
+   				-- case with homogeneous adders
+   				adder1[0].dataa[] = dataa[SUB_WIDTH1-1..0];
+			    adder1[0].datab[] = datab_node[SUB_WIDTH1-1..0];
+			    adder1[0].cin     = cin_node;
+	   			carry_ff[0].d[]   = adder1[0].cout;   
+			END GENERATE;
+ 	
+ 			-- more connections if more than 1 left-hand-side adders exist    
+	 		IF LWIDTH > 1 GENERATE
+ 				FOR I IN 1 TO LWIDTH-1 GENERATE
+					adder1[I].dataa[] = dataa_ff[I+RWIDTH-1].q[(I+1)*SUB_WIDTH1+RWIDTH*SUB_WIDTH0-1..
+																	I*SUB_WIDTH1+RWIDTH*SUB_WIDTH0];
+		    		adder1[I].datab[] = datab1_ff[I+RWIDTH-1][I].q[];
+		    	END GENERATE;
+    		
+	    		adder1[LWIDTH-1..1].cin = carry_ff[INT_LATENCY-2..RWIDTH].q[];
+	   			carry_ff[INT_LATENCY-1..(RWIDTH+1)].d[] = adder1[LWIDTH-1..1].cout;
+			END GENERATE;
+	 	
+			cout_node = carry_ff[INT_LATENCY-1].q[];
+
+		ELSE GENERATE
+			----------------------------------------------
+			-- 					FLEX cases				--
+			----------------------------------------------
+		    -- clock connections	
+ 			IF RWIDTH > 0 GENERATE
+				datab0_ff[INT_LATENCY-2..0][].(clk, clrn) = (clock, !aclr);
+			END GENERATE;
+					
+			datab1_ff[INT_LATENCY-2..0][].(clk, clrn) = (clock, !aclr);
+			IF LPM_REPRESENTATION == "SIGNED" GENERATE
+				sign_ff[INT_LATENCY-2..0].(clk, clrn) = (clock, !aclr);
+			END GENERATE;
+ 							
+ 			-- datab input connections
+			IF RWIDTH > 0 GENERATE
+				IF RWIDTH > 1 GENERATE
+					FOR I IN 1 TO RWIDTH-1 GENERATE
+						adder0_0[I].dataa[SUB_WIDTH0-1..0] = dataa[(I+1)*SUB_WIDTH0-1..I*SUB_WIDTH0];
+						adder0_0[I].datab[SUB_WIDTH0-1..0] = datab_node[(I+1)*SUB_WIDTH0-1..I*SUB_WIDTH0];
+						datab0_ff[0][I].d[] = adder0_0[I].result[];
+					END GENERATE;
+				END GENERATE;
+			
+				FOR I IN 0 TO LWIDTH-1 GENERATE
+					adder1_0[I].dataa[SUB_WIDTH1-1..0] = dataa[(I+1)*SUB_WIDTH1+RWIDTH*SUB_WIDTH0-1..
+															 I*SUB_WIDTH1+RWIDTH*SUB_WIDTH0];
+					adder1_0[I].datab[SUB_WIDTH1-1..0] = datab_node[(I+1)*SUB_WIDTH1+RWIDTH*SUB_WIDTH0-1..
+															 I*SUB_WIDTH1+RWIDTH*SUB_WIDTH0];
+					datab1_ff[0][I].d[] = adder1_0[I].result[];
+				END GENERATE;												
+	
+			ELSE GENERATE
+				IF LWIDTH > 1 GENERATE
+   					FOR I IN 1 TO LWIDTH-1 GENERATE
+						adder1_0[I].dataa[SUB_WIDTH1-1..0] = dataa[(I+1)*SUB_WIDTH1-1..I*SUB_WIDTH1];
+						adder1_0[I].datab[SUB_WIDTH1-1..0] = datab_node[(I+1)*SUB_WIDTH1-1..I*SUB_WIDTH1];
+						datab1_ff[0][I].d[]	= adder1_0[I].result[];		
+					END GENERATE;												
+				END GENERATE;
+			END GENERATE;
+
+			-- some adder connections
+			IF RWIDTH > 0 GENERATE   
+				-- The nonhomogeneous adder case. Note that with RWIDTH > 0, 
+				-- INT_LATENCY must have been > 1.
+				-- longer (right hand side) adder(s) connection(s)	
+				-- the upper right-most adder is connected to the input nodes
+				adder0[0].dataa[SUB_WIDTH0-1..0] = dataa[SUB_WIDTH0-1..0];
+				adder0[0].datab[SUB_WIDTH0-1..0] = datab_node[SUB_WIDTH0-1..0];
+				adder0[0].cin = cin_node;
+
+				-- if more than one right-side adder, make the input and carry connections
+    			IF RWIDTH > 1 GENERATE
+	  				FOR I IN 1 TO RWIDTH-1 GENERATE
+ 						adder0[I].dataa[0] = datab0_ff[I-1][I-1].q[SUB_WIDTH0];
+    					adder0[I].datab[] = datab0_ff[I-1][I].q[];
+	    			END GENERATE;	
+		    	END GENERATE;
+		
+    		 	-- first left-hand-side adder connections
+				adder1[0].dataa[0] = datab0_ff[RWIDTH-1][RWIDTH-1].q[SUB_WIDTH0];
+			    adder1[0].datab[] = datab1_ff[RWIDTH-1][0].q[];
+	
+		    ELSE GENERATE 
+   				-- case with homogeneous adders
+   				adder1[0].dataa[SUB_WIDTH1-1..0] = dataa[SUB_WIDTH1-1..0];
+			    adder1[0].datab[SUB_WIDTH1-1..0] = datab_node[SUB_WIDTH1-1..0];
+			    adder1[0].cin = cin_node;
+			END GENERATE;
+ 	
+	 		-- more connections if more than 1 left-hand-side adders exist    
+		 	IF LWIDTH > 1 GENERATE
+ 				FOR I IN 1 TO LWIDTH-1 GENERATE
+					adder1[I].dataa[0] = datab1_ff[I+RWIDTH-1][I-1].q[SUB_WIDTH1];
+	    			adder1[I].datab[] = datab1_ff[I+RWIDTH-1][I].q[];
+		    	END GENERATE;
+    		END GENERATE;
+	
+			IF LPM_REPRESENTATION == "SIGNED" GENERATE
+				sign_ff[0].d[] = (dataa[LPM_WIDTH-1], datab_node[LPM_WIDTH-1]);
+				IF INT_LATENCY > 2 GENERATE
+					FOR I IN 1 TO INT_LATENCY-2 GENERATE
+						sign_ff[I].d[] = sign_ff[I-1].q[];
+					END GENERATE;
+				END GENERATE;
+			END GENERATE;
+
+			cout_node = datab1_ff[INT_LATENCY-1][LWIDTH-1].q[SUB_WIDTH1];
+		END GENERATE;
+
+		-------------------------- 
+		-- datab_ff connections	--
+		--------------------------	
+		IF RWIDTH > 0 GENERATE	
+ 		 	-- first quadrant connections 
+ 			FOR I IN 0 TO RWIDTH-1 GENERATE
+				datab0_ff[I][I].d[] = adder0[I].result[];					
+		    END GENERATE;
+   			
+    		IF RWIDTH > 1 GENERATE
+				IF RWIDTH > 2 GENERATE
+	     			FOR I IN 1 TO RWIDTH-2 GENERATE
+						datab0_ff[I][RWIDTH-1..(I+1)].d[] = datab0_ff[I-1][RWIDTH-1..(I+1)].q[];
+					END GENERATE;
+				END GENERATE;
+		
+   				FOR I IN 1 TO RWIDTH-1 GENERATE
+					datab0_ff[I][I-1..0].d[] = datab0_ff[I-1][I-1..0].q[];		
+				END GENERATE;
+			END GENERATE;
+				
+			-- fourth quadrant connections
+		 	FOR I IN RWIDTH TO INT_LATENCY-1 GENERATE
+				datab0_ff[I][RWIDTH-1..0].d[] = datab0_ff[I-1][RWIDTH-1..0].q[]; 
+			END GENERATE; 				
+ 		
+	 		-- second quadrant connections
+	 		IF RWIDTH > 1 GENERATE
+				FOR I IN 1 TO RWIDTH-1 GENERATE
+					datab1_ff[I][LWIDTH-1..0].d[] = datab1_ff[I-1][LWIDTH-1..0].q[];    				
+		 		END GENERATE;
+ 			END GENERATE;
+ 		
+	 		-- datab1_ff interface between second and third quadrants
+			IF LWIDTH >1 GENERATE
+				datab1_ff[RWIDTH][LWIDTH-1..1].d[] = datab1_ff[RWIDTH-1][LWIDTH-1..1].q[];
+			END GENERATE;
+		 END GENERATE;
+  
+		-- third quadrant connections
+		FOR I IN 0 TO LWIDTH-1 GENERATE
+			datab1_ff[I+RWIDTH][I].d[] = adder1[I].result[];
+		END GENERATE;
+    			
+	    IF LWIDTH > 1 GENERATE
+    	 	FOR I IN 1 TO LWIDTH-1 GENERATE
+				datab1_ff[I+RWIDTH][I-1..0].d[] = datab1_ff[I+RWIDTH-1][I-1..0].q[];
+			END GENERATE;
+			
+			IF LWIDTH > 2 GENERATE
+	     		FOR I IN 1 TO LWIDTH-2 GENERATE
+					datab1_ff[I+RWIDTH][LWIDTH-1..I+1].d[] = datab1_ff[I+RWIDTH-1][LWIDTH-1..I+1].q[];    				
+				END GENERATE;
+			END GENERATE;
+		END GENERATE;
+	
+		-- connections of last row to output nodes
+		-- right section
+		IF RWIDTH > 0 GENERATE
+		   	FOR J IN 0 TO RWIDTH-1 GENERATE
+				result_node[(J+1)*SUB_WIDTH0-1..J*SUB_WIDTH0] = 
+										datab0_ff[INT_LATENCY-1][J].q[SUB_WIDTH0-1..0];			
+			END GENERATE;
+		END GENERATE;
+			
+		-- left section
+		FOR J IN 0 TO LWIDTH-1 GENERATE
+			result_node[(J+1)*SUB_WIDTH1+RWIDTH*SUB_WIDTH0-1..J*SUB_WIDTH1+RWIDTH*SUB_WIDTH0] = 
+											datab1_ff[INT_LATENCY-1][J].q[SUB_WIDTH1-1..0];			
+		END GENERATE;
+	
+		-- overflow detection
+		IF LPM_REPRESENTATION == "SIGNED" GENERATE
+			IF !(DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") GENERATE
+				oflow_ext_latency_ffs.data[] = (datab1_ff[INT_LATENCY-2][LWIDTH-1].q[SUB_WIDTH1-1] !$
+												dataa_ff[INT_LATENCY-2].q[LPM_WIDTH-1]) &
+											    (dataa_ff[INT_LATENCY-2].q[LPM_WIDTH-1] $ 
+												 adder1[LWIDTH-1].result[SUB_WIDTH1-1]);
+ 			ELSE GENERATE
+ 					oflow_ext_latency_ffs.data[] = !(sign_ff[INT_LATENCY-2].q[0] $ sign_ff[INT_LATENCY-2].q[1])
+													& (sign_ff[INT_LATENCY-2].q[0] $ adder1[LWIDTH-1].result[SUB_WIDTH1-1]);
+ 			END GENERATE;
+
+		ELSE GENERATE
+			IF LPM_DIRECTION == "SUB" GENERATE
+				oflow_ext_latency_ffs.data[] = !cout_node;
+			ELSE GENERATE
+				oflow_ext_latency_ffs.data[] = !add_sub_ff[INT_LATENCY-2].q[0] $ cout_node;
+			END GENERATE;
+		END GENERATE;
+
+	ELSE GENERATE
+		----------------------------------
+		-- non-pipelined adder cases	--
+		----------------------------------
+
+		IF ((DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") & 
+		   (CARRY_CHAIN != "IGNORE" # (CARRY_CHAIN == "IGNORE" & OPTIMIZE_FOR_SPEED <= 5))) #
+		   (!(DEVICE_FAMILY == "FLEX8000" # DEVICE_FAMILY == "FLEX10K") & 
+		   (STYLE == "NORMAL" & OPTIMIZE_FOR_SPEED <= 5)) GENERATE
+
+			-------------------------------------------------
+			-- connections for a non-look-ahead type adder --
+			-------------------------------------------------
+			adder.dataa[] = dataa[];
+			adder.datab[] = datab_node[];
+			adder.cin = cin_node;
+			result_node[] = adder.result[];
+			cout_node = adder.cout;
+ 		
+		ELSE GENERATE
+			---------------------------------------------
+			-- connections for a look-ahead type adder --
+			---------------------------------------------
+			IF BLOCKS > 1 GENERATE
+				FOR I IN 0 TO BLOCKS-2 GENERATE
+					adder[I].dataa[] = dataa[(I+1)*8-1..I*8];
+					adder[I].datab[] = datab_node[(I+1)*8-1..I*8];
+					adder[I].cin = look_aheader.cout[I];
+	
+					result_node[(I+1)*8-1..I*8] = adder[I].result[];
+				END GENERATE;
+			END GENERATE;
+		
+			adder[BLOCKS-1].dataa[LPM_WIDTH-(BLOCKS-1)*8-1..0] = dataa[LPM_WIDTH-1..(BLOCKS-1)*8];
+			adder[BLOCKS-1].datab[LPM_WIDTH-(BLOCKS-1)*8-1..0] = datab_node[LPM_WIDTH-1..(BLOCKS-1)*8];
+ 			adder[BLOCKS-1].cin = look_aheader.cout[BLOCKS-1];
+			result_node[LPM_WIDTH-1..(BLOCKS-1)*8] = adder[BLOCKS-1].result[LPM_WIDTH-(BLOCKS-1)*8-1..0];
+				
+			look_aheader.cin = cin_node;
+			look_aheader.bg_in[] = adder[].bg_out;
+			look_aheader.bp_in[] = adder[].bp_out;
+
+	 		IF LPM_WIDTH MOD 8 == 0 GENERATE 
+				cout_node = adder[BLOCKS-1].cout;
+			ELSE GENERATE
+				cout_node = adder[BLOCKS-1].result[LPM_WIDTH MOD 8];
+			END GENERATE;
+ 		END GENERATE;
+
+		-- overflow detection
+		IF (LPM_REPRESENTATION == "SIGNED") GENERATE
+			-- SIGNED overflow: TRUE when MSB(a) & MSB(b) are same but MSB(result) is different.
+			IF (LPM_DIRECTION == "SUB") GENERATE	-- Special case (can't tell from add_sub pin)
+				oflow_ext_latency_ffs.data[] = !(dataa[LPM_WIDTH-1] !$ datab[LPM_WIDTH-1]) &
+											    (dataa[LPM_WIDTH-1] $ result_node[LPM_WIDTH-1]);
+			ELSE GENERATE
+				oflow_ext_latency_ffs.data[]= !(dataa[LPM_WIDTH-1] $ (datab[LPM_WIDTH-1] $ !add_sub)) &
+											   (dataa[LPM_WIDTH-1] $ result_node[LPM_WIDTH-1]);
+			END GENERATE;
+
+		ELSE GENERATE
+			-- UNSIGNED overflow calc: TRUE when carry out during add or underflow during sub
+			IF (LPM_DIRECTION == "SUB") GENERATE	-- Special case (can't tell from add_sub pin)
+				oflow_ext_latency_ffs.data[]= !cout_node;
+			ELSE GENERATE
+				oflow_ext_latency_ffs.data[]= !add_sub $ cout_node;
+			END GENERATE;
+		END GENERATE;
+	END GENERATE;
+
+	-- external latency connections
+	result_ext_latency_ffs.data[] = result_node[];
+	result[] = result_ext_latency_ffs.result[];
+ 	carry_ext_latency_ffs.data[] = cout_node;
+ 	cout = carry_ext_latency_ffs.result[];
+	overflow = oflow_ext_latency_ffs.result[];
+	
+	IF EXT_LATENCY > 0 GENERATE
+		result_ext_latency_ffs.(clock, aclr) = (clock, aclr);
+		carry_ext_latency_ffs.(clock, aclr)  = (clock, aclr);
+		oflow_ext_latency_ffs.(clock, aclr)  = (clock, aclr);
+	END GENERATE;
+
+END;
+

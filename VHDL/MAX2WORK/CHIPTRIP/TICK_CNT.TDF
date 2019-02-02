@@ -1,0 +1,22 @@
+INCLUDE "8count.inc"; 
+
+SUBDESIGN tick_cnt
+(
+	get_ticket1		: INPUT;
+	get_ticket2		: INPUT;
+	clk				: INPUT;
+	ticket[3..0]	: OUTPUT;
+)
+VARIABLE
+	counter			: 8COUNT;
+
+BEGIN
+	counter.clk = clk;
+
+	counter.gn = get_ticket1 NOR get_ticket2;
+	counter.dnup = gnd;
+
+	ticket[3..0] = counter.(qd, qc, qb, qa);
+
+END;
+

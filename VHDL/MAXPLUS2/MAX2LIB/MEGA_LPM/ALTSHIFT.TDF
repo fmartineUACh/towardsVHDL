@@ -1,0 +1,62 @@
+--------------------------------------------------------------------
+--
+--	ALTSHIFT Parameterized Megafunction
+--
+--	Copyright (C) 1991-1997 Altera Corporation
+--	Any megafunction design, and related net list (encrypted or decrypted),
+--	support information, device programming or simulation file, and any other
+--	associated documentation or information provided by Altera or a partner
+--	under Altera's Megafunction Partnership Program may be used only to
+--	program PLD devices (but not masked PLD devices) from Altera.  Any other
+--	use of such megafunction design, net list, support information, device
+--	programming or simulation file, or any other related documentation or
+--	information is prohibited for any other purpose, including, but not
+--	limited to modification, reverse engineering, de-compiling, or use with
+--	any other silicon devices, unless such use is explicitly licensed under
+--	a separate agreement with Altera or a megafunction partner.  Title to
+--	the intellectual property, including patents, copyrights, trademarks,
+--	trade secrets, or maskworks, embodied in any such megafunction design,
+--	net list, support information, device programming or simulation file, or
+--	any other related documentation or information provided by Altera or a
+--	megafunction partner, remains with Altera, the megafunction partner, or
+--	their respective licensors.  No other licenses, including any licenses
+--	needed under any third party's intellectual property, are provided herein.
+--
+--	Version 1.0
+--
+--------------------------------------------------------------------
+
+PARAMETERS
+(
+	WIDTH = 4,
+	DEPTH = 0
+);
+
+SUBDESIGN altshift
+(
+	data[(WIDTH - 1)..0]	: INPUT;
+	clock					: INPUT = GND;
+	aclr					: INPUT = GND;
+
+	result[(WIDTH - 1) ..0]	: OUTPUT;
+)
+VARIABLE
+	IF DEPTH > 0 GENERATE
+		points[(DEPTH - 1)..0][(WIDTH - 1)..0]	: DFF;
+	END GENERATE;
+BEGIN
+	IF DEPTH == 0 GENERATE
+		result[] = data[]; 
+	ELSE GENERATE
+		points[][].clk = clock;
+		points[][].clrn = !aclr;
+		points[0][].d = data[];
+		IF DEPTH > 1 GENERATE
+			FOR row IN 1 TO DEPTH - 1 GENERATE
+				points[row][].d = points[row - 1][].q;
+			END GENERATE;
+		END GENERATE;
+		result[] = points[DEPTH - 1][].q;
+	END GENERATE;
+END;
+

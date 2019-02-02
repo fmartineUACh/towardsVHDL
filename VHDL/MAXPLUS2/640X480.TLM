@@ -1,0 +1,339 @@
+
+/***************************************************************/
+/* IMPROTANT:  For any edit to this file make the similar edit */
+/*             to the file maxplus2.tlm if needed.             */
+/***************************************************************/
+/* NOTE: All comments must begin with '/*'.                    */
+/***************************************************************/
+/*                                                             */
+/*       Application-specific buttons begin with position 21!! */
+/*       because last supervisor button is at position 20.     */
+/*                                                             */
+/*       WHENEVER a supervisor button is added, the positions  */
+/*       of the application-specific buttons MUST be updated.  */
+/*                                                             */
+/***************************************************************/
+
+/*************************************************************/
+/*                      Supervisor Buttons                   */
+/*************************************************************/
+"MAX File New..."                                   1
+"MAX File Open..."                                  2
+"MAX File Save"                                     3
+"MAX File Print"                                    4
+
+"MAX Edit Cut"                                      5
+"MAX Edit Copy"                                     6
+"MAX Edit Paste"                                    7
+
+
+
+"MAX Context-Sensitive Help"                        8
+
+"MAX MAX+plus II Hierarchy Display"                 9
+"MAX MAX+plus II Floorplan Editor"                  10
+"MAX MAX+plus II Compiler"                          11
+"MAX MAX+plus II Simulator"                         12
+"MAX MAX+plus II Timing Analyzer"                   13
+"MAX MAX+plus II Programmer"                        14
+
+"MAX File Project Name..."                          15
+"MAX File Project Set Project to Current File"      16
+"MAX File Hierarchy Project Top"                    17
+
+"MAX File Project Save & Check"                     18
+"MAX File Project Save & Compile"                   19
+"MAX File Project Save & Simulate"                  20
+
+
+
+/*************************************************************/
+/*                      TED                                  */
+/*************************************************************/
+/* TED tools that appear with supervisor tools */
+"TED File Print"                                    4
+"TED Edit Cut"                                      5
+"TED Edit Copy"                                     6
+"TED Edit Paste"                                    7
+
+
+/* TED application-specific tools */
+
+"TED Utilities Find Text..."                        21
+"TED Utilities Search & Replace..."                 22
+"TED Utilities Find Node in Design File"            23
+"TED Utilities Find Node in Floorplan"              24
+
+
+
+
+
+
+"TED Templates"                                     25
+
+"TED Edit Increase Indent"                          26
+"TED Edit Decrease Indent"                          27
+
+
+/*************************************************************/
+/*                      HRW                                  */
+/*************************************************************/
+/* HRW tools that appear with supervisor tools */
+"HRW File Print"                                    4
+
+/* HRW application-specific tools */
+"HRW NULL_BUTTON"                                   21
+"HRW NULL_BUTTON"                                   22
+"HRW NULL_BUTTON"                                   23
+"HRW Utilities Find Node in Floorplan"              24
+
+"HRW Options Show All Hierarchy Branches"           25
+
+
+/* ------------ */
+/* HRW Palette  */
+/* ------------ */
+
+"HRW NULL_BUTTON"                                   1 
+"HRW NULL_BUTTON"                                   2 
+"HRW NULL_BUTTON"                                   3 
+"HRW NULL_BUTTON"                                   4 
+"HRW NULL_BUTTON"                                   5 
+"HRW NULL_BUTTON"                                   6 
+"HRW SEPARATOR"                                     7 
+"HRW View Zoom In"                                  8 
+"HRW View Zoom Out"                                 9 
+"HRW View Fit in Window"                            10 
+
+
+
+/*************************************************************/
+/*                      GED                                  */
+/*************************************************************/
+/* GED tools that appear with supervisor tools */
+"GED File Print"                                    4
+"GED Edit Cut"                                      5
+"GED Edit Copy"                                     6
+"GED Edit Paste"                                    7
+
+
+/* GED application-specific tools */
+"GED Utilities Find Text..."                        21
+"GED Utilities Search & Replace..."                 22
+"GED Utilities Find Node in Design File"            23
+"GED Utilities Find Node in Floorplan"              24
+
+
+
+
+
+
+
+"GED Options Line Style"                            25
+
+
+
+
+
+
+/* ------------ */
+/* GED Palette  */
+/* ------------ */
+
+"GED Selection Tool"                                1 
+"GED Text Tool"                                     2 
+"GED Orthogonal Line Tool"                          3 
+"GED Diagonal Line Tool"                            4 
+"GED Arc Tool"                                      5 
+"GED Circle Tool"                                   6 
+"GED SEPARATOR"                                     7 
+"GED View Zoom In"                                  8 
+"GED View Zoom Out"                                 9 
+"GED View Fit in Window"                            10 
+"GED SEPARATOR"                                     11 
+"GED Edit Toggle Connection Dot"                    12 
+"GED SEPARATOR"                                     13 
+"GED Rubberband On"                                 14 
+"GED Rubberband Off"                                15 
+
+
+/*************************************************************/
+/*                      SED                                  */
+/*************************************************************/
+/* SED tools that appear with supervisor tools */
+"SED File Print"                                    4
+"SED Edit Cut"                                      5
+"SED Edit Copy"                                     6
+"SED Edit Paste"                                    7
+
+
+/* SED application-specific tools */
+"SED Utilities Find Text..."                        21
+"SED Utilities Search & Replace..."                 22
+"SED Utilities Find Node in Design File"            23
+"SED Utilities Find Node in Floorplan"              24
+
+
+
+
+
+
+
+"SED Options Line Style"                            25
+
+
+
+
+
+
+/* ------------ */
+/* SED Palette  */
+/* ------------ */
+
+"SED Selection Tool"                                1 
+"SED Text Tool"                                     2 
+"SED Orthogonal Line Tool"                          3 
+"SED Diagonal Line Tool"                            4 
+"SED Arc Tool"                                      5 
+"SED Circle Tool"                                   6 
+"SED SEPARATOR"                                     7 
+"SED View Zoom In"                                  8 
+"SED View Zoom Out"                                 9 
+"SED View Fit in Window"                            10 
+"SED SEPARATOR"                                     11 
+"SED Edit Toggle Connection Dot"                    12
+"SED SEPARATOR"                                     13
+"SED Rubberband On"                                 14 
+"SED Rubberband Off"                                15 
+
+
+/*************************************************************/
+/*                      WED                                  */
+/*************************************************************/
+/* WED tools that appear with supervisor tools */
+"WED File Print"                                    4
+"WED Edit Cut"                                      5
+"WED Edit Copy"                                     6
+"WED Edit Paste"                                    7
+
+
+/* WED application-specific tools */
+"WED Utilities Find Text..."                        21
+"WED Utilities Search & Replace..."                 22
+"WED Utilities Find Node in Design File"            23
+"WED Utilities Find Node in Floorplan"              24
+
+"WED Options Snap to Grid"                          25
+"WED Edit Align to Grid"                            26
+
+
+
+
+/* ------------ */
+/* WED Palette  */
+/* ------------ */
+
+"WED Selection Tool"                                1 
+"WED Text Tool"                                     2 
+"WED Waveform Editing Tool"                         3 
+"WED NULL_BUTTON"                                   4 
+"WED NULL_BUTTON"                                   5 
+"WED NULL_BUTTON"                                   6 
+"WED SEPARATOR"                                     7 
+"WED View Zoom In"                                  8 
+"WED View Zoom Out"                                 9 
+"WED View Fit in Window"                            10 
+"WED SEPARATOR"                                     11 
+"WED Edit Overwrite Low (0)"                        12 
+"WED Edit Overwrite High (1)"                       13 
+"WED Edit Overwrite Undefined (X)"                  14 
+"WED Edit Overwrite High Impedance (Z)"             15 
+"WED Edit Overwrite Invert"                         16 
+"WED Edit Overwrite Clock..."                       17 
+"WED Edit Overwrite Count Value..."                 18 
+"WED Edit Overwrite Group Value..."                 19 
+"WED Edit Overwrite State Name..."                  20 
+
+
+/*************************************************************/
+/*                      SIM                                  */
+/*************************************************************/
+/* SIM tools that appear with supervisor tools: NONE */
+
+/* SIM application-specific tools: NONE */
+
+
+/*************************************************************/
+/*                      PGM                                  */
+/*************************************************************/
+/* PGM tools that appear with supervisor tools */
+"PGM File Save Programming Data As..."              3
+
+/* PGM application-specific tools */
+"PGM File Select Programming File..."               21
+
+
+/*************************************************************/
+/*                      TAN                                  */
+/*************************************************************/
+/* TAN tools that appear with supervisor tools */
+"TAN File Save Analysis As..."                      3
+"TAN File Print"                                    4
+
+/* TAN application-specific tools */
+"TAN Utilities Find Text..."                        21
+
+"TAN Analysis Delay Matrix"                         22
+"TAN Analysis Setup/Hold Matrix"                    23
+"TAN Analysis Registered Performance"               24
+
+
+/*************************************************************/
+/*                      MSG                                  */
+/*************************************************************/
+/* MSG tools that appear with supervisor tools */
+"MSG File Save Messages As..."                      3
+"MSG File Print"                                    4
+
+/* MSG application-specific tools: NONE */
+
+
+/*************************************************************/
+/*                      FED                                  */
+/*************************************************************/
+/* FED tools that appear with supervisor tools */
+"FED File Print"                                    4
+"FED Edit Cut"                                      5
+"FED Edit Copy"                                     6
+"FED Edit Paste"                                    7
+
+
+/* FED application-specific tools */
+"FED Utilities Find Text..."                        21
+"FED NULL BUTTON"                                   22
+"FED Utilities Find Node in Design File..."         23
+"FED Utilities Find Node in Floorplan..."           24
+
+
+
+/* ------------ */
+/* FED Palette  */
+/* ------------ */
+
+"FED NULL_BUTTON"                                   1 
+"FED NULL_BUTTON"                                   2 
+"FED NULL_BUTTON"                                   3 
+"FED NULL_BUTTON"                                   4 
+"FED NULL_BUTTON"                                   5 
+"FED NULL_BUTTON"                                   6 
+"FED SEPARATOR"                                     7 
+"FED View Zoom In"                                  8 
+"FED View Zoom Out"                                 9 
+"FED View Fit in Window"                            10 
+"FED SEPARATOR"                                     11 
+"FED Layout Current Assignments Floorplan"          12 
+"FED Layout Last Compilation Floorplan"             13 
+"FED SEPARATOR"                                     14 
+"FED Options Show Node Fan-In"                      15 
+"FED Options Show Node Fan-Out"                     16 
+"FED Options Show Path"                             17 

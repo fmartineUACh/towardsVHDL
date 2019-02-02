@@ -1,0 +1,39 @@
+* Created by Jerzy Teterwak on Wed Jan  5 15:27:56 MST 1994
+.SUBCKT _OR2 1 2 3
++ VOH   = 3.4V
++ VOL   = 0.2V
++ VIH   = 2V
++ VIL   = 0.8V
++ HYST  = 0
++ TR    = 0ns
++ TF    = 0ns
++ TPLH  = 10ns
++ TPHL  = 14ns
++ TECH  = 11
++ SILD  = 1.0
++ IOH   = 0.4mA
++ IOL   = 16mA
++ IOZ   = 40uA
++ TPHLZ = 10ns
++ TPZHL = 10ns
+* OR2 PinSeq: A B Y
+"TR_1=TR > 1E-11? TR: 1E-11"
+"TF_1=TF > 1E-11? TF: 1E-11"
+"INTYPE = ABS(HYST-1)< 0.5? 1: 3"
+"LHDEL = (TPLH-0.5*TR_1)>0.0? TPLH-0.5*TR_1: 0.0"
+"HLDEL = (TPHL-0.5*TF_1)>0.0? TPHL-0.5*TF_1: 0.0"
+RIN1  1  0  1E+08
+RIN2  2  0  1E+08
+ROUT  3  0  1E+08
+AGATE 3 OR(2) 1 2 GATE 0 0 0
+.MODEL GATE DIGITAL
++ INPUTFLG = "INTYPE"
++ LHBITTRL = "VIH"
++ HLBITTRL = "VIL"
++ LHDELAYT = "LHDEL"
++ HLDELAYT = "HLDEL"
++ LHRISETM = "TR_1"
++ HLRISETM = "TF_1"
++ HIGHLEV  = "VOH"
++ LOWLEV   = "VOL"
+.ENDS _OR2

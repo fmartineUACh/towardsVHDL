@@ -1,0 +1,10 @@
+.PARSET 1N4733 _ZENER_LV
++ VZ =    5.100E+00    2.550E+00    7.650E+00  ; Zener voltage [V]
++ IR =    1.000E-05    5.000E-06    1.500E-05  ; Reverse current [A]
++ VR =    1.000E+00                            ; Reverse voltage @ IR [V]
++ TCVZ =  1.000E-03    5.000E-04    1.500E-03  ; VZ temperature coeficient [V/K]
++ IZK  =  1.000E-05                            ; Knee current [A]
++ ZZK =   7.833E+02                            ; Dynamic resistance @ IZK [ohm]
++ IZT =   4.900E-02                            ; Test current [A]
++ ZZT =   2.178E+00                            ; Dynamic resistance @ IZT [ohm]
++ CZ =    2.900E-10    1.450E-10    4.350E-10  ; Capacitance @ V=0 [F]

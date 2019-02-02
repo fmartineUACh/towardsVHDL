@@ -1,0 +1,11 @@
+[Project]
+Current config=GENERIC
+VCS=0
+modified=6
+
+[Configurations]
+GENERIC=micro
+
+[Files]
+/C:\mario\micro\micro.vhd=4, 0 29525504 2962082816, 0, , , ,
+

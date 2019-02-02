@@ -1,0 +1,90 @@
+! sccs_id @(#) udbpcb.dat     3.1 2/17/94 08:40:48
+!
+!	Configuration file for PCB data. This file holds the following data :
+!
+!		a) the invented circuit reference prefix. When we package
+!		   logical parts into physical parts, we have to invent some
+!		   new physical parts. The circuit reference that we assign to
+!		   this physical part is user definable. For instance maybe
+!		   you want them to be called IC... something then enter 'IC',
+!		   or U... then enter 'U'.
+!		   This reference is also used to define the circuit reference
+!		   for all IC's. Specified in the '*INVENTED_CCT_REFS' section.
+!
+!		b) circuit references for packagable devices appear in the
+!		   '*PACKAGABLE_CCT_REF' section with one entry per line. For
+!		   instance if gates of an IC are labelled 'G...' ( eg G1 ) then
+!		   enter 'G' on a line. A maximum of sixteen entries may be
+!		   specified.
+!
+!		c) circuit references for plugs. This is the leading part
+!		   of the circuit reference, so if we enter PL, then any cct-ref
+!		   that matches PL* will be teated as a plug. This allows a
+!		   program to recognise plugs and to treat them differently when
+!		   necessary. There may be several entries for plugs, upto a
+!		   maximum of eight.
+!
+!		d) the net names for the power nets are specified in the
+!		   '*POWER_NETS' section, one entry per line. You can include
+!		   the names of any net that is used for power, irrespective of
+!		   whether or not it appears on the current design. For instance
+!		   you might use the net names of 'VCC' and 'GND' as power nets
+!		   or '+5V', '0V'... etc. After the netname is a character which
+!		   specifies the signal level of the power net. The allowed
+!		   characters are '+', '0' or '-' for positive, zero and
+!		   negative voltages respectivly. A maximum of sixteen power
+!		   nets may be specified.
+!
+!		e) the extension format that the user has used for IC's ( and
+!		   will be used for back-annotation of gates ) are specified
+!		   in the '*PRE-PACKAGED_IC_FORMAT' section. The allowed
+!		   entries are a set of strings ( enclosed in quotes ) the word
+!		   LOWERCASE_ALPHA, the word UPPERCASE_ALPHA, the word
+!		   NUM_PARTS. For example
+!		   If user specifies			   Example
+!			UPPERCASE_ALPHA 		    IC12A
+!			LOWERCASE_ALPHA 		    IC12a
+!			'-' UPPERCASE_ALPHA                 IC12-A
+!			'-' LOWERCASE_ALPHA                 IC12-a
+!			.etc
+!		   The entries on this line are seperated by spaces.
+!
+!	Notes:
+!		Exclamation marks are treated as comments.
+!		Any empty line is ignored.
+!		Any data on a line must start in column one of the line.
+!		Don't use wild cards - they are not expanded.
+!
+*INVENTED_CCT_REFS
+IC
+!
+!	Define the circuit references to be used for packagable devices
+*PACKAGABLE_CCT_REFS
+G
+!
+!	Define our plug circuit references, PL = PLA, PLB ...etc.
+*PLUGS
+PL
+SK
+TP
+X
+!
+!	Define the net names of the power nets and the signal levels.
+*POWER_NETS
++15V	+
++12V	+
++5V	+
+0V	0
+0VA	0
+-5V	-
+-5.2V	-
+-12V	-
+-15V	-
+VCC	+
+GND	0
+!
+!	Define the format that we are using for the packaged gates in IC's
+!		ie IC12-a/4
+*PRE-PACKAGED_IC_FORMAT
+!'-' LOWERCASE_ALPHA '/' NUM_PARTS
+UPPERCASE_ALPHA

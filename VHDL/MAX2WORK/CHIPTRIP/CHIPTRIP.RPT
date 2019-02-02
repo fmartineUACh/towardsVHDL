@@ -1,0 +1,684 @@
+Project Information                    d:\maxw\code\insw\chiptrip\chiptrip.rpt
+
+MAX+plus II Compiler Report File
+Version 7.2 2/6/97
+Compiled: 02/25/97 15:42:57
+
+Copyright (C) 1991-1997 Altera Corporation
+Any megafunction design, and related net list (encrypted or decrypted),
+support information, device programming or simulation file, and any other
+associated documentation or information provided by Altera or a partner
+under Altera's Megafunction Partnership Program may be used only to
+program PLD devices (but not masked PLD devices) from Altera.  Any other
+use of such megafunction design, net list, support information, device
+programming or simulation file, or any other related documentation or
+information is prohibited for any other purpose, including, but not
+limited to modification, reverse engineering, de-compiling, or use with
+any other silicon devices, unless such use is explicitly licensed under
+a separate agreement with Altera or a megafunction partner.  Title to
+the intellectual property, including patents, copyrights, trademarks,
+trade secrets, or maskworks, embodied in any such megafunction design,
+net list, support information, device programming or simulation file, or
+any other related documentation or information provided by Altera or a
+megafunction partner, remains with Altera, the megafunction partner, or
+their respective licensors.  No other licenses, including any licenses
+needed under any third party's intellectual property, are provided herein.
+
+
+
+***** Project compilation was successful
+
+
+
+
+** DEVICE SUMMARY **
+
+Chip/                     Input   Output   Bidir         Shareable
+POF       Device          Pins    Pins     Pins     LCs  Expanders  % Utilized
+
+chiptrip  EPM7032LC44-6    6        13       0      21      18          65 %
+
+User Pins:                 6        13       0  
+
+
+
+Project Information                    d:\maxw\code\insw\chiptrip\chiptrip.rpt
+
+** PROJECT COMPILATION MESSAGES **
+
+Info: Design Doctor has given the project a clean bill of health based on the EPLD Rules set
+
+
+Project Information                    d:\maxw\code\insw\chiptrip\chiptrip.rpt
+
+** STATE MACHINE ASSIGNMENTS **
+
+
+|auto_max:1|street_map: MACHINE
+        OF BITS (
+           |auto_max:1|q2,
+           |auto_max:1|q1,
+           |auto_max:1|q0
+        )
+        WITH STATES (
+                              yc = B"000", 
+                            mpld = B"001", 
+                            epld = B"011", 
+                             gdf = B"010", 
+                             cnf = B"110", 
+                             rpt = B"101", 
+                             epm = B"111", 
+                          altera = B"100"
+);
+
+
+|speed_ch:2|speed: MACHINE
+        OF BITS (
+           |speed_ch:2|speed~2,
+           |speed_ch:2|speed~1
+        )
+        WITH STATES (
+                           legal = B"00", 
+                         warning = B"10", 
+                          ticket = B"01"
+);
+
+
+
+Project Information                    d:\maxw\code\insw\chiptrip\chiptrip.rpt
+
+** FILE HIERARCHY **
+
+
+
+|auto_max:1|
+|speed_ch:2|
+|tick_cnt:10|
+|tick_cnt:10|8count:8|
+|tick_cnt:10|8count:8|p8count:sub|
+|time_cnt:4|
+
+
+Device-Specific Information:           d:\maxw\code\insw\chiptrip\chiptrip.rpt
+chiptrip
+
+***** Logic for device 'chiptrip' compiled without errors.
+
+
+
+
+Device: EPM7032LC44-6
+Turbo: ON
+Security: ON
+                                                
+                                          R  R  
+                                          E  E  
+                                          S  S  
+                  r  a              c     E  E  
+               d  e  c              l     R  R  
+               i  s  c  V  G  G  G  o  G  V  V  
+               r  e  e  C  N  N  N  c  N  E  E  
+               1  t  l  C  D  D  D  k  D  D  D  
+             -----------------------------------_ 
+           /   6  5  4  3  2  1 44 43 42 41 40   | 
+     dir0 |  7                                39 | RESERVED 
+   enable |  8                                38 | time0 
+at_altera |  9                                37 | ticket1 
+      GND | 10                                36 | ticket2 
+ RESERVED | 11                                35 | VCC 
+ RESERVED | 12         EPM7032LC44-6          34 | time5 
+ RESERVED | 13                                33 | time4 
+ RESERVED | 14                                32 | time3 
+      VCC | 15                                31 | time2 
+ RESERVED | 16                                30 | GND 
+ RESERVED | 17                                29 | time7 
+          |_  18 19 20 21 22 23 24 25 26 27 28  _| 
+            ------------------------------------ 
+               R  R  R  R  G  V  R  t  t  t  t  
+               E  E  E  E  N  C  E  i  i  i  i  
+               S  S  S  S  D  C  S  c  m  m  c  
+               E  E  E  E        E  k  e  e  k  
+               R  R  R  R        R  e  6  1  e  
+               V  V  V  V        V  t        t  
+               E  E  E  E        E  0        3  
+               D  D  D  D        D              
+                                                
+
+
+N.C. = Not Connected.
+VCC = Dedicated power pin, which MUST be connected to VCC.
+GND = Dedicated ground pin or unused dedicated input, which MUST be connected to GND.
+RESERVED = Unused I/O pin, which MUST be left unconnected.
+
+
+
+Device-Specific Information:           d:\maxw\code\insw\chiptrip\chiptrip.rpt
+chiptrip
+
+** RESOURCE USAGE **
+
+                                                Shareable     External
+Logic Array Block     Logic Cells   I/O Pins    Expanders   Interconnect
+
+A:     LC1 - LC16     5/16( 31%)   6/16( 37%)  10/16( 62%)  10/36( 27%) 
+B:    LC17 - LC32    16/16(100%)  12/16( 75%)  15/16( 93%)  20/36( 55%) 
+
+
+Total dedicated input pins used:                 1/4      ( 25%)
+Total I/O pins used:                            18/32     ( 56%)
+Total logic cells used:                         21/32     ( 65%)
+Total shareable expanders used:                 18/32     ( 56%)
+Total Turbo logic cells used:                   21/32     ( 65%)
+Total shareable expanders not available (n/a):   7/32     ( 21%)
+Average fan-in:                                  7.80
+Total fan-in:                                   164
+
+Total input pins required:                       6
+Total output pins required:                     13
+Total bidirectional pins required:               0
+Total logic cells required:                     21
+Total flipflops required:                       18
+Total pterms required:                          76
+Total logic cells lending parallel expanders:    0
+Total shareable expanders in database:          14
+
+Synthesized logic cells:                         2/  32   (  6%)
+
+
+
+Device-Specific Information:           d:\maxw\code\insw\chiptrip\chiptrip.rpt
+chiptrip
+
+** INPUTS **
+
+                                         Shareable
+                                         Expanders     Fan-In    Fan-Out
+ Pin     LC  LAB  Primitive    Code   Total Shared n/a INP  FBK  OUT  FBK  Name
+   4    (1)  (A)      INPUT              0      0   0    0    0    4    8  accel
+  43      -   -       INPUT              0      0   0    0    0    0    0  clock
+   7    (4)  (A)      INPUT              0      0   0    0    0    4    8  dir0
+   6    (3)  (A)      INPUT              0      0   0    0    0    4    8  dir1
+   8    (5)  (A)      INPUT              0      0   0    0    0    8    0  enable
+   5    (2)  (A)      INPUT              0      0   0    0    0    0    5  reset
+
+
+Code:
+
+s = Synthesized pin or logic cell
+t = Turbo logic cell
++ = Synchronous flipflop
+! = NOT gate push-back
+r = Fitter-inserted logic cell
+
+
+Device-Specific Information:           d:\maxw\code\insw\chiptrip\chiptrip.rpt
+chiptrip
+
+** OUTPUTS **
+
+                                         Shareable
+                                         Expanders     Fan-In    Fan-Out
+ Pin     LC  LAB  Primitive    Code   Total Shared n/a INP  FBK  OUT  FBK  Name
+   9      6    A     OUTPUT     t        0      0   0    0    3    0    0  at_altera
+  25     31    B         FF  +  t        0      0   0    3    4    3    0  ticket0 (|tick_cnt:10|8count:8|p8count:sub|:8)
+  37     21    B         FF  +  t        0      0   0    3    5    2    0  ticket1 (|tick_cnt:10|8count:8|p8count:sub|:7)
+  36     22    B         FF  +  t        0      0   0    3    6    1    0  ticket2 (|tick_cnt:10|8count:8|p8count:sub|:6)
+  28     28    B         FF  +  t        0      0   0    3    7    0    0  ticket3 (|tick_cnt:10|8count:8|p8count:sub|:5)
+  38     20    B         FF  +  t        0      0   0    1    0    7    0  time0
+  27     29    B         FF  +  t        0      0   0    1    1    6    0  time1
+  31     26    B         FF  +  t        0      0   0    1    2    5    0  time2
+  32     25    B         FF  +  t        0      0   0    1    3    4    0  time3
+  33     24    B         FF  +  t        0      0   0    1    4    3    0  time4
+  34     23    B         FF  +  t        0      0   0    1    5    2    0  time5
+  26     30    B         FF  +  t        0      0   0    1    6    1    0  time6
+  29     27    B         FF  +  t        0      0   0    1    7    0    0  time7
+
+
+Code:
+
+s = Synthesized pin or logic cell
+t = Turbo logic cell
++ = Synchronous flipflop
+! = NOT gate push-back
+r = Fitter-inserted logic cell
+
+
+Device-Specific Information:           d:\maxw\code\insw\chiptrip\chiptrip.rpt
+chiptrip
+
+** BURIED LOGIC **
+
+                                         Shareable
+                                         Expanders     Fan-In    Fan-Out
+ Pin     LC  LAB  Primitive    Code   Total Shared n/a INP  FBK  OUT  FBK  Name
+ (39)    19    B       DFFE  +  t        6      1   1    4    3    5    7  |auto_max:1|q0
+ (40)    18    B       DFFE  +  t        6      3   1    4    3    5    8  |auto_max:1|q1
+ (24)    32    B       SOFT   s t        1      0   1    3    3    0    1  |auto_max:1|q2~1
+ (41)    17    B       DFFE  +  t        3      1   1    4    4    5    8  |auto_max:1|q2
+  (7)     4    A       DFFE  +  t        6      5   1    4    5    0    4  |speed_ch:2|speed~1
+ (12)     8    A       SOFT   s t        1      0   1    3    4    0    1  |speed_ch:2|speed~2~1
+ (17)    12    A       TFFE  +  t        2      0   0    4    4    0    2  |speed_ch:2|speed~2
+ (21)    16    A       DFFE  +  t        6      5   1    3    5    4    0  |speed_ch:2|:33
+
+
+Code:
+
+s = Synthesized pin or logic cell
+t = Turbo logic cell
++ = Synchronous flipflop
+! = NOT gate push-back
+r = Fitter-inserted logic cell
+
+
+Device-Specific Information:           d:\maxw\code\insw\chiptrip\chiptrip.rpt
+chiptrip
+
+** LOGIC CELL INTERCONNECTIONS **
+
+Logic Array Block 'A':
+
+                   Logic cells placed in LAB 'A'
+        +--------- LC6 at_altera
+        | +------- LC4 |speed_ch:2|speed~1
+        | | +----- LC8 |speed_ch:2|speed~2~1
+        | | | +--- LC12 |speed_ch:2|speed~2
+        | | | | +- LC16 |speed_ch:2|:33
+        | | | | | 
+        | | | | |   Other LABs fed by signals
+        | | | | |   that feed LAB 'A'
+LC      | | | | | | A B |     Logic cells that feed LAB 'A':
+LC4  -> - * * * * | * - | <-- |speed_ch:2|speed~1
+LC8  -> - - - * - | * - | <-- |speed_ch:2|speed~2~1
+LC12 -> - * - * * | * - | <-- |speed_ch:2|speed~2
+
+Pin
+4    -> - * * * * | * * | <-- accel
+43   -> - - - - - | - - | <-- clock
+7    -> - * * * * | * * | <-- dir0
+6    -> - * * * * | * * | <-- dir1
+5    -> - * - * - | * * | <-- reset
+LC19 -> * * * - * | * * | <-- |auto_max:1|q0
+LC18 -> * * * * * | * * | <-- |auto_max:1|q1
+LC17 -> * * * * * | * * | <-- |auto_max:1|q2
+
+
+* = The logic cell or pin is an input to the logic cell (or LAB) through the PIA.
+- = The logic cell or pin is not an input to the logic cell (or LAB).
+
+
+Device-Specific Information:           d:\maxw\code\insw\chiptrip\chiptrip.rpt
+chiptrip
+
+** LOGIC CELL INTERCONNECTIONS **
+
+Logic Array Block 'B':
+
+                                         Logic cells placed in LAB 'B'
+        +------------------------------- LC19 |auto_max:1|q0
+        | +----------------------------- LC18 |auto_max:1|q1
+        | | +--------------------------- LC32 |auto_max:1|q2~1
+        | | | +------------------------- LC17 |auto_max:1|q2
+        | | | | +----------------------- LC31 ticket0
+        | | | | | +--------------------- LC21 ticket1
+        | | | | | | +------------------- LC22 ticket2
+        | | | | | | | +----------------- LC28 ticket3
+        | | | | | | | | +--------------- LC20 time0
+        | | | | | | | | | +------------- LC29 time1
+        | | | | | | | | | | +----------- LC26 time2
+        | | | | | | | | | | | +--------- LC25 time3
+        | | | | | | | | | | | | +------- LC24 time4
+        | | | | | | | | | | | | | +----- LC23 time5
+        | | | | | | | | | | | | | | +--- LC30 time6
+        | | | | | | | | | | | | | | | +- LC27 time7
+        | | | | | | | | | | | | | | | | 
+        | | | | | | | | | | | | | | | |   Other LABs fed by signals
+        | | | | | | | | | | | | | | | |   that feed LAB 'B'
+LC      | | | | | | | | | | | | | | | | | A B |     Logic cells that feed LAB 'B':
+LC19 -> * * * * * * * * - - - - - - - - | * * | <-- |auto_max:1|q0
+LC18 -> * * * * * * * * - - - - - - - - | * * | <-- |auto_max:1|q1
+LC32 -> - - - * - - - - - - - - - - - - | - * | <-- |auto_max:1|q2~1
+LC17 -> * * * * * * * * - - - - - - - - | * * | <-- |auto_max:1|q2
+LC31 -> - - - - * * * * - - - - - - - - | - * | <-- ticket0
+LC21 -> - - - - - * * * - - - - - - - - | - * | <-- ticket1
+LC22 -> - - - - - - * * - - - - - - - - | - * | <-- ticket2
+LC20 -> - - - - - - - - * * * * * * * * | - * | <-- time0
+LC29 -> - - - - - - - - - * * * * * * * | - * | <-- time1
+LC26 -> - - - - - - - - - - * * * * * * | - * | <-- time2
+LC25 -> - - - - - - - - - - - * * * * * | - * | <-- time3
+LC24 -> - - - - - - - - - - - - * * * * | - * | <-- time4
+LC23 -> - - - - - - - - - - - - - * * * | - * | <-- time5
+LC30 -> - - - - - - - - - - - - - - * * | - * | <-- time6
+
+Pin
+4    -> * * * * * * * * - - - - - - - - | * * | <-- accel
+43   -> - - - - - - - - - - - - - - - - | - - | <-- clock
+7    -> * * * * * * * * - - - - - - - - | * * | <-- dir0
+6    -> * * * * * * * * - - - - - - - - | * * | <-- dir1
+8    -> - - - - - - - - * * * * * * * * | - * | <-- enable
+5    -> * * - * - - - - - - - - - - - - | * * | <-- reset
+LC16 -> - - - - * * * * - - - - - - - - | - * | <-- |speed_ch:2|:33
+
+
+* = The logic cell or pin is an input to the logic cell (or LAB) through the PIA.
+- = The logic cell or pin is not an input to the logic cell (or LAB).
+
+
+Device-Specific Information:           d:\maxw\code\insw\chiptrip\chiptrip.rpt
+chiptrip
+
+** EQUATIONS **
+
+accel    : INPUT;
+clock    : INPUT;
+dir0     : INPUT;
+dir1     : INPUT;
+enable   : INPUT;
+reset    : INPUT;
+
+-- Node name is 'at_altera' 
+-- Equation name is 'at_altera', location is LC006, type is output.
+ at_altera = LCELL( _EQ001 $  GND);
+  _EQ001 =  _LC017 & !_LC018 & !_LC019;
+
+-- Node name is 'ticket0' = '|tick_cnt:10|8count:8|p8count:sub|QA' 
+-- Equation name is 'ticket0', type is output 
+ ticket0 = TFFE( _EQ002, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ002 =  accel & !dir0 &  dir1 &  _LC018 & !_LC019
+         #  accel &  dir0 & !dir1 & !_LC017 & !_LC019
+         #  _LC016;
+
+-- Node name is 'ticket1' = '|tick_cnt:10|8count:8|p8count:sub|QB' 
+-- Equation name is 'ticket1', type is output 
+ ticket1 = TFFE( _EQ003, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ003 =  accel & !dir0 &  dir1 &  _LC018 & !_LC019 &  ticket0
+         #  accel &  dir0 & !dir1 & !_LC017 & !_LC019 &  ticket0
+         #  _LC016 &  ticket0;
+
+-- Node name is 'ticket2' = '|tick_cnt:10|8count:8|p8count:sub|QC' 
+-- Equation name is 'ticket2', type is output 
+ ticket2 = TFFE( _EQ004, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ004 =  accel & !dir0 &  dir1 &  _LC018 & !_LC019 &  ticket0 &  ticket1
+         #  accel &  dir0 & !dir1 & !_LC017 & !_LC019 &  ticket0 &  ticket1
+         #  _LC016 &  ticket0 &  ticket1;
+
+-- Node name is 'ticket3' = '|tick_cnt:10|8count:8|p8count:sub|QD' 
+-- Equation name is 'ticket3', type is output 
+ ticket3 = TFFE( _EQ005, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ005 =  accel & !dir0 &  dir1 &  _LC018 & !_LC019 &  ticket0 &  ticket1 & 
+              ticket2
+         #  accel &  dir0 & !dir1 & !_LC017 & !_LC019 &  ticket0 &  ticket1 & 
+              ticket2
+         #  _LC016 &  ticket0 &  ticket1 &  ticket2;
+
+-- Node name is 'time0' = '|time_cnt:4|count0' from file "time_cnt.tdf" line 7, column 7
+-- Equation name is 'time0', type is output 
+ time0   = TFFE( enable, GLOBAL( clock),  VCC,  VCC,  VCC);
+
+-- Node name is 'time1' = '|time_cnt:4|count1' from file "time_cnt.tdf" line 7, column 7
+-- Equation name is 'time1', type is output 
+ time1   = TFFE( _EQ006, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ006 =  enable &  time0;
+
+-- Node name is 'time2' = '|time_cnt:4|count2' from file "time_cnt.tdf" line 7, column 7
+-- Equation name is 'time2', type is output 
+ time2   = TFFE( _EQ007, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ007 =  enable &  time0 &  time1;
+
+-- Node name is 'time3' = '|time_cnt:4|count3' from file "time_cnt.tdf" line 7, column 7
+-- Equation name is 'time3', type is output 
+ time3   = TFFE( _EQ008, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ008 =  enable &  time0 &  time1 &  time2;
+
+-- Node name is 'time4' = '|time_cnt:4|count4' from file "time_cnt.tdf" line 7, column 7
+-- Equation name is 'time4', type is output 
+ time4   = TFFE( _EQ009, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ009 =  enable &  time0 &  time1 &  time2 &  time3;
+
+-- Node name is 'time5' = '|time_cnt:4|count5' from file "time_cnt.tdf" line 7, column 7
+-- Equation name is 'time5', type is output 
+ time5   = TFFE( _EQ010, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ010 =  enable &  time0 &  time1 &  time2 &  time3 &  time4;
+
+-- Node name is 'time6' = '|time_cnt:4|count6' from file "time_cnt.tdf" line 7, column 7
+-- Equation name is 'time6', type is output 
+ time6   = TFFE( _EQ011, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ011 =  enable &  time0 &  time1 &  time2 &  time3 &  time4 &  time5;
+
+-- Node name is 'time7' = '|time_cnt:4|count7' from file "time_cnt.tdf" line 7, column 7
+-- Equation name is 'time7', type is output 
+ time7   = TFFE( _EQ012, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ012 =  enable &  time0 &  time1 &  time2 &  time3 &  time4 &  time5 & 
+              time6;
+
+-- Node name is '|auto_max:1|q0' from file "auto_max.tdf" line 13, column 21
+-- Equation name is '_LC019', type is buried 
+_LC019   = DFFE( _EQ013 $  _EQ014, GLOBAL( clock), !reset,  VCC,  VCC);
+  _EQ013 = !accel &  dir0 &  dir1 &  _LC017 &  _LC019 &  _X001 &  _X002 & 
+              _X003 &  _X004 &  _X005
+         # !dir0 & !dir1 &  _LC017 &  _LC018 &  _LC019 &  _X001 &  _X002 & 
+              _X003 &  _X004 &  _X005
+         #  accel &  dir1 & !_LC017 & !_LC018 &  _LC019 &  _X001 &  _X002 & 
+              _X003 &  _X004 &  _X005;
+  _X001  = EXP( _LC017 & !_LC018 & !_LC019);
+  _X002  = EXP( dir0 &  dir1 &  _LC018 &  _LC019);
+  _X003  = EXP( accel &  _LC017 & !_LC019);
+  _X004  = EXP( dir0 & !_LC019);
+  _X005  = EXP( dir1 & !_LC019);
+  _EQ014 =  _X001 &  _X002 &  _X003 &  _X004 &  _X005;
+  _X001  = EXP( _LC017 & !_LC018 & !_LC019);
+  _X002  = EXP( dir0 &  dir1 &  _LC018 &  _LC019);
+  _X003  = EXP( accel &  _LC017 & !_LC019);
+  _X004  = EXP( dir0 & !_LC019);
+  _X005  = EXP( dir1 & !_LC019);
+
+-- Node name is '|auto_max:1|q1' from file "auto_max.tdf" line 13, column 18
+-- Equation name is '_LC018', type is buried 
+_LC018   = DFFE( _EQ015 $  _EQ016, GLOBAL( clock), !reset,  VCC,  VCC);
+  _EQ015 = !dir0 & !dir1 &  _LC018 &  _LC019 &  _X001 &  _X006 &  _X007 & 
+              _X008 &  _X009
+         # !dir0 &  dir1 & !_LC017 &  _LC018 &  _X001 &  _X006 &  _X007 & 
+              _X008 &  _X009
+         # !dir1 & !_LC017 & !_LC018 &  _LC019 &  _X001 &  _X006 &  _X007 & 
+              _X008 &  _X009;
+  _X001  = EXP( _LC017 & !_LC018 & !_LC019);
+  _X006  = EXP( accel & !dir0 &  _LC018);
+  _X007  = EXP( dir1 &  _LC017 & !_LC018);
+  _X008  = EXP( dir1 & !_LC018 & !_LC019);
+  _X009  = EXP(!dir0 & !_LC018);
+  _EQ016 =  _X001 &  _X006 &  _X007 &  _X008 &  _X009;
+  _X001  = EXP( _LC017 & !_LC018 & !_LC019);
+  _X006  = EXP( accel & !dir0 &  _LC018);
+  _X007  = EXP( dir1 &  _LC017 & !_LC018);
+  _X008  = EXP( dir1 & !_LC018 & !_LC019);
+  _X009  = EXP(!dir0 & !_LC018);
+
+-- Node name is '|auto_max:1|q2~1' from file "auto_max.tdf" line 13, column 15
+-- Equation name is '_LC032', type is buried 
+-- synthesized logic cell 
+_LC032   = LCELL( _EQ017 $  GND);
+  _EQ017 =  accel & !_LC017 & !_LC018 &  _LC019
+         # !dir0 & !dir1 & !_LC018 &  _LC019
+         #  accel & !dir0 & !_LC017 & !_LC018
+         # !dir0 & !dir1 & !_LC017 &  _LC018
+         # !accel &  dir0 & !_LC017 & !_LC018;
+
+-- Node name is '|auto_max:1|q2' from file "auto_max.tdf" line 13, column 15
+-- Equation name is '_LC017', type is buried 
+_LC017   = DFFE( _EQ018 $  _EQ019, GLOBAL( clock), !reset,  VCC,  VCC);
+  _EQ018 = !accel & !dir0 &  dir1 &  _LC017 &  _LC018 & !_LC032 &  _X010 & 
+              _X011
+         # !accel &  dir0 & !_LC018 &  _LC019 & !_LC032 &  _X010 &  _X011
+         # !dir0 &  dir1 &  _LC018 & !_LC019 & !_LC032 &  _X010 &  _X011;
+  _X010  = EXP( dir0 &  dir1 & !_LC017);
+  _X011  = EXP( dir1 & !_LC017 & !_LC019);
+  _EQ019 = !_LC032 &  _X010 &  _X011;
+  _X010  = EXP( dir0 &  dir1 & !_LC017);
+  _X011  = EXP( dir1 & !_LC017 & !_LC019);
+
+-- Node name is '|speed_ch:2|speed~1' 
+-- Equation name is '_LC004', type is buried 
+_LC004   = DFFE( _EQ020 $  _EQ021, GLOBAL( clock), !reset,  VCC,  VCC);
+  _EQ020 =  accel &  dir0 & !dir1 & !_LC004 &  _LC012 &  _LC017 &  _LC018 & 
+              _X001 &  _X007 &  _X008 &  _X010 &  _X012
+         #  accel & !dir1 & !_LC004 &  _LC012 & !_LC017 & !_LC018 &  _LC019 & 
+              _X001 &  _X007 &  _X008 &  _X010 &  _X012
+         #  accel & !dir0 & !dir1 & !_LC004 &  _LC012 & !_LC017 &  _LC018 & 
+              _X001 &  _X007 &  _X008 &  _X010 &  _X012;
+  _X001  = EXP( _LC017 & !_LC018 & !_LC019);
+  _X007  = EXP( dir1 &  _LC017 & !_LC018);
+  _X008  = EXP( dir1 & !_LC018 & !_LC019);
+  _X010  = EXP( dir0 &  dir1 & !_LC017);
+  _X012  = EXP( dir0 &  _LC017 & !_LC019);
+  _EQ021 =  accel & !_LC004 &  _LC012 &  _X001 &  _X007 &  _X008 &  _X010 & 
+              _X012;
+  _X001  = EXP( _LC017 & !_LC018 & !_LC019);
+  _X007  = EXP( dir1 &  _LC017 & !_LC018);
+  _X008  = EXP( dir1 & !_LC018 & !_LC019);
+  _X010  = EXP( dir0 &  dir1 & !_LC017);
+  _X012  = EXP( dir0 &  _LC017 & !_LC019);
+
+-- Node name is '|speed_ch:2|speed~2~1' 
+-- Equation name is '_LC008', type is buried 
+-- synthesized logic cell 
+_LC008   = LCELL( _EQ022 $  GND);
+  _EQ022 =  accel &  dir1 & !_LC004 &  _LC017 &  _LC018 &  _LC019
+         #  accel & !dir0 &  dir1 & !_LC004 & !_LC017 &  _LC019
+         #  accel & !dir1 & !_LC004 &  _LC017 & !_LC018 &  _LC019
+         #  accel &  dir0 & !dir1 & !_LC004 & !_LC017 &  _LC018
+         #  accel & !dir1 & !_LC004 & !_LC017 & !_LC018 & !_LC019;
+
+-- Node name is '|speed_ch:2|speed~2' 
+-- Equation name is '_LC012', type is buried 
+_LC012   = TFFE(!_EQ023, GLOBAL( clock), !reset,  VCC,  VCC);
+  _EQ023 = !_LC008 &  _X013 &  _X014;
+  _X013  = EXP( accel & !dir0 &  dir1 & !_LC004 &  _LC018);
+  _X014  = EXP( accel & !dir0 & !_LC004 &  _LC017 &  _LC018);
+
+-- Node name is '|speed_ch:2|:33' 
+-- Equation name is '_LC016', type is buried 
+_LC016   = DFFE( _EQ024 $  _EQ025, GLOBAL( clock),  VCC,  VCC,  VCC);
+  _EQ024 =  accel &  dir0 & !dir1 & !_LC004 &  _LC012 &  _LC017 &  _LC018 & 
+              _X001 &  _X007 &  _X008 &  _X010 &  _X012
+         #  accel &  dir0 & !_LC004 &  _LC012 & !_LC017 & !_LC018 &  _LC019 & 
+              _X001 &  _X007 &  _X008 &  _X010 &  _X012
+         #  accel & !dir0 & !dir1 & !_LC004 &  _LC012 & !_LC017 &  _LC018 & 
+              _X001 &  _X007 &  _X008 &  _X010 &  _X012
+         #  accel & !dir0 & !dir1 & !_LC004 &  _LC012 & !_LC017 &  _LC019 & 
+              _X001 &  _X007 &  _X008 &  _X010 &  _X012;
+  _X001  = EXP( _LC017 & !_LC018 & !_LC019);
+  _X007  = EXP( dir1 &  _LC017 & !_LC018);
+  _X008  = EXP( dir1 & !_LC018 & !_LC019);
+  _X010  = EXP( dir0 &  dir1 & !_LC017);
+  _X012  = EXP( dir0 &  _LC017 & !_LC019);
+  _EQ025 =  accel & !_LC004 &  _LC012 &  _X001 &  _X007 &  _X008 &  _X010 & 
+              _X012;
+  _X001  = EXP( _LC017 & !_LC018 & !_LC019);
+  _X007  = EXP( dir1 &  _LC017 & !_LC018);
+  _X008  = EXP( dir1 & !_LC018 & !_LC019);
+  _X010  = EXP( dir0 &  dir1 & !_LC017);
+  _X012  = EXP( dir0 &  _LC017 & !_LC019);
+
+
+
+--     Shareable expanders that are duplicated in multiple LABs:
+--    _X001 occurs in LABs AB
+--    _X007 occurs in LABs AB
+--    _X008 occurs in LABs AB
+--    _X010 occurs in LABs AB
+
+
+
+
+Project Information                    d:\maxw\code\insw\chiptrip\chiptrip.rpt
+
+** COMPILATION SETTINGS & TIMES **
+
+Processing Menu Commands
+------------------------
+
+Design Doctor                             = on
+   Rules                                  = EPLD Rules
+
+
+Logic Synthesis:
+
+   Synthesis Type Used                    = Standard
+
+   Default Synthesis Style                = NORMAL
+
+      Logic option settings in 'NORMAL' style for 'MAX7000' family
+
+      DECOMPOSE_GATES                     = on
+      DUPLICATE_LOGIC_EXTRACTION          = on
+      MINIMIZATION                        = full
+      MULTI_LEVEL_FACTORING               = on
+      NOT_GATE_PUSH_BACK                  = on
+      PARALLEL_EXPANDERS                  = off
+      REDUCE_LOGIC                        = on
+      REFACTORIZATION                     = on
+      REGISTER_OPTIMIZATION               = on
+      RESYNTHESIZE_NETWORK                = on
+      SLOW_SLEW_RATE                      = off
+      SOFT_BUFFER_INSERTION               = on
+      SUBFACTOR_EXTRACTION                = on
+      TURBO_BIT                           = on
+      XOR_SYNTHESIS                       = on
+      IGNORE_SOFT_BUFFERS                 = off
+      USE_LPM_FOR_AHDL_OPERATORS          = off
+
+   Other logic synthesis settings:
+
+      Automatic Global Clock              = on
+      Automatic Global Clear              = on
+      Automatic Global Preset             = on
+      Automatic Global Output Enable      = on
+      Automatic I/O Cell Registers        = off
+      Automatic Register Packing          = off
+      Automatic Open-Drain Pins           = on
+      Automatic Implement in EAB          = off
+      One-Hot State Machine Encoding      = off
+      Optimize                            = 5
+
+Default Timing Specifications: None
+
+Cut All Bidir Feedback Timing Paths       = on
+Cut All Clear & Preset Timing Paths       = on
+
+Ignore Timing Assignments                 = off
+
+Functional SNF Extractor                  = off
+
+Linked SNF Extractor                      = off
+Timing SNF Extractor                      = on
+Optimize Timing SNF                       = off
+Generate AHDL TDO File                    = off
+Fitter Settings                           = NORMAL
+Smart Recompile                           = off
+Total Recompile                           = off
+
+Interface Menu Commands
+-----------------------
+
+EDIF Netlist Writer                       = off
+Verilog Netlist Writer                    = off
+VHDL Netlist Writer                       = off
+
+Compilation Times
+-----------------
+
+   Compiler Netlist Extractor             00:00:00
+   Database Builder                       00:00:01
+   Logic Synthesizer                      00:00:01
+   Partitioner                            00:00:02
+   Fitter                                 00:00:02
+   Timing SNF Extractor                   00:00:00
+   Assembler                              00:00:00
+   Design Doctor                          00:00:01
+   --------------------------             --------
+   Total Time                             00:00:07
+
+
+Memory Allocated
+-----------------
+
+Peak memory allocated during compilation  = 3,833K

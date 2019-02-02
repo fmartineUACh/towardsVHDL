@@ -1,0 +1,48 @@
+* HYBRID BJT MODEL CREATED ON SAT FEB  8 11:24:37 1992
+* DC CHARACTERISTICS MEASURED BY 371A, EXTRACTED BY AMB OPTIMIZER.
+* AC CHARACTERISTICS WERE MEASURED AND EXTRACTED BY TECAP.
+.MODEL  2N3636  PNP
++ AF     = 1             
++ BR     = 0.137         
++ CJE    = 4.81502E-11   
++ CJS    = 0             
++ EG     = 1.11          
++ FC     = 0.5           
++ IKF    = 0.0172        
++ IKR    = 0.0891        
++ IRB    = 0.000617      
++ IS     = 1.11E-14      
++ ISC    = 3.32E-14      
++ ISE    = 1E-17         
++ ITF    = 0.001         
++ KF     = 0             
++ MJC    = 0.402512      
++ MJE    = 0.415447      
++ MJS    = 0.33          
++ NC     = 1.5           
++ NE     = 2             
++ NF     = 0.935         
++ NR     = 1.02          
++ PTF    = 0             
++ RB     = 11.8          
++ RBM    = 0.0104        
++ RE     = 0.0943        
++ TR     = 0             
++ VAF    = 40.1          
++ VAR    = 61.1          
++ VJC    = 0.504226      
++ VJE    = 0.827208      
++ VJS    = 0.75          
++ VTF    = 1             
++ XCJC   = 1             
++ XTB    = 0             
++ XTI    = 3             
++ BF     = 1.510000E+02  STAT 8.717989E+01 2.615397E+02 :GAUSS
++ CJC    = 1.868080E-11  STAT 7.472320E-12 4.670200E-11 :GAUSS
++ RC     = 3.820000E-01  
++ TF     = 1.000000E-08  STAT 5.775189E-09 1.731545E-08 :GAUSS
++ XTF    = 1.000000E+00  
++ PMAX   = 1.000000E+00  
++ ICMAX  = -1.000000E+00 
++ VBCMAX = 1.750000E+02  
++ VBEMAX = 5.000000E+00  

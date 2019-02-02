@@ -1,0 +1,13 @@
+Design: 04:28 p.m., Miércoles, 19 de Junio de 2002
+Design: Opening design "A:\registro\vhd\registro\registro.adf"
+ELBREAD: Elaboration process.
+ELBREAD: Elaboration time 0.1 [s].
+Compilation with file reorder...
+File: A:\registro\vhd\registro.vhd
+Compile Entity "proyecto"
+Compile Architecture "DSMB" of Entity "proyecto"
+Top-Level unit detected
+Entity  =>   proyecto
+Compile success 0 Errors 0 Warnings  Analysis time :  29.0 [s]
+ELBREAD: Elaboration process.
+ELBREAD: Elaboration time 0.1 [s].

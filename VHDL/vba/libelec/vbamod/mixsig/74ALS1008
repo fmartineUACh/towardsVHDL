@@ -1,0 +1,23 @@
+.PARSET 74ALS1008 _AND2
+* Converted from DMB model by dmbg2par on Wed Jan  5 16:22:34 MST 1994
+* Technology mapping:
+*     AC - 0; ACT - 1; ALS - 2; AS - 3; FAST - 4
+*     H - 5; HC - 6; HCT - 7; L - 8; LS - 9; S - 10
+*     TTL - 11
+*
++ VOH   =   3.2V     	; Output High Level
++ VOL   =   0.35V     	; Output Low Level
++ VIH   =   2V     	; Input High Level
++ VIL   =   0.8V     	; Input Low Level
++ HYST  =   0     	; Hysteresis/Regular (1/0)
++ TR    =   0ns     	; Low-To-High Transition Time
++ TF    =   0ns     	; High-To-Low Transition Time
++ TPLH  =   9ns     	; Low-To-High Propagation Delay
++ TPHL  =   9ns     	; High-To-Low Propagation Delay
++ TECH  =   2     	; Technology
++ SILD  =   1.0     	; Number of Standard Input Loads
++ IOH   =   0.4mA     	; Output High Current
++ IOL   =   6mA     	; Output Low Current 
++ IOZ   =   40uA     	; Output Off-State Current
++ TPHLZ =   9ns     	; Active State To Off-State Propagation Delay
++ TPZHL =   9ns     	; Off-State To Active State Propagation Delay
