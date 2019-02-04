@@ -1,1 +1,0 @@
-FUNCTION cbuf (1) RETURNS (2, 3);

@@ -1,2 +1,0 @@
-.MODEL INDUCTOR L
-+ IMAX = 250E-03   ; Maximum current [ma]

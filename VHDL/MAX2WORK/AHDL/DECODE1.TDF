@@ -1,8 +1,0 @@
-SUBDESIGN decode1 
-(
-	address[15..0]		: INPUT; 
-	chip_enable			: OUTPUT;
-)
-BEGIN
-	chip_enable = (address[15..0] == H"0370");
-END;

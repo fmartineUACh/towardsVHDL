@@ -1,5 +1,0 @@
-.MODEL CAPACITOR C
-+ CJ     = 0.0        ; Junction bottom capacitance [F]
-+ DEFW   = 1E-06      ; Default width [m]
-+ NARROW = 0.0        ; Narrowing due to side etching [m]
-+ VOMAX  = 250E-03    ; Minimum voltage [V]

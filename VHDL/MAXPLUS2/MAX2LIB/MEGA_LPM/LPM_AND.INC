@@ -1,3 +1,0 @@
-FUNCTION lpm_and(data[LPM_SIZE-1..0][LPM_WIDTH-1..0])
-	WITH (LPM_WIDTH, LPM_SIZE)
-	RETURNS (result[LPM_WIDTH-1..0]);

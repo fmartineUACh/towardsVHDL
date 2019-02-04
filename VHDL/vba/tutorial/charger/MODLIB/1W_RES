@@ -1,7 +1,0 @@
-.MODEL 1W_RES R
-+ TC1    = 0.0
-+ TC2    = 0.0
-+ RSH    = 0.0
-+ DEFW   = 1E-6
-+ NARROW = 0.0
-+ PMAX   = 1

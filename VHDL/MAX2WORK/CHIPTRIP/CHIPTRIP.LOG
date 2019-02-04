@@ -1,5 +1,0 @@
-HISTORY CREATE d:\maxw\code\insw\chiptrip\chiptrip.hst
-HISTORY ON
-CHANNEL d:\maxw\code\insw\chiptrip\chiptrip.scf
-SIMULATE 0.0ns TO 800.0ns
-TABLE d:\maxw\code\insw\chiptrip\chiptrip.tbl

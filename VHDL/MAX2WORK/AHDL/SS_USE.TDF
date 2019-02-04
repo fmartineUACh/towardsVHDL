@@ -1,8 +1,0 @@
-SUBDESIGN ss_use 
-(
-   ss_in	: MACHINE INPUT;
-   out		: OUTPUT;
-)
-BEGIN
-   out = (ss_in == s2) OR (ss_in == s4);
-END;

@@ -1,1 +1,0 @@
-FUNCTION inhb (2, 3) RETURNS (1);

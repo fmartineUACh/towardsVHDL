@@ -1,2 +1,0 @@
-FUNCTION lpm_constant () WITH (LPM_WIDTH, LPM_CVALUE)
-	RETURNS (result[LPM_WIDTH-1..0]);

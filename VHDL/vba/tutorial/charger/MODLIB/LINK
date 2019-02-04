@@ -1,7 +1,0 @@
-.SUBCKT LINK 1 2
-* 2 Pin Link
-* LINK PinSeq: A B
-* Created by George Overton - 5 November 1996
-R1 1 0 100MEG
-R2 2 0 100MEG
-.ENDS LINK

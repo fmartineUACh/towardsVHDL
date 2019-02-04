@@ -1,9 +1,0 @@
-:Base manuals.hlp
-:Title VeriBest Analog Suite of Manuals
-1 VeriBest Analog Suite of Manuals
-2 Overview=Manuals
-:include smps.cnt
-:include simrm.cnt
-:include models.cnt
-:include modelrm.cnt
-:include modelauto.cnt
